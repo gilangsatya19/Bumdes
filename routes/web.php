@@ -38,4 +38,4 @@ Route::get('/caraOrder', function() {
 Route::get('/kontak', function() {
     return view('bumdes.initialPage.kontak');
 });
-//tesss
+//halo ini ummi
