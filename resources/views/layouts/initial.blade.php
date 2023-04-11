@@ -8,17 +8,46 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous">
         </script>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- mobile metas -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+        <!-- site metas -->
+        <title>Cial</title>
+        <meta name="keywords" content="">
+        <meta name="description" content="">
+        <meta name="author" content=""> 
+        <!-- bootstrap css -->
+        <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap.min.css')}}">
+        <!-- style css -->
+        <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
+        <!-- Responsive-->
+        <link rel="stylesheet" href="{{asset('css/responsive.css')}}">
+        <!-- fevicon -->
+        {{-- <link rel="icon" href="images/fevicon.png" type="image/gif" /> --}}
+        <!-- Scrollbar Custom CSS -->
+        <link rel="stylesheet" href="{{asset('css/jquery.mCustomScrollbar.min.css')}}">
+        <!-- Tweaks for older IEs-->
+        <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+        <!-- owl stylesheets --> 
+        <link rel="stylesheet" href="{{asset('css/owl.carousel.min.css')}}">
+        <link rel="stylesheet" href="{{asset('css/owl.theme.default.min.css')}}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+
         <style>
             .banner{
                 height: 91vh;
-                width: 170vh;
+                
                 background-size: cover;
                 
                 background-position: center;
                 background: url('{{asset('BUMDES/assets/halaman_awal/banner.png')}}');
                 
             }
-            .mx10{
+            /* .mx10{
                 margin-left: 8rem
                 
             }
@@ -27,45 +56,58 @@
             }
             .me10{
                 margin-right: 10rem
-            }
+            } */
         </style>
     </head>
     <body>
         @section('sidebar')
-            <nav class="navbar navbar-expand-lg" style="background-color: #303C54;">
-                <div class="container-fluid">
-                    <a class="navbar-brand me-5 mx-5" style="font-size: 35px" href="/"><font color="white">SIAB</font><font color="#FFA500">Des</font></a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <div class="header_section">
+                <div class="" >
+                    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #303C54;">
+                        <div class="logo"><a href="/"><img src="{{asset('BUMDES/assets/halaman_awal/logo-siabdes.jpg')}}" width="250px" height="125px"></a></div>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav me-5 mb-2 mb-lg-0">
-                            <li class="nav-item mx10">
-                                <a class="nav-link text-white fs-5" href="/kelebihan" >Kelebihan SIAB-DES </a>
-                            </li>
-                            <li class="nav-item mx10">
-                                <a class="nav-link text-white fs-5" href="/fitur">Fitur SIAB-DES </a>
-                            </li>
-                            <li class="nav-item mx10">
-                                <a class="nav-link text-white fs-5" href="/caraOrder">Cara Order </a>
-                            </li>
-                            <li class="nav-item mx10">
-                                <a class="nav-link text-white fs-5" href="/kontak">Kontak Kami</a>
-                            </li>
-                        </ul>
-                        <form action="" class="" role="search">
-                            @csrf
-                            <div class="mx10"> 
-                                <button class="btn btn-light mt-2 px-4 fw-semibold" type="submit">LOGIN</button>
-                            </div>
+                        </button>
+                        <div class="collapse navbar-collapse text-white" id="navbarSupportedContent">
+                            <ul class="navbar-nav mr-auto">
+                                <li class="nav-item">
+                                <a class="nav-link text-white" href="/kelebihan">Kelebihan SIAB-DES </a>
+                                </li>
+                                <li class="nav-item">
+                                <a class="nav-link text-white" href="/fitur">Fitur SIAB-DES </a>
+                                </li>
+                                <li class="nav-item">
+                                <a class="nav-link text-white" href="/cara-order">Cara Order</a>
+                                </li>
+                                <li class="nav-item">
+                                <a class="nav-link text-white" href="/kontak">Kontak Kami</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <form action="/login" method="POST">
+                            <button class="btn btn-primary mx-3 mt-3 text-black fw-semibold px-4 border-0" style="background-color: #D9D9D9">Login</button>
                         </form>
-                    </div>
+                    </nav>
+                    
                 </div>
-            </nav>
+                
+            </div>
         @show
  
         <div class="">
             @yield('content')
         </div>
+        <!-- Javascript files-->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="js/jquery-3.0.0.min.js"></script>
+        <script src="js/plugin.js"></script>
+        <!-- sidebar -->
+        <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+        <script src="js/custom.js"></script>
+        <!-- javascript --> 
+        <script src="js/owl.carousel.js"></script>
+        <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script> 
     </body>
 </html>

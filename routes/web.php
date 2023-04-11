@@ -20,7 +20,7 @@ Route::get('/', function() {
 });
 
 Route::get('/login', function() {
-    return view('bumdes.initialPage.login');
+    return view('bumdes.login');
 });
 
 Route::get('/kelebihan', function() {
@@ -31,7 +31,7 @@ Route::get('/fitur', function() {
     return view('bumdes.initialPage.fitur');
 });
 
-Route::get('/caraOrder', function() {
+Route::get('/cara-order', function() {
     return view('bumdes.initialPage.caraOrder');
 });
 
@@ -39,3 +39,4 @@ Route::get('/kontak', function() {
     return view('bumdes.initialPage.kontak');
 });
 //halo ini ummi
+
