@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\JurnalUmumController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,6 +23,14 @@ Route::get('/', function() {
 Route::get('/login', function() {
     return view('bumdes.login');
 });
+
+Route::get('/dashboard', function() {
+    return view('bumdes.dashboard.index');
+});
+
+
+Route::resource('/jurnal_umum', JurnalUmumController::class);
+
 
 Route::get('/kelebihan', function() {
     return view('bumdes.initialPage.kelebihan');

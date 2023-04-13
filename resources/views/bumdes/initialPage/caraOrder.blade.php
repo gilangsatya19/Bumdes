@@ -1,5 +1,5 @@
 <!-- resources/views/child.blade.php -->
-@extends('layouts.initial')
+@extends('layouts.main')
  
 @section('title', 'SIABDES')
  
