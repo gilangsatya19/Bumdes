@@ -6,24 +6,22 @@
     <div style="border: solid;margin-top:3rem;padding-bottom:20rem;padding-top:6rem;background-color:white" class="px-5">
 
         @include('bumdes.dashboard.layouts.form')
-        <h1 style="margin-top: -50px">JURNAL UMUM</h1>
+        <h1 style="margin-top: -50px">DATA MASTER - BARANG</h1>
         <div class="table-responsive">
             <table class="table table-striped">
                 <thead class="text-white text-center" style="background-color: #3C4B64">
                     <tr>
-                        <th scope="col">No.</th>
                         <th scope="col">Tanggal</th>
-                        <th scope="col">Jenis Transaksi</th>
-                        <th scope="col">Nama Akun</th>
-                        <th scope="col">No. Referensi</th>
-                        <th scope="col">Debit</th>
-                        <th scope="col">Kredit</th>
-                        <th scope="col">Bukti Transaksti</th>
-                        <th scope="col">Ubah</th>
+                        <th scope="col">Kode Barang</th>
+                        <th scope="col">Nama Barang</th>
+                        <th scope="col">Harga Jual</th>
+                        <th scope="col">Harga Beli</th>
+                        <th scope="col">Jumlah Barang</th>
+                        <th scope="col">Aksi</th>
                     </tr>
                 </thead>
                 <tbody class="fw-semibold text-center">
-                    <tr>
+                    {{-- <tr>
                         <th scope="row" rowspan="">1</th>
                         <td>11/04/23</td>
                         <td>-</td>
@@ -55,7 +53,7 @@
                         <td>-</td>
                         <td><button class="btn btn-primary btn-unduh">Unduh</button></td>
                         <td><button class="btn btn-primary btn-ubah">Ubah</button></td>
-                    </tr>
+                    </tr> --}}
                 </tbody>
             </table>
         </div>
