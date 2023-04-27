@@ -12,25 +12,39 @@
 </head>
 <body>
     <main class="form-signin w-100 m-auto">
-        <form>
+        <form style="margin-top: -10rem" action="/login" method="post">
+            @csrf
             <div class="justify-content-center">
                 <img class="mb-4" src="{{asset('BUMDES/assets/halaman_awal/logo-siabdes.jpg')}}" alt="" width="100%" height="100%">
             </div>
-            
+            @if (session()->has('loginError'))
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    {{session('loginError')}}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                        
+            @endif
             <h1 class="h3 mb-3 fw-normal">Silahkan Login</h1>
         
             <div class="form-floating">
-                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                <label for="floatingInput">Email address</label>
+                <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" placeholder="name@example.com" 
+                required value="{{ old('email') }}">
+                @error('email')
+                    <div class="invalid-feedback">
+                    {{$message}}
+                    </div>
+                @enderror
+                <label for="email">Email address</label>
             </div>
             <div class="form-floating">
-                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                <label for="floatingPassword">Password</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+                <label for="password">Password</label>
             </div>
         
             
             {{-- <button class="w-100 btn btn-lg btn-primary" type="submit">Login</button> --}}
-            <a href="/dashboard" class="w-100 btn btn-lg btn-primary" type="submit">Login</a>
+            {{-- <a href="/dashboard" class="w-100 btn btn-lg btn-primary" type="submit">Login</a> --}}
+            <button type="submit" class="w-100 btn btn-lg btn-primary">Login</button>
           
         </form>
       </main>

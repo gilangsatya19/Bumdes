@@ -6,7 +6,11 @@
     
     <div class="navbar-nav">
         <div class="nav-item text-nowrap">
-            <a href="/login" class="btn btn-primary mx-3 text-black fw-semibold px-4 border-0" style="background-color: #D9D9D9">Logout</a>
+            <form action="/logout" method="post">
+                @csrf
+                <button type="submit" class="btn btn-primary mx-3 text-black fw-semibold px-4 border-0" style="background-color: #D9D9D9">Logout</button>
+            </form>
         </div>
+        
     </div>
 </header>

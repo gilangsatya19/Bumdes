@@ -17,6 +17,8 @@ use App\Http\Controllers\InvoicePenjualanTunaiController;
 use App\Http\Controllers\InvoicePenjualanKreditController;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\VendorController;
+use App\Http\Controllers\LoginController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,10 +37,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function() {
     return view('bumdes.initialPage.index');
 });
+Route::get('/login', [LoginController::class, 'index']);
+Route::post('/login', [LoginController::class, 'authenticate']);
+Route::post('/logout', [LoginController::class, 'logout']);
 
-Route::get('/login', function() {
-    return view('bumdes.login');
-});
 
 Route::get('/dashboard', function() {
     return view('bumdes.dashboard.index');
