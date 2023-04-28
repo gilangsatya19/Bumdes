@@ -108,8 +108,8 @@
             <div class="col-lg-3 col-sm-6">
               <a href="/kontak"><h4 class="about_text">Kontak Kami</h4></a>
               <div class="location_text"><img src="{{asset('BUMDES/assets/halaman_awal/map-icon.png')}}"><span class="padding_left_15">Gedung D, Bandung Techno Park, Bandung Indonesia</span></div>
-              <div class="location_text"><img src="{{asset('BUMDES/assets/halaman_awal/call-icon.png')}}"><span class="padding_left_15">+01 9876543210</span></div>
-              <div class="location_text"><img src="{{asset('BUMDES/assets/halaman_awal/mail-icon.png')}}"><span class="padding_left_15">SIABDES@gmail.com</span></div>
+              <div class="location_text"><img src="{{asset('BUMDES/assets/halaman_awal/call-icon.png')}}"><span class="padding_left_15">+62 823-2327-9944</span></div>
+              <div class="location_text"><img src="{{asset('BUMDES/assets/halaman_awal/mail-icon.png')}}"><span class="padding_left_15">siabdeswebapp @gmail.com</span></div>
             </div>
             <div class="col-lg-3 col-sm-6">
               <h4 class="about_text">Tentang SIAB-DES</h4>
@@ -120,7 +120,7 @@
                 <div class="footer_images">
                     <div class="">
                         <div class="image_12">
-                            <a href="" class="text-white"><img src="{{asset('BUMDES/assets/halaman_awal/fb-icon.png')}}">  SIAB-DES</a>
+                            <a href="" class="text-white"><img src="{{asset('BUMDES/assets/halaman_awal/fb-icon.png')}}">  siabdes.official</a>
                         </div>
                         <div class="image_12">
                             <a href="" class="text-white"><img src="{{asset('BUMDES/assets/halaman_awal/twitter-icon.png')}}">  @SIAB-DES</a>

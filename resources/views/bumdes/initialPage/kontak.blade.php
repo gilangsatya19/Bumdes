@@ -31,7 +31,7 @@
                                     <td>
                                         <img class="me-4 my-3" src="{{asset('BUMDES/assets/halaman_awal/Telepon.png')}}" width="70px" height="70px alt="Telepon-icon">
                                     </td>
-                                    <td>Telepon <br> +62 815-7214-5069</td>
+                                    <td>Telepon <br>+62 823-2327-9944</td>
                                 </tr>
                                 <tr>
                                     <td>
