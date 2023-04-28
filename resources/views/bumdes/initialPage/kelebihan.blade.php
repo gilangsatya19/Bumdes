@@ -25,9 +25,9 @@
         .listbox h3{
             position: relative;
             width: 1008px;
-            height: 196px;
+            height: 120px;
             left: 170px;
-            top: 100px;
+            top: 40px;
             font-weight: 500;
             font-size: 20px;
             line-height: 33px;
@@ -39,11 +39,12 @@
         .listbox h1{
             position: relative;
             width: 470px;
-            height: 99px;
+            height: 50px;
             left: 439px;
-            top: 1200px;
+            top: 50px;
             font-size: 30px;
-            line-height: 40px;
+            font-weight: bold;
+            line-height: 30px;
             text-align: center;
             text-transform: capitalize;
             letter-spacing: -0.0011em;
@@ -52,8 +53,8 @@
         .container
         {
             width: 1200px;
-            height: auto;
-            margin-top: 15rem;
+            height:fit-content;
+            margin-top:100px;
             display: grid;
             grid-template-columns:repeat(auto-fit, minmax(350px, 1fr));
             grid-gap: 10px;
@@ -78,10 +79,20 @@
             font-size: 50px;
             color: #000;
         }
+        .container .box h3
+        {
+            position: relative;
+            margin: 0;
+            padding: 0;
+            color: #303C54;
+        }
     </style>
 
 
-
+        <div class="listbox">
+            <h3>Kelebihan SIAB-DES</h3>
+            <h1>Apa keunikan dari SIAB-DES?</h1>
+        </div>
         <div class="container" >
             <div class="box">
                 <h2>01</h2>
