@@ -338,6 +338,426 @@
                             <td>-</td> <!--// neraca debit -->
                             <td>50.000.000</td>
                         </tr>
+                        <tr>
+                            <th scope="row" rowspan="">21</th>
+                            <td>Peralatan dan Meubeliar</td> <!--// nama akun -->
+                            <td>4.200.000</td> <!--// neraca saldo debit -->
+                            <td>-</td> 
+                            <td>-</td> <!--//penyesuaian debit -->
+                            <td>-</td>
+                            <td>4.200.000</td> <!--// neraca saldo setelah debit -->
+                            <td>-</td>
+                            <td>-</td> <!--// laba rugi debit -->
+                            <td>-</td>
+                            <td>4.200.000</td> <!--// neraca debit -->
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" rowspan="">22</th>
+                            <td>Akumulasi Penyusutan Peralatan dan Meubeliar</td> <!--// nama akun -->
+                            <td>-</td> <!--// neraca saldo debit -->
+                            <td>-</td> 
+                            <td>-</td> <!--//penyesuaian debit -->
+                            <td>200.000</td>
+                            <td>-</td> <!--// neraca saldo setelah debit -->
+                            <td>200.000</td>
+                            <td>-</td> <!--// laba rugi debit -->
+                            <td>-</td>
+                            <td>-</td> <!--// neraca debit -->
+                            <td>200.000</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" rowspan="">23</th>
+                            <td>Kendaraan</td> <!--// nama akun -->
+                            <td>25.000.000</td> <!--// neraca saldo debit -->
+                            <td>-</td> 
+                            <td>-</td> <!--//penyesuaian debit -->
+                            <td>-</td>
+                            <td>25.000.000</td> <!--// neraca saldo setelah debit -->
+                            <td>-</td>
+                            <td>-</td> <!--// laba rugi debit -->
+                            <td>-</td>
+                            <td>25.000.000</td> <!--// neraca debit -->
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" rowspan="">24</th>
+                            <td>Akumulasi Penyusutan Kendaraan</td> <!--// nama akun -->
+                            <td>-</td> <!--// neraca saldo debit -->
+                            <td>-</td> 
+                            <td>-</td> <!--//penyesuaian debit -->
+                            <td>6.250.000</td>
+                            <td>-</td> <!--// neraca saldo setelah debit -->
+                            <td>6.250.000</td>
+                            <td>-</td> <!--// laba rugi debit -->
+                            <td>-</td>
+                            <td>-</td> <!--// neraca debit -->
+                            <td>6.250.000</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" rowspan="">25</th>
+                            <td>Aset Tetap Lainnya</td> <!--// nama akun -->
+                            <td>-</td> <!--// neraca saldo debit -->
+                            <td>-</td> 
+                            <td>-</td> <!--//penyesuaian debit -->
+                            <td>-</td>
+                            <td>-</td> <!--// neraca saldo setelah debit -->
+                            <td>-</td>
+                            <td>-</td> <!--// laba rugi debit -->
+                            <td>-</td>
+                            <td>-</td> <!--// neraca debit -->
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" rowspan="">26</th>
+                            <td>Utang Usaha</td> <!--// nama akun -->
+                            <td>-</td> <!--// neraca saldo debit -->
+                            <td>150.000.000</td> 
+                            <td>-</td> <!--//penyesuaian debit -->
+                            <td>-</td>
+                            <td>-</td> <!--// neraca saldo setelah debit -->
+                            <td>150.000.000</td>
+                            <td>-</td> <!--// laba rugi debit -->
+                            <td>-</td>
+                            <td>-</td> <!--// neraca debit -->
+                            <td>150.000.000</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" rowspan="">27</th>
+                            <td>PPn Keluaran</td> <!--// nama akun -->
+                            <td>-</td> <!--// neraca saldo debit -->
+                            <td>-</td> 
+                            <td>-</td> <!--//penyesuaian debit -->
+                            <td>-</td>
+                            <td>-</td> <!--// neraca saldo setelah debit -->
+                            <td>-</td>
+                            <td>-</td> <!--// laba rugi debit -->
+                            <td>-</td>
+                            <td>-</td> <!--// neraca debit -->
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" rowspan="">28</th>
+                            <td>PPh 21</td> <!--// nama akun -->
+                            <td>-</td> <!--// neraca saldo debit -->
+                            <td>-</td> 
+                            <td>-</td> <!--//penyesuaian debit -->
+                            <td>-</td>
+                            <td>-</td> <!--// neraca saldo setelah debit -->
+                            <td>-</td>
+                            <td>-</td> <!--// laba rugi debit -->
+                            <td>-</td>
+                            <td>-</td> <!--// neraca debit -->
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" rowspan="">29</th>
+                            <td>PPh 23</td> <!--// nama akun -->
+                            <td>-</td> <!--// neraca saldo debit -->
+                            <td>-</td> 
+                            <td>-</td> <!--//penyesuaian debit -->
+                            <td>-</td>
+                            <td>-</td> <!--// neraca saldo setelah debit -->
+                            <td>-</td>
+                            <td>-</td> <!--// laba rugi debit -->
+                            <td>-</td>
+                            <td>-</td> <!--// neraca debit -->
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" rowspan="">30</th>
+                            <td>PPh 29</td> <!--// nama akun -->
+                            <td>-</td> <!--// neraca saldo debit -->
+                            <td>-</td> 
+                            <td>-</td> <!--//penyesuaian debit -->
+                            <td>-</td>
+                            <td>-</td> <!--// neraca saldo setelah debit -->
+                            <td>-</td>
+                            <td>-</td> <!--// laba rugi debit -->
+                            <td>-</td>
+                            <td>-</td> <!--// neraca debit -->
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" rowspan="">31</th>
+                            <td>Utang Gaji dan Tunjangan</td> <!--// nama akun -->
+                            <td>62.000.000</td> <!--// neraca saldo debit -->
+                            <td>-</td> 
+                            <td>-</td> <!--//penyesuaian debit -->
+                            <td>-</td>
+                            <td>62.000.000</td> <!--// neraca saldo setelah debit -->
+                            <td>-</td>
+                            <td>-</td> <!--// laba rugi debit -->
+                            <td>-</td>
+                            <td>62.000.000</td> <!--// neraca debit -->
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" rowspan="">32</th>
+                            <td>Utang Gaji dan Tunjangan</td> <!--// nama akun -->
+                            <td>250.000</td> <!--// neraca saldo debit -->
+                            <td>-</td> 
+                            <td>-</td> <!--//penyesuaian debit -->
+                            <td>-</td>
+                            <td>250.000</td> <!--// neraca saldo setelah debit -->
+                            <td>-</td>
+                            <td>-</td> <!--// laba rugi debit -->
+                            <td>-</td>
+                            <td>250.000</td> <!--// neraca debit -->
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" rowspan="">33</th>
+                            <td>Utang Telepon dan Internet</td> <!--// nama akun -->
+                            <td>250.000</td> <!--// neraca saldo debit -->
+                            <td>-</td> 
+                            <td>-</td> <!--//penyesuaian debit -->
+                            <td>-</td>
+                            <td>250.000</td> <!--// neraca saldo setelah debit -->
+                            <td>-</td>
+                            <td>-</td> <!--// laba rugi debit -->
+                            <td>-</td>
+                            <td>250.000</td> <!--// neraca debit -->
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" rowspan="">34</th>
+                            <td>Utang Utilitas Lainnya</td> <!--// nama akun -->
+                            <td>-</td> <!--// neraca saldo debit -->
+                            <td>-</td> 
+                            <td>-</td> <!--//penyesuaian debit -->
+                            <td>-</td>
+                            <td>-</td> <!--// neraca saldo setelah debit -->
+                            <td>-</td>
+                            <td>-</td> <!--// laba rugi debit -->
+                            <td>-</td>
+                            <td>-</td> <!--// neraca debit -->
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" rowspan="">35</th>
+                            <td>Utang Jangka Pendek Lainnya</td> <!--// nama akun -->
+                            <td>-</td> <!--// neraca saldo debit -->
+                            <td>-</td> 
+                            <td>-</td> <!--//penyesuaian debit -->
+                            <td>-</td>
+                            <td>-</td> <!--// neraca saldo setelah debit -->
+                            <td>-</td>
+                            <td>-</td> <!--// laba rugi debit -->
+                            <td>-</td>
+                            <td>-</td> <!--// neraca debit -->
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" rowspan="">36</th>
+                            <td>Utang ke Bank</td> <!--// nama akun -->
+                            <td>-</td> <!--// neraca saldo debit -->
+                            <td>-</td> 
+                            <td>-</td> <!--//penyesuaian debit -->
+                            <td>-</td>
+                            <td>-</td> <!--// neraca saldo setelah debit -->
+                            <td>-</td>
+                            <td>-</td> <!--// laba rugi debit -->
+                            <td>-</td>
+                            <td>-</td> <!--// neraca debit -->
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" rowspan="">37</th>
+                            <td>Utang Jangka Panjang Lainnya</td> <!--// nama akun -->
+                            <td>-</td> <!--// neraca saldo debit -->
+                            <td>-</td> 
+                            <td>-</td> <!--//penyesuaian debit -->
+                            <td>-</td>
+                            <td>-</td> <!--// neraca saldo setelah debit -->
+                            <td>-</td>
+                            <td>-</td> <!--// laba rugi debit -->
+                            <td>-</td>
+                            <td>-</td> <!--// neraca debit -->
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" rowspan="">38</th>
+                            <td>Penyertaan Modal Desa</td> <!--// nama akun -->
+                            <td>-</td> <!--// neraca saldo debit -->
+                            <td>10.000.000</td> 
+                            <td>-</td> <!--//penyesuaian debit -->
+                            <td>-</td>
+                            <td>-</td> <!--// neraca saldo setelah debit -->
+                            <td>10.000.000</td>
+                            <td>-</td> <!--// laba rugi debit -->
+                            <td>-</td>
+                            <td>-</td> <!--// neraca debit -->
+                            <td>10.000.000</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" rowspan="">39</th>
+                            <td>Penyertaan Modal Masyarakat</td> <!--// nama akun -->
+                            <td>-</td> <!--// neraca saldo debit -->
+                            <td>5.000.000</td> 
+                            <td>-</td> <!--//penyesuaian debit -->
+                            <td>-</td>
+                            <td>-</td> <!--// neraca saldo setelah debit -->
+                            <td>5.000.000</td>
+                            <td>-</td> <!--// laba rugi debit -->
+                            <td>-</td>
+                            <td>-</td> <!--// neraca debit -->
+                            <td>5.000.000</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" rowspan="">40</th>
+                            <td>Bagi Hasil Penyertaan Modal Desa</td> <!--// nama akun -->
+                            <td>-</td> <!--// neraca saldo debit -->
+                            <td>-</td> 
+                            <td>-</td> <!--//penyesuaian debit -->
+                            <td>-</td>
+                            <td>-</td> <!--// neraca saldo setelah debit -->
+                            <td>-</td>
+                            <td>-</td> <!--// laba rugi debit -->
+                            <td>-</td>
+                            <td>-</td> <!--// neraca debit -->
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" rowspan="">41</th>
+                            <td>Bagi Hasil Penyertaan Modal Masyarakat</td> <!--// nama akun -->
+                            <td>-</td> <!--// neraca saldo debit -->
+                            <td>-</td> 
+                            <td>-</td> <!--//penyesuaian debit -->
+                            <td>-</td>
+                            <td>-</td> <!--// neraca saldo setelah debit -->
+                            <td>-</td>
+                            <td>-</td> <!--// laba rugi debit -->
+                            <td>-</td>
+                            <td>-</td> <!--// neraca debit -->
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" rowspan="">42</th>
+                            <td>Pendapatan Tiket Masuk Perseorangan</td> <!--// nama akun -->
+                            <td>-</td> <!--// neraca saldo debit -->
+                            <td>-</td> 
+                            <td>-</td> <!--//penyesuaian debit -->
+                            <td>-</td>
+                            <td>-</td> <!--// neraca saldo setelah debit -->
+                            <td>-</td>
+                            <td>-</td> <!--// laba rugi debit -->
+                            <td>-</td>
+                            <td>-</td> <!--// neraca debit -->
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" rowspan="">43</th>
+                            <td>Pendapatan Tiket Masuk Rombongan</td> <!--// nama akun -->
+                            <td>-</td> <!--// neraca saldo debit -->
+                            <td>-</td> 
+                            <td>-</td> <!--//penyesuaian debit -->
+                            <td>-</td>
+                            <td>-</td> <!--// neraca saldo setelah debit -->
+                            <td>-</td>
+                            <td>-</td> <!--// laba rugi debit -->
+                            <td>-</td>
+                            <td>-</td> <!--// neraca debit -->
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" rowspan="">44</th>
+                            <td>Pendapatan Tiket Lainnya</td> <!--// nama akun -->
+                            <td>-</td> <!--// neraca saldo debit -->
+                            <td>-</td> 
+                            <td>-</td> <!--//penyesuaian debit -->
+                            <td>-</td>
+                            <td>-</td> <!--// neraca saldo setelah debit -->
+                            <td>-</td>
+                            <td>-</td> <!--// laba rugi debit -->
+                            <td>-</td>
+                            <td>-</td> <!--// neraca debit -->
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" rowspan="">45</th>
+                            <td>Pendapatan Komisi</td> <!--// nama akun -->
+                            <td>-</td> <!--// neraca saldo debit -->
+                            <td>-</td> 
+                            <td>-</td> <!--//penyesuaian debit -->
+                            <td>-</td>
+                            <td>-</td> <!--// neraca saldo setelah debit -->
+                            <td>-</td>
+                            <td>-</td> <!--// laba rugi debit -->
+                            <td>-</td>
+                            <td>-</td> <!--// neraca debit -->
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" rowspan="">46</th>
+                            <td>Pendapatan Parkir</td> <!--// nama akun -->
+                            <td>-</td> <!--// neraca saldo debit -->
+                            <td>-</td> 
+                            <td>-</td> <!--//penyesuaian debit -->
+                            <td>-</td>
+                            <td>-</td> <!--// neraca saldo setelah debit -->
+                            <td>-</td>
+                            <td>-</td> <!--// laba rugi debit -->
+                            <td>-</td>
+                            <td>-</td> <!--// neraca debit -->
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" rowspan="">47</th>
+                            <td>Pendapatan Toilet</td> <!--// nama akun -->
+                            <td>-</td> <!--// neraca saldo debit -->
+                            <td>-</td> 
+                            <td>-</td> <!--//penyesuaian debit -->
+                            <td>-</td>
+                            <td>-</td> <!--// neraca saldo setelah debit -->
+                            <td>-</td>
+                            <td>-</td> <!--// laba rugi debit -->
+                            <td>-</td>
+                            <td>-</td> <!--// neraca debit -->
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" rowspan="">48</th>
+                            <td>Pendapatan Jasa</td> <!--// nama akun -->
+                            <td>-</td> <!--// neraca saldo debit -->
+                            <td>350.000.000</td> 
+                            <td>-</td> <!--//penyesuaian debit -->
+                            <td>-</td>
+                            <td>-</td> <!--// neraca saldo setelah debit -->
+                            <td>350.000.000</td>
+                            <td>-</td> <!--// laba rugi debit -->
+                            <td>350.000.000</td>
+                            <td>-</td> <!--// neraca debit -->
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" rowspan="">49</th>
+                            <td>Pendapatan Sewa</td> <!--// nama akun -->
+                            <td>-</td> <!--// neraca saldo debit -->
+                            <td>351.200.000</td> 
+                            <td>-</td> <!--//penyesuaian debit -->
+                            <td>-</td>
+                            <td>-</td> <!--// neraca saldo setelah debit -->
+                            <td>351.200.000</td>
+                            <td>-</td> <!--// laba rugi debit -->
+                            <td>351.200.000</td>
+                            <td>-</td> <!--// neraca debit -->
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" rowspan="">50</th>
+                            <td>Pendapatan Rupa Rupa Lainnya</td> <!--// nama akun -->
+                            <td>-</td> <!--// neraca saldo debit -->
+                            <td>-</td> 
+                            <td>-</td> <!--//penyesuaian debit -->
+                            <td>-</td>
+                            <td>-</td> <!--// neraca saldo setelah debit -->
+                            <td>-</td>
+                            <td>-</td> <!--// laba rugi debit -->
+                            <td>-</td>
+                            <td>-</td> <!--// neraca debit -->
+                            <td>-</td>
+                        </tr>
 
                 </tbody>
             </table>
