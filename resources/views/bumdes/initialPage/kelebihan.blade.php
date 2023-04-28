@@ -9,19 +9,10 @@
 @endsection
  
 @section('content')
-<!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.css">
-        <title>Order page</title>
-    </head>
 
     <style>
             @import url('https://fonts.googleapis.com/css?family=Ubuntu:400,500,700');
-        body{
+        /* body{
             margin:0;
             padding:0;
             display:flex;
@@ -30,7 +21,7 @@
             min-height: 100vh;
             background: #fff;
             font-family:'Ubuntu', sans-serif;
-        }
+        } */
         .listbox h3{
             position: relative;
             width: 1008px;
@@ -62,7 +53,7 @@
         {
             width: 1200px;
             height: auto;
-            margin: 0 auto;
+            margin-top: 15rem;
             display: grid;
             grid-template-columns:repeat(auto-fit, minmax(350px, 1fr));
             grid-gap: 10px;
@@ -89,7 +80,7 @@
         }
     </style>
 
-    <body>
+
 
         <div class="container" >
             <div class="box">
@@ -114,6 +105,5 @@
                 <h3>Waktu Penyusunan Efektif dan Efisien</h3>
             </div>
         </div>
-    </body>
-    </html>
+
 @endsection

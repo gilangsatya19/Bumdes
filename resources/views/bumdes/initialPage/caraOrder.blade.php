@@ -9,19 +9,10 @@
 @endsection
  
 @section('content')
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.css">
-        <title>Order page</title>
-    </head>
 
     <style>
             @import url('https://fonts.googleapis.com/css?family=Ubuntu:400,500,700');
-        body{
+        /* body{
             margin:0;
             padding:0;
             display:flex;
@@ -30,7 +21,7 @@
             min-height: 100vh;
             background: #fff;
             font-family:'Ubuntu', sans-serif;
-        }
+        } */
         .listbox h3{
             position: relative;
             width: 1008px;
@@ -62,7 +53,7 @@
         {
             width: 1200px;
             height: auto;
-            margin: 0 auto;
+            margin-top: 15rem;
             display: grid;
             grid-template-columns:repeat(auto-fit, minmax(350px, 1fr));
             grid-gap: 10px;
@@ -89,7 +80,6 @@
         }
     </style>
 
-    <body>
 
         <div class="container" >
             <div class="box">
@@ -104,15 +94,14 @@
                 <h2>03</h2>
                 <P>Lakukan pembayaran sesuai dengan invoide yang diberkan</P>
             </div>
-            <div class="box">
+            <div class="box" style="">
                 <h2>04</h2>
                 <P>Kirim bukti pembayaran ke kontak yang tersedia untuk proses verifikasi</P>
             </div>
-            <div class="box">
+            <div class="box " style="align-items:flex-start">
                 <h2>05</h2>
                 <P>aplikasi dapat digunakan 1x24 jam setelah proses verifikasi selesai</P>
             </div>
         </div>
-    </body>
-    </html>
+
 @endsection
