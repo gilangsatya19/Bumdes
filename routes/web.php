@@ -41,13 +41,18 @@ Route::get('/login', [LoginController::class, 'index']);
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
 
+Route::get('/jurnal_umum', [JurnalUmumController::class, 'index']);
+Route::get('/jurnal_umum/create', [JurnalUmumController::class, 'create']);
+Route::post('/jurnal_umum/create', [JurnalUmumController::class, 'store']);
+Route::post('/jurnal_umum/createNew', [JurnalUmumController::class, 'createNew']);
+
 
 Route::get('/dashboard', function() {
     return view('bumdes.dashboard.index');
 });
 
 
-Route::resource('/jurnal_umum', JurnalUmumController::class);
+// Route::resource('/jurnal_umum', JurnalUmumController::class);
 Route::resource('/pembelian', JurnalPembelianController::class);
 Route::resource('/penjualan', JurnalPenjualanController::class);
 Route::resource('/pengeluaran_kas', JurnalPengeluaranKasController::class);

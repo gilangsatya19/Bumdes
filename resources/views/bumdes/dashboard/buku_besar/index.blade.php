@@ -45,6 +45,33 @@
                     </tr>
                 </thead>
                 <tbody class="fw-semibold text-center">
+                    {{-- 
+                        $saldo = 0
+                        if data_jurnal->nama_akun == kas //kalau akun pertamanya kas itu masuk ke buku besar sebagai debit
+                            foreach detaildatas as data //loop semua isi data
+                                if data->nama_akun != kas //mencari data selain kas
+                                    <tr>
+                                        <td>{{data_jurnal->tanggal}}</td> ini tanggal
+                                        <td>{{nama_akun}}</td> ini nama akun
+                                        <td>{{data_jurnal->nominal}}</td> ini debit
+                                        <td>-</td> ini kredit
+                                        $saldo = $saldo + $data_jurnal->nominal
+                                    </tr>
+                                endif
+                            endforeach
+                        else if data_jurnal->nama_akun != kas //kalau bukan kas tp ada kas didalamnya berarti masuk ke kredit
+                            foreach detaildatas as data
+                                if data->nama_akun == kas
+                                    <tr>
+                                        <td>{{data_jurnal->tanggal}}</td> ini tanggal
+                                        <td>{{data_jurnal->nama_akun}}</td> ini nama akun
+                                        <td>-</td> ini debit
+                                        <td>{{data->nominal}}</td> ini kredit
+                                        $saldo = $saldo - $data->nominal
+                                    </tr>
+                                endif
+                        endif
+                        --}}
                     <tr>
                         {{-- No --}}
                         <td>1</td>
