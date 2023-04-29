@@ -16,7 +16,6 @@
                         <th scope="col">Tanggal</th>
                         <th scope="col">No. Faktur</th>
                         <th scope="col">Keterangan</th>
-                        <th scope="col">Nama Akun</th>
                         <th scope="col">Ref</th>
                         <th scope="col">Syarat Pembayaran</th>
                         <th scope="col">Piutang Dagang (D)</th>
@@ -24,39 +23,33 @@
                     </tr>
                 </thead>
                 <tbody class="fw-semibold text-center">
-                    {{-- <tr>
-                        <th scope="row" rowspan="">1</th>
-                        <td>11/04/23</td>
-                        <td>-</td>
-                        <td>Kas</td>
-                        <td>1101</td>
-                        <td>5.000.000</td>
-                        <td>-</td>
-                        <td><button class="btn btn-primary btn-unduh">Unduh</button></td>
-                        <td><button class="btn btn-primary btn-ubah">Ubah</button></td>
+                    <tr>
+                        <td></td>    
+                        <td></td>
+                        <td>toko x</td>
+                        <td>8000</td>
+                        <td>x/n, n/30</td>
+                        <td>100.000</td>
+                        <td>100.000</td>
                     </tr>
                     <tr>
+                        <td></td>    
                         <td></td>
-                        <td>11/04/23</td>
-                        <td>-</td>
-                        <td>Modal Awal</td>
-                        <td>3102</td>
-                        <td>-</td>
-                        <td>5.000.000</td>
-                        <td><button class="btn btn-primary btn-unduh">Unduh</button></td>
-                        <td><button class="btn btn-primary btn-ubah">Ubah</button></td>
+                        <td>toko y</td>
+                        <td>8000</td>
+                        <td>x/n, n/30</td>
+                        <td>200.000</td>
+                        <td>200.000</td>
                     </tr>
                     <tr>
+                        <td></td>    
                         <td></td>
-                        <td>11/04/23</td>
-                        <td>-</td>
-                        <td>Kas</td>
-                        <td>1101</td>
-                        <td>5.000.000</td>
-                        <td>-</td>
-                        <td><button class="btn btn-primary btn-unduh">Unduh</button></td>
-                        <td><button class="btn btn-primary btn-ubah">Ubah</button></td>
-                    </tr> --}}
+                        <td>toko z</td>
+                        <td>8000</td>
+                        <td>x/n, n/30</td>
+                        <td>500.000</td>
+                        <td>500.000</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
