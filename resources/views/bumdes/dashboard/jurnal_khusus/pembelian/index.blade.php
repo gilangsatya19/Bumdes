@@ -30,39 +30,136 @@
                     </tr>
                 </thead>
                 <tbody class="fw-semibold text-center">
-                    {{-- <tr>
-                        <th scope="row" rowspan="">1</th>
-                        <td>11/04/23</td>
+                    <tr>
+                        <td>20/04/22</td>
+                        <td>toko x</td>
+                        <td>10000</td>
+                        <td>Rp100.000</td>
+                        <td></td>
                         <td>-</td>
-                        <td>Kas</td>
-                        <td>1101</td>
-                        <td>5.000.000</td>
                         <td>-</td>
-                        <td><button class="btn btn-primary btn-unduh">Unduh</button></td>
-                        <td><button class="btn btn-primary btn-ubah">Ubah</button></td>
+                        <td>Rp100.000</td>
                     </tr>
                     <tr>
                         <td></td>
-                        <td>11/04/23</td>
+                        <td>toko y</td>
+                        <td>10000</td>
+                        <td>Rp200.000</td>
+                        <td></td>
                         <td>-</td>
-                        <td>Modal Awal</td>
-                        <td>3102</td>
                         <td>-</td>
-                        <td>5.000.000</td>
-                        <td><button class="btn btn-primary btn-unduh">Unduh</button></td>
-                        <td><button class="btn btn-primary btn-ubah">Ubah</button></td>
+                        <td>Rp200.000</td>
                     </tr>
                     <tr>
                         <td></td>
-                        <td>11/04/23</td>
+                        <td>toko z</td>
+                        <td>10000</td>
+                        <td>Rp500.000</td>
+                        <td></td>
                         <td>-</td>
-                        <td>Kas</td>
-                        <td>1101</td>
-                        <td>5.000.000</td>
                         <td>-</td>
-                        <td><button class="btn btn-primary btn-unduh">Unduh</button></td>
-                        <td><button class="btn btn-primary btn-ubah">Ubah</button></td>
-                    </tr> --}}
+                        <td>Rp500.000</td>
+                    </tr>
+                    <tr>
+                        <td></td>    
+                        <td>cv z</td>
+                        <td>10000</td>
+                        <td>Rp1.000.000</td>
+                        <td></td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>Rp1.000.000</td>
+                    </tr>
+                    <tr>
+                        <td></td>    
+                        <td>toko raos</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>    
+                        <td>toko skb</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>    
+                        <td>toko japra</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>    
+                        <td>toko kimcil</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>    
+                        <td>toko jabrig</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>    
+                        <td>toko liquid</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>    
+                        <td>toko monorejo</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>    
+                        <td>toko seven laundry</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>    
+                        <td>toko barber shop</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td></td>
+                    </tr>
                 </tbody>
             </table>
         </div>
