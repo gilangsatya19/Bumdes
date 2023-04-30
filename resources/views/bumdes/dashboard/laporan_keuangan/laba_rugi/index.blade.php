@@ -32,9 +32,9 @@
                 <tbody class="fw-semibold text-center">
                     <tr>
                         {{--Kode Rekening--}}
-                        <td>4000</td>
+                        <td><b>4000</b></td>
                         {{--Nama Akun--}}
-                        <td>PENDAPATAN</td>
+                        <td><b>PENDAPATAN</b></td>
                         {{--Catatan--}}
                         <td></td>
                         {{--2022--}}
@@ -43,8 +43,8 @@
                         <td>-</td>
                     </tr>
                     <tr>
-                        <td>4100</td>
-                        <td>PENDAPATAN TIKET</td>
+                        <td><b>4100</b></td>
+                        <td><b>PENDAPATAN TIKET</b></td>
                         <td></td>
                         <td></td>
                         <td>-</td>
@@ -71,8 +71,8 @@
                         <td>-</td>
                     </tr>
                     <tr>
-                        <td>4300</td>
-                        <td>PENDAPATAN RUPA RUPA</td>
+                        <td><b>4300</b></td>
+                        <td><b>PENDAPATAN RUPA RUPA</b></td>
                         <td></td>
                         <td></td>
                         <td>-</td>
@@ -120,8 +120,8 @@
                         <td>-</td>
                     </tr>
                     <tr>
-                        <td>7100</td>
-                        <td>PENDAPATAN LAIN-LAIN</td>
+                        <td><b>7100<b></td>
+                        <td><b>PENDAPATAN LAIN-LAIN<b></td>
                         <td></td>
                         <td></td>
                         <td>-</td>
@@ -155,7 +155,7 @@
                         <td>-</td>
                     </tr>
                     <tr>
-                        <td scope="col" colspan="3">JUMLAH PENDAPATAN</td>
+                        <td scope="col" colspan="3"><b>JUMLAH PENDAPATAN</b></td>
                         <td>Rp719.000.000</td>
                         <td>-</td>
                     </tr>
@@ -167,15 +167,15 @@
                         <td>-</td>
                     </tr>
                     <tr>
-                        <td>6000</td>
-                        <td>BEBAN</td>
+                        <td><b>6000</b></td>
+                        <td><b>BEBAN</b></td>
                         <td></td>
                         <td></td>
                         <td>-</td>
                     </tr>
                     <tr>
-                        <td>6100</td>
-                        <td>BEBAN ADMINISTRASI DAN UMUM</td>
+                        <td><b>6100</b></td>
+                        <td><b>BEBAN ADMINISTRASI DAN UMUM</b></td>
                         <td></td>
                         <td></td>
                         <td>-</td>
@@ -412,12 +412,12 @@
                         <td>-</td>
                     </tr>
                     <tr>
-                        <td scope="col" colspan="3">JUMLAH BEBAN</td>
+                        <td scope="col" colspan="3"><b>JUMLAH BEBAN</b></td>
                         <td>Rp88.150.000</td>
                         <td>-</td>
                     </tr>
                     <tr>
-                        <td scope="col" colspan="3">LABA (RUGI) SEBELUM PAJAK</td>
+                        <td scope="col" colspan="3"><b>LABA (RUGI) SEBELUM PAJAK</b></td>
                         <td>Rp630.850.000</td>
                         <td>-</td>
                     </tr>
@@ -492,7 +492,7 @@
                         <td>-</td>
                     </tr>
                     <tr>
-                        <td scope="col" colspan="3">LABA SETELAH PAJAK</td>
+                        <td scope="col" colspan="3"><b>LABA SETELAH PAJAK</b></td>
                         <td>Rp630.850.000</td>
                         <td>-</td>
                     </tr>

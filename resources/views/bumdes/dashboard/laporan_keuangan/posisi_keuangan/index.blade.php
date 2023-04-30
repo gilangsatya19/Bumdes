@@ -32,9 +32,9 @@
                 <tbody class="fw-semibold text-center">
                     <tr>
                         {{--Kode Rekening--}}
-                        <td>1000</td>
+                        <td><b>1000</b></td>
                         {{--Nama Akun--}}
-                        <td>ASET</td>
+                        <td><b>ASET</b></td>
                         {{--Catatan--}}
                         <td></td>
                         {{--Tahun X--}}
@@ -43,8 +43,8 @@
                         <td>-</td>
                     </tr>
                     <tr>
-                        <td>1100</td>
-                        <td>ASET LANCAR</td>
+                        <td><b>1100</b></td>
+                        <td><b>ASET LANCAR</b></td>
                         <td></td>
                         <td></td>
                         <td>-</td>
@@ -162,15 +162,15 @@
                         <td>-</td>
                     </tr>
                     <tr>
-                        <td>1200</td>
-                        <td>INVESTASI</td>
+                        <td><b>1200</b></td>
+                        <td><b>INVESTASI</b></td>
                         <td></td>
                         <td>Rp210.600.000</td>
                         <td>-</td>
                     </tr>
                     <tr>
-                        <td>1300</td>
-                        <td>ASET TETAP</td>
+                        <td><b>1300</b></td>
+                        <td><b>ASET TETAP</b></td>
                         <td></td>
                         <td></td>
                         <td>-</td>
@@ -232,20 +232,20 @@
                         <td>-</td>
                     </tr>
                     <tr>
-                        <td scope="col" colspan="3">JUMLAH ASET</td>
+                        <td scope="col" colspan="3"><b>JUMLAH ASET</b></td>
                         <td>Rp733.350.000</td>
                         <td>-</td>
                     </tr>
                     <tr>
-                        <td>2000</td>
-                        <td>KEWAJIBAN</td>
+                        <td><b>2000</b></td>
+                        <td><b>KEWAJIBAN</b></td>
                         <td></td>
                         <td></td>
                         <td>-</td>
                     </tr>
                     <tr>
-                        <td>2100</td>
-                        <td>KEWAJIBAN JANGKA PENDEK</td>
+                        <td><b>2100</b></td>
+                        <td><b>KEWAJIBAN JANGKA PENDEK</b></td>
                         <td></td>
                         <td></td>
                         <td>-</td>
@@ -321,8 +321,8 @@
                         <td>-</td>
                     </tr>
                     <tr>
-                        <td>2111</td>
-                        <td>KEWAJIBAN JANGKA PANJANG</td>
+                        <td><b>2111</b></td>
+                        <td><b>KEWAJIBAN JANGKA PANJANG</b></td>
                         <td></td>
                         <td></td>
                         <td>-</td>
@@ -342,20 +342,20 @@
                         <td>-</td>
                     </tr>
                     <tr>
-                        <td scope="col" colspan="3">JUMLAH KEWAJIBAN</td>
+                        <td scope="col" colspan="3"><b>JUMLAH KEWAJIBAN</b></td>
                         <td>Rp87.500.000</td>
                         <td>-</td>
                     </tr>
                     <tr>
-                        <td>3000</td>
-                        <td>EKUITAS</td>
+                        <td><b>3000</b></td>
+                        <td><b>EKUITAS</b></td>
                         <td></td>
                         <td></td>
                         <td>-</td>
                     </tr>
                     <tr>
-                        <td>3100</td>
-                        <td>MODAL PEMILIK</td>
+                        <td><b>3100</b></td>
+                        <td><b>MODAL PEMILIK</b></td>
                         <td></td>
                         <td></td>
                         <td>-</td>
@@ -375,8 +375,8 @@
                         <td>-</td>
                     </tr>
                     <tr>
-                        <td>3200</td>
-                        <td>PENGAMBILAN OLEH PEMILIK</td>
+                        <td><b>3200</b></td>
+                        <td><b>PENGAMBILAN OLEH PEMILIK</b></td>
                         <td></td>
                         <td></td>
                         <td>-</td>
@@ -396,8 +396,8 @@
                         <td>-</td>
                     </tr>
                     <tr>
-                        <td>3300</td>
-                        <td>LABA DITAHAN DAN PENCADANGAN</td>
+                        <td><b>3300</b></td>
+                        <td><b>LABA DITAHAN DAN PENCADANGAN</b></td>
                         <td></td>
                         <td></td>
                         <td>-</td>
@@ -431,8 +431,8 @@
                         <td>-</td>
                     </tr>
                     <tr>
-                        <td>3500</td>
-                        <td>IKHTISAR LABA RUGI</td>
+                        <td><b>3500</b></td>
+                        <td><b>IKHTISAR LABA RUGI</b></td>
                         <td></td>
                         <td></td>
                         <td>-</td>
@@ -445,12 +445,12 @@
                         <td>-</td>
                     </tr>
                     <tr>
-                        <td scope="col" colspan="3">JUMLAH EKUITAS</td>
+                        <td scope="col" colspan="3"><b>JUMLAH EKUITAS</b></td>
                         <td>Rp645.850.000</td>
                         <td>-</td>
                     </tr>
                     <tr>
-                        <td scope="col" colspan="3">JUMLAH KEWAJIBAN DAN EKUITAS</td>
+                        <td scope="col" colspan="3"><b>JUMLAH KEWAJIBAN DAN EKUITAS</b></td>
                         <td>Rp733.350.000</td>
                         <td>-</td>
                     </tr>
