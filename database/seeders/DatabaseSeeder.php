@@ -23,20 +23,58 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('adminadmin'),
         ]);
 
-        // DB::table('jurnal_umum')->insert([
-        //     'tanggal' => '19/04/2001',
-        //     'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
-        //     'user_id' => '1',
-        // ]);
+        DB::table('jurnal_umum')->insert([
+            'tanggal' => '19/04/2001',
+            'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
+            'user_id' => '1',
+        ]);
+        DB::table('jurnal_umum')->insert([
+            'tanggal' => '29/04/2001',
+            'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
+            'user_id' => '1',
+        ]);
+
+        DB::table('data_jurnal_umum')->insert([
+            'nama_akun' => 'Kas',
+            'noref' => '1101',
+            'debit' => '5000000',
+            'kredit' => '0',
+            'jurnal_umum_id' => '1',
+        ]);
+        DB::table('data_jurnal_umum')->insert([
+            'nama_akun' => 'Penyertaan Modal Masyarakat',
+            'noref' => '3102',
+            'debit' => '0',
+            'kredit' => '5000000',
+            'jurnal_umum_id' => '1',
+        ]);
+
+        DB::table('data_jurnal_umum')->insert([
+            'nama_akun' => 'Piutan Desa',
+            'noref' => '1115',
+            'debit' => '1200000',
+            'kredit' => '0',
+            'jurnal_umum_id' => '2',
+        ]);
+        DB::table('data_jurnal_umum')->insert([
+            'nama_akun' => 'Pendapatan Dari Desa (PADES)',
+            'noref' => '7102',
+            'debit' => '0',
+            'kredit' => '1200000',
+            'jurnal_umum_id' => '2',
+        ]);
+
 
         DB::table('nama_akuns')->insert([
             'nama' => 'Aset',
             'kode_rekening' => '1000',
+            'd/k' => '',
             
         ]);
         DB::table('nama_akuns')->insert([
             'nama' => 'Aset Lancar',
             'kode_rekening' => '1100',
+            'd/k' => '',
             
         ]);
         DB::table('nama_akuns')->insert([

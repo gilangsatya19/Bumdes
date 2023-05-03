@@ -18,6 +18,7 @@ use App\Http\Controllers\InvoicePenjualanKreditController;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\VendorController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\KodeRekeningController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -71,6 +72,7 @@ Route::resource('/invoice_penjualan_tunai', InvoicePenjualanTunaiController::cla
 Route::resource('/invoice_penjualan_kredit', InvoicePenjualanKreditController::class);
 Route::resource('/barang', BarangController::class);
 Route::resource('/vendor', VendorController::class);
+Route::resource('/kode_rekening', KodeRekeningController::class);
 
 
 

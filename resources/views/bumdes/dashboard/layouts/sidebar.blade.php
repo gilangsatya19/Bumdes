@@ -78,6 +78,7 @@
                 <div class="dropdown-container style-dropdown">
                     <a href="/barang">Barang</a>
                     <a href="/vendor">Vendor</a>
+                    <a href="/kode_rekening">Kode Rekening</a>
                 </div>
             </li>
 

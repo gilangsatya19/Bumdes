@@ -16,7 +16,7 @@ class JurnalUmumController extends Controller
     {
         return view('bumdes.dashboard.jurnal_umum.index',[
             'jurnals' => JurnalUmum::all(),
-            'datas' => DataJurnalUmum::where('jurnal_umum_id', session("jurnal_umum_id"))->get(),
+            
         ]);
     }
     public function createNew(Request $request)
