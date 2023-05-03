@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('nama');
             $table->string('kode_rekening');
-            $table->string('d/k');
+            $table->string('d_k');
             $table->timestamps();
         });
     }
