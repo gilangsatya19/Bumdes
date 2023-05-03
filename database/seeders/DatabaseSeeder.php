@@ -23,11 +23,11 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('adminadmin'),
         ]);
 
-        DB::table('jurnal_umum')->insert([
-            'tanggal' => '19/04/2001',
-            'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
-            'user_id' => '1',
-        ]);
+        // DB::table('jurnal_umum')->insert([
+        //     'tanggal' => '19/04/2001',
+        //     'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
+        //     'user_id' => '1',
+        // ]);
 
         DB::table('nama_akuns')->insert([
             'nama' => 'Aset',

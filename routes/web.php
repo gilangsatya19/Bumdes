@@ -45,6 +45,8 @@ Route::get('/jurnal_umum', [JurnalUmumController::class, 'index']);
 Route::get('/jurnal_umum/create', [JurnalUmumController::class, 'create']);
 Route::post('/jurnal_umum/create', [JurnalUmumController::class, 'store']);
 Route::post('/jurnal_umum/createNew', [JurnalUmumController::class, 'createNew']);
+Route::get('/jurnal_umum/{id}/edit', [JurnalUmumController::class, 'edit']);
+Route::post('/jurnal_umum/{id}/update', [JurnalUmumController::class, 'update']);
 
 
 Route::get('/dashboard', function() {

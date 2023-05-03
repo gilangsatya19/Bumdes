@@ -15,8 +15,8 @@ class JurnalUmumController extends Controller
     public function index()
     {
         return view('bumdes.dashboard.jurnal_umum.index',[
-            'datas' => DataJurnalUmum::where('jurnal_umum_id', session("jurnal_umum_id")),
-            'jurnals' => JurnalUmum::find(session('jurnal_umum_id'))
+            'jurnals' => JurnalUmum::all(),
+            'datas' => DataJurnalUmum::where('jurnal_umum_id', session("jurnal_umum_id"))->get(),
         ]);
     }
     public function createNew(Request $request)
@@ -84,7 +84,12 @@ class JurnalUmumController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('bumdes.dashboard.jurnal_umum.update',[
+            'title' => 'Edit Data',
+            'method' => 'PUT',
+            'action' => 'jurnal_umum/'.$id,
+            'data' => DataJurnalUmum::find($id),
+        ]);
     }
 
     /**
@@ -96,7 +101,14 @@ class JurnalUmumController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = DataJurnalUmum::find($id);
+        $data->nama_akun = $request->nama_akun;
+        $data->noref = $request->noref;
+        $data->debit = $request->debit;
+        $data->kredit = $request->kredit;
+        // $data->jurnal_umum_id = '3';
+        $data->save();
+        return redirect('/jurnal_umum');
     }
 
     /**
