@@ -68,158 +68,187 @@ class DatabaseSeeder extends Seeder
         DB::table('nama_akuns')->insert([
             'nama' => 'Aset',
             'kode_rekening' => '1000',
-            'd/k' => '',
+            'd_k' => '',
             
         ]);
         DB::table('nama_akuns')->insert([
             'nama' => 'Aset Lancar',
             'kode_rekening' => '1100',
-            'd/k' => '',
+            'd_k' => '',
             
         ]);
         DB::table('nama_akuns')->insert([
             'nama' => 'Kas',
             'kode_rekening' => '1101',
+            'd_k' => 'Debit',
             
         ]);
         DB::table('nama_akuns')->insert([
             'nama' => 'Kas di Bank A',
             'kode_rekening' => '1102',
+            'd_k' => 'Debit',
             
         ]);
         DB::table('nama_akuns')->insert([
             'nama' => 'Kas di Bank B',
             'kode_rekening' => '1103',
+            'd_k' => 'Debit',
             
         ]);
         DB::table('nama_akuns')->insert([
             'nama' => 'Kas di Bank C',
             'kode_rekening' => '1103',
+            'd_k' => 'Debit',
             
         ]);
         DB::table('nama_akuns')->insert([
             'nama' => 'Kas Kecil',
             'kode_rekening' => '1105',
+            'd_k' => 'Debit',
             
         ]);
         DB::table('nama_akuns')->insert([
             'nama' => 'Giro',
             'kode_rekening' => '1106',
+            'd_k' => 'Debit',
             
         ]);
         DB::table('nama_akuns')->insert([
             'nama' => 'Deposito',
             'kode_rekening' => '1107',
+            'd_k' => 'Debit',
             
         ]);
         DB::table('nama_akuns')->insert([
             'nama' => 'Piutang Usaha',
             'kode_rekening' => '1108',
+            'd_k' => 'Debit',
             
         ]);
         DB::table('nama_akuns')->insert([
             'nama' => 'Persediaan Barang Dagangan',
             'kode_rekening' => '1109',
+            'd_k' => 'Debit',
             
         ]);
         DB::table('nama_akuns')->insert([
             'nama' => 'Persediaan Makan dan Minuman',
             'kode_rekening' => '1110',
+            'd_k' => 'Debit',
             
         ]);
         DB::table('nama_akuns')->insert([
             'nama' => 'Perlengkapan',
             'kode_rekening' => '1111',
+            'd_k' => 'Debit',
             
         ]);
         DB::table('nama_akuns')->insert([
             'nama' => 'Sewa Dibayar Dimuka',
             'kode_rekening' => '1112',
+            'd_k' => 'Debit',
             
         ]);
         DB::table('nama_akuns')->insert([
             'nama' => 'Asuransi Dibayar Dimuka',
             'kode_rekening' => '1113',
+            'd_k' => 'Debit',
             
         ]);
         DB::table('nama_akuns')->insert([
             'nama' => 'PPh 25',
             'kode_rekening' => '1114',
+            'd_k' => 'Debit',
             
         ]);
         DB::table('nama_akuns')->insert([
             'nama' => 'Piutang Desa',
             'kode_rekening' => '1115',
+            'd_k' => 'Debit',
             
         ]);
         DB::table('nama_akuns')->insert([
             'nama' => 'Aset Lancar Lainnya',
             'kode_rekening' => '1199',
+            'd_k' => 'Debit',
             
         ]);
         DB::table('nama_akuns')->insert([
             'nama' => 'Investasi',
             'kode_rekening' => '1200',
+            'd_k' => '',
             
         ]);
         DB::table('nama_akuns')->insert([
             'nama' => 'Aset Tetap',
             'kode_rekening' => '1300',
+            'd_k' => '',
             
         ]);
         DB::table('nama_akuns')->insert([
             'nama' => 'Tanah',
             'kode_rekening' => '1301',
+            'd_k' => 'Debit',
             
         ]);
         DB::table('nama_akuns')->insert([
             'nama' => 'Gedung dan Bangunan',
             'kode_rekening' => '1302',
+            'd_k' => 'Debit',
             
         ]);
         DB::table('nama_akuns')->insert([
             'nama' => 'Akumulasi Penyusutan Gedung dan Bangunan',
             'kode_rekening' => '1303',
+            'd_k' => 'Kredit',
             
         ]);
         DB::table('nama_akuns')->insert([
             'nama' => 'Peralatan dan Meubeliar',
             'kode_rekening' => '1304',
+            'd_k' => 'Debit',
             
         ]);
         DB::table('nama_akuns')->insert([
             'nama' => 'Akumulasi Penyusutan Peralatan dan Meubeliar',
             'kode_rekening' => '1305',
+            'd_k' => 'Kredit',
             
         ]);
         DB::table('nama_akuns')->insert([
             'nama' => 'Kendaraan',
             'kode_rekening' => '1306',
+            'd_k' => 'Debit',
             
         ]);
         DB::table('nama_akuns')->insert([
             'nama' => 'Akumulasi Penyusutan Kendaraan',
             'kode_rekening' => '1307',
+            'd_k' => 'Kredit',
             
         ]);
         DB::table('nama_akuns')->insert([
             'nama' => 'Aset Tetap Lainnya',
             'kode_rekening' => '1399',
+            'd_k' => 'Debit',
             
         ]);
         DB::table('nama_akuns')->insert([
             'nama' => 'Kewajiban',
             'kode_rekening' => '2000',
+            'd_k' => '',
             
         ]);
         DB::table('nama_akuns')->insert([
             'nama' => 'Kewajiban Jangka Pendek',
             'kode_rekening' => '2100',
+            'd_k' => '',
             
         ]);
         DB::table('nama_akuns')->insert([
             'nama' => 'Utang Usaha',
             'kode_rekening' => '2102',
+            'd_k' => 'Kredit',
             
         ]);
         DB::table('nama_akuns')->insert([
