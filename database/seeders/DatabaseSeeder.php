@@ -28,5 +28,11 @@ class DatabaseSeeder extends Seeder
             'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
             'user_id' => '1',
         ]);
+
+        DB::table('nama_akuns')->insert([
+            'nama' => 'Aset',
+            'kode_rekening' => '1000',
+            
+        ]);
     }
 }

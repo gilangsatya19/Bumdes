@@ -25,7 +25,12 @@
                         <th scope="col">Ubah</th>
                     </tr>
                 </thead>
-                <tbody class="fw-semibold text-center">
+                <tbody>
+                    <tr>
+                        
+                    </tr>
+                </tbody>
+                {{-- <tbody class="fw-semibold text-center"> --}}
                     {{-- 
                         foreach datas as data
                         <tr>
