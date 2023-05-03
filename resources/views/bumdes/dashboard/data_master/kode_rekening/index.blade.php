@@ -19,6 +19,7 @@
             
         </select>
         <div class="table-responsive">
+            <h2>Rill Account</h2>
             <table class="table table-striped table-borderless">
                 <thead class="text-white text-center" style="background-color: #3C4B64">
                     <tr>
@@ -31,11 +32,36 @@
                 </thead>
                 <tbody class="fw-semibold text-center">
                     @foreach ($datas as $data)
-                        <tr>
-                            <td>{{$data->id}}</td>
-                            <td>{{$data->nama}}</td>
-                            <td>{{$data->kode_rekening}}</td>
-                        </tr>
+                        @if ($data->id < 57)
+                            <tr>
+                                <td>{{$data->id}}</td>
+                                <td>{{$data->nama}}</td>
+                                <td>{{$data->kode_rekening}}</td>
+                            </tr>    
+                        @endif
+                    @endforeach
+                </tbody>
+            </table>
+            <h2>Nominal Account</h2>
+            <table class="table table-striped table-borderless">
+                <thead class="text-white text-center" style="background-color: #3C4B64">
+                    <tr>
+                        <th scope="col">No</th>
+                        <th scope="col">Kode Rekening</th>
+                        <th scope="col">Nama Akun</th>
+                        <th scope="col">D/K</th>
+                        
+                    </tr>
+                </thead>
+                <tbody class="fw-semibold text-center">
+                    @foreach ($datas as $data)
+                        @if ($data->id >= 57)
+                            <tr>
+                                <td>{{$data->id}}</td>
+                                <td>{{$data->nama}}</td>
+                                <td>{{$data->kode_rekening}}</td>
+                            </tr>    
+                        @endif
                     @endforeach
                 </tbody>
             </table>
