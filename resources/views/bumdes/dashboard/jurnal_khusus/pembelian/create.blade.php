@@ -17,24 +17,28 @@
                         </div>
                         <p class="fs-5" style="color: #8F9CA9">isi form dibawah ini untuk menambah data</p>
 
-                        <label for="tanggal" ><b>Tanggal Transaksi</b></label>
+                        <label for="tanggal" class="fs-5"><b>Tanggal</b></label>
                         <input type="text" placeholder="DD/MM/YYYY" name="tanggal" required>
 
-                        <label for="keterangan" ><b>Keterangan</b></label>
+                        <label for="keterangan" class="fs-5"><b>Keterangan</b></label>
                         <input type="text" placeholder="Ketik Masukkan.." name="Keterangan" required>
 
-                        <label for="noref" ><b>Ref</b></label>
+                        <label for="noref" class="fs-5"><b>Ref</b></label>
                         <input type="text" placeholder="Ketik Masukkan.." name="noref" required>
 
                         <h4>Debit</h4>
-                        <label for="noref" ><b>Pembelian</b></label>
+                        <label for="pembelian" class="fs-5"><b>Pembelian</b></label>
                         <input type="text" placeholder="Ketik Masukkan.." name="noref" required>
 
                         <h5>Serba Serbi</h5>
-                        <label for="noref" ><b>Akun</b></label>
+                        <label for="akun" class="fs-5"><b>Akun</b></label>
                         <input type="text" placeholder="Ketik Masukan.." name="noref">
-                        <label for="noref" ><b>Jumlah</b></label>
+                        <label for="jumlah" class="fs-5"><b>Jumlah</b></label>
                         <input type="text" placeholder="Ketik Masukkan" name="noref">
+
+                        <h4>Kredit</h4>
+                        <label for="utang_dagang" class="fs-5"><b>Utang Dagang</b></label>
+                        <input type="text" placeholder="Ketik Masukkan.." name="noref" required>
 
                         <div class="mb-4">
                         <label for="bukti_pembayaran"><b>Upload Bukti Pembayaran</b></label>
