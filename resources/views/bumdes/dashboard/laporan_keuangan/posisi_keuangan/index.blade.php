@@ -6,7 +6,7 @@
         <div class="d-flex mb-4" style="margin-top: -50px">
             <h1 >LAPORAN KEUANGAN - POSISI KEUANGAN</h1>
             <div class="ms-auto">
-                @include('bumdes.dashboard.layouts.form')
+               <!-- @include('bumdes.dashboard.layouts.form')-->
             </div>
         </div>
         <div class="table-responsive">
