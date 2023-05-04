@@ -23,7 +23,7 @@ class JurnalPenjualanController extends Controller
      */
     public function create()
     {
-        //
+        return view('bumdes.dashboard.jurnal_khusus.penjualan.create');
     }
 
     /**
