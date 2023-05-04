@@ -27,21 +27,16 @@
                     {{-- 
                         foreach datas as data
                         <tr>
-                            <td>data->id</td>
+                        
                             <td>data->tanggal</td>
-                            foreach items as item
-                            <td>item->nama_akun</td>
-                            <td>item->noref</td>
-                            if item->debit = 0
-                                <td>-</td>
-                                <td>item->kredit</td>
-                            else
-                                <td>item->debit</td>
-                                <td>-</td>
-                            endif
+                            <td>data->noinvoice</td>
+                            <td>data->namakonsumen</td>
+                            <td>data->telpkonsumen</td>
+                            <td>data->barang</td>
+                            <td>data->jumlah</td>                            
                             <td>btn</td>
-                            <td>btn</td>
-                            endforeach
+                            
+                        
                         </tr>
                         endforeach
                      --}}

@@ -28,22 +28,16 @@
                 <tbody class="fw-semibold text-center">
                     {{-- 
                         foreach datas as data
-                        <tr>
+                        <tr>                        
                             <td>data->tanggal</td>
-                            <td>data->no_invoice</td>
-                            foreach items as item
-                            <td>item->nama_akun</td>
-                            <td>item->noref</td>
-                            if item->debit = 0
-                                <td>-</td>
-                                <td>item->kredit</td>
-                            else
-                                <td>item->debit</td>
-                                <td>-</td>
-                            endif
+                            <td>data->noinvoive</td>
+                            <td>data->nama</td>
+                            <td>data->alamat</td>
+                            <td>data->telpon</td>
+                            <td>data->tanggaljatuhtempo</td>
+                            <td>data->barang</td>                            
                             <td>btn</td>
-                            <td>btn</td>
-                            endforeach
+                            
                         </tr>
                         endforeach
                      --}}

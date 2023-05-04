@@ -27,21 +27,15 @@
                     {{-- 
                         foreach datas as data
                         <tr>
-                            <td>data->id</td>
+                        
                             <td>data->tanggal</td>
-                            foreach items as item
-                            <td>item->nama_akun</td>
-                            <td>item->noref</td>
-                            if item->debit = 0
-                                <td>-</td>
-                                <td>item->kredit</td>
-                            else
-                                <td>item->debit</td>
-                                <td>-</td>
-                            endif
+                            <td>data->danauntukdepartemen</td>
+                            <td>data->danaawalkaskecil</td>
+                            <td>data->saldo</td>
                             <td>btn</td>
+                            <td>data->total</td>                                                       
                             <td>btn</td>
-                            endforeach
+                            
                         </tr>
                         endforeach
                      --}}
