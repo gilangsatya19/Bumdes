@@ -102,7 +102,7 @@
                     </tr>
                     <tr>
                         <td></td>    
-                        <td>toko kimcil</td>
+                        <td>toko kimchi</td>
                         <td></td>
                         <td></td>
                         <td></td>
