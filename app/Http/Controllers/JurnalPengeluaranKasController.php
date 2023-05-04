@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DataPengeluaranKas;
+use App\Models\PengeluaranKas;
 use Illuminate\Http\Request;
+use App\Models\NamaAkun;
 
 class JurnalPengeluaranKasController extends Controller
 {
@@ -13,9 +16,21 @@ class JurnalPengeluaranKasController extends Controller
      */
     public function index()
     {
-        return view('bumdes.dashboard.jurnal_khusus.pengeluaran_kas.index');
+        return view('bumdes.dashboard.jurnal_khusus.pengeluaran_kas.index',[
+            'jurnals' => PengeluaranKas::all(),
+        ]);
     }
 
+    public function createNew(Request $request)
+    {
+        $data = new PengeluaranKas;
+        $data->tanggal = $request->tanggal;
+        $data->user_id = auth()->user()->id;
+        $data->save();
+        session(['pengeluaran_kas_id' => $data->id]);
+        return redirect('/pengeluaran_kas/create');
+
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -23,9 +38,16 @@ class JurnalPengeluaranKasController extends Controller
      */
     public function create()
     {
-        //
+        return view('bumdes.dashboard.jurnal_khusus.pengeluaran_kas.create',[
+            'title' => 'Tambah Data',
+            'method' => 'POST',
+            'action' => 'pengeluaran_kas',
+            'nama_akuns' => NamaAkun::all(),
+            
+        ]);
     }
 
+    
     /**
      * Store a newly created resource in storage.
      *
@@ -34,7 +56,21 @@ class JurnalPengeluaranKasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $akuns = NamaAkun::all();
+        $data = new DataPengeluaranKas;
+        $data->nama_akun = $request->nama_akun;
+        
+        foreach ($akuns as $akun){
+            if($data->nama_akun == $akun->nama){
+                $data->noref = $akun->kode_rekening;
+            }
+        }
+        
+        $data->debit = $request->debit;
+        $data->kredit = $request->kredit;
+        $data->pengeluaran_kas_id = session('pengeluaran_kas_id');
+        $data->save();
+        return redirect('/pengeluaran_kas/create');
     }
 
     /**

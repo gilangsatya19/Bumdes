@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\DataJurnalUmum;
+use App\Models\NamaAkun;
 use Illuminate\Http\Request;
 use App\Models\JurnalUmum;
 class JurnalUmumController extends Controller
@@ -16,6 +17,7 @@ class JurnalUmumController extends Controller
     {
         return view('bumdes.dashboard.jurnal_umum.index',[
             'jurnals' => JurnalUmum::all(),
+            'nama_akuns' => NamaAkun::all(),
             
         ]);
     }
@@ -42,6 +44,7 @@ class JurnalUmumController extends Controller
             'title' => 'Tambah Data',
             'method' => 'POST',
             'action' => 'jurnal_umum',
+            'nama_akuns' => NamaAkun::all(),
             
         ]);
     }
@@ -54,9 +57,16 @@ class JurnalUmumController extends Controller
      */
     public function store(Request $request)
     {
+        $akuns = NamaAkun::all();
         $data = new DataJurnalUmum;
         $data->nama_akun = $request->nama_akun;
-        $data->noref = $request->noref;
+        
+        foreach ($akuns as $akun){
+            if($data->nama_akun == $akun->nama){
+                $data->noref = $akun->kode_rekening;
+            }
+        }
+        
         $data->debit = $request->debit;
         $data->kredit = $request->kredit;
         $data->jurnal_umum_id = session('jurnal_umum_id');

@@ -13,25 +13,6 @@
         <label for="tanggal" ><b>Tanggal Transaksi</b></label>
         <input type="text" placeholder="DD/MM/YYYY" name="tanggal" required>
 
-        {{-- <label for="nama_akun" ><b>Nama Akun</b></label>
-        <select class="form-select mb-3" aria-label=".form-select example" name="nama_akun">
-            
-            <option value="kas_debit">Kas(D)</option>
-            <option value="kas_kredit">Kas(K)</option>
-            <option value="modal_awal">Modal Awal</option>
-            <option value="piutang_desa">Piutang Desa</option>
-            <option value="pendapatan_dari_desa">Pendapatan dari Desa</option>
-            <option value="peralatan_dan_meubeliar">Peralatan dan Meubeliar</option>
-            <option value="piutang_dagang">Piutang Dagang</option>
-            <option value="penjualan">Penjualan</option>
-            
-          </select> --}}
-
-        {{-- <label for="nominal" ><b>Nominal</b></label>
-        <input type="text" placeholder="Masukkan nominal" name="nominal" required> --}}
-        
-        {{-- <label for=""><b>Upload Bukti Pembayaran</b></label>
-        <input type="file" class="form-control"  name="bukti_pembayaran" required> --}}
         <div class="mb-4">
             <label for="bukti_pembayaran"><b>Upload Bukti Pembayaran</b></label>
             <input type="file" class="form-control"  name="bukti_pembayaran" required>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\DataJurnalUmum;
 
 class WTBController extends Controller
 {
@@ -13,7 +14,20 @@ class WTBController extends Controller
      */
     public function index()
     {
-        return view('bumdes.dashboard.wtb.index');
+        $data = DataJurnalUmum::get()
+            ->groupBy('nama_akun')
+            ->map(function($item){
+                $kredit = $item->sum('kredit');
+                $debit = $item->sum('debit');
+                return [
+                    'saldo' => $debit - $kredit
+                ];
+            });
+
+        // dd($data->toArray());
+
+        return view('bumdes.dashboard.wtb.index', compact('data'));
+        // return view('bumdes.dashboard.wtb.index');
     }
 
     /**

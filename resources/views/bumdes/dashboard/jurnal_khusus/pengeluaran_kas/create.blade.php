@@ -6,7 +6,7 @@
     <div style="margin-top:3rem;margin-bottom: 3rem;padding-bottom:5rem;padding-top:6rem;background-color:white" class="px-5 rounded-4">
         <div class="d-flex justify-content-center mb-4" style="margin-top: -50px">
             
-            <form action="/jurnal_umum/create" method="post" class="form-container">
+            <form action="/pengeluaran_kas/create" method="post" class="form-container">
                 @csrf
                 <div class="d-flex">
                     
@@ -14,23 +14,6 @@
 
                         <h1 >Form Tambah Data</h1>
                         <p class="fs-5" style="color: #8F9CA9">isi form dibawah ini untuk menambah data</p>
-                        
-                        {{-- <label for="tanggal" class="form-label"><b>Tanggal Transaksi</b></label>
-                        <input type="text" class="form-control" placeholder="DD/MM/YYYY" name="tanggal" required> --}}
-                        
-                        {{-- <label for="nama_akun" ><b>Nama Akun</b></label>
-                        <select class="form-select mb-3" aria-label=".form-select example" name="nama_akun">
-                            
-                            <option value="kas_debit">Kas(D)</option>
-                        <option value="kas_kredit">Kas(K)</option>
-                        <option value="modal_awal">Modal Awal</option>
-                        <option value="piutang_desa">Piutang Desa</option>
-                        <option value="pendapatan_dari_desa">Pendapatan dari Desa</option>
-                        <option value="peralatan_dan_meubeliar">Peralatan dan Meubeliar</option>
-                        <option value="piutang_dagang">Piutang Dagang</option>
-                        <option value="penjualan">Penjualan</option>
-                        
-                        </select> --}}
 
                         <div class="mt-3">
 
@@ -60,7 +43,7 @@
                     
                         
                         <button type="submit" class="btn mt-5 fw-semibold" style="background-color: #3C4B64">Tambah</button>
-                        <a href="/jurnal_umum" type="button" class="btn btn-success mt-3  fw-semibold" style="">Selesai</a>
+                        <a href="/pengeluaran_kas" type="button" class="btn btn-success mt-3  fw-semibold" style="">Selesai</a>
                     </div>
                     
                 </div>
@@ -72,12 +55,5 @@
         
     </div>
     </div>
-    <script>
-        function upperCaseF(a){
-            setTimeout(function(){
-                a.value = a.value.toUpperCase();
-            }, 1);
-        }   
-    </script>
     
 @endsection

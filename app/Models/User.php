@@ -46,4 +46,12 @@ class User extends Authenticatable
     {
         return $this->hasMany(JurnalUmum::class);
     }
+    public function pemasukankas()
+    {
+        return $this->hasMany(PemasukanKas::class);
+    }
+    public function pengeluarankas()
+    {
+        return $this->hasMany(PengeluaranKas::class);
+    }
 }

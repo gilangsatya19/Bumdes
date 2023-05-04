@@ -5,10 +5,11 @@
     <div style="margin-top:3rem;margin-bottom: 3rem;padding-bottom:5rem;padding-top:6rem;background-color:white" class="px-5 rounded-4">
         <div class="d-flex mb-4" style="margin-top: -50px">
             <h1 >WTB</h1>
-            <div class="ms-auto">
-                @include('bumdes.dashboard.layouts.form')
-            </div>
+            
         </div>
+        
+            
+        
         <div class="table-responsive">
             <table class="table table-striped table-borderless" style="">
                 <thead class="text-white text-center" style="background-color: #3C4B64" >

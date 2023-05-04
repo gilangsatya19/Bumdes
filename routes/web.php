@@ -20,6 +20,7 @@ use App\Http\Controllers\VendorController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\KodeRekeningController;
 
+use App\Models\PengeluaranKas;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -49,6 +50,18 @@ Route::post('/jurnal_umum/createNew', [JurnalUmumController::class, 'createNew']
 Route::get('/jurnal_umum/{id}/edit', [JurnalUmumController::class, 'edit']);
 Route::post('/jurnal_umum/{id}/update', [JurnalUmumController::class, 'update']);
 
+Route::get('/pengeluaran_kas', [JurnalPengeluaranKasController::class, 'index']);
+Route::get('/pengeluaran_kas/create', [JurnalPengeluaranKasController::class, 'create']);
+Route::post('/pengeluaran_kas/create', [JurnalPengeluaranKasController::class, 'store']);
+Route::post('/pengeluaran_kas/createNew', [JurnalPengeluaranKasController::class, 'createNew']);
+
+Route::get('/pemasukan_kas', [JurnalPemasukanKasController::class, 'index']);
+Route::get('/pemasukan_kas/create', [JurnalPemasukanKasController::class, 'create']);
+Route::post('/pemasukan_kas/create', [JurnalPemasukanKasController::class, 'store']);
+Route::post('/pemasukan_kas/createNew', [JurnalPemasukanKasController::class, 'createNew']);
+
+
+
 
 Route::get('/dashboard', function() {
     return view('bumdes.dashboard.index');
@@ -58,8 +71,8 @@ Route::get('/dashboard', function() {
 // Route::resource('/jurnal_umum', JurnalUmumController::class);
 Route::resource('/pembelian', JurnalPembelianController::class);
 Route::resource('/penjualan', JurnalPenjualanController::class);
-Route::resource('/pengeluaran_kas', JurnalPengeluaranKasController::class);
-Route::resource('/pemasukan_kas', JurnalPemasukanKasController::class);
+// Route::resource('/pengeluaran_kas', JurnalPengeluaranKasController::class);
+// Route::resource('/pemasukan_kas', JurnalPemasukanKasController::class);
 Route::resource('/buku_besar', BukuBesarController::class);
 Route::resource('/wtb', WTBController::class);
 Route::resource('/laba_rugi', LabaRugiController::class);

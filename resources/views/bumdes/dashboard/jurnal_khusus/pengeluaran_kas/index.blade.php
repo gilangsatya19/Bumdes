@@ -13,6 +13,7 @@
             <table class="table table-striped table-borderless">
                 <thead class="text-white text-center" style="background-color: #3C4B64">
                     <tr>
+                        <th scope="col">No</th>
                         <th scope="col">Tanggal</th>
                         <th scope="col">Kelola Akun</th>
                         <th scope="col">Uraian Jurnal</th>

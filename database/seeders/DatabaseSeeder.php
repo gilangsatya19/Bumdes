@@ -33,6 +33,11 @@ class DatabaseSeeder extends Seeder
             'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
             'user_id' => '1',
         ]);
+        DB::table('jurnal_umum')->insert([
+            'tanggal' => '28/07/2001',
+            'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
+            'user_id' => '1',
+        ]);
 
         DB::table('data_jurnal_umum')->insert([
             'nama_akun' => 'Kas',
@@ -64,6 +69,113 @@ class DatabaseSeeder extends Seeder
             'jurnal_umum_id' => '2',
         ]);
 
+        DB::table('data_jurnal_umum')->insert([
+            'nama_akun' => 'Tanah',
+            'noref' => '1301',
+            'debit' => '300000000',
+            'kredit' => '0',
+            'jurnal_umum_id' => '3',
+        ]);
+        DB::table('data_jurnal_umum')->insert([
+            'nama_akun' => 'Kas',
+            'noref' => '3102',
+            'debit' => '0',
+            'kredit' => '10000000',
+            'jurnal_umum_id' => '3',
+        ]);
+        DB::table('data_jurnal_umum')->insert([
+            'nama_akun' => 'Utang usaha',
+            'noref' => '2101',
+            'debit' => '0',
+            'kredit' => '290000000',
+            'jurnal_umum_id' => '3',
+        ]);
+
+
+        // Table pemasukan kas
+        DB::table('pemasukan_kas')->insert([ //1
+            'tanggal' => '1/04/2001',
+            'user_id' => '1',
+        ]);
+        DB::table('pemasukan_kas')->insert([ //2
+            'tanggal' => '2/04/2001',
+            'user_id' => '1',
+        ]);
+
+        DB::table('data_pemasukan_kas')->insert([
+            'nama_akun' => 'Kas',
+            'noref' => '1101',
+            'debit' => '5000000',
+            'kredit' => '0',
+            'pemasukan_kas_id' => '1',
+        ]);
+        DB::table('data_pemasukan_kas')->insert([
+            'nama_akun' => 'Penyertaan Modal Desa',
+            'noref' => '3101',
+            'debit' => '0',
+            'kredit' => '5000000',
+            'pemasukan_kas_id' => '1',
+        ]);
+
+        DB::table('data_pemasukan_kas')->insert([
+            'nama_akun' => 'Kas',
+            'noref' => '1101',
+            'debit' => '1200000',
+            'kredit' => '0',
+            'pemasukan_kas_id' => '2',
+        ]);
+        DB::table('data_pemasukan_kas')->insert([
+            'nama_akun' => 'Piutang Usaha',
+            'noref' => '1108',
+            'debit' => '0',
+            'kredit' => '5000000',
+            'pemasukan_kas_id' => '2',
+        ]);
+
+        // Table pengeluaran kas
+        DB::table('pengeluaran_kas')->insert([ //1
+            'tanggal' => '3/04/2001',
+            'user_id' => '1',
+        ]);
+        DB::table('pengeluaran_kas')->insert([ //2
+            'tanggal' => '4/04/2001',
+            'user_id' => '1',
+        ]);
+
+        DB::table('data_pengeluaran_kas')->insert([
+            'nama_akun' => 'Peralatan dan Meubeliar',
+            'noref' => '1304',
+            'debit' => '4200000',
+            'kredit' => '0',
+            'pengeluaran_kas_id' => '1',
+        ]);
+        DB::table('data_pengeluaran_kas')->insert([
+            'nama_akun' => 'Kas',
+            'noref' => '1101',
+            'debit' => '0',
+            'kredit' => '4200000',
+            'pengeluaran_kas_id' => '1',
+        ]);
+
+        DB::table('data_pengeluaran_kas')->insert([
+            'nama_akun' => 'Perlengkapan',
+            'noref' => '1111',
+            'debit' => '250000',
+            'kredit' => '0',
+            'pengeluaran_kas_id' => '2',
+        ]);
+        DB::table('data_pengeluaran_kas')->insert([
+            'nama_akun' => 'Kas',
+            'noref' => '1101',
+            'debit' => '0',
+            'kredit' => '250000',
+            'pengeluaran_kas_id' => '2',
+        ]);
+        
+
+        
+
+        // Table nama akun
 
         DB::table('nama_akuns')->insert([
             'nama' => 'Aset',

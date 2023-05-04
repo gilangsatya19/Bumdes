@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\NamaAkun;
 use Illuminate\Http\Request;
+use App\Models\JurnalUmum;
+use App\Models\DataJurnalUmum;
 
 class BukuBesarController extends Controller
 {
@@ -13,7 +16,12 @@ class BukuBesarController extends Controller
      */
     public function index()
     {
-        return view('bumdes.dashboard.buku_besar.index');
+        return view('bumdes.dashboard.buku_besar.index',[
+            'nama_akuns' => NamaAkun::all(),
+            'jurnals' => JurnalUmum::all(),
+            'iterasi' => '0',
+            'saldo' => '0',
+        ]);
     }
 
     /**
