@@ -7,7 +7,7 @@
         <div class="d-flex mb-4" style="margin-top: -50px">
             <h1 >JURNAL UMUM</h1>
             <div class="ms-auto">
-                @include('bumdes.dashboard.layouts.form')
+                @include('bumdes.dashboard.jurnal_umum.form')
             </div>
         </div>
         

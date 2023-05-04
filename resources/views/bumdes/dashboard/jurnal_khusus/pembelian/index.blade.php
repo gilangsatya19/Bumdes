@@ -6,7 +6,7 @@
         <div class="d-flex mb-4" style="margin-top: -50px">
             <h1 >JURNAL KHUSUS - PEMBELIAN</h1>
             <div class="ms-auto">
-                @include('bumdes.dashboard.layouts.form')
+                @include('bumdes.dashboard.jurnal_khusus.pembelian.form')
             </div>
         </div>
         <div class="table-responsive">
