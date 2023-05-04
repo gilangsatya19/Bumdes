@@ -20,43 +20,34 @@
                         <th scope="col">Telp Penerima</th>
                         <th scope="col">Nama Pengirim</th>
                         <th scope="col">Alamat Pengirim</th>
-                        <th scope="col">Aksi</th>
+                        <th scope="col">Bukti Transaksi</th>
                     </tr>
                 </thead>
                 <tbody class="fw-semibold text-center">
-                    {{-- <tr>
-                        <th scope="row" rowspan="">1</th>
-                        <td>11/04/23</td>
-                        <td>-</td>
-                        <td>Kas</td>
-                        <td>1101</td>
-                        <td>5.000.000</td>
-                        <td>-</td>
-                        <td><button class="btn btn-primary btn-unduh">Unduh</button></td>
-                        <td><button class="btn btn-primary btn-ubah">Ubah</button></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td>11/04/23</td>
-                        <td>-</td>
-                        <td>Modal Awal</td>
-                        <td>3102</td>
-                        <td>-</td>
-                        <td>5.000.000</td>
-                        <td><button class="btn btn-primary btn-unduh">Unduh</button></td>
-                        <td><button class="btn btn-primary btn-ubah">Ubah</button></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td>11/04/23</td>
-                        <td>-</td>
-                        <td>Kas</td>
-                        <td>1101</td>
-                        <td>5.000.000</td>
-                        <td>-</td>
-                        <td><button class="btn btn-primary btn-unduh">Unduh</button></td>
-                        <td><button class="btn btn-primary btn-ubah">Ubah</button></td>
-                    </tr> --}}
+                    {{-- 
+
+                        foreach datas as data
+                        <tr>
+                            <td>data->tanggal</td>
+                            <td>data->namapenerima</td>
+                            <td>data->alamatpenerima</td>
+                            <td>data->telppenerima</td>
+                            <td>data->namapengirim</td>
+                            <td>data->alamatpengirim</td>                            
+                            <td>btn</td>
+                            
+                        </tr>
+                        endforeach
+                     --}}
+                         <tr>
+                            <th scope="row" rowspan="">17/04/23</th> <!-- tanggal -->
+                            <td>Syamsudin (BUMDes Sejahtera)</td> <!-- nama penerima -->
+                            <td>Jl. Sukapura No 1006 Bandung</td> <!-- alamat penerima -->
+                            <td>0899-9923-3522</td> <!-- telp penerima --> 
+                            <td>Mamat (Sachio Baso dan Agen Telur)</td> <!-- nama pengirim -->    
+                            <td>Jl. Kamarasan Residence BI D1 No. 3, Buah Batu, Bojongsoang, Bandung, Jawa Barat 40287</td> <!-- alamat pengirim -->                  
+                            <td><button class="btn btn-primary btn-unduh">Unduh</button></td>                       
+                        </tr>
                 </tbody>
             </table>
         </div>

@@ -20,43 +20,35 @@
                         <th scope="col">Telp Konsumen</th>
                         <th scope="col">Barang</th>
                         <th scope="col">Jumlah Barang</th>
-                        <th scope="col">Aksi</th>
+                        <th scope="col">Bukti Transaksi</th>
                     </tr>
                 </thead>
                 <tbody class="fw-semibold text-center">
-                    {{-- <tr>
-                        <th scope="row" rowspan="">1</th>
-                        <td>11/04/23</td>
-                        <td>-</td>
-                        <td>Kas</td>
-                        <td>1101</td>
-                        <td>5.000.000</td>
-                        <td>-</td>
-                        <td><button class="btn btn-primary btn-unduh">Unduh</button></td>
-                        <td><button class="btn btn-primary btn-ubah">Ubah</button></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td>11/04/23</td>
-                        <td>-</td>
-                        <td>Modal Awal</td>
-                        <td>3102</td>
-                        <td>-</td>
-                        <td>5.000.000</td>
-                        <td><button class="btn btn-primary btn-unduh">Unduh</button></td>
-                        <td><button class="btn btn-primary btn-ubah">Ubah</button></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td>11/04/23</td>
-                        <td>-</td>
-                        <td>Kas</td>
-                        <td>1101</td>
-                        <td>5.000.000</td>
-                        <td>-</td>
-                        <td><button class="btn btn-primary btn-unduh">Unduh</button></td>
-                        <td><button class="btn btn-primary btn-ubah">Ubah</button></td>
-                    </tr> --}}
+                    {{-- 
+                        foreach datas as data
+                        <tr>
+                        
+                            <td>data->tanggal</td>
+                            <td>data->noinvoice</td>
+                            <td>data->namakonsumen</td>
+                            <td>data->telpkonsumen</td>
+                            <td>data->barang</td>
+                            <td>data->jumlah</td>                            
+                            <td>btn</td>
+                            
+                        
+                        </tr>
+                        endforeach
+                     --}}
+                         <tr>
+                            <th scope="row" rowspan="">20/04/23</th> <!-- tanggal -->
+                            <td>1A001</td> <!-- no invoice -->
+                            <td>Sulaiman</td> <!-- nama konsumen -->
+                            <td>0821-2223-4433</td> <!-- telp konsumen --> 
+                            <td>Telur</td> <!-- barang -->    
+                            <td>10 kg</td> <!-- jumlah barang -->                  
+                            <td><button class="btn btn-primary btn-unduh">Unduh</button></td>                       
+                        </tr>
                 </tbody>
             </table>
         </div>

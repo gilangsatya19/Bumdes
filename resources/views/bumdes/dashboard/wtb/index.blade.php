@@ -7,9 +7,6 @@
             <h1 >WTB</h1>
             
         </div>
-        
-            
-        
         <div class="table-responsive">
             <table class="table table-striped table-borderless" style="">
                 <thead class="text-white text-center" style="background-color: #3C4B64" >
@@ -41,21 +38,19 @@
                         
                         foreach datas as data
                         <tr>
-                            <td>data->id</td>
-                            <td>data->tanggal</td>
-                            foreach items as item
-                            <td>item->nama_akun</td>
-                            <td>item->noref</td>
-                            if item->debit = 0
-                                <td>-</td>
-                                <td>item->kredit</td>
-                            else
-                                <td>item->debit</td>
-                                <td>-</td>
-                            endif
+                            <td>data->no</td>
+                            <td>data->neraca_saldo_debit</td>
+                            <td>data->neraca_saldo_kredit</td>
+                            <td>data->penyesuaian_debit</td>
+                            <td>data->penyesuaian_kredit</td>
+                            <td>data->neraca_saldo_setelah_debit</td>    
+                            <td>data->neraca_saldo_setelah_kreddit</td>  
+                            <td>data->laba_rugi_debit</td>     
+                            <td>data->laba_rugi_kredit</td>
+                            <td>data->neraca_debit</td> 
+                            <td>data->neraca_kredit</td>                  
                             <td>btn</td>
-                            <td>btn</td>
-                            endforeach
+                            
                         </tr>
                         endforeach
                      --}}
