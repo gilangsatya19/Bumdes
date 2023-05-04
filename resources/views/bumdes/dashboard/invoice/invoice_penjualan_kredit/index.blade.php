@@ -26,39 +26,38 @@
                     </tr>
                 </thead>
                 <tbody class="fw-semibold text-center">
-                    {{-- <tr>
-                        <th scope="row" rowspan="">1</th>
-                        <td>11/04/23</td>
-                        <td>-</td>
-                        <td>Kas</td>
-                        <td>1101</td>
-                        <td>5.000.000</td>
-                        <td>-</td>
-                        <td><button class="btn btn-primary btn-unduh">Unduh</button></td>
-                        <td><button class="btn btn-primary btn-ubah">Ubah</button></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td>11/04/23</td>
-                        <td>-</td>
-                        <td>Modal Awal</td>
-                        <td>3102</td>
-                        <td>-</td>
-                        <td>5.000.000</td>
-                        <td><button class="btn btn-primary btn-unduh">Unduh</button></td>
-                        <td><button class="btn btn-primary btn-ubah">Ubah</button></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td>11/04/23</td>
-                        <td>-</td>
-                        <td>Kas</td>
-                        <td>1101</td>
-                        <td>5.000.000</td>
-                        <td>-</td>
-                        <td><button class="btn btn-primary btn-unduh">Unduh</button></td>
-                        <td><button class="btn btn-primary btn-ubah">Ubah</button></td>
-                    </tr> --}}
+                    {{-- 
+                        foreach datas as data
+                        <tr>
+                            <td>data->tanggal</td>
+                            <td>data->no_invoice</td>
+                            foreach items as item
+                            <td>item->nama_akun</td>
+                            <td>item->noref</td>
+                            if item->debit = 0
+                                <td>-</td>
+                                <td>item->kredit</td>
+                            else
+                                <td>item->debit</td>
+                                <td>-</td>
+                            endif
+                            <td>btn</td>
+                            <td>btn</td>
+                            endforeach
+                        </tr>
+                        endforeach
+                     --}}
+                         <tr>
+                            <th scope="row" rowspan="">21/04/23</th> <!-- tanggal -->
+                            <td>1B001</td> <!-- no invoice -->
+                            <td>Dono</td> <!-- nama -->
+                            <td>sukabirus</td> <!-- alamat  --> 
+                            <td>0823-5678-0091</td> <!-- telpon -->    
+                            <td>21/05/23</td> <!-- tanggal jatuh tempo -->
+                            <td>Telur</td> <!-- barang -->
+                            <td>25 kg</td> <!-- jumlah barang -->                  
+                            <td><button class="btn btn-primary btn-unduh">Unduh</button></td>                       
+                        </tr>
                 </tbody>
             </table>
         </div>
