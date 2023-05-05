@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\DataPenjualan;
 
 class JurnalPenjualanController extends Controller
 {
@@ -23,7 +24,11 @@ class JurnalPenjualanController extends Controller
      */
     public function create()
     {
-        return view('bumdes.dashboard.jurnal_khusus.penjualan.create');
+        return view('bumdes.dashboard.jurnal_khusus.penjualan.create',[
+            'title' => 'Tambah Data',
+            'method' => 'POST',
+            'action' => 'penjualan',
+        ]);
     }
 
     /**
@@ -34,7 +39,17 @@ class JurnalPenjualanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = new DataPenjualan;
+        $data->tanggal = $request->tanggal;
+        $data->no_faktur = $request->no_faktur;
+        $data->keterangan = $request->keterangan;
+        $data->noref = $request->noref;
+        $data->syarat_pembayaran = $request->syarat_pembayaran;
+        $data->piutang_dagang = $request->piutang_dagang;
+        $data->penjualan = $request->penjualan;
+        $data->user_id = auth()->user()->id;
+        $data->save();
+        return redirect('/penjualan');
     }
 
     /**

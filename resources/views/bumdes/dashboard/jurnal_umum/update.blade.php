@@ -13,32 +13,35 @@
                     <div>
 
                         <h1 >Edit Data</h1>
-                        {{--
-                            1 transaksi ~~ 2 Mb 
-                            1 minggu = 50 transaksi
-                            1 tahun = 52 minggu
-                            52minggu x 50 transaksi = 2600 transaksi
-                            2600 x 2 = 5200Mb
-
-                            --}}
-                        
                         
 
-                        <label for="nama_akun" class="form-label"><b>Nama Akun</b></label>
-                        <input type="text" class="form-control" value="{{isset($data)?$data->nama_akun:''}}" name="nama_akun" required>
+                        <div class="mt-3">
 
-                        <label for="noref" class="form-label"><b>No Referensi</b></label>
-                        <input type="text" class="form-control" value="{{isset($data)?$data->noref:''}}" name="noref" required>
+                            <label for="nama_akun" class="form-label fs-4"><b>Nama Akun</b></label>
+                            <div class="">
+                                
+                                <select id="nama_akun" name="nama_akun" class="fs-5">
+                                    @foreach ($nama_akuns as $nama_akun)
+                                    @if ($nama_akun->d_k != '')
+                                        <option value="{{$nama_akun->nama}}">{{$nama_akun->nama}}</option>
+                                    @endif
+                                    @endforeach
+                                    
+                                </select>
+                            </div>
+                        </div>
+
 
                         
-                        <label for="debit" class="form-label"><b>Debit</b></label>
-                        <input type="number" class="form-control" value="{{isset($data)?$data->debit:''}}" name="debit" required>
+                        <label for="debit" class="form-label fs-4 mt-3"><b>Debit</b></label>
+                        <input type="number" class="form-control fs-5" placeholder="Masukkan Jumlah Debit" name="debit" value="{{isset($data)?$data->debit:''}}" required>
 
-                        <label for="kredit" class="form-label"><b>Kredit</b></label>
-                        <input type="number" class="form-control" value="{{isset($data)?$data->kredit:''}}" name="kredit" required>
+                        <label for="kredit" class="form-label fs-4 mt-3"><b>Kredit</b></label>
+                        <input type="number" class="form-control fs-5" placeholder="Masukkan Jumlah Kredit" name="kredit" value="{{isset($data)?$data->kredit:''}}" required>
                     
                         
                         <button type="submit" class="btn mt-5 fw-semibold" style="background-color: #3C4B64">Simpan</button>
+                        
                     </div>
                     
                 </div>
@@ -50,6 +53,5 @@
         
     </div>
     </div>
-
     
 @endsection

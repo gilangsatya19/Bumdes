@@ -20,7 +20,7 @@
                         <input type="text" placeholder="DD/MM/YYYY" name="tanggal" required>
 
                         <label for="keterangan" class="fs-5"><b>Keterangan</b></label>
-                        <input type="text" placeholder="Ketik Masukkan.." name="Keterangan" required>
+                        <input type="text" placeholder="Ketik Masukkan.." name="keterangan" required>
 
                         <label for="noref" class="fs-5"><b>Ref</b></label>
                         <input type="text" placeholder="Ketik Masukkan.." name="noref" required>
@@ -30,13 +30,14 @@
                         <input type="number" name="pembelian" class="form-control bg-grey" value="0" required>
 
                         <label for="akun" class="fs-5"><b>Akun</b></label>
-                        <input type="text" placeholder="Ketik Masukan.." name="noref">
+                        <input type="text" placeholder="Ketik Masukan.." name="akun">
+
                         <label for="jumlah" class="fs-5"><b>Jumlah</b></label>
-                        <input type="text" placeholder="Ketik Masukkan" name="noref">
+                        <input type="text" placeholder="Ketik Masukkan" name="jumlah">
 
                         <h4>Kredit</h4>
                         <label for="utang_dagang" class="fs-5"><b>Utang Dagang</b></label>
-                        <input type="number" name="utang-dagang" class="form-control" value="0" required> 
+                        <input type="number" name="utang_dagang" class="form-control" value="0" required> 
         
                         <button type="submit" class="btn mt-5" style="background-color: #3C4B64">Tambah</button>
                         

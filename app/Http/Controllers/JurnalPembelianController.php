@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\DataPembelian;
+
+
+
 
 class JurnalPembelianController extends Controller
 {
@@ -23,7 +27,11 @@ class JurnalPembelianController extends Controller
      */
     public function create()
     {
-        return view('bumdes.dashboard.jurnal_khusus.pembelian.create');
+        return view('bumdes.dashboard.jurnal_khusus.pembelian.create',[
+            'title' => 'Tambah Data',
+            'method' => 'POST',
+            'action' => 'pembelian',
+        ]);
     }
 
     /**
@@ -34,7 +42,27 @@ class JurnalPembelianController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $data = new DataPembelian;
+        $data->tanggal = $request->tanggal;
+        $data->keterangan = $request->keterangan;
+        $data->noref = $request->noref;
+        $data->pembelian = $request->pembelian;
+        
+        if (!isset($request->akun)) {
+            $data->akun = '-';
+        } else {
+            $data->akun = $request->akun;
+        }
+        if (!isset($request->jumlah)) {
+            $data->jumlah = 0;
+        } else {
+            $data->jumlah = $request->jumlah;
+        }
+        $data->utang_dagang = $request->utang_dagang;
+        $data->user_id = auth()->user()->id;
+        $data->save();
+        return redirect('/pembelian');
     }
 
     /**

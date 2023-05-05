@@ -60,6 +60,15 @@ Route::get('/pemasukan_kas/create', [JurnalPemasukanKasController::class, 'creat
 Route::post('/pemasukan_kas/create', [JurnalPemasukanKasController::class, 'store']);
 Route::post('/pemasukan_kas/createNew', [JurnalPemasukanKasController::class, 'createNew']);
 
+Route::get('/pembelian', [JurnalPembelianController::class, 'index']);
+Route::get('/pembelian/create', [JurnalPembelianController::class, 'create']);
+Route::post('/pembelian/create', [JurnalPembelianController::class, 'store']);
+
+Route::get('/penjualan', [JurnalPenjualanController::class, 'index']);
+Route::get('/penjualan/create', [JurnalPenjualanController::class, 'create']);
+Route::post('/penjualan/create', [JurnalPenjualanController::class, 'store']);
+
+
 
 
 
@@ -69,8 +78,8 @@ Route::get('/dashboard', function() {
 
 
 // Route::resource('/jurnal_umum', JurnalUmumController::class);
-Route::resource('/pembelian', JurnalPembelianController::class);
-Route::resource('/penjualan', JurnalPenjualanController::class);
+// Route::resource('/pembelian', JurnalPembelianController::class);
+// Route::resource('/penjualan', JurnalPenjualanController::class);
 // Route::resource('/pengeluaran_kas', JurnalPengeluaranKasController::class);
 // Route::resource('/pemasukan_kas', JurnalPemasukanKasController::class);
 Route::resource('/buku_besar', BukuBesarController::class);

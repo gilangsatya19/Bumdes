@@ -98,6 +98,7 @@ class JurnalUmumController extends Controller
             'title' => 'Edit Data',
             'method' => 'PUT',
             'action' => 'jurnal_umum/'.$id,
+            'nama_akuns' => NamaAkun::all(),
             'data' => DataJurnalUmum::find($id),
         ]);
     }
@@ -111,9 +112,15 @@ class JurnalUmumController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $akuns = NamaAkun::all();
         $data = DataJurnalUmum::find($id);
         $data->nama_akun = $request->nama_akun;
-        $data->noref = $request->noref;
+        foreach ($akuns as $akun){
+            if($data->nama_akun == $akun->nama){
+                $data->noref = $akun->kode_rekening;
+            }
+        }
+        
         $data->debit = $request->debit;
         $data->kredit = $request->kredit;
         // $data->jurnal_umum_id = '3';

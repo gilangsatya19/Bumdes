@@ -6,7 +6,7 @@
     <div style="margin-top:3rem;margin-bottom: 3rem;padding-bottom:5rem;padding-top:6rem;background-color:white" class="px-5 rounded-4">
         <div class="d-flex justify-content-center mb-4" style="margin-top: -50px">
             
-            <form action="/penjualan/create/..." method="post" class="form-container">
+            <form action="/penjualan/create" method="post" class="form-container">
                 @csrf
                 <div class="d-flex">
                     
@@ -21,29 +21,24 @@
                         <input type="text" placeholder="DD/MM/YYYY" name="tanggal" required>
 
                         <label for="no_faktur" class="fs-5"><b>No.Faktur</b></label>
-                        <input type="text" placeholder="Ketik Masukkan.." name="tanggal" required>
+                        <input type="text" placeholder="Ketik Masukkan.." name="no_faktur" required>
 
                         <label for="keterangan" class="fs-5"><b>Keterangan</b></label>
-                        <input type="text" placeholder="Ketik Masukkan.." name="Keterangan" required>
+                        <input type="text" placeholder="Ketik Masukkan.." name="keterangan" required>
 
                         <label for="noref" class="fs-5"><b>Ref</b></label>
                         <input type="text" placeholder="Ketik Masukkan.." name="noref" required>
 
                         <label for="syarat_pembayaran" class="fs-5"><b>Syarat Pembayaran</b></label>
-                        <input type="text" placeholder="Ketik Masukkan.." name="noref" required>
+                        <input type="text" placeholder="Ketik Masukkan.." name="syarat_pembayaran" required>
 
-                        <h4>Debit</h4>
-                        <label for="piutang_dagang" class="fs-5"><b>Piutang Dagang</b></label>
-                        <input type="text" placeholder="Ketik Masukkan.." name="noref" required>
+                        
+                        <label for="piutang_dagang" class="fs-5 mb-2"><b>Piutang Dagang (D)</b></label>
+                        <input type="number" name="piutang_dagang" class="form-control mb-4" value="0" required> 
 
-                        <h4>Kredit</h4>
-                        <label for="penjualan" class="fs-5"><b>Penjualan</b></label>
-                        <input type="text" placeholder="Ketik Masukkan.." name="noref" required>
-
-                        <div class="mb-4">
-                        <label for="bukti_pembayaran"><b>Upload Bukti Pembayaran</b></label>
-                        <input type="file" class="form-control"  name="bukti_pembayaran" required>
-                        </div>
+                        
+                        <label for="penjualan" class="fs-5 mb-2"><b>Penjualan (K)</b></label>
+                        <input type="number" name="penjualan" class="form-control" value="0" required> 
         
                         <button type="submit" class="btn mt-5" style="background-color: #3C4B64">Tambah</button>
                     </div>

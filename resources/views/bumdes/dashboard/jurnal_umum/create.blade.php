@@ -14,23 +14,6 @@
 
                         <h1 >Form Tambah Data</h1>
                         <p class="fs-5" style="color: #8F9CA9">isi form dibawah ini untuk menambah data</p>
-                        
-                        {{-- <label for="tanggal" class="form-label"><b>Tanggal Transaksi</b></label>
-                        <input type="text" class="form-control" placeholder="DD/MM/YYYY" name="tanggal" required> --}}
-                        
-                        {{-- <label for="nama_akun" ><b>Nama Akun</b></label>
-                        <select class="form-select mb-3" aria-label=".form-select example" name="nama_akun">
-                            
-                            <option value="kas_debit">Kas(D)</option>
-                        <option value="kas_kredit">Kas(K)</option>
-                        <option value="modal_awal">Modal Awal</option>
-                        <option value="piutang_desa">Piutang Desa</option>
-                        <option value="pendapatan_dari_desa">Pendapatan dari Desa</option>
-                        <option value="peralatan_dan_meubeliar">Peralatan dan Meubeliar</option>
-                        <option value="piutang_dagang">Piutang Dagang</option>
-                        <option value="penjualan">Penjualan</option>
-                        
-                        </select> --}}
 
                         <div class="mt-3">
 
@@ -47,9 +30,6 @@
                                 </select>
                             </div>
                         </div>
-
-                        {{-- <label for="noref" class="form-label"><b>No Referensi</b></label>
-                        <input type="text" class="form-control" placeholder="Masukkan Nomor Referensi" name="noref" required> --}}
 
                         
                         <label for="debit" class="form-label fs-4 mt-3"><b>Debit</b></label>
@@ -72,12 +52,5 @@
         
     </div>
     </div>
-    <script>
-        function upperCaseF(a){
-            setTimeout(function(){
-                a.value = a.value.toUpperCase();
-            }, 1);
-        }   
-    </script>
     
 @endsection
