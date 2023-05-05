@@ -84,15 +84,48 @@ class DatabaseSeeder extends Seeder
             'user_id' => '1',
         ]);
         DB::table('jurnal_umum')->insert([
-            'tanggal' => '28/02/2022',
+            'tanggal' => '28/03/2022',
             'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
             'user_id' => '1',
         ]);
         DB::table('jurnal_umum')->insert([
-            'tanggal' => '28/07/2001',
+            'tanggal' => '17/04/2022',
             'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
             'user_id' => '1',
         ]);
+        DB::table('jurnal_umum')->insert([
+            'tanggal' => '25/05/2022',
+            'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
+            'user_id' => '1',
+        ]);
+        DB::table('jurnal_umum')->insert([
+            'tanggal' => '04/06/2022',
+            'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
+            'user_id' => '1',
+        ]);
+        DB::table('jurnal_umum')->insert([
+            'tanggal' => '04/06/2022',
+            'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
+            'user_id' => '1',
+        ]);
+        DB::table('jurnal_umum')->insert([
+            'tanggal' => '07/06/2022',
+            'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
+            'user_id' => '1',
+        ]);
+        DB::table('jurnal_umum')->insert([
+            'tanggal' => '01/07/2022',
+            'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
+            'user_id' => '1',
+        ]);
+        DB::table('jurnal_umum')->insert([
+            'tanggal' => '01/07/2022',
+            'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
+            'user_id' => '1',
+        ]);
+
+
+
 
         DB::table('data_jurnal_umum')->insert([
             'nama_akun' => 'Kas',
@@ -286,26 +319,104 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Tanah',
-            'noref' => '1301',
-            'debit' => '300000000',
+            'nama_akun' => 'Gedung dan bangunan',
+            'noref' => '1302',
+            'debit' => '250000000',
             'kredit' => '0',
-            'jurnal_umum_id' => '3',
+            'jurnal_umum_id' => '14',
         ]);
         DB::table('data_jurnal_umum')->insert([
             'nama_akun' => 'Kas',
-            'noref' => '3102',
+            'noref' => '1101',
             'debit' => '0',
-            'kredit' => '10000000',
-            'jurnal_umum_id' => '3',
+            'kredit' => '250000000',
+            'jurnal_umum_id' => '14',
         ]);
         DB::table('data_jurnal_umum')->insert([
             'nama_akun' => 'Utang usaha',
-            'noref' => '2101',
-            'debit' => '0',
-            'kredit' => '290000000',
-            'jurnal_umum_id' => '3',
+            'noref' => '2112',
+            'debit' => '200000000',
+            'kredit' => '0',
+            'jurnal_umum_id' => '15',
         ]);
+        DB::table('data_jurnal_umum')->insert([
+            'nama_akun' => 'Kas',
+            'noref' => '1101',
+            'debit' => '0',
+            'kredit' => '200000000',
+            'jurnal_umum_id' => '15',
+        ]);
+        DB::table('data_jurnal_umum')->insert([
+            'nama_akun' => 'Kas di Bank A',
+            'noref' => '1102',
+            'debit' => '150000000',
+            'kredit' => '0',
+            'jurnal_umum_id' => '16',
+        ]);
+        DB::table('data_jurnal_umum')->insert([
+            'nama_akun' => 'Utang Usaha',
+            'noref' => '2112',
+            'debit' => '0',
+            'kredit' => '150000000',
+            'jurnal_umum_id' => '16',
+        ]);
+        DB::table('data_jurnal_umum')->insert([
+            'nama_akun' => 'Beban Administrasi Bank',
+            'noref' => '6113',
+            'debit' => '50000',
+            'kredit' => '0',
+            'jurnal_umum_id' => '17',
+        ]);
+        DB::table('data_jurnal_umum')->insert([
+            'nama_akun' => 'Kas',
+            'noref' => '1101',
+            'debit' => '0',
+            'kredit' => '50000',
+            'jurnal_umum_id' => '17',
+        ]);
+        DB::table('data_jurnal_umum')->insert([
+            'nama_akun' => 'Kas di Bank A',
+            'noref' => '1101',
+            'debit' => '50000',
+            'kredit' => '0',
+            'jurnal_umum_id' => '18',
+        ]);
+        DB::table('data_jurnal_umum')->insert([
+            'nama_akun' => 'Pendapatan Bunga',
+            'noref' => '7101',
+            'debit' => '0',
+            'kredit' => '50000',
+            'jurnal_umum_id' => '18',
+        ]);
+        DB::table('data_jurnal_umum')->insert([
+            'nama_akun' => 'Kas Kecil',
+            'noref' => '1105',
+            'debit' => '2500000',
+            'kredit' => '0',
+            'jurnal_umum_id' => '19',
+        ]);
+        DB::table('data_jurnal_umum')->insert([
+            'nama_akun' => 'Kas',
+            'noref' => '1101',
+            'debit' => '0',
+            'kredit' => '2500000',
+            'jurnal_umum_id' => '19',
+        ]);
+        DB::table('data_jurnal_umum')->insert([
+            'nama_akun' => 'Kas',
+            'noref' => '1101',
+            'debit' => '10000000',
+            'kredit' => '0',
+            'jurnal_umum_id' => '20',
+        ]);
+        DB::table('data_jurnal_umum')->insert([
+            'nama_akun' => 'Penyertaan Modal Desa',
+            'noref' => '3102',
+            'debit' => '0',
+            'kredit' => '10000000',
+            'jurnal_umum_id' => '20',
+        ]);
+
 
 
         // Table pemasukan kas

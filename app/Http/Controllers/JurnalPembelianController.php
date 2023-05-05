@@ -23,7 +23,7 @@ class JurnalPembelianController extends Controller
      */
     public function create()
     {
-        //
+        return view('bumdes.dashboard.jurnal_khusus.pembelian.create');
     }
 
     /**
