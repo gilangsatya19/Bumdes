@@ -28,9 +28,8 @@
 
                         <h4>Debit</h4>
                         <label for="pembelian" class="fs-5"><b>Pembelian</b></label>
-                        <input type="text" placeholder="Ketik Masukkan.." name="noref" required>
+                        <input type="number" name="pembelian" class="form-control bg-grey" value="0" required>
 
-                        <h5>Serba Serbi</h5>
                         <label for="akun" class="fs-5"><b>Akun</b></label>
                         <input type="text" placeholder="Ketik Masukan.." name="noref">
                         <label for="jumlah" class="fs-5"><b>Jumlah</b></label>
@@ -38,12 +37,7 @@
 
                         <h4>Kredit</h4>
                         <label for="utang_dagang" class="fs-5"><b>Utang Dagang</b></label>
-                        <input type="text" placeholder="Ketik Masukkan.." name="noref" required>
-
-                        <div class="mb-4">
-                        <label for="bukti_pembayaran"><b>Upload Bukti Pembayaran</b></label>
-                        <input type="file" class="form-control"  name="bukti_pembayaran" required>
-                        </div>
+                        <input type="number" name="utang-dagang" class="form-control" value="0" required> 
         
                         <button type="submit" class="btn" style="background-color: #3C4B64">Tambah</button>
                     </div>
