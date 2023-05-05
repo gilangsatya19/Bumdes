@@ -15,7 +15,8 @@
         <form style="margin-top: -10rem" action="/login" method="post">
             @csrf
             <div class="justify-content-center">
-                <img class="mb-4" src="{{asset('BUMDES/assets/halaman_awal/logo-siabdes.jpg')}}" alt="" width="100%" height="100%">
+                <img src="{{asset('BUMDES/assets/logo/logo-btp.jpg')}}" alt="logo-btp" width="100%" height="100%">
+                <img class="mb-4" src="{{asset('BUMDES/assets/halaman_awal/logo-siabdes.jpg')}}" alt="logo-siabdes" width="100%" height="100%">
             </div>
             @if (session()->has('loginError'))
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">

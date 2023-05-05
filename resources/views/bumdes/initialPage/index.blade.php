@@ -37,6 +37,7 @@
             </div>
             <div class="col-md-4">
               <div><img src="{{asset('BUMDES/assets/halaman_awal/logo-kelebihan.jpg')}}" class="image_1"></div>
+              
             </div>
           </div>
         </div>
