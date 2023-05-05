@@ -817,11 +817,35 @@ class DatabaseSeeder extends Seeder
 
         // Table pemasukan kas
         DB::table('pemasukan_kas')->insert([ //1
-            'tanggal' => '1/04/2001',
+            'tanggal' => '01/01/2022',
             'user_id' => '1',
         ]);
         DB::table('pemasukan_kas')->insert([ //2
-            'tanggal' => '2/04/2001',
+            'tanggal' => '27/01/2022',
+            'user_id' => '1',
+        ]);
+        DB::table('pemasukan_kas')->insert([ //3
+            'tanggal' => '05/02/2022',
+            'user_id' => '1',
+        ]);
+        DB::table('pemasukan_kas')->insert([ //4
+            'tanggal' => '08/02/2022',
+            'user_id' => '1',
+        ]);
+        DB::table('pemasukan_kas')->insert([ //5
+            'tanggal' => '10/02/2022',
+            'user_id' => '1',
+        ]);
+        DB::table('pemasukan_kas')->insert([ //6
+            'tanggal' => '05/06/2022',
+            'user_id' => '1',
+        ]);
+        DB::table('pemasukan_kas')->insert([ //7
+            'tanggal' => '01/07/2022',
+            'user_id' => '1',
+        ]);
+        DB::table('pemasukan_kas')->insert([ //8
+            'tanggal' => '11/08/2022',
             'user_id' => '1',
         ]);
         
@@ -855,88 +879,170 @@ class DatabaseSeeder extends Seeder
             'kredit' => '5000000',
             'pemasukan_kas_id' => '2',
         ]);
+        DB::table('data_pemasukan_kas')->insert([
+            'nama_akun' => 'Kas',
+            'noref' => '1101',
+            'debit' => '350000000',
+            'kredit' => '0',
+            'pemasukan_kas_id' => '3',
+        ]);
+        DB::table('data_pemasukan_kas')->insert([
+            'nama_akun' => 'Pendapatan Sewa',
+            'noref' => '1108',
+            'debit' => '0',
+            'kredit' => '350000000',
+            'pemasukan_kas_id' => '3',
+        ]);
+        DB::table('data_pemasukan_kas')->insert([
+            'nama_akun' => 'Kas',
+            'noref' => '1101',
+            'debit' => '350000000',
+            'kredit' => '0',
+            'pemasukan_kas_id' => '4',
+        ]);
+        DB::table('data_pemasukan_kas')->insert([
+            'nama_akun' => 'Pendapatan Jasa',
+            'noref' => '1108',
+            'debit' => '0',
+            'kredit' => '350000000',
+            'pemasukan_kas_id' => '4',
+        ]);
+        DB::table('data_pemasukan_kas')->insert([
+            'nama_akun' => 'Kas',
+            'noref' => '1101',
+            'debit' => '15000000',
+            'kredit' => '0',
+            'pemasukan_kas_id' => '5',
+        ]);
+        DB::table('data_pemasukan_kas')->insert([
+            'nama_akun' => 'Piutang Desa',
+            'noref' => '1115',
+            'debit' => '0',
+            'kredit' => '15000000',
+            'pemasukan_kas_id' => '5',
+        ]);
+        DB::table('data_pemasukan_kas')->insert([
+            'nama_akun' => 'Kas di Bank A',
+            'noref' => '1102',
+            'debit' => '50000',
+            'kredit' => '0',
+            'pemasukan_kas_id' => '6',
+        ]);
+        DB::table('data_pemasukan_kas')->insert([
+            'nama_akun' => 'Pendapatan Bunga',
+            'noref' => '7101',
+            'debit' => '0',
+            'kredit' => '50000',
+            'pemasukan_kas_id' => '6',
+        ]);
+        DB::table('data_pemasukan_kas')->insert([
+            'nama_akun' => 'Kas',
+            'noref' => '1101',
+            'debit' => '10000000',
+            'kredit' => '0',
+            'pemasukan_kas_id' => '7',
+        ]);
+        DB::table('data_pemasukan_kas')->insert([
+            'nama_akun' => 'Penyertaan Modal Desa',
+            'noref' => '3102',
+            'debit' => '0',
+            'kredit' => '10000000',
+            'pemasukan_kas_id' => '7',
+        ]);
+        DB::table('data_pemasukan_kas')->insert([
+            'nama_akun' => 'Kas',
+            'noref' => '1101',
+            'debit' => '750000',
+            'kredit' => '0',
+            'pemasukan_kas_id' => '8',
+        ]);
+        DB::table('data_pemasukan_kas')->insert([
+            'nama_akun' => 'Pendapatan dari Desa',
+            'noref' => '7102',
+            'debit' => '0',
+            'kredit' => '750000',
+            'pemasukan_kas_id' => '8',
+        ]);
+
 
         // Table pengeluaran kas
         DB::table('pengeluaran_kas')->insert([ //1
-            'tanggal' => '3/04/2001',
+            'tanggal' => '04/01/2022',
             'user_id' => '1',
         ]);
         DB::table('pengeluaran_kas')->insert([ //2
-            'tanggal' => '4/04/2001',
+            'tanggal' => '12/02/2022',
             'user_id' => '1',
         ]);
-        DB::table('pengeluaran_kas')->insert([ //2
-            'tanggal' => '4/04/2001',
+        DB::table('pengeluaran_kas')->insert([ //3
+            'tanggal' => '10/02/2022',
             'user_id' => '1',
         ]);
-        DB::table('pengeluaran_kas')->insert([ //2
-            'tanggal' => '4/04/2001',
+        DB::table('pengeluaran_kas')->insert([ //4
+            'tanggal' => '14/02/2022',
             'user_id' => '1',
         ]);
-        DB::table('pengeluaran_kas')->insert([ //2
-            'tanggal' => '4/04/2001',
+        DB::table('pengeluaran_kas')->insert([ //5
+            'tanggal' => '25/05/2022',
             'user_id' => '1',
         ]);
-        DB::table('pengeluaran_kas')->insert([ //2
-            'tanggal' => '4/04/2001',
+        DB::table('pengeluaran_kas')->insert([ //6
+            'tanggal' => '04/06/2022',
             'user_id' => '1',
         ]);
-        DB::table('pengeluaran_kas')->insert([ //2
-            'tanggal' => '4/04/2001',
+        DB::table('pengeluaran_kas')->insert([ //7
+            'tanggal' => '04/06/2022',
             'user_id' => '1',
         ]);
-        DB::table('pengeluaran_kas')->insert([ //2
-            'tanggal' => '4/04/2001',
+        DB::table('pengeluaran_kas')->insert([ //8
+            'tanggal' => '07/08/2022',
             'user_id' => '1',
         ]);
-        DB::table('pengeluaran_kas')->insert([ //2
-            'tanggal' => '4/04/2001',
+        DB::table('pengeluaran_kas')->insert([ //9
+            'tanggal' => '10/08/2022',
             'user_id' => '1',
         ]);
-        DB::table('pengeluaran_kas')->insert([ //2
-            'tanggal' => '4/04/2001',
+        DB::table('pengeluaran_kas')->insert([ //10
+            'tanggal' => '03/09/2022',
             'user_id' => '1',
         ]);
-        DB::table('pengeluaran_kas')->insert([ //2
-            'tanggal' => '4/04/2001',
+        DB::table('pengeluaran_kas')->insert([ //11
+            'tanggal' => '05/09/2022',
             'user_id' => '1',
         ]);
-        DB::table('pengeluaran_kas')->insert([ //2
-            'tanggal' => '4/04/2001',
+        DB::table('pengeluaran_kas')->insert([ //12
+            'tanggal' => '06/09/2022',
             'user_id' => '1',
         ]);
-        DB::table('pengeluaran_kas')->insert([ //2
-            'tanggal' => '4/04/2001',
+        DB::table('pengeluaran_kas')->insert([ //13
+            'tanggal' => '09/09/2022',
             'user_id' => '1',
         ]);
-        DB::table('pengeluaran_kas')->insert([ //2
-            'tanggal' => '4/04/2001',
+        DB::table('pengeluaran_kas')->insert([ //14
+            'tanggal' => '10/09/2022',
             'user_id' => '1',
         ]);
-        DB::table('pengeluaran_kas')->insert([ //2
-            'tanggal' => '4/04/2001',
+        DB::table('pengeluaran_kas')->insert([ //15
+            'tanggal' => '11/09/2022',
             'user_id' => '1',
         ]);
-        DB::table('pengeluaran_kas')->insert([ //2
-            'tanggal' => '4/04/2001',
+        DB::table('pengeluaran_kas')->insert([ //16
+            'tanggal' => '12/09/2022',
             'user_id' => '1',
         ]);
-        DB::table('pengeluaran_kas')->insert([ //2
-            'tanggal' => '4/04/2001',
+        DB::table('pengeluaran_kas')->insert([ //17
+            'tanggal' => '13/09/2023',
             'user_id' => '1',
         ]);
-        DB::table('pengeluaran_kas')->insert([ //2
-            'tanggal' => '4/04/2001',
+        DB::table('pengeluaran_kas')->insert([ //18
+            'tanggal' => '14/09/2023',
             'user_id' => '1',
         ]);
-        DB::table('pengeluaran_kas')->insert([ //2
-            'tanggal' => '4/04/2001',
+        DB::table('pengeluaran_kas')->insert([ //19
+            'tanggal' => '15/09/2023',
             'user_id' => '1',
         ]);
-        DB::table('pengeluaran_kas')->insert([ //2
-            'tanggal' => '4/04/2001',
-            'user_id' => '1',
-        ]);
+        
 
         DB::table('data_pengeluaran_kas')->insert([
             'nama_akun' => 'Peralatan dan Meubeliar',
@@ -1212,20 +1318,8 @@ class DatabaseSeeder extends Seeder
             'kredit' => '300000',
             'pengeluaran_kas_id' => '19',
         ]);
-        DB::table('data_pengeluaran_kas')->insert([
-            'nama_akun' => 'Beban Konsumsi Rapat',
-            'noref' => '6122',
-            'debit' => '250000',
-            'kredit' => '0',
-            'pengeluaran_kas_id' => '20',
-        ]);
-        DB::table('data_pengeluaran_kas')->insert([
-            'nama_akun' => 'Kas',
-            'noref' => '1101',
-            'debit' => '250000',
-            'kredit' => '0',
-            'pengeluaran_kas_id' => '20',
-        ]);
+        
+        
 
 
 
