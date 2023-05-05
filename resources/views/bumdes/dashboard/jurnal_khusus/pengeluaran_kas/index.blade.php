@@ -34,9 +34,9 @@
                                     <td>{{$data->nama_akun}}</td>
                                     @if ($data->debit == 0)
                                         <td>-</td>
-                                        <td>{{$data->kredit}}</td>
+                                        <td>{{formatRupiah($data->kredit)}}</td>
                                     @else
-                                        <td>{{$data->debit}}</td>
+                                        <td>{{formatRupiah($data->debit)}}</td>
                                         <td>-</td>
                                     @endif
                                 </tr>

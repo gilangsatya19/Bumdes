@@ -9,6 +9,9 @@
         
         border-top: none;
         }
+    p.hide{
+        visibility: hidden;
+    }
 </style>
 
     <div style="margin-top:3rem;margin-bottom: 3rem;padding-bottom:5rem;padding-top:6rem;background-color:white" class="px-5 rounded-4">
@@ -42,7 +45,9 @@
             </ul>
         </div>
         <div class="table-responsive">
+            {{-- Kas --}}
             <div id="Kas" class="tabcontent">
+                <p class="hide">{{$iterasi = 0}}{{$saldo = 0}}</p>
                 <p class="fs-3 fw-bold mx-3">KAS</p>
                 <table class="table table-striped table-borderless">
                     <thead class="text-white text-center" style="background-color: #3C4B64">
@@ -53,28 +58,23 @@
                             <th scope="col">Debit</th>
                             <th scope="col">Kredit</th>
                             <th scope="col">Saldo</th>
-                            
                         </tr>
                     </thead>
                     <tbody class="fw-semibold text-center">
                         @foreach ($jurnals as $jurnal)
-                        
                             @if ($jurnal->datas->first()->nama_akun == 'Kas')
                                 @foreach ($jurnal->datas as $data)
                                     @if ($data->nama_akun != 'Kas')
-                                        
                                         <tr>
                                             <td>{{$iterasi = $iterasi + 1}}</td>
                                             <td>{{$jurnal->tanggal}}</td>
                                             <td>{{$data->nama_akun}}</td>
-                                            
-                                            <td>{{$data->kredit}}</td>
+                                            <td>{{formatRupiah($data->kredit)}}</td>
                                             <td>-</td>
-                                            <td>{{$saldo = $saldo + $data->kredit}}</td>
+                                            <td>{{formatRupiah($saldo = $saldo + $data->kredit)}}</td>
                                         </tr>    
                                     @endif
                                 @endforeach
-                                
                             @else
                                 @foreach ($jurnal->datas as $data)
                                     @if ($data->nama_akun == 'Kas')
@@ -83,20 +83,20 @@
                                             <td>{{$jurnal->tanggal}}</td>
                                             <td>{{$jurnal->datas->first()->nama_akun}}</td>
                                             <td>-</td>
-                                            <td>{{$data->kredit}}</td>
-                                            <td>{{$saldo = $saldo - $data->kredit}}</td>
+                                            <td>{{formatRupiah($data->kredit)}}</td>
+                                            <td>{{formatRupiah($saldo = $saldo - $data->kredit)}}</td>
                                         </tr>
                                     @endif
                                 @endforeach
                             @endif
-                            
                         @endforeach
                     </tbody>
                 </table>
             </div>
 
-            <div id="another" class="tabcontent">
-                <p class="fs-3 fw-bold mx-3">{{$data->nama_akun}}</p>
+            <div id="Kas di Bank A" class="tabcontent">
+                <p class="hide">{{$iterasi = 0}}{{$saldo = 0}}</p>
+                <p class="fs-3 fw-bold mx-3">KAS DI BANK A</p>
                 <table class="table table-striped table-borderless">
                     <thead class="text-white text-center" style="background-color: #3C4B64">
                         <tr>
@@ -106,16 +106,45 @@
                             <th scope="col">Debit</th>
                             <th scope="col">Kredit</th>
                             <th scope="col">Saldo</th>
-                            
                         </tr>
                     </thead>
                     <tbody class="fw-semibold text-center">
-                        
+                        @foreach ($jurnals as $jurnal)
+                            @if ($jurnal->datas->first()->nama_akun == 'Kas di Bank A')
+                                @foreach ($jurnal->datas as $data)
+                                    @if ($data->nama_akun != 'Kas di Bank A')
+                                        <tr>
+                                            <td>{{$iterasi = $iterasi + 1}}</td>
+                                            <td>{{$jurnal->tanggal}}</td>
+                                            <td>{{$data->nama_akun}}</td>
+                                            <td>{{formatRupiah($data->kredit)}}</td>
+                                            <td>-</td>
+                                            <td>{{formatRupiah($saldo = $saldo + $data->kredit)}}</td>
+                                        </tr>    
+                                    @endif
+                                @endforeach
+                            @else
+                                @foreach ($jurnal->datas as $data)
+                                    @if ($data->nama_akun == 'Kas di Bank A')
+                                        <tr>
+                                            <td>{{$iterasi = $iterasi + 1}}</td>
+                                            <td>{{$jurnal->tanggal}}</td>
+                                            <td>{{$jurnal->datas->first()->nama_akun}}</td>
+                                            <td>-</td>
+                                            <td>{{formatRupiah($data->kredit)}}</td>
+                                            <td>{{formatRupiah($saldo = $saldo - $data->kredit)}}</td>
+                                        </tr>
+                                    @endif
+                                @endforeach
+                            @endif
+                        @endforeach
                     </tbody>
                 </table>
             </div>
-            <div id="something" class="tabcontent">
-                
+
+            <div id="Kas di Bank B" class="tabcontent">
+                <p class="hide">{{$iterasi = 0}}{{$saldo = 0}}</p>
+                <p class="fs-3 fw-bold mx-3">KAS DI BANK B</p>
                 <table class="table table-striped table-borderless">
                     <thead class="text-white text-center" style="background-color: #3C4B64">
                         <tr>
@@ -125,62 +154,188 @@
                             <th scope="col">Debit</th>
                             <th scope="col">Kredit</th>
                             <th scope="col">Saldo</th>
-                            
                         </tr>
                     </thead>
                     <tbody class="fw-semibold text-center">
-                        
+                        @foreach ($jurnals as $jurnal)
+                            @if ($jurnal->datas->first()->nama_akun == 'Kas di Bank B')
+                                @foreach ($jurnal->datas as $data)
+                                    @if ($data->nama_akun != 'Kas di Bank B')
+                                        <tr>
+                                            <td>{{$iterasi = $iterasi + 1}}</td>
+                                            <td>{{$jurnal->tanggal}}</td>
+                                            <td>{{$data->nama_akun}}</td>
+                                            <td>{{formatRupiah($data->kredit)}}</td>
+                                            <td>-</td>
+                                            <td>{{formatRupiah($saldo = $saldo + $data->kredit)}}</td>
+                                        </tr>    
+                                    @endif
+                                @endforeach  
+                            @else
+                                @foreach ($jurnal->datas as $data)
+                                    @if ($data->nama_akun == 'Kas di Bank B')
+                                        <tr>
+                                            <td>{{$iterasi = $iterasi + 1}}</td>
+                                            <td>{{$jurnal->tanggal}}</td>
+                                            <td>{{$jurnal->datas->first()->nama_akun}}</td>
+                                            <td>-</td>
+                                            <td>{{formatRupiah($data->kredit)}}</td>
+                                            <td>{{formatRupiah($saldo = $saldo - $data->kredit)}}</td>
+                                        </tr>
+                                    @endif
+                                @endforeach
+                            @endif
+                        @endforeach
                     </tbody>
                 </table>
             </div>
-            {{-- <table class="table table-striped">
-                <thead class="text-white text-center" style="background-color: #3C4B64">
-                    <tr>
-                        <th scope="col">No</th>
-                        <th scope="col">Tanggal</th>
-                        <th scope="col">Keterangan</th>
-                        <th scope="col">Debit</th>
-                        <th scope="col">Kredit</th>
-                        <th scope="col">Saldo</th>
-                    </tr>
-                </thead>
-                <tbody class="fw-semibold text-center">
-                    @foreach ($jurnals as $jurnal)
-                        
-                        @if ($jurnal->datas->first()->nama_akun == 'Kas')
-                            @foreach ($jurnal->datas as $data)
-                                @if ($data->nama_akun != 'Kas')
-                                    
-                                    <tr>
-                                        <td>{{$iterasi = $iterasi + 1}}</td>
-                                        <td>{{$jurnal->tanggal}}</td>
-                                        <td>{{$data->nama_akun}}</td>
-                                        
-                                        <td>{{$data->kredit}}</td>
-                                        <td>-</td>
-                                        <td>{{$saldo = $saldo + $data->kredit}}</td>
-                                    </tr>    
-                                @endif
-                            @endforeach
-                            
-                        @else
-                            @foreach ($jurnal->datas as $data)
-                                @if ($data->nama_akun == 'Kas')
-                                    <tr>
-                                        <td>{{$iterasi = $iterasi + 1}}</td>
-                                        <td>{{$jurnal->tanggal}}</td>
-                                        <td>{{$jurnal->datas->first()->nama_akun}}</td>
-                                        <td>-</td>
-                                        <td>{{$data->kredit}}</td>
-                                        <td>{{$saldo = $saldo - $data->kredit}}</td>
-                                    </tr>
-                                @endif
-                            @endforeach
-                        @endif
-                        
-                    @endforeach
-                </tbody>
-            </table> --}}
+
+            <div id="Kas di Bank C" class="tabcontent">
+                <p class="hide">{{$iterasi = 0}}{{$saldo = 0}}</p>
+                <p class="fs-3 fw-bold mx-3">KAS DI BANK C</p>
+                <table class="table table-striped table-borderless">
+                    <thead class="text-white text-center" style="background-color: #3C4B64">
+                        <tr>
+                            <th scope="col">No</th>
+                            <th scope="col">Tanggal</th>
+                            <th scope="col">Keterangan</th>
+                            <th scope="col">Debit</th>
+                            <th scope="col">Kredit</th>
+                            <th scope="col">Saldo</th>
+                        </tr>
+                    </thead>
+                    <tbody class="fw-semibold text-center">
+                        @foreach ($jurnals as $jurnal)
+                            @if ($jurnal->datas->first()->nama_akun == 'Kas di Bank C')
+                                @foreach ($jurnal->datas as $data)
+                                    @if ($data->nama_akun != 'Kas di Bank C')
+                                        <tr>
+                                            <td>{{$iterasi = $iterasi + 1}}</td>
+                                            <td>{{$jurnal->tanggal}}</td>
+                                            <td>{{$data->nama_akun}}</td>
+                                            <td>{{formatRupiah($data->kredit)}}</td>
+                                            <td>-</td>
+                                            <td>{{formatRupiah($saldo = $saldo + $data->kredit)}}</td>
+                                        </tr>    
+                                    @endif
+                                @endforeach  
+                            @else
+                                @foreach ($jurnal->datas as $data)
+                                    @if ($data->nama_akun == 'Kas di Bank C')
+                                        <tr>
+                                            <td>{{$iterasi = $iterasi + 1}}</td>
+                                            <td>{{$jurnal->tanggal}}</td>
+                                            <td>{{$jurnal->datas->first()->nama_akun}}</td>
+                                            <td>-</td>
+                                            <td>{{formatRupiah($data->kredit)}}</td>
+                                            <td>{{formatRupiah($saldo = $saldo - $data->kredit)}}</td>
+                                        </tr>
+                                    @endif
+                                @endforeach
+                            @endif
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="Kas Kecil" class="tabcontent">
+                <p class="hide">{{$iterasi = 0}}{{$saldo = 0}}</p>
+                <p class="fs-3 fw-bold mx-3">KAS KECIL</p>
+                <table class="table table-striped table-borderless">
+                    <thead class="text-white text-center" style="background-color: #3C4B64">
+                        <tr>
+                            <th scope="col">No</th>
+                            <th scope="col">Tanggal</th>
+                            <th scope="col">Keterangan</th>
+                            <th scope="col">Debit</th>
+                            <th scope="col">Kredit</th>
+                            <th scope="col">Saldo</th>
+                        </tr>
+                    </thead>
+                    <tbody class="fw-semibold text-center">
+                        @foreach ($jurnals as $jurnal)
+                            @if ($jurnal->datas->first()->nama_akun == 'Kas Kecil')
+                                @foreach ($jurnal->datas as $data)
+                                    @if ($data->nama_akun != 'Kas Kecil')
+                                        <tr>
+                                            <td>{{$iterasi = $iterasi + 1}}</td>
+                                            <td>{{$jurnal->tanggal}}</td>
+                                            <td>{{$data->nama_akun}}</td>
+                                            <td>{{formatRupiah($data->kredit)}}</td>
+                                            <td>-</td>
+                                            <td>{{formatRupiah($saldo = $saldo + $data->kredit)}}</td>
+                                        </tr>    
+                                    @endif
+                                @endforeach  
+                            @else
+                                @foreach ($jurnal->datas as $data)
+                                    @if ($data->nama_akun == 'Kas Kecil')
+                                        <tr>
+                                            <td>{{$iterasi = $iterasi + 1}}</td>
+                                            <td>{{$jurnal->tanggal}}</td>
+                                            <td>{{$jurnal->datas->first()->nama_akun}}</td>
+                                            <td>-</td>
+                                            <td>{{formatRupiah($data->kredit)}}</td>
+                                            <td>{{formatRupiah($saldo = $saldo - $data->kredit)}}</td>
+                                        </tr>
+                                    @endif
+                                @endforeach
+                            @endif
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="Giro" class="tabcontent">
+                <p class="hide">{{$iterasi = 0}}{{$saldo = 0}}</p>
+                <p class="fs-3 fw-bold mx-3">GIRO</p>
+                <table class="table table-striped table-borderless">
+                    <thead class="text-white text-center" style="background-color: #3C4B64">
+                        <tr>
+                            <th scope="col">No</th>
+                            <th scope="col">Tanggal</th>
+                            <th scope="col">Keterangan</th>
+                            <th scope="col">Debit</th>
+                            <th scope="col">Kredit</th>
+                            <th scope="col">Saldo</th>
+                        </tr>
+                    </thead>
+                    <tbody class="fw-semibold text-center">
+                        @foreach ($jurnals as $jurnal)
+                            @if ($jurnal->datas->first()->nama_akun == 'Giro')
+                                @foreach ($jurnal->datas as $data)
+                                    @if ($data->nama_akun != 'Giro')
+                                        <tr>
+                                            <td>{{$iterasi = $iterasi + 1}}</td>
+                                            <td>{{$jurnal->tanggal}}</td>
+                                            <td>{{$data->nama_akun}}</td>
+                                            <td>{{formatRupiah($data->kredit)}}</td>
+                                            <td>-</td>
+                                            <td>{{formatRupiah($saldo = $saldo + $data->kredit)}}</td>
+                                        </tr>    
+                                    @endif
+                                @endforeach  
+                            @else
+                                @foreach ($jurnal->datas as $data)
+                                    @if ($data->nama_akun == 'Giro')
+                                        <tr>
+                                            <td>{{$iterasi = $iterasi + 1}}</td>
+                                            <td>{{$jurnal->tanggal}}</td>
+                                            <td>{{$jurnal->datas->first()->nama_akun}}</td>
+                                            <td>-</td>
+                                            <td>{{formatRupiah($data->kredit)}}</td>
+                                            <td>{{formatRupiah($saldo = $saldo - $data->kredit)}}</td>
+                                        </tr>
+                                    @endif
+                                @endforeach
+                            @endif
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+
+            
+            
         </div>
     </div>
     <script>

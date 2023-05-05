@@ -47,7 +47,7 @@
                                                 <td>{{formatRupiah($data->debit)}}</td>
                                                 <td>-</td>
                                             @endif
-                                            <td><a href="" type="button" class="btn btn-primary btn-unduh">Unduh</a></td>
+                                            <td><a href="" type="button" class="btn btn-primary btn-unduh" onclick="alert('Berhasil Terunduh!')">Unduh</a></td>
                                             <td><a href="/jurnal_umum/{{$data->id}}/edit" type="button" class="btn btn-primary btn-ubah">Ubah</a></td>
                                             
                                             

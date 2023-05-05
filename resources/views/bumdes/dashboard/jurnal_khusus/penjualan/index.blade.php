@@ -6,7 +6,7 @@
         <div class="d-flex mb-4" style="margin-top: -50px">
             <h1 >JURNAL KHUSUS - PENJUALAN</h1>
             <div class="ms-auto">
-            <button class="open-button" onclick="#"><a href="/penjualan/create" style="text-decoration: none; color: white;">+ Tambah</a></button>
+            <button class="open-button" ><a href="/penjualan/create" style="text-decoration: none; color: white;">+ Tambah</a></button>
             </div>
         </div>
         <div class="table-responsive">

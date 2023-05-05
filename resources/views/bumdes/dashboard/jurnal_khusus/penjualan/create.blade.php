@@ -45,7 +45,7 @@
                         <input type="file" class="form-control"  name="bukti_pembayaran" required>
                         </div>
         
-                        <button type="submit" class="btn" style="background-color: #3C4B64">Tambah</button>
+                        <button type="submit" class="btn mt-5" style="background-color: #3C4B64">Tambah</button>
                     </div>
                     
                 </div>
