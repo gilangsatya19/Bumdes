@@ -19,14 +19,14 @@
                         <th scope="col" colspan="5">Laporan Posisi Keuangan</th>
                     </tr>
                     <tr>
-                        <th scope="col" colspan="5">31 Desember 20XX dan 20XX</th>
+                        <th scope="col" colspan="5">31 Desember 2022 dan 2021</th>
                     </tr>
                     <tr>
                         <th scope="col">Kode Rekening</th>
                         <th scope="col">Nama Akun</th>
                         <th scope="col">Catatan</th>
-                        <th scope="col">Tahun X</th>
-                        <th scope="col">Tahun Y</th>
+                        <th scope="col">2022</th>
+                        <th scope="col">2021</th>
                     </tr>
                 </thead>
                 <tbody class="fw-semibold text-center">
@@ -37,9 +37,9 @@
                         <td><b>ASET</b></td>
                         {{--Catatan--}}
                         <td></td>
-                        {{--Tahun X--}}
+                        {{--2022--}}
                         <td></td>
-                        {{--Tahun Y--}}
+                        {{--2021--}}
                         <td>-</td>
                     </tr>
                     <tr>

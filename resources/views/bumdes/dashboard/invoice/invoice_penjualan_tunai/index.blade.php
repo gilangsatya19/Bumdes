@@ -41,7 +41,7 @@
                         endforeach
                      --}}
                          <tr>
-                            <th scope="row" rowspan="">20/04/23</th> <!-- tanggal -->
+                            <th scope="row" rowspan="">20/04/22</th> <!-- tanggal -->
                             <td>1A001</td> <!-- no invoice -->
                             <td>Sulaiman</td> <!-- nama konsumen -->
                             <td>0821-2223-4433</td> <!-- telp konsumen --> 

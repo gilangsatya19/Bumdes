@@ -40,7 +40,7 @@
                         endforeach
                      --}}
                          <tr>
-                            <th scope="row" rowspan="">17/04/23</th> <!-- tanggal -->
+                            <th scope="row" rowspan="">17/04/22</th> <!-- tanggal -->
                             <td>Syamsudin (BUMDes Sejahtera)</td> <!-- nama penerima -->
                             <td>Jl. Sukapura No 1006 Bandung</td> <!-- alamat penerima -->
                             <td>0899-9923-3522</td> <!-- telp penerima --> 
