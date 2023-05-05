@@ -40,7 +40,7 @@
                         endforeach
                      --}}
                          <tr>
-                            <th scope="row" rowspan="">01/04/23 - 30/04/23</th> <!-- tanggal -->
+                            <th scope="row" rowspan="">01/04/22 - 30/04/22</th> <!-- tanggal -->
                             <td>Keuangan</td> <!-- dana untuk departemen -->
                             <td>10.000.000</td> <!-- dana awal kas kecil -->
                             <td>2.000.000</td> <!-- saldo -->                            

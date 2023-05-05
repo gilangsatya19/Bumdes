@@ -42,7 +42,7 @@
                         endforeach
                      --}}
                          <tr>
-                            <th scope="row" rowspan="">21/04/23</th> <!-- tanggal -->
+                            <th scope="row" rowspan="">21/04/22</th> <!-- tanggal -->
                             <td>1B001</td> <!-- no invoice -->
                             <td>Dono</td> <!-- nama -->
                             <td>sukabirus</td> <!-- alamat  --> 

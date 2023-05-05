@@ -20,7 +20,7 @@
                         <th>Catatan Atas Laporan Keuangan</th>
                     </tr>
                     <tr>
-                        <th>TANGGAL/BULAN/TAHUN</th>
+                        <th>31 Desember 2022 dan 2021</th>
                     </tr>
                 </thead>
             </table>
