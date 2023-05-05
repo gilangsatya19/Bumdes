@@ -44,7 +44,8 @@
             
             {{-- <button class="w-100 btn btn-lg btn-primary" type="submit">Login</button> --}}
             {{-- <a href="/dashboard" class="w-100 btn btn-lg btn-primary" type="submit">Login</a> --}}
-            <button type="submit" class="w-100 btn btn-lg btn-primary">Login</button>
+            <button type="submit" class="w-100 btn btn-lg btn-primary my-3">Login</button>
+            <a href="/" type="button" class="w-100 btn btn-lg btn-danger">Back</a>
           
         </form>
       </main>
