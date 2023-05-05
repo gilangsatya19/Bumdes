@@ -42,9 +42,9 @@
                                             <td>{{$data->noref}}</td>
                                             @if ($data->debit == 0)
                                                 <td>-</td>
-                                                <td>{{$data->kredit}}</td>
+                                                <td>{{formatRupiah($data->kredit)}}</td>
                                             @else
-                                                <td>{{$data->debit}}</td>
+                                                <td>{{formatRupiah($data->debit)}}</td>
                                                 <td>-</td>
                                             @endif
                                             <td><a href="" type="button" class="btn btn-primary btn-unduh">Unduh</a></td>
