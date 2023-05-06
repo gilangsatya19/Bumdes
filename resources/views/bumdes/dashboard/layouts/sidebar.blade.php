@@ -2,7 +2,7 @@
 <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse" style="background-color: #3C4B64">
     <div class="position-sticky pt-3 sidebar-sticky">
         <ul class="nav flex-column">
-            <li class="nav-item mx-3">
+            <li class="nav-item mx-3 mt-4">
                 <a class="nav-link text-white fw-semibold fs-5 {{ Request::is('dashboard') ? 'active' : '' }}" aria-current="page" href="/dashboard">
                 Dashboard
                 </a>

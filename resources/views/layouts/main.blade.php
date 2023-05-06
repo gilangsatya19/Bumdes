@@ -66,8 +66,8 @@
             <div class="header_section">
                 <div class="" >
                     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #303C54;">
-                        <div class="logo"><a href="/"><img src="{{asset('BUMDES/assets/halaman_awal/logo-siabdes.jpg')}}" width="230px" height="125px" alt="logo-siabdes">
-                            <img src="{{asset('BUMDES/assets/logo/logo-btp.jpg')}}" width="130px" height="125px" alt="logo-btp"></a></div>
+                        <div class="logo"><a href="/"><img src="{{asset('BUMDES/assets/halaman_awal/logo-siabdes.jpg')}}" width="200px" height="125px" alt="logo-siabdes">
+                            <img src="{{asset('BUMDES/assets/logo/logo-btp-png.png')}}" width="110px" height="125px" alt="logo-btp"></a></div>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                         </button>
