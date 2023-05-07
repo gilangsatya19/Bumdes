@@ -215,11 +215,11 @@
                             <td>-</td> 
                             <td>-</td> <!--//penyesuaian debit -->
                             <td>-</td>
-                            <td>0</td> <!--// neraca saldo setelah debit -->
+                            <td>12.000.000</td> <!--// neraca saldo setelah debit -->
                             <td>-</td>
                             <td>-</td> <!--// laba rugi debit -->
                             <td>-</td>
-                            <td>-</td> <!--// neraca debit -->
+                            <td>12.000.000</td> <!--// neraca debit -->
                             <td>-</td>
                         </tr>
                         <tr>
@@ -328,11 +328,11 @@
                             <td>-</td> <!--//penyesuaian debit -->
                             <td>-</td>
                             <td>-</td> <!--// neraca saldo setelah debit -->
-                            <td>50.000.000</td>
+                            <td>-</td>
                             <td>-</td> <!--// laba rugi debit -->
                             <td>-</td>
                             <td>-</td> <!--// neraca debit -->
-                            <td>50.000.000</td>
+                            <td>-</td>
                         </tr>
                         <tr>
                             <th scope="row" rowspan="">21</th>
@@ -356,11 +356,11 @@
                             <td>-</td> <!--//penyesuaian debit -->
                             <td>-</td>
                             <td>-</td> <!--// neraca saldo setelah debit -->
-                            <td>200.000</td>
+                            <td>-</td>
                             <td>-</td> <!--// laba rugi debit -->
                             <td>-</td>
                             <td>-</td> <!--// neraca debit -->
-                            <td>200.000</td>
+                            <td>-</td>
                         </tr>
                         <tr>
                             <th scope="row" rowspan="">23</th>
@@ -384,11 +384,11 @@
                             <td>-</td> <!--//penyesuaian debit -->
                             <td>-</td>
                             <td>-</td> <!--// neraca saldo setelah debit -->
-                            <td>6.250.000</td>
+                            <td>-</td>
                             <td>-</td> <!--// laba rugi debit -->
                             <td>-</td>
                             <td>-</td> <!--// neraca debit -->
-                            <td>6.250.000</td>
+                            <td>-</td>
                         </tr>
                         <tr>
                             <th scope="row" rowspan="">25</th>
@@ -1083,9 +1083,9 @@
                             <td>-</td> 
                             <td>-</td> <!--//penyesuaian debit -->
                             <td>-</td>
-                            <td>12.000.000</td> <!--// neraca saldo setelah debit -->
+                            <td>-</td> <!--// neraca saldo setelah debit -->
                             <td>-</td>
-                            <td>12.000.000</td> <!--// laba rugi debit -->
+                            <td>-</td> <!--// laba rugi debit -->
                             <td>-</td>
                             <td>-</td> <!--// neraca debit -->
                             <td>-</td>
@@ -1139,9 +1139,9 @@
                             <td>-</td> 
                             <td>-</td> <!--//penyesuaian debit -->
                             <td>-</td>
-                            <td>200.000</td> <!--// neraca saldo setelah debit -->
+                            <td>-</td> <!--// neraca saldo setelah debit -->
                             <td>-</td>
-                            <td>200.000</td> <!--// laba rugi debit -->
+                            <td>-</td> <!--// laba rugi debit -->
                             <td>-</td>
                             <td>-</td> <!--// neraca debit -->
                             <td>-</td>
@@ -1153,9 +1153,9 @@
                             <td>-</td> 
                             <td>-</td> <!--//penyesuaian debit -->
                             <td>-</td>
-                            <td>50.000.000</td> <!--// neraca saldo setelah debit -->
+                            <td>-</td> <!--// neraca saldo setelah debit -->
                             <td>-</td>
-                            <td>50.000.000</td> <!--// laba rugi debit -->
+                            <td>-</td> <!--// laba rugi debit -->
                             <td>-</td>
                             <td>-</td> <!--// neraca debit -->
                             <td>-</td>
@@ -1167,9 +1167,9 @@
                             <td>-</td> 
                             <td>-</td> <!--//penyesuaian debit -->
                             <td>-</td>
-                            <td>6.250.000</td> <!--// neraca saldo setelah debit -->
+                            <td>-</td> <!--// neraca saldo setelah debit -->
                             <td>-</td>
-                            <td>6.250.000</td> <!--// laba rugi debit -->
+                            <td>-</td> <!--// laba rugi debit -->
                             <td>-</td>
                             <td>-</td> <!--// neraca debit -->
                             <td>-</td>
@@ -1405,8 +1405,8 @@
                             <td><b>884.000.000</b></td> 
                             <td>-</td> <!--//penyesuaian debit -->
                             <td>-</td>
-                            <td><b>940.450.000</b></td> <!--// neraca saldo setelah debit -->
-                            <td><b>940.450.000</b></td>
+                            <td><b>884.000.000</b></td> <!--// neraca saldo setelah debit -->
+                            <td><b>884.000.000</b></td>
                             <td><b>88.150.000</b></td> <!--// laba rugi debit -->
                             <td><b>719.000.000</b></td>
                             <td><b>852.300.000</b></td> <!--// neraca debit -->
@@ -1433,8 +1433,8 @@
                             <td><b>884.000.000</b></td> 
                             <td>-</td> <!--//penyesuaian debit -->
                             <td>-</td>
-                            <td><b>940.450.000</b></td> <!--// neraca saldo setelah debit -->
-                            <td><b>940.450.000</b></td>
+                            <td><b>884.000.000</b></td> <!--// neraca saldo setelah debit -->
+                            <td><b>884.000.000</b></td>
                             <td><b>719.000.000</b></td> <!--// laba rugi debit -->
                             <td><b>719.000.000</b></td>
                             <td><b>852.300.000</b></td> <!--// neraca debit -->
