@@ -1,5 +1,5 @@
 <?php
 function formatRupiah($nominal)
 {
-    return "Rp " . number_format($nominal, 0, "," , ".");
+    return number_format($nominal, 0, "," , ".");
 }

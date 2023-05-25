@@ -1,67 +1,88 @@
 @extends('bumdes.dashboard.layouts.main')
 
 @section('content')
-    {{-- stye untuk table responsive dan btn ubah/unduh --}}
-    <link href="{{asset('css/table-resp-btn.css')}}" rel="stylesheet">
-    <div style="margin-top:3rem;margin-bottom: 3rem;padding-bottom:5rem;padding-top:6rem;background-color:white" class="px-5 rounded-4">
-        <div class="d-flex mb-4" style="margin-top: -50px">
-            <h1 >JURNAL UMUM</h1>
-            <div class="ms-auto">
-                @include('bumdes.dashboard.jurnal_umum.form')
+    <div class="content-wrapper">
+        <section class="content">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-12">
+                  
+                  <!-- /.card -->
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Jurnal Umum</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <div class="d-flex mb-3" >
+                                <div class="ms-auto">
+                                    @include('bumdes.dashboard.jurnal_umum.form')
+                                </div>
+                            </div>
+                            <table id="example1" class="table table-bordered table-striped">
+                                <thead class="text-center">
+                                    <tr>
+                                    <th>No.</th>
+                                    <th>Tanggal</th>
+                                    <th>Jenis Transaksi</th>
+                                    <th>Nama Akun</th>
+                                    <th>No. Referensi</th>
+                                    <th>Debit</th>
+                                    <th>Kredit</th>
+                                    {{-- <th>Bukti Transaksi</th> --}}
+                                    <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-center">
+                                
+                                    @if (isset($jurnals))
+                                        @foreach ($jurnals as $jurnal)
+                                            @foreach ($jurnal->datas as $data)
+                                            <tr>
+                                                <td>{{$jurnal->id}}</td>
+                                                <td>{{$jurnal->tanggal}}</td>
+                                                <td>-</td>
+                                                <td>{{$data->nama_akun}}</td>
+                                                <td>{{$data->noref}}</td>
+                                                @if ($data->debit == 0)
+                                                    <td>-</td>
+                                                    <td>{{($data->formatRupiah('kredit'))}}</td>
+                                                @else
+                                                    <td>{{($data->formatRupiah('debit'))}}</td>
+                                                    <td>-</td>
+                                                @endif
+                                                <td>
+                                                    <a href="/jurnal_umum/{{$data->id}}/edit" class="nav-icon fas fa-edit"></a>
+                                                    
+                                                    <form action="/jurnal_umum/{{$jurnal->id}}/delete" method="POST" class="d-inline">
+                                                    @csrf
+                                                        <button class="fa fa-trash border-0" onclick="return confirm('Apakah Kamu Yakin Ingin Menghapus Data?')"></button>
+                                                    </form>
+                                                    
+                                                </td>
+                                                
+                                                
+                                            </tr>        
+                                            @endforeach
+                                        @endforeach
+                                    @endif
+                                
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                  <!-- /.card -->
+                </div>
+                <!-- /.col -->
+              </div>
+              <!-- /.row -->
             </div>
-        </div>
-        
-        <div class="table-responsive">
-            <table class="table table-striped table-borderless">
-                <thead class="text-white text-center" style="background-color: #3C4B64">
-                    <tr>
-                        <th scope="col">No.</th>
-                        <th scope="col">Tanggal</th>
-                        <th scope="col">Jenis Transaksi</th>
-                        <th scope="col">Nama Akun</th>
-                        <th scope="col">No. Referensi</th>
-                        <th scope="col">Debit</th>
-                        <th scope="col">Kredit</th>
-                        <th scope="col">Bukti Transaksti</th>
-                        <th scope="col">Ubah</th>
-                    </tr>
-                </thead>
-                <tbody class="fw-semibold text-center">
-                    
-                        @if (isset($jurnals))
-                            @foreach ($jurnals as $jurnal)
-                                @foreach ($jurnal->datas as $data)
-                                <tr>
-                                    <td>{{$jurnal->id}}</td>
-                                    <td>{{$jurnal->tanggal}}</td>
-                                    {{-- <td>{{$jurnal->datas}}</td> --}}
-                                    <td>-</td>
-                                    {{-- <td>{{$jurnal->datas->first()}}</td> --}}
-                                    
-                                            <td>{{$data->nama_akun}}</td>
-                                            <td>{{$data->noref}}</td>
-                                            @if ($data->debit == 0)
-                                                <td>-</td>
-                                                <td>{{formatRupiah($data->kredit)}}</td>
-                                            @else
-                                                <td>{{formatRupiah($data->debit)}}</td>
-                                                <td>-</td>
-                                            @endif
-                                            <td><a href="" type="button" class="btn btn-primary btn-unduh" onclick="alert('Berhasil Terunduh!')">Unduh</a></td>
-                                            <td><a href="/jurnal_umum/{{$data->id}}/edit" type="button" class="btn btn-primary btn-ubah">Ubah</a></td>
-                                            
-                                            
-                                        </tr>
-                                        
-                                @endforeach
-                            @endforeach
-                        @endif
-                    
-                    
-                </tbody>
-            </table>
-        </div>
+            <!-- /.container-fluid -->
+          </section>
     </div>
+    
 
     
 @endsection

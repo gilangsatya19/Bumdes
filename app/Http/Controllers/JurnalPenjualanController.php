@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\NamaAkun;
 use Illuminate\Http\Request;
 use App\Models\DataPenjualan;
 
@@ -14,7 +15,10 @@ class JurnalPenjualanController extends Controller
      */
     public function index()
     {
-        return view('bumdes.dashboard.jurnal_khusus.penjualan.index');
+        return view('bumdes.dashboard.jurnal_khusus.penjualan.index',[
+            'datas' => DataPenjualan::all(),
+            'nama_akuns' => NamaAkun::all(),
+        ]);
     }
 
     /**
@@ -71,7 +75,13 @@ class JurnalPenjualanController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('bumdes.dashboard.jurnal_khusus.penjualan.update',[
+            'title' => 'Edit Data',
+            'method' => 'PUT',
+            'action' => 'penjualan/'.$id,
+            'nama_akuns' => NamaAkun::all(),
+            'data' => DataPenjualan::find($id),
+        ]);
     }
 
     /**
@@ -83,7 +93,16 @@ class JurnalPenjualanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = DataPenjualan::find($id);
+        $data->tanggal = $request->tanggal;
+        $data->no_faktur = $request->no_faktur;
+        $data->keterangan = $request->keterangan;
+        $data->noref = $request->noref;
+        $data->syarat_pembayaran = $request->syarat_pembayaran;
+        $data->piutang_dagang = $request->piutang_dagang;
+        $data->penjualan = $request->penjualan;
+        $data->save();
+        return redirect('/penjualan');
     }
 
     /**
@@ -94,6 +113,8 @@ class JurnalPenjualanController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = DataPenjualan::find($id);
+        $data->delete();
+        return redirect('/penjualan')->with('msg', 'sukses');
     }
 }

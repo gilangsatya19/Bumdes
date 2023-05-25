@@ -49,24 +49,37 @@ Route::post('/jurnal_umum/create', [JurnalUmumController::class, 'store']);
 Route::post('/jurnal_umum/createNew', [JurnalUmumController::class, 'createNew']);
 Route::get('/jurnal_umum/{id}/edit', [JurnalUmumController::class, 'edit']);
 Route::post('/jurnal_umum/{id}/update', [JurnalUmumController::class, 'update']);
+Route::post('/jurnal_umum/{id}/delete', [JurnalUmumController::class, 'destroy']);
 
 Route::get('/pengeluaran_kas', [JurnalPengeluaranKasController::class, 'index']);
 Route::get('/pengeluaran_kas/create', [JurnalPengeluaranKasController::class, 'create']);
 Route::post('/pengeluaran_kas/create', [JurnalPengeluaranKasController::class, 'store']);
 Route::post('/pengeluaran_kas/createNew', [JurnalPengeluaranKasController::class, 'createNew']);
+Route::get('/pengeluaran_kas/{id}/edit', [JurnalPengeluaranKasController::class, 'edit']);
+Route::post('/pengeluaran_kas/{id}/update', [JurnalPengeluaranKasController::class, 'update']);
+Route::post('/pengeluaran_kas/{id}/delete', [JurnalPengeluaranKasController::class, 'destroy']);
 
 Route::get('/pemasukan_kas', [JurnalPemasukanKasController::class, 'index']);
 Route::get('/pemasukan_kas/create', [JurnalPemasukanKasController::class, 'create']);
 Route::post('/pemasukan_kas/create', [JurnalPemasukanKasController::class, 'store']);
 Route::post('/pemasukan_kas/createNew', [JurnalPemasukanKasController::class, 'createNew']);
+Route::get('/pemasukan_kas/{id}/edit', [JurnalPemasukanKasController::class, 'edit']);
+Route::post('/pemasukan_kas/{id}/update', [JurnalPemasukanKasController::class, 'update']);
+Route::post('/pemasukan_kas/{id}/delete', [JurnalPemasukanKasController::class, 'destroy']);
 
 Route::get('/pembelian', [JurnalPembelianController::class, 'index']);
 Route::get('/pembelian/create', [JurnalPembelianController::class, 'create']);
 Route::post('/pembelian/create', [JurnalPembelianController::class, 'store']);
+Route::get('/pembelian/{id}/edit', [JurnalPembelianController::class, 'edit']);
+Route::post('/pembelian/{id}/update', [JurnalPembelianController::class, 'update']);
+Route::post('/pembelian/{id}/delete', [JurnalPembelianController::class, 'destroy']);
 
 Route::get('/penjualan', [JurnalPenjualanController::class, 'index']);
 Route::get('/penjualan/create', [JurnalPenjualanController::class, 'create']);
 Route::post('/penjualan/create', [JurnalPenjualanController::class, 'store']);
+Route::get('/penjualan/{id}/edit', [JurnalPenjualanController::class, 'edit']);
+Route::post('/penjualan/{id}/update', [JurnalPenjualanController::class, 'update']);
+Route::post('/penjualan/{id}/delete', [JurnalPenjualanController::class, 'destroy']);
 
 
 

@@ -92,7 +92,13 @@ class JurnalPengeluaranKasController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('bumdes.dashboard.jurnal_khusus.pengeluaran_kas.update',[
+            'title' => 'Edit Data',
+            'method' => 'PUT',
+            'action' => 'pengeluaran_kas/'.$id,
+            'nama_akuns' => NamaAkun::all(),
+            'data' => DataPengeluaranKas::find($id),
+        ]);
     }
 
     /**
@@ -104,7 +110,20 @@ class JurnalPengeluaranKasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $akuns = NamaAkun::all();
+        $data = DataPengeluaranKas::find($id);
+        $data->nama_akun = $request->nama_akun;
+        
+        foreach ($akuns as $akun){
+            if($data->nama_akun == $akun->nama){
+                $data->noref = $akun->kode_rekening;
+            }
+        }
+        
+        $data->debit = $request->debit;
+        $data->kredit = $request->kredit;
+        $data->save();
+        return redirect('/pengeluaran_kas');
     }
 
     /**
@@ -115,6 +134,12 @@ class JurnalPengeluaranKasController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $jurnal = PengeluaranKas::find($id);
+        foreach($jurnal->datas as $data)
+        {
+            $data->delete();
+        }
+        $jurnal->delete();
+        return redirect('/pengeluaran_kas')->with('msg', 'sukses');
     }
 }

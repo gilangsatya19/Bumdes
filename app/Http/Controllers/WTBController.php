@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\NamaAkun;
 use Illuminate\Http\Request;
 use App\Models\DataJurnalUmum;
 
@@ -13,21 +14,22 @@ class WTBController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {   
+        $nama_akun = NamaAkun::all();
+        $i = 0;
         $data = DataJurnalUmum::get()
             ->groupBy('nama_akun')
             ->map(function($item){
                 $kredit = $item->sum('kredit');
                 $debit = $item->sum('debit');
                 return [
-                    'saldo' => $debit - $kredit
+                    'saldo' => $debit - $kredit,
                 ];
             });
-
+        
         // dd($data->toArray());
-
-        return view('bumdes.dashboard.wtb.index', compact('data'));
-        // return view('bumdes.dashboard.wtb.index');
+        
+        return view('bumdes.dashboard.wtb.index', compact('data', 'nama_akun', 'i'));
     }
 
     /**

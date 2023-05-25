@@ -5,8 +5,10 @@
     <div style="margin-top:3rem;margin-bottom: 3rem;padding-bottom:5rem;padding-top:6rem;background-color:white" class="px-5 rounded-4">
         <div class="d-flex mb-4" style="margin-top: -50px">
             <h1 >WTB</h1>
-            
         </div>
+
+        
+        
         <div class="table-responsive">
             <table class="table table-striped table-borderless" style="">
                 <thead class="text-white text-center" style="background-color: #3C4B64" >
@@ -34,6 +36,38 @@
                     
                 </thead>
                 <tbody class="fw-semibold text-center">
+                    @foreach ($nama_akun as $akun)
+                        <tr>
+                        @if ($akun->d_k != '')
+                            {{-- No --}}
+                            <td>{{$i = $i + 1}}</td>
+                            {{-- Nama Akun --}}
+                            <td>{{$akun->nama}}</td>
+                                {{-- Neraca Saldo debit/kredit --}}
+                                @if (isset( $data->toArray()[$akun->nama] ))
+                                    @if ($data->toArray()[$akun->nama]['saldo'] > 0)
+                                        <td>{{formatRupiah($data->toArray()[$akun->nama]['saldo'])}}</td>
+                                        <td>-</td>
+                                    @else
+                                        @if ($data->toArray()[$akun->nama]['saldo'] == 0)
+                                            <td>-</td>
+                                            <td>-</td>
+                                        @else
+                                            <td>-</td>
+                                            <td>{{formatRupiah($data->toArray()[$akun->nama]['saldo'] * -1)}}</td>
+                                        @endif
+                                    @endif
+                                @else
+                                    <td>-</td>
+                                    <td>-</td>
+                                @endif
+
+                                <td>-</td>
+                                <td>-</td>
+                                
+                        @endif
+                        </tr>
+                    @endforeach
                     {{-- 
                         
                         foreach datas as data

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\NamaAkun;
 use Illuminate\Http\Request;
 use App\Models\DataPembelian;
 
@@ -17,7 +18,10 @@ class JurnalPembelianController extends Controller
      */
     public function index()
     {
-        return view('bumdes.dashboard.jurnal_khusus.pembelian.index');
+        return view('bumdes.dashboard.jurnal_khusus.pembelian.index',[
+            'datas' => DataPembelian::all(),
+            'nama_akuns' => NamaAkun::all(),
+        ]);
     }
 
     /**
@@ -84,7 +88,13 @@ class JurnalPembelianController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('bumdes.dashboard.jurnal_khusus.pembelian.update',[
+            'title' => 'Edit Data',
+            'method' => 'PUT',
+            'action' => 'pembelian/'.$id,
+            'nama_akuns' => NamaAkun::all(),
+            'data' => DataPembelian::find($id),
+        ]);
     }
 
     /**
@@ -96,7 +106,24 @@ class JurnalPembelianController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = DataPembelian::find($id);
+        $data->tanggal = $request->tanggal;
+        $data->keterangan = $request->keterangan;
+        $data->noref = $request->noref;
+        $data->pembelian = $request->pembelian;
+        if (!isset($request->akun)) {
+            $data->akun = '-';
+        } else {
+            $data->akun = $request->akun;
+        }
+        if (!isset($request->jumlah)) {
+            $data->jumlah = 0;
+        } else {
+            $data->jumlah = $request->jumlah;
+        }
+        $data->utang_dagang = $request->utang_dagang;
+        $data->save();
+        return redirect('/pembelian');
     }
 
     /**
@@ -107,6 +134,8 @@ class JurnalPembelianController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = DataPembelian::find($id);
+        $data->delete();
+        return redirect('/pembelian')->with('msg', 'sukses');
     }
 }

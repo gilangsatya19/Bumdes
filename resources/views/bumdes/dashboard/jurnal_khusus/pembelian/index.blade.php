@@ -1,167 +1,96 @@
 @extends('bumdes.dashboard.layouts.main')
 
 @section('content')
-    <link href="{{asset('css/table-resp-btn.css')}}" rel="stylesheet">
-    <div style="margin-top:3rem;margin-bottom: 3rem;padding-bottom:5rem;padding-top:6rem;background-color:white" class="px-5 rounded-4">
-        <div class="d-flex mb-4" style="margin-top: -50px">
-            <h1 >JURNAL KHUSUS - PEMBELIAN</h1>
-            <div class="ms-auto">
-                <button class="open-button" onclick="#"><a href="/pembelian/create" style="text-decoration: none; color: white;">+ Tambah</a></button>
+    <div class="content-wrapper">
+        <section class="content">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-12">
+                  
+                  <!-- /.card -->
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Jurnal Khusus - Pembelian</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <div class="d-flex mb-3" >
+                                <div class="ms-auto">
+                                    <a href="/pembelian/create" type="button" class="btn btn-primary" style="
+                                    text-decoration: none; 
+                                    color: white;
+                                    background-color: #0b297c;
+                                    color: white;
+                                    padding: 16px 20px;
+                                    border: none;
+                                    cursor: pointer;
+                                    opacity: 0.8;
+                                    width: 150px;
+                                    border-radius: 10px;
+                                    font-size: 15px;
+                                    font-weight: 500;">+ Tambah</a>
+                                </div>
+                            </div>
+                            <table id="example1" class="table table-bordered table-striped">
+                                <thead class="text-white text-center" style="background-color: #3C4B64" >
+                                    <tr class="align-middle" >
+                                        <th rowspan="3">Tanggal</th>
+                                        <th rowspan="3">Keterangan</th>
+                                        <th rowspan="3">Ref</th>
+                                        <th colspan="3">Debit</th>
+                                        <th>Kredit</th>
+                                        <th rowspan="3">Action</th>
+                                    </tr>
+                                    <tr class="align-top">
+                                        <th rowspan="2">Pembelian</th>
+                                        <th colspan="2">Serba Serbi</th>
+                                        <th rowspan="2">Utang Dagang</th>
+                                    </tr>
+                                    <tr class="align-middle">
+                                        <th>Akun</th>
+                                        <th>Jumlah</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-center">
+                                    
+                                    @if (isset($datas))
+                                        @foreach ($datas as $data)
+                                            <tr>
+                                                {{-- <td>{{$data->id}}</td> --}}
+                                                <td>{{$data->tanggal}}</td>
+                                                <td>{{$data->keterangan}}</td>
+                                                <td>{{$data->noref}}</td>
+                                                <td>{{$data->formatRupiah('pembelian')}}</td>
+                                                <td>{{$data->akun}}</td>
+                                                <td>{{$data->formatRupiah('jumlah')}}</td>
+                                                <td>{{$data->formatRupiah('utang_dagang')}}</td>
+                                                
+                                                <td>
+                                                    <a href="/pembelian/{{$data->id}}/edit" class="nav-icon fas fa-edit"></a>
+                                                    {{-- <a href="/jurnal_umum/{{$data->id}}/delete" class="fa fa-trash"></a> --}}
+                                                    
+                                                    <form action="/pembelian/{{$data->id}}/delete" method="POST" class="d-inline">
+                                                    @csrf
+                                                        <button class="fa fa-trash border-0" onclick="return confirm('Apakah Kamu Yakin Ingin Menghapus Data?')"></button>
+                                                    </form>
+                                                    
+                                                </td>
+                                            </tr>        
+                                        @endforeach
+                                    @endif
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                  <!-- /.card -->
+                </div>
+                <!-- /.col -->
+              </div>
+              <!-- /.row -->
             </div>
-        </div>
-        <div class="table-responsive">
-            <table class="table table-striped table-borderless" style="">
-                <thead class="text-white text-center" style="background-color: #3C4B64" >
-                    <tr class="align-middle" >
-                        <th scope="col" rowspan="3">Tanggal</th>
-                        <th scope="col" rowspan="3">Keterangan</th>
-                        <th scope="col" rowspan="3">Ref</th>
-                        <th scope="col" colspan="4">Debit</th>
-                        <th scope="col">Kredit</th>
-                    </tr>
-                    <tr class="align-top">
-                        <th scope="col" colspan="2" rowspan="2">Pembelian</th>
-                        <th scope="col" colspan="2">Serba Serbi</th>
-                        <th scope="col" rowspan="2">Utang Dagang</th>
-                    </tr>
-                    <tr class="align-middle">
-                        <th scope="col">Akun</th>
-                        <th scope="col">Jumlah</th>
-                    </tr>
-                </thead>
-                <tbody class="fw-semibold text-center">
-                    <tr>
-                        <td>20/04/22</td>
-                        <td>toko x</td>
-                        <td>10000</td>
-                        <td>Rp100.000</td>
-                        <td></td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>Rp100.000</td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td>toko y</td>
-                        <td>10000</td>
-                        <td>Rp200.000</td>
-                        <td></td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>Rp200.000</td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td>toko z</td>
-                        <td>10000</td>
-                        <td>Rp500.000</td>
-                        <td></td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>Rp500.000</td>
-                    </tr>
-                    <tr>
-                        <td></td>    
-                        <td>cv z</td>
-                        <td>10000</td>
-                        <td>Rp1.000.000</td>
-                        <td></td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>Rp1.000.000</td>
-                    </tr>
-                    <tr>
-                        <td></td>    
-                        <td>toko raos</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>    
-                        <td>toko skb</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>    
-                        <td>toko japra</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>    
-                        <td>toko kimchi</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>    
-                        <td>toko jabrig</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>    
-                        <td>toko liquid</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>    
-                        <td>toko monorejo</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>    
-                        <td>toko seven laundry</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>    
-                        <td>toko barber shop</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <!-- /.container-fluid -->
+          </section>
     </div>
 @endsection

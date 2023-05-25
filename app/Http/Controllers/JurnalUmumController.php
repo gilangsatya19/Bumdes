@@ -136,6 +136,12 @@ class JurnalUmumController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $jurnal = JurnalUmum::find($id);
+        foreach($jurnal->datas as $data)
+        {
+            $data->delete();
+        }
+        $jurnal->delete();
+        return redirect('/jurnal_umum')->with('msg', 'sukses');
     }
 }
