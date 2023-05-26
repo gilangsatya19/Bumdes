@@ -20,7 +20,7 @@
                                     <p class="fs-5" style="color: #8F9CA9">isi form dibawah ini untuk menambah data pembelian</p>
             
                                     <label for="tanggal" class="fs-5"><b>Tanggal</b></label>
-                                    <input type="text" placeholder="DD/MM/YYYY" name="tanggal" required>
+                                    <input type="date" placeholder="DD/MM/YYYY" name="tanggal" class="form-control" required>
 
                                     <label for="keterangan" class="fs-5"><b>Keterangan</b></label>
                                     <input type="text" placeholder="Ketik Masukkan.." name="keterangan" required>

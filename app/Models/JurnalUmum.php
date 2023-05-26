@@ -13,7 +13,10 @@ class JurnalUmum extends Model
     protected $fillable = [
         'tanggal',
         'bukti_pembayaran',
-        'user_id'
+        'user_id',
+    ];
+    protected $casts = [
+        'tanggal' => 'datetime',
     ];
     public function user()
     {

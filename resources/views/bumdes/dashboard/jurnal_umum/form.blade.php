@@ -11,8 +11,8 @@
         <p class="fs-5" style="color: #8F9CA9">isi form dibawah ini untuk menambah data</p>
         
         <label for="tanggal" ><b>Tanggal Transaksi</b></label>
-        <input type="text" placeholder="DD/MM/YYYY" name="tanggal" required>
-
+        <input type="date" placeholder="DD/MM/YYYY" name="tanggal" class="form-control" required>
+        
         <div class="mb-4">
             <label for="bukti_pembayaran"><b>Upload Bukti Pembayaran</b></label>
             <input type="file" class="form-control"  name="bukti_pembayaran" required>

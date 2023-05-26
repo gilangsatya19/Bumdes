@@ -33,7 +33,7 @@
                                 </div>
                             </div>
                             <table id="example1" class="table table-bordered table-striped">
-                                <thead class="text-white text-center" style="background-color: #3C4B64" >
+                                <thead class=" text-center" >
                                     <tr>
                                         <th>Tanggal</th>
                                         <th>No. Faktur</th>
@@ -51,7 +51,7 @@
                                         @foreach ($datas as $data)
                                             <tr>
                                                 {{-- <td>{{$data->id}}</td> --}}
-                                                <td>{{$data->tanggal}}</td>
+                                                <td>{{$data->tanggal->format('d F Y')}}</td>
                                                 <td>{{$data->no_faktur}}</td>
                                                 <td>{{$data->keterangan}}</td>
                                                 <td>{{$data->noref}}</td>

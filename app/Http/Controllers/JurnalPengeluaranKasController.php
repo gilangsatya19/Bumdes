@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\DataPengeluaranKas;
 use App\Models\PengeluaranKas;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\NamaAkun;
 
@@ -24,7 +25,7 @@ class JurnalPengeluaranKasController extends Controller
     public function createNew(Request $request)
     {
         $data = new PengeluaranKas;
-        $data->tanggal = $request->tanggal;
+        $data->tanggal = Carbon::parse($request->tanggal);
         $data->user_id = auth()->user()->id;
         $data->save();
         session(['pengeluaran_kas_id' => $data->id]);

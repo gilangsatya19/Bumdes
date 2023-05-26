@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\NamaAkun;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\DataPenjualan;
 
@@ -44,7 +45,7 @@ class JurnalPenjualanController extends Controller
     public function store(Request $request)
     {
         $data = new DataPenjualan;
-        $data->tanggal = $request->tanggal;
+        $data->tanggal = Carbon::parse($request->tanggal);
         $data->no_faktur = $request->no_faktur;
         $data->keterangan = $request->keterangan;
         $data->noref = $request->noref;

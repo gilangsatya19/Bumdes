@@ -8,13 +8,13 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Tambah Data - Jurnal Umum</h3>
+                            <h3 class="card-title">Ubah Data - Jurnal Umum</h3>
                         </div>
                         <form action="/jurnal_umum/{{$data->id}}/update" method="post" class="form-container">
                             @csrf
                             <div class="d-flex">
                                 <div>
-                                    <h1 >Edit Data</h1>
+                                    <h1 >Ubah Data</h1>
                                     <div class="mt-3">
 
                                         <label for="nama_akun" class="form-label fs-4"><b>Nama Akun</b></label>

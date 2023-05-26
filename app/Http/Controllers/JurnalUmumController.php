@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\DataJurnalUmum;
 use App\Models\NamaAkun;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\JurnalUmum;
 class JurnalUmumController extends Controller
@@ -24,7 +25,7 @@ class JurnalUmumController extends Controller
     public function createNew(Request $request)
     {
         $jurnal_umum = new JurnalUmum;
-        $jurnal_umum->tanggal = $request->tanggal;
+        $jurnal_umum->tanggal = Carbon::parse($request->tanggal);
         $jurnal_umum->bukti_pembayaran = $request->bukti_pembayaran;
         $jurnal_umum->user_id = auth()->user()->id;
         $jurnal_umum->save();

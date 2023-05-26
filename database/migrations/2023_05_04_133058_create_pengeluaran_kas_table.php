@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('pengeluaran_kas', function (Blueprint $table) {
             $table->id();
-            $table->string('tanggal');
+            $table->date('tanggal');
             $table->foreignId('user_id')->constrained('users');
             $table->timestamps();
         });

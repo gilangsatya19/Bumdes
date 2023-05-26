@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\NamaAkun;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\DataPembelian;
 
@@ -107,7 +108,7 @@ class JurnalPembelianController extends Controller
     public function update(Request $request, $id)
     {
         $data = DataPembelian::find($id);
-        $data->tanggal = $request->tanggal;
+        $data->tanggal = Carbon::parse($request->tanggal);
         $data->keterangan = $request->keterangan;
         $data->noref = $request->noref;
         $data->pembelian = $request->pembelian;

@@ -6,6 +6,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Carbon\Carbon;
 
 
 class DatabaseSeeder extends Seeder
@@ -23,1301 +24,1301 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('adminadmin'),
         ]);
 
-        DB::table('jurnal_umum')->insert([
-            'tanggal' => '01/01/2022',
-            'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
-            'user_id' => '1',
-        ]);
-        DB::table('jurnal_umum')->insert([
-            'tanggal' => '02/01/2022',
-            'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
-            'user_id' => '1',
-        ]);
-        DB::table('jurnal_umum')->insert([
-            'tanggal' => '02/01/2022',
-            'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
-            'user_id' => '1',
-        ]);
-        DB::table('jurnal_umum')->insert([
-            'tanggal' => '04/01/2022',
-            'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
-            'user_id' => '1',
-        ]);
-        DB::table('jurnal_umum')->insert([
-            'tanggal' => '07/01/2022',
-            'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
-            'user_id' => '1',
-        ]);
-        DB::table('jurnal_umum')->insert([
-            'tanggal' => '27/01/2022',
-            'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
-            'user_id' => '1',
-        ]);
-        DB::table('jurnal_umum')->insert([
-            'tanggal' => '05/02/2022',
-            'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
-            'user_id' => '1',
-        ]);
-        DB::table('jurnal_umum')->insert([
-            'tanggal' => '08/02/2022',
-            'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
-            'user_id' => '1',
-        ]);
-        DB::table('jurnal_umum')->insert([
-            'tanggal' => '10/02/2022',
-            'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
-            'user_id' => '1',
-        ]);
-        DB::table('jurnal_umum')->insert([
-            'tanggal' => '10/02/2022',
-            'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
-            'user_id' => '1',
-        ]);
-        DB::table('jurnal_umum')->insert([
-            'tanggal' => '12/02/2022',
-            'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
-            'user_id' => '1',
-        ]);
-        DB::table('jurnal_umum')->insert([
-            'tanggal' => '14/02/2022',
-            'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
-            'user_id' => '1',
-        ]);
-        DB::table('jurnal_umum')->insert([
-            'tanggal' => '28/03/2022',
-            'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
-            'user_id' => '1',
-        ]);
-        DB::table('jurnal_umum')->insert([
-            'tanggal' => '17/04/2022',
-            'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
-            'user_id' => '1',
-        ]);
-        DB::table('jurnal_umum')->insert([
-            'tanggal' => '25/05/2022',
-            'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
-            'user_id' => '1',
-        ]);
-        DB::table('jurnal_umum')->insert([
-            'tanggal' => '04/06/2022',
-            'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
-            'user_id' => '1',
-        ]);
-        DB::table('jurnal_umum')->insert([
-            'tanggal' => '04/06/2022',
-            'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
-            'user_id' => '1',
-        ]);
-        DB::table('jurnal_umum')->insert([
-            'tanggal' => '07/06/2022',
-            'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
-            'user_id' => '1',
-        ]);
-        DB::table('jurnal_umum')->insert([
-            'tanggal' => '01/07/2022',
-            'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
-            'user_id' => '1',
-        ]);
-        DB::table('jurnal_umum')->insert([
-            'tanggal' => '01/07/2022',
-            'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
-            'user_id' => '1',
-        ]);
-        DB::table('jurnal_umum')->insert([
-            'tanggal' => '31/07/2022',
-            'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
-            'user_id' => '1',
-        ]);
-        DB::table('jurnal_umum')->insert([
-            'tanggal' => '04/08/2022',
-            'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
-            'user_id' => '1',
-        ]);
-        DB::table('jurnal_umum')->insert([
-            'tanggal' => '04/08/2022',
-            'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
-            'user_id' => '1',
-        ]);
-        DB::table('jurnal_umum')->insert([
-            'tanggal' => '05/08/2022',
-            'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
-            'user_id' => '1',
-        ]);
-        DB::table('jurnal_umum')->insert([
-            'tanggal' => '07/08/2022',
-            'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
-            'user_id' => '1',
-        ]);
-        DB::table('jurnal_umum')->insert([
-            'tanggal' => '10/08/2022',
-            'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
-            'user_id' => '1',
-        ]);
-        DB::table('jurnal_umum')->insert([
-            'tanggal' => '11/08/2022',
-            'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
-            'user_id' => '1',
-        ]);
-        DB::table('jurnal_umum')->insert([
-            'tanggal' => '30/08/2022',
-            'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
-            'user_id' => '1',
-        ]);
-        DB::table('jurnal_umum')->insert([
-            'tanggal' => '01/09/2022',
-            'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
-            'user_id' => '1',
-        ]);
-        DB::table('jurnal_umum')->insert([
-            'tanggal' => '03/09/2022',
-            'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
-            'user_id' => '1',
-        ]);
-        DB::table('jurnal_umum')->insert([
-            'tanggal' => '05/09/2022',
-            'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
-            'user_id' => '1',
-        ]);
-        DB::table('jurnal_umum')->insert([
-            'tanggal' => '06/09/2022',
-            'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
-            'user_id' => '1',
-        ]);
-        DB::table('jurnal_umum')->insert([
-            'tanggal' => '09/09/2022',
-            'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
-            'user_id' => '1',
-        ]);
-        DB::table('jurnal_umum')->insert([
-            'tanggal' => '10/09/2022',
-            'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
-            'user_id' => '1',
-        ]);
-        DB::table('jurnal_umum')->insert([
-            'tanggal' => '11/09/2022',
-            'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
-            'user_id' => '1',
-        ]);
-        DB::table('jurnal_umum')->insert([
-            'tanggal' => '12/09/2022',
-            'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
-            'user_id' => '1',
-        ]);
-        DB::table('jurnal_umum')->insert([
-            'tanggal' => '13/09/2022',
-            'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
-            'user_id' => '1',
-        ]);
-        DB::table('jurnal_umum')->insert([
-            'tanggal' => '14/09/2022',
-            'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
-            'user_id' => '1',
-        ]);
-        DB::table('jurnal_umum')->insert([
-            'tanggal' => '15/09/2022',
-            'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
-            'user_id' => '1',
-        ]);
-        DB::table('jurnal_umum')->insert([
-            'tanggal' => '15/09/2022',
-            'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
-            'user_id' => '1',
-        ]);
+        // DB::table('jurnal_umum')->insert([
+        //     'tanggal' => Carbon::parse('2000-01-01'),
+        //     'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
+        //     'user_id' => '1',
+        // ]);
+        // DB::table('jurnal_umum')->insert([
+        //     'tanggal' => Carbon::parse('2000-01-02'),
+        //     'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
+        //     'user_id' => '1',
+        // ]);
+        // DB::table('jurnal_umum')->insert([
+        //     'tanggal' => Carbon::parse('2000-01-03'),
+        //     'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
+        //     'user_id' => '1',
+        // ]);
+        // DB::table('jurnal_umum')->insert([
+        //     'tanggal' => Carbon::parse('2000-01-04'),
+        //     'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
+        //     'user_id' => '1',
+        // ]);
+        // DB::table('jurnal_umum')->insert([
+        //     'tanggal' => Carbon::parse('2000-01-01'),
+        //     'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
+        //     'user_id' => '1',
+        // ]);
+        // DB::table('jurnal_umum')->insert([
+        //     'tanggal' => Carbon::parse('2000-01-01'),
+        //     'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
+        //     'user_id' => '1',
+        // ]);
+        // DB::table('jurnal_umum')->insert([
+        //     'tanggal' => Carbon::parse('2000-01-01'),
+        //     'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
+        //     'user_id' => '1',
+        // ]);
+        // DB::table('jurnal_umum')->insert([
+        //     'tanggal' => Carbon::parse('2000-01-01'),
+        //     'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
+        //     'user_id' => '1',
+        // ]);
+        // DB::table('jurnal_umum')->insert([
+        //     'tanggal' => Carbon::parse('2000-01-01'),
+        //     'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
+        //     'user_id' => '1',
+        // ]);
+        // DB::table('jurnal_umum')->insert([
+        //     'tanggal' => Carbon::parse('2000-01-01'),
+        //     'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
+        //     'user_id' => '1',
+        // ]);
+        // DB::table('jurnal_umum')->insert([
+        //     'tanggal' => Carbon::parse('2000-01-01'),
+        //     'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
+        //     'user_id' => '1',
+        // ]);
+        // DB::table('jurnal_umum')->insert([
+        //     'tanggal' => Carbon::parse('2000-01-01'),
+        //     'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
+        //     'user_id' => '1',
+        // ]);
+        // DB::table('jurnal_umum')->insert([
+        //     'tanggal' => Carbon::parse('2000-01-01'),
+        //     'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
+        //     'user_id' => '1',
+        // ]);
+        // DB::table('jurnal_umum')->insert([
+        //     'tanggal' => Carbon::parse('2000-01-01'),
+        //     'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
+        //     'user_id' => '1',
+        // ]);
+        // DB::table('jurnal_umum')->insert([
+        //     'tanggal' => Carbon::parse('2000-01-01'),
+        //     'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
+        //     'user_id' => '1',
+        // ]);
+        // DB::table('jurnal_umum')->insert([
+        //     'tanggal' => Carbon::parse('2000-01-01'),
+        //     'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
+        //     'user_id' => '1',
+        // ]);
+        // DB::table('jurnal_umum')->insert([
+        //     'tanggal' => Carbon::parse('2000-01-01'),
+        //     'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
+        //     'user_id' => '1',
+        // ]);
+        // DB::table('jurnal_umum')->insert([
+        //     'tanggal' => Carbon::parse('2000-01-01'),
+        //     'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
+        //     'user_id' => '1',
+        // ]);
+        // DB::table('jurnal_umum')->insert([
+        //     'tanggal' => Carbon::parse('2000-01-01'),
+        //     'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
+        //     'user_id' => '1',
+        // ]);
+        // DB::table('jurnal_umum')->insert([
+        //     'tanggal' => Carbon::parse('2000-01-01'),
+        //     'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
+        //     'user_id' => '1',
+        // ]);
+        // DB::table('jurnal_umum')->insert([
+        //     'tanggal' => Carbon::parse('2000-01-01'),
+        //     'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
+        //     'user_id' => '1',
+        // ]);
+        // DB::table('jurnal_umum')->insert([
+        //     'tanggal' => Carbon::parse('2000-01-01'),
+        //     'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
+        //     'user_id' => '1',
+        // ]);
+        // DB::table('jurnal_umum')->insert([
+        //     'tanggal' => Carbon::parse('2000-01-01'),
+        //     'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
+        //     'user_id' => '1',
+        // ]);
+        // DB::table('jurnal_umum')->insert([
+        //     'tanggal' => Carbon::parse('2000-01-01'),
+        //     'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
+        //     'user_id' => '1',
+        // ]);
+        // DB::table('jurnal_umum')->insert([
+        //     'tanggal' => Carbon::parse('2000-01-01'),
+        //     'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
+        //     'user_id' => '1',
+        // ]);
+        // DB::table('jurnal_umum')->insert([
+        //     'tanggal' => Carbon::parse('2000-01-01'),
+        //     'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
+        //     'user_id' => '1',
+        // ]);
+        // DB::table('jurnal_umum')->insert([
+        //     'tanggal' => Carbon::parse('2000-01-01'),
+        //     'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
+        //     'user_id' => '1',
+        // ]);
+        // DB::table('jurnal_umum')->insert([
+        //     'tanggal' => Carbon::parse('2000-01-01'),
+        //     'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
+        //     'user_id' => '1',
+        // ]);
+        // DB::table('jurnal_umum')->insert([
+        //     'tanggal' => Carbon::parse('2000-01-01'),
+        //     'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
+        //     'user_id' => '1',
+        // ]);
+        // DB::table('jurnal_umum')->insert([
+        //     'tanggal' => Carbon::parse('2000-01-01'),
+        //     'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
+        //     'user_id' => '1',
+        // ]);
+        // DB::table('jurnal_umum')->insert([
+        //     'tanggal' => Carbon::parse('2000-01-01'),
+        //     'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
+        //     'user_id' => '1',
+        // ]);
+        // DB::table('jurnal_umum')->insert([
+        //     'tanggal' => Carbon::parse('2000-01-01'),
+        //     'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
+        //     'user_id' => '1',
+        // ]);
+        // DB::table('jurnal_umum')->insert([
+        //     'tanggal' => Carbon::parse('2000-01-01'),
+        //     'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
+        //     'user_id' => '1',
+        // ]);
+        // DB::table('jurnal_umum')->insert([
+        //     'tanggal' => Carbon::parse('2000-01-01'),
+        //     'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
+        //     'user_id' => '1',
+        // ]);
+        // DB::table('jurnal_umum')->insert([
+        //     'tanggal' => Carbon::parse('2000-01-01'),
+        //     'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
+        //     'user_id' => '1',
+        // ]);
+        // DB::table('jurnal_umum')->insert([
+        //     'tanggal' => Carbon::parse('2000-01-01'),
+        //     'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
+        //     'user_id' => '1',
+        // ]);
+        // DB::table('jurnal_umum')->insert([
+        //     'tanggal' => Carbon::parse('2000-01-01'),
+        //     'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
+        //     'user_id' => '1',
+        // ]);
+        // DB::table('jurnal_umum')->insert([
+        //     'tanggal' => Carbon::parse('2000-01-01'),
+        //     'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
+        //     'user_id' => '1',
+        // ]);
+        // DB::table('jurnal_umum')->insert([
+        //     'tanggal' => Carbon::parse('2000-01-01'),
+        //     'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
+        //     'user_id' => '1',
+        // ]);
+        // DB::table('jurnal_umum')->insert([
+        //     'tanggal' => Carbon::parse('2000-01-01'),
+        //     'bukti_pembayaran' => '8eafcf84bcceec78873f53f928c910be.jpg',
+        //     'user_id' => '1',
+        // ]);
 
 
 
 
 
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Kas',
-            'noref' => '1101',
-            'debit' => '5000000',
-            'kredit' => '0',
-            'jurnal_umum_id' => '1',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Penyertaan Modal Masyarakat',
-            'noref' => '3102',
-            'debit' => '0',
-            'kredit' => '5000000',
-            'jurnal_umum_id' => '1',
-        ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Kas',
+        //     'noref' => '1101',
+        //     'debit' => '5000000',
+        //     'kredit' => '0',
+        //     'jurnal_umum_id' => '1',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Penyertaan Modal Masyarakat',
+        //     'noref' => '3102',
+        //     'debit' => '0',
+        //     'kredit' => '5000000',
+        //     'jurnal_umum_id' => '1',
+        // ]);
 
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Piutang Desa',
-            'noref' => '1115',
-            'debit' => '15000000',
-            'kredit' => '0',
-            'jurnal_umum_id' => '2',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Pendapatan Dari Desa (PADES)',
-            'noref' => '7102',
-            'debit' => '0',
-            'kredit' => '15000000',
-            'jurnal_umum_id' => '2',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Sewa dibayar dimuka',
-            'noref' => '1112',
-            'debit' => '12000000',
-            'kredit' => '0',
-            'jurnal_umum_id' => '3',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Kas',
-            'noref' => '1101',
-            'debit' => '0',
-            'kredit' => '12000000',
-            'jurnal_umum_id' => '3',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Peralatan dan meubeliar',
-            'noref' => '1304',
-            'debit' => '4200000',
-            'kredit' => '0',
-            'jurnal_umum_id' => '4',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Kas',
-            'noref' => '1101',
-            'debit' => '0',
-            'kredit' => '4200000',
-            'jurnal_umum_id' => '4',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Piutang Usaha',
-            'noref' => '1108',
-            'debit' => '1200000',
-            'kredit' => '0',
-            'jurnal_umum_id' => '5',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Pendapatan Sewa',
-            'noref' => '4304',
-            'debit' => '0',
-            'kredit' => '1200000',
-            'jurnal_umum_id' => '5',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Kas',
-            'noref' => '1101',
-            'debit' => '1200000',
-            'kredit' => '0',
-            'jurnal_umum_id' => '6',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Piutang Usaha',
-            'noref' => '1108',
-            'debit' => '0',
-            'kredit' => '1200000',
-            'jurnal_umum_id' => '6',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Kas',
-            'noref' => '1101',
-            'debit' => '350000000',
-            'kredit' => '0',
-            'jurnal_umum_id' => '7',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Pendapatan Sewa',
-            'noref' => '4304',
-            'debit' => '0',
-            'kredit' => '350000000',
-            'jurnal_umum_id' => '7',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Kas',
-            'noref' => '1101',
-            'debit' => '350000000',
-            'kredit' => '0',
-            'jurnal_umum_id' => '8',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Pendapatan Jasa',
-            'noref' => '4305',
-            'debit' => '0',
-            'kredit' => '350000000',
-            'jurnal_umum_id' => '8',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Kas',
-            'noref' => '1101',
-            'debit' => '15000000',
-            'kredit' => '0',
-            'jurnal_umum_id' => '9',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Piutang Desa',
-            'noref' => '1115',
-            'debit' => '0',
-            'kredit' => '15000000',
-            'jurnal_umum_id' => '9',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Beban PADES',
-            'noref' => '6136',
-            'debit' => '50000',
-            'kredit' => '0',
-            'jurnal_umum_id' => '10',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Kas',
-            'noref' => '1101',
-            'debit' => '0',
-            'kredit' => '50000',
-            'jurnal_umum_id' => '10',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Perlengkapan',
-            'noref' => '1111',
-            'debit' => '250000',
-            'kredit' => '0',
-            'jurnal_umum_id' => '11',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Kas',
-            'noref' => '1101',
-            'debit' => '0',
-            'kredit' => '250000',
-            'jurnal_umum_id' => '11',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Kendaraan',
-            'noref' => '1306',
-            'debit' => '25000000',
-            'kredit' => '0',
-            'jurnal_umum_id' => '12',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Kas',
-            'noref' => '1101',
-            'debit' => '0',
-            'kredit' => '25000000',
-            'jurnal_umum_id' => '12',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Tanah',
-            'noref' => '1301',
-            'debit' => '300000000',
-            'kredit' => '0',
-            'jurnal_umum_id' => '13',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Kas',
-            'noref' => '1101',
-            'debit' => '0',
-            'kredit' => '100000000',
-            'jurnal_umum_id' => '13',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Utang Usaha',
-            'noref' => '2101',
-            'debit' => '0',
-            'kredit' => '200000000',
-            'jurnal_umum_id' => '13',
-        ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Piutang Desa',
+        //     'noref' => '1115',
+        //     'debit' => '15000000',
+        //     'kredit' => '0',
+        //     'jurnal_umum_id' => '2',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Pendapatan Dari Desa (PADES)',
+        //     'noref' => '7102',
+        //     'debit' => '0',
+        //     'kredit' => '15000000',
+        //     'jurnal_umum_id' => '2',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Sewa dibayar dimuka',
+        //     'noref' => '1112',
+        //     'debit' => '12000000',
+        //     'kredit' => '0',
+        //     'jurnal_umum_id' => '3',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Kas',
+        //     'noref' => '1101',
+        //     'debit' => '0',
+        //     'kredit' => '12000000',
+        //     'jurnal_umum_id' => '3',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Peralatan dan meubeliar',
+        //     'noref' => '1304',
+        //     'debit' => '4200000',
+        //     'kredit' => '0',
+        //     'jurnal_umum_id' => '4',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Kas',
+        //     'noref' => '1101',
+        //     'debit' => '0',
+        //     'kredit' => '4200000',
+        //     'jurnal_umum_id' => '4',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Piutang Usaha',
+        //     'noref' => '1108',
+        //     'debit' => '1200000',
+        //     'kredit' => '0',
+        //     'jurnal_umum_id' => '5',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Pendapatan Sewa',
+        //     'noref' => '4304',
+        //     'debit' => '0',
+        //     'kredit' => '1200000',
+        //     'jurnal_umum_id' => '5',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Kas',
+        //     'noref' => '1101',
+        //     'debit' => '1200000',
+        //     'kredit' => '0',
+        //     'jurnal_umum_id' => '6',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Piutang Usaha',
+        //     'noref' => '1108',
+        //     'debit' => '0',
+        //     'kredit' => '1200000',
+        //     'jurnal_umum_id' => '6',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Kas',
+        //     'noref' => '1101',
+        //     'debit' => '350000000',
+        //     'kredit' => '0',
+        //     'jurnal_umum_id' => '7',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Pendapatan Sewa',
+        //     'noref' => '4304',
+        //     'debit' => '0',
+        //     'kredit' => '350000000',
+        //     'jurnal_umum_id' => '7',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Kas',
+        //     'noref' => '1101',
+        //     'debit' => '350000000',
+        //     'kredit' => '0',
+        //     'jurnal_umum_id' => '8',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Pendapatan Jasa',
+        //     'noref' => '4305',
+        //     'debit' => '0',
+        //     'kredit' => '350000000',
+        //     'jurnal_umum_id' => '8',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Kas',
+        //     'noref' => '1101',
+        //     'debit' => '15000000',
+        //     'kredit' => '0',
+        //     'jurnal_umum_id' => '9',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Piutang Desa',
+        //     'noref' => '1115',
+        //     'debit' => '0',
+        //     'kredit' => '15000000',
+        //     'jurnal_umum_id' => '9',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Beban PADES',
+        //     'noref' => '6136',
+        //     'debit' => '50000',
+        //     'kredit' => '0',
+        //     'jurnal_umum_id' => '10',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Kas',
+        //     'noref' => '1101',
+        //     'debit' => '0',
+        //     'kredit' => '50000',
+        //     'jurnal_umum_id' => '10',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Perlengkapan',
+        //     'noref' => '1111',
+        //     'debit' => '250000',
+        //     'kredit' => '0',
+        //     'jurnal_umum_id' => '11',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Kas',
+        //     'noref' => '1101',
+        //     'debit' => '0',
+        //     'kredit' => '250000',
+        //     'jurnal_umum_id' => '11',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Kendaraan',
+        //     'noref' => '1306',
+        //     'debit' => '25000000',
+        //     'kredit' => '0',
+        //     'jurnal_umum_id' => '12',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Kas',
+        //     'noref' => '1101',
+        //     'debit' => '0',
+        //     'kredit' => '25000000',
+        //     'jurnal_umum_id' => '12',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Tanah',
+        //     'noref' => '1301',
+        //     'debit' => '300000000',
+        //     'kredit' => '0',
+        //     'jurnal_umum_id' => '13',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Kas',
+        //     'noref' => '1101',
+        //     'debit' => '0',
+        //     'kredit' => '100000000',
+        //     'jurnal_umum_id' => '13',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Utang Usaha',
+        //     'noref' => '2101',
+        //     'debit' => '0',
+        //     'kredit' => '200000000',
+        //     'jurnal_umum_id' => '13',
+        // ]);
 
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Gedung dan bangunan',
-            'noref' => '1302',
-            'debit' => '250000000',
-            'kredit' => '0',
-            'jurnal_umum_id' => '14',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Kas',
-            'noref' => '1101',
-            'debit' => '0',
-            'kredit' => '250000000',
-            'jurnal_umum_id' => '14',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Utang usaha',
-            'noref' => '2112',
-            'debit' => '200000000',
-            'kredit' => '0',
-            'jurnal_umum_id' => '15',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Kas',
-            'noref' => '1101',
-            'debit' => '0',
-            'kredit' => '200000000',
-            'jurnal_umum_id' => '15',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Kas di Bank A',
-            'noref' => '1102',
-            'debit' => '150000000',
-            'kredit' => '0',
-            'jurnal_umum_id' => '16',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Utang Usaha',
-            'noref' => '2112',
-            'debit' => '0',
-            'kredit' => '150000000',
-            'jurnal_umum_id' => '16',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Beban Administrasi Bank',
-            'noref' => '6113',
-            'debit' => '50000',
-            'kredit' => '0',
-            'jurnal_umum_id' => '17',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Kas',
-            'noref' => '1101',
-            'debit' => '0',
-            'kredit' => '50000',
-            'jurnal_umum_id' => '17',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Kas di Bank A',
-            'noref' => '1101',
-            'debit' => '50000',
-            'kredit' => '0',
-            'jurnal_umum_id' => '18',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Pendapatan Bunga',
-            'noref' => '7101',
-            'debit' => '0',
-            'kredit' => '50000',
-            'jurnal_umum_id' => '18',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Kas Kecil',
-            'noref' => '1105',
-            'debit' => '2500000',
-            'kredit' => '0',
-            'jurnal_umum_id' => '19',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Kas',
-            'noref' => '1101',
-            'debit' => '0',
-            'kredit' => '2500000',
-            'jurnal_umum_id' => '19',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Kas',
-            'noref' => '1101',
-            'debit' => '10000000',
-            'kredit' => '0',
-            'jurnal_umum_id' => '20',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Penyertaan Modal Desa',
-            'noref' => '3102',
-            'debit' => '0',
-            'kredit' => '10000000',
-            'jurnal_umum_id' => '20',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Asuransi Dibayar Dimuka',
-            'noref' => '1113',
-            'debit' => '50000000',
-            'kredit' => '0',
-            'jurnal_umum_id' => '21',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Kas',
-            'noref' => '1101',
-            'debit' => '0',
-            'kredit' => '50000000',
-            'jurnal_umum_id' => '21',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Utang Gaji dan Tunjangan',
-            'noref' => '2106',
-            'debit' => '50000000',
-            'kredit' => '0',
-            'jurnal_umum_id' => '22',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Kas',
-            'noref' => '1101',
-            'debit' => '0',
-            'kredit' => '50000000',
-            'jurnal_umum_id' => '22',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Utang Gaji dan Tunjangan',
-            'noref' => '2106',
-            'debit' => '12000000',
-            'kredit' => '0',
-            'jurnal_umum_id' => '23',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Kas',
-            'noref' => '1101',
-            'debit' => '0',
-            'kredit' => '12000000',
-            'jurnal_umum_id' => '23',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Utang Listrik',
-            'noref' => '2107',
-            'debit' => '250000',
-            'kredit' => '0',
-            'jurnal_umum_id' => '24',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Utang Telepon dan Internet',
-            'noref' => '2107',
-            'debit' => '250000',
-            'kredit' => '0',
-            'jurnal_umum_id' => '24',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Kas',
-            'noref' => '1101',
-            'debit' => '0',
-            'kredit' => '500000',
-            'jurnal_umum_id' => '24',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Beban Gaji dan Tunjangan',
-            'noref' => '6101',
-            'debit' => '12000000',
-            'kredit' => '0',
-            'jurnal_umum_id' => '25',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Kas',
-            'noref' => '1101',
-            'debit' => '0',
-            'kredit' => '12000000',
-            'jurnal_umum_id' => '25',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Beban Listrik',
-            'noref' => '6107',
-            'debit' => '0',
-            'kredit' => '250000',
-            'jurnal_umum_id' => '26',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Beban Telepon dan Internet',
-            'noref' => '6108',
-            'debit' => '250000',
-            'kredit' => '0',
-            'jurnal_umum_id' => '26',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Kas',
-            'noref' => '1101',
-            'debit' => '0',
-            'kredit' => '500000',
-            'jurnal_umum_id' => '26',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Beban Air',
-            'noref' => '6109',
-            'debit' => '150000',
-            'kredit' => '0',
-            'jurnal_umum_id' => '27',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Kas',
-            'noref' => '1101',
-            'debit' => '0',
-            'kredit' => '150000',
-            'jurnal_umum_id' => '27',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Kas',
-            'noref' => '1101',
-            'debit' => '750000',
-            'kredit' => '0',
-            'jurnal_umum_id' => '28',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Pendapatan dari Desa (PADES)',
-            'noref' => '7102',
-            'debit' => '0',
-            'kredit' => '750000',
-            'jurnal_umum_id' => '28',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Kas',
-            'noref' => '1101',
-            'debit' => '2000000',
-            'kredit' => '0',
-            'jurnal_umum_id' => '29',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Pendapatan Bantuan/Sumangan/Hibah',
-            'noref' => '7103',
-            'debit' => '0',
-            'kredit' => '2000000',
-            'jurnal_umum_id' => '29',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Perlengkapan',
-            'noref' => '1101',
-            'debit' => '750000',
-            'kredit' => '0',
-            'jurnal_umum_id' => '30',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Kas Kecil',
-            'noref' => '7102',
-            'debit' => '0',
-            'kredit' => '750000',
-            'jurnal_umum_id' => '30',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Beban Honor Lembur',
-            'noref' => '6102',
-            'debit' => '5000000',
-            'kredit' => '0',
-            'jurnal_umum_id' => '31',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Kas',
-            'noref' => '1101',
-            'debit' => '0',
-            'kredit' => '5000000',
-            'jurnal_umum_id' => '31',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Beban Transportasi',
-            'noref' => '6111',
-            'debit' => '100000',
-            'kredit' => '0',
-            'jurnal_umum_id' => '32',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Kas',
-            'noref' => '1101',
-            'debit' => '0',
-            'kredit' => '100000',
-            'jurnal_umum_id' => '32',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Beban Parkir',
-            'noref' => '6112',
-            'debit' => '100000',
-            'kredit' => '0',
-            'jurnal_umum_id' => '33',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Kas',
-            'noref' => '1101',
-            'debit' => '0',
-            'kredit' => '100000',
-            'jurnal_umum_id' => '33',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Beban Keamanan',
-            'noref' => '6114',
-            'debit' => '250000',
-            'kredit' => '0',
-            'jurnal_umum_id' => '34',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Kas',
-            'noref' => '1101',
-            'debit' => '0',
-            'kredit' => '250000',
-            'jurnal_umum_id' => '34',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Beban Fotocopy',
-            'noref' => '6118',
-            'debit' => '200000',
-            'kredit' => '0',
-            'jurnal_umum_id' => '35',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Kas',
-            'noref' => '1101',
-            'debit' => '0',
-            'kredit' => '200000',
-            'jurnal_umum_id' => '35',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Beban Pemeliharaan dan Perbaikan',
-            'noref' => '6119',
-            'debit' => '300000',
-            'kredit' => '0',
-            'jurnal_umum_id' => '36',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Kas',
-            'noref' => '1101',
-            'debit' => '0',
-            'kredit' => '300000',
-            'jurnal_umum_id' => '36',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Beban ATK',
-            'noref' => '6116',
-            'debit' => '200000',
-            'kredit' => '0',
-            'jurnal_umum_id' => '37',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Kas',
-            'noref' => '1101',
-            'debit' => '0',
-            'kredit' => '200000',
-            'jurnal_umum_id' => '37',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Beban Kebersihan',
-            'noref' => '6115',
-            'debit' => '50000',
-            'kredit' => '0',
-            'jurnal_umum_id' => '38',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Kas',
-            'noref' => '1101',
-            'debit' => '0',
-            'kredit' => '50000',
-            'jurnal_umum_id' => '38',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Beban Administrasi Umum dan Lainnya',
-            'noref' => '6199',
-            'debit' => '200000',
-            'kredit' => '0',
-            'jurnal_umum_id' => '39',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Kas',
-            'noref' => '1101',
-            'debit' => '0',
-            'kredit' => '200000',
-            'jurnal_umum_id' => '39',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Beban Seragam Pegawai',
-            'noref' => '6106',
-            'debit' => '300000',
-            'kredit' => '0',
-            'jurnal_umum_id' => '40',
-        ]);
-        DB::table('data_jurnal_umum')->insert([
-            'nama_akun' => 'Kas',
-            'noref' => '1101',
-            'debit' => '0',
-            'kredit' => '300000',
-            'jurnal_umum_id' => '40',
-        ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Gedung dan bangunan',
+        //     'noref' => '1302',
+        //     'debit' => '250000000',
+        //     'kredit' => '0',
+        //     'jurnal_umum_id' => '14',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Kas',
+        //     'noref' => '1101',
+        //     'debit' => '0',
+        //     'kredit' => '250000000',
+        //     'jurnal_umum_id' => '14',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Utang usaha',
+        //     'noref' => '2112',
+        //     'debit' => '200000000',
+        //     'kredit' => '0',
+        //     'jurnal_umum_id' => '15',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Kas',
+        //     'noref' => '1101',
+        //     'debit' => '0',
+        //     'kredit' => '200000000',
+        //     'jurnal_umum_id' => '15',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Kas di Bank A',
+        //     'noref' => '1102',
+        //     'debit' => '150000000',
+        //     'kredit' => '0',
+        //     'jurnal_umum_id' => '16',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Utang Usaha',
+        //     'noref' => '2112',
+        //     'debit' => '0',
+        //     'kredit' => '150000000',
+        //     'jurnal_umum_id' => '16',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Beban Administrasi Bank',
+        //     'noref' => '6113',
+        //     'debit' => '50000',
+        //     'kredit' => '0',
+        //     'jurnal_umum_id' => '17',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Kas',
+        //     'noref' => '1101',
+        //     'debit' => '0',
+        //     'kredit' => '50000',
+        //     'jurnal_umum_id' => '17',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Kas di Bank A',
+        //     'noref' => '1101',
+        //     'debit' => '50000',
+        //     'kredit' => '0',
+        //     'jurnal_umum_id' => '18',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Pendapatan Bunga',
+        //     'noref' => '7101',
+        //     'debit' => '0',
+        //     'kredit' => '50000',
+        //     'jurnal_umum_id' => '18',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Kas Kecil',
+        //     'noref' => '1105',
+        //     'debit' => '2500000',
+        //     'kredit' => '0',
+        //     'jurnal_umum_id' => '19',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Kas',
+        //     'noref' => '1101',
+        //     'debit' => '0',
+        //     'kredit' => '2500000',
+        //     'jurnal_umum_id' => '19',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Kas',
+        //     'noref' => '1101',
+        //     'debit' => '10000000',
+        //     'kredit' => '0',
+        //     'jurnal_umum_id' => '20',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Penyertaan Modal Desa',
+        //     'noref' => '3102',
+        //     'debit' => '0',
+        //     'kredit' => '10000000',
+        //     'jurnal_umum_id' => '20',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Asuransi Dibayar Dimuka',
+        //     'noref' => '1113',
+        //     'debit' => '50000000',
+        //     'kredit' => '0',
+        //     'jurnal_umum_id' => '21',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Kas',
+        //     'noref' => '1101',
+        //     'debit' => '0',
+        //     'kredit' => '50000000',
+        //     'jurnal_umum_id' => '21',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Utang Gaji dan Tunjangan',
+        //     'noref' => '2106',
+        //     'debit' => '50000000',
+        //     'kredit' => '0',
+        //     'jurnal_umum_id' => '22',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Kas',
+        //     'noref' => '1101',
+        //     'debit' => '0',
+        //     'kredit' => '50000000',
+        //     'jurnal_umum_id' => '22',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Utang Gaji dan Tunjangan',
+        //     'noref' => '2106',
+        //     'debit' => '12000000',
+        //     'kredit' => '0',
+        //     'jurnal_umum_id' => '23',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Kas',
+        //     'noref' => '1101',
+        //     'debit' => '0',
+        //     'kredit' => '12000000',
+        //     'jurnal_umum_id' => '23',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Utang Listrik',
+        //     'noref' => '2107',
+        //     'debit' => '250000',
+        //     'kredit' => '0',
+        //     'jurnal_umum_id' => '24',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Utang Telepon dan Internet',
+        //     'noref' => '2107',
+        //     'debit' => '250000',
+        //     'kredit' => '0',
+        //     'jurnal_umum_id' => '24',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Kas',
+        //     'noref' => '1101',
+        //     'debit' => '0',
+        //     'kredit' => '500000',
+        //     'jurnal_umum_id' => '24',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Beban Gaji dan Tunjangan',
+        //     'noref' => '6101',
+        //     'debit' => '12000000',
+        //     'kredit' => '0',
+        //     'jurnal_umum_id' => '25',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Kas',
+        //     'noref' => '1101',
+        //     'debit' => '0',
+        //     'kredit' => '12000000',
+        //     'jurnal_umum_id' => '25',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Beban Listrik',
+        //     'noref' => '6107',
+        //     'debit' => '0',
+        //     'kredit' => '250000',
+        //     'jurnal_umum_id' => '26',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Beban Telepon dan Internet',
+        //     'noref' => '6108',
+        //     'debit' => '250000',
+        //     'kredit' => '0',
+        //     'jurnal_umum_id' => '26',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Kas',
+        //     'noref' => '1101',
+        //     'debit' => '0',
+        //     'kredit' => '500000',
+        //     'jurnal_umum_id' => '26',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Beban Air',
+        //     'noref' => '6109',
+        //     'debit' => '150000',
+        //     'kredit' => '0',
+        //     'jurnal_umum_id' => '27',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Kas',
+        //     'noref' => '1101',
+        //     'debit' => '0',
+        //     'kredit' => '150000',
+        //     'jurnal_umum_id' => '27',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Kas',
+        //     'noref' => '1101',
+        //     'debit' => '750000',
+        //     'kredit' => '0',
+        //     'jurnal_umum_id' => '28',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Pendapatan dari Desa (PADES)',
+        //     'noref' => '7102',
+        //     'debit' => '0',
+        //     'kredit' => '750000',
+        //     'jurnal_umum_id' => '28',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Kas',
+        //     'noref' => '1101',
+        //     'debit' => '2000000',
+        //     'kredit' => '0',
+        //     'jurnal_umum_id' => '29',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Pendapatan Bantuan/Sumangan/Hibah',
+        //     'noref' => '7103',
+        //     'debit' => '0',
+        //     'kredit' => '2000000',
+        //     'jurnal_umum_id' => '29',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Perlengkapan',
+        //     'noref' => '1101',
+        //     'debit' => '750000',
+        //     'kredit' => '0',
+        //     'jurnal_umum_id' => '30',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Kas Kecil',
+        //     'noref' => '7102',
+        //     'debit' => '0',
+        //     'kredit' => '750000',
+        //     'jurnal_umum_id' => '30',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Beban Honor Lembur',
+        //     'noref' => '6102',
+        //     'debit' => '5000000',
+        //     'kredit' => '0',
+        //     'jurnal_umum_id' => '31',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Kas',
+        //     'noref' => '1101',
+        //     'debit' => '0',
+        //     'kredit' => '5000000',
+        //     'jurnal_umum_id' => '31',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Beban Transportasi',
+        //     'noref' => '6111',
+        //     'debit' => '100000',
+        //     'kredit' => '0',
+        //     'jurnal_umum_id' => '32',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Kas',
+        //     'noref' => '1101',
+        //     'debit' => '0',
+        //     'kredit' => '100000',
+        //     'jurnal_umum_id' => '32',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Beban Parkir',
+        //     'noref' => '6112',
+        //     'debit' => '100000',
+        //     'kredit' => '0',
+        //     'jurnal_umum_id' => '33',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Kas',
+        //     'noref' => '1101',
+        //     'debit' => '0',
+        //     'kredit' => '100000',
+        //     'jurnal_umum_id' => '33',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Beban Keamanan',
+        //     'noref' => '6114',
+        //     'debit' => '250000',
+        //     'kredit' => '0',
+        //     'jurnal_umum_id' => '34',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Kas',
+        //     'noref' => '1101',
+        //     'debit' => '0',
+        //     'kredit' => '250000',
+        //     'jurnal_umum_id' => '34',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Beban Fotocopy',
+        //     'noref' => '6118',
+        //     'debit' => '200000',
+        //     'kredit' => '0',
+        //     'jurnal_umum_id' => '35',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Kas',
+        //     'noref' => '1101',
+        //     'debit' => '0',
+        //     'kredit' => '200000',
+        //     'jurnal_umum_id' => '35',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Beban Pemeliharaan dan Perbaikan',
+        //     'noref' => '6119',
+        //     'debit' => '300000',
+        //     'kredit' => '0',
+        //     'jurnal_umum_id' => '36',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Kas',
+        //     'noref' => '1101',
+        //     'debit' => '0',
+        //     'kredit' => '300000',
+        //     'jurnal_umum_id' => '36',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Beban ATK',
+        //     'noref' => '6116',
+        //     'debit' => '200000',
+        //     'kredit' => '0',
+        //     'jurnal_umum_id' => '37',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Kas',
+        //     'noref' => '1101',
+        //     'debit' => '0',
+        //     'kredit' => '200000',
+        //     'jurnal_umum_id' => '37',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Beban Kebersihan',
+        //     'noref' => '6115',
+        //     'debit' => '50000',
+        //     'kredit' => '0',
+        //     'jurnal_umum_id' => '38',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Kas',
+        //     'noref' => '1101',
+        //     'debit' => '0',
+        //     'kredit' => '50000',
+        //     'jurnal_umum_id' => '38',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Beban Administrasi Umum dan Lainnya',
+        //     'noref' => '6199',
+        //     'debit' => '200000',
+        //     'kredit' => '0',
+        //     'jurnal_umum_id' => '39',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Kas',
+        //     'noref' => '1101',
+        //     'debit' => '0',
+        //     'kredit' => '200000',
+        //     'jurnal_umum_id' => '39',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Beban Seragam Pegawai',
+        //     'noref' => '6106',
+        //     'debit' => '300000',
+        //     'kredit' => '0',
+        //     'jurnal_umum_id' => '40',
+        // ]);
+        // DB::table('data_jurnal_umum')->insert([
+        //     'nama_akun' => 'Kas',
+        //     'noref' => '1101',
+        //     'debit' => '0',
+        //     'kredit' => '300000',
+        //     'jurnal_umum_id' => '40',
+        // ]);
 
 
 
 
         // Table pemasukan kas
-        DB::table('pemasukan_kas')->insert([ //1
-            'tanggal' => '01/01/2022',
-            'user_id' => '1',
-        ]);
-        DB::table('pemasukan_kas')->insert([ //2
-            'tanggal' => '27/01/2022',
-            'user_id' => '1',
-        ]);
-        DB::table('pemasukan_kas')->insert([ //3
-            'tanggal' => '05/02/2022',
-            'user_id' => '1',
-        ]);
-        DB::table('pemasukan_kas')->insert([ //4
-            'tanggal' => '08/02/2022',
-            'user_id' => '1',
-        ]);
-        DB::table('pemasukan_kas')->insert([ //5
-            'tanggal' => '10/02/2022',
-            'user_id' => '1',
-        ]);
-        DB::table('pemasukan_kas')->insert([ //6
-            'tanggal' => '05/06/2022',
-            'user_id' => '1',
-        ]);
-        DB::table('pemasukan_kas')->insert([ //7
-            'tanggal' => '01/07/2022',
-            'user_id' => '1',
-        ]);
-        DB::table('pemasukan_kas')->insert([ //8
-            'tanggal' => '11/08/2022',
-            'user_id' => '1',
-        ]);
+        // DB::table('pemasukan_kas')->insert([ //1
+        //     'tanggal' => '01/01/2022',
+        //     'user_id' => '1',
+        // ]);
+        // DB::table('pemasukan_kas')->insert([ //2
+        //     'tanggal' => '27/01/2022',
+        //     'user_id' => '1',
+        // ]);
+        // DB::table('pemasukan_kas')->insert([ //3
+        //     'tanggal' => '05/02/2022',
+        //     'user_id' => '1',
+        // ]);
+        // DB::table('pemasukan_kas')->insert([ //4
+        //     'tanggal' => '08/02/2022',
+        //     'user_id' => '1',
+        // ]);
+        // DB::table('pemasukan_kas')->insert([ //5
+        //     'tanggal' => '10/02/2022',
+        //     'user_id' => '1',
+        // ]);
+        // DB::table('pemasukan_kas')->insert([ //6
+        //     'tanggal' => '05/06/2022',
+        //     'user_id' => '1',
+        // ]);
+        // DB::table('pemasukan_kas')->insert([ //7
+        //     'tanggal' => '01/07/2022',
+        //     'user_id' => '1',
+        // ]);
+        // DB::table('pemasukan_kas')->insert([ //8
+        //     'tanggal' => '11/08/2022',
+        //     'user_id' => '1',
+        // ]);
         
 
-        DB::table('data_pemasukan_kas')->insert([
-            'nama_akun' => 'Kas',
-            'noref' => '1101',
-            'debit' => '5000000',
-            'kredit' => '0',
-            'pemasukan_kas_id' => '1',
-        ]);
-        DB::table('data_pemasukan_kas')->insert([
-            'nama_akun' => 'Penyertaan Modal Desa',
-            'noref' => '3101',
-            'debit' => '0',
-            'kredit' => '5000000',
-            'pemasukan_kas_id' => '1',
-        ]);
+        // DB::table('data_pemasukan_kas')->insert([
+        //     'nama_akun' => 'Kas',
+        //     'noref' => '1101',
+        //     'debit' => '5000000',
+        //     'kredit' => '0',
+        //     'pemasukan_kas_id' => '1',
+        // ]);
+        // DB::table('data_pemasukan_kas')->insert([
+        //     'nama_akun' => 'Penyertaan Modal Desa',
+        //     'noref' => '3101',
+        //     'debit' => '0',
+        //     'kredit' => '5000000',
+        //     'pemasukan_kas_id' => '1',
+        // ]);
 
-        DB::table('data_pemasukan_kas')->insert([
-            'nama_akun' => 'Kas',
-            'noref' => '1101',
-            'debit' => '1200000',
-            'kredit' => '0',
-            'pemasukan_kas_id' => '2',
-        ]);
-        DB::table('data_pemasukan_kas')->insert([
-            'nama_akun' => 'Piutang Usaha',
-            'noref' => '1108',
-            'debit' => '0',
-            'kredit' => '5000000',
-            'pemasukan_kas_id' => '2',
-        ]);
-        DB::table('data_pemasukan_kas')->insert([
-            'nama_akun' => 'Kas',
-            'noref' => '1101',
-            'debit' => '350000000',
-            'kredit' => '0',
-            'pemasukan_kas_id' => '3',
-        ]);
-        DB::table('data_pemasukan_kas')->insert([
-            'nama_akun' => 'Pendapatan Sewa',
-            'noref' => '1108',
-            'debit' => '0',
-            'kredit' => '350000000',
-            'pemasukan_kas_id' => '3',
-        ]);
-        DB::table('data_pemasukan_kas')->insert([
-            'nama_akun' => 'Kas',
-            'noref' => '1101',
-            'debit' => '350000000',
-            'kredit' => '0',
-            'pemasukan_kas_id' => '4',
-        ]);
-        DB::table('data_pemasukan_kas')->insert([
-            'nama_akun' => 'Pendapatan Jasa',
-            'noref' => '1108',
-            'debit' => '0',
-            'kredit' => '350000000',
-            'pemasukan_kas_id' => '4',
-        ]);
-        DB::table('data_pemasukan_kas')->insert([
-            'nama_akun' => 'Kas',
-            'noref' => '1101',
-            'debit' => '15000000',
-            'kredit' => '0',
-            'pemasukan_kas_id' => '5',
-        ]);
-        DB::table('data_pemasukan_kas')->insert([
-            'nama_akun' => 'Piutang Desa',
-            'noref' => '1115',
-            'debit' => '0',
-            'kredit' => '15000000',
-            'pemasukan_kas_id' => '5',
-        ]);
-        DB::table('data_pemasukan_kas')->insert([
-            'nama_akun' => 'Kas di Bank A',
-            'noref' => '1102',
-            'debit' => '50000',
-            'kredit' => '0',
-            'pemasukan_kas_id' => '6',
-        ]);
-        DB::table('data_pemasukan_kas')->insert([
-            'nama_akun' => 'Pendapatan Bunga',
-            'noref' => '7101',
-            'debit' => '0',
-            'kredit' => '50000',
-            'pemasukan_kas_id' => '6',
-        ]);
-        DB::table('data_pemasukan_kas')->insert([
-            'nama_akun' => 'Kas',
-            'noref' => '1101',
-            'debit' => '10000000',
-            'kredit' => '0',
-            'pemasukan_kas_id' => '7',
-        ]);
-        DB::table('data_pemasukan_kas')->insert([
-            'nama_akun' => 'Penyertaan Modal Desa',
-            'noref' => '3102',
-            'debit' => '0',
-            'kredit' => '10000000',
-            'pemasukan_kas_id' => '7',
-        ]);
-        DB::table('data_pemasukan_kas')->insert([
-            'nama_akun' => 'Kas',
-            'noref' => '1101',
-            'debit' => '750000',
-            'kredit' => '0',
-            'pemasukan_kas_id' => '8',
-        ]);
-        DB::table('data_pemasukan_kas')->insert([
-            'nama_akun' => 'Pendapatan dari Desa',
-            'noref' => '7102',
-            'debit' => '0',
-            'kredit' => '750000',
-            'pemasukan_kas_id' => '8',
-        ]);
+        // DB::table('data_pemasukan_kas')->insert([
+        //     'nama_akun' => 'Kas',
+        //     'noref' => '1101',
+        //     'debit' => '1200000',
+        //     'kredit' => '0',
+        //     'pemasukan_kas_id' => '2',
+        // ]);
+        // DB::table('data_pemasukan_kas')->insert([
+        //     'nama_akun' => 'Piutang Usaha',
+        //     'noref' => '1108',
+        //     'debit' => '0',
+        //     'kredit' => '5000000',
+        //     'pemasukan_kas_id' => '2',
+        // ]);
+        // DB::table('data_pemasukan_kas')->insert([
+        //     'nama_akun' => 'Kas',
+        //     'noref' => '1101',
+        //     'debit' => '350000000',
+        //     'kredit' => '0',
+        //     'pemasukan_kas_id' => '3',
+        // ]);
+        // DB::table('data_pemasukan_kas')->insert([
+        //     'nama_akun' => 'Pendapatan Sewa',
+        //     'noref' => '1108',
+        //     'debit' => '0',
+        //     'kredit' => '350000000',
+        //     'pemasukan_kas_id' => '3',
+        // ]);
+        // DB::table('data_pemasukan_kas')->insert([
+        //     'nama_akun' => 'Kas',
+        //     'noref' => '1101',
+        //     'debit' => '350000000',
+        //     'kredit' => '0',
+        //     'pemasukan_kas_id' => '4',
+        // ]);
+        // DB::table('data_pemasukan_kas')->insert([
+        //     'nama_akun' => 'Pendapatan Jasa',
+        //     'noref' => '1108',
+        //     'debit' => '0',
+        //     'kredit' => '350000000',
+        //     'pemasukan_kas_id' => '4',
+        // ]);
+        // DB::table('data_pemasukan_kas')->insert([
+        //     'nama_akun' => 'Kas',
+        //     'noref' => '1101',
+        //     'debit' => '15000000',
+        //     'kredit' => '0',
+        //     'pemasukan_kas_id' => '5',
+        // ]);
+        // DB::table('data_pemasukan_kas')->insert([
+        //     'nama_akun' => 'Piutang Desa',
+        //     'noref' => '1115',
+        //     'debit' => '0',
+        //     'kredit' => '15000000',
+        //     'pemasukan_kas_id' => '5',
+        // ]);
+        // DB::table('data_pemasukan_kas')->insert([
+        //     'nama_akun' => 'Kas di Bank A',
+        //     'noref' => '1102',
+        //     'debit' => '50000',
+        //     'kredit' => '0',
+        //     'pemasukan_kas_id' => '6',
+        // ]);
+        // DB::table('data_pemasukan_kas')->insert([
+        //     'nama_akun' => 'Pendapatan Bunga',
+        //     'noref' => '7101',
+        //     'debit' => '0',
+        //     'kredit' => '50000',
+        //     'pemasukan_kas_id' => '6',
+        // ]);
+        // DB::table('data_pemasukan_kas')->insert([
+        //     'nama_akun' => 'Kas',
+        //     'noref' => '1101',
+        //     'debit' => '10000000',
+        //     'kredit' => '0',
+        //     'pemasukan_kas_id' => '7',
+        // ]);
+        // DB::table('data_pemasukan_kas')->insert([
+        //     'nama_akun' => 'Penyertaan Modal Desa',
+        //     'noref' => '3102',
+        //     'debit' => '0',
+        //     'kredit' => '10000000',
+        //     'pemasukan_kas_id' => '7',
+        // ]);
+        // DB::table('data_pemasukan_kas')->insert([
+        //     'nama_akun' => 'Kas',
+        //     'noref' => '1101',
+        //     'debit' => '750000',
+        //     'kredit' => '0',
+        //     'pemasukan_kas_id' => '8',
+        // ]);
+        // DB::table('data_pemasukan_kas')->insert([
+        //     'nama_akun' => 'Pendapatan dari Desa',
+        //     'noref' => '7102',
+        //     'debit' => '0',
+        //     'kredit' => '750000',
+        //     'pemasukan_kas_id' => '8',
+        // ]);
 
 
         // Table pengeluaran kas
-        DB::table('pengeluaran_kas')->insert([ //1
-            'tanggal' => '04/01/2022',
-            'user_id' => '1',
-        ]);
-        DB::table('pengeluaran_kas')->insert([ //2
-            'tanggal' => '12/02/2022',
-            'user_id' => '1',
-        ]);
-        DB::table('pengeluaran_kas')->insert([ //3
-            'tanggal' => '10/02/2022',
-            'user_id' => '1',
-        ]);
-        DB::table('pengeluaran_kas')->insert([ //4
-            'tanggal' => '14/02/2022',
-            'user_id' => '1',
-        ]);
-        DB::table('pengeluaran_kas')->insert([ //5
-            'tanggal' => '25/05/2022',
-            'user_id' => '1',
-        ]);
-        DB::table('pengeluaran_kas')->insert([ //6
-            'tanggal' => '04/06/2022',
-            'user_id' => '1',
-        ]);
-        DB::table('pengeluaran_kas')->insert([ //7
-            'tanggal' => '04/06/2022',
-            'user_id' => '1',
-        ]);
-        DB::table('pengeluaran_kas')->insert([ //8
-            'tanggal' => '07/08/2022',
-            'user_id' => '1',
-        ]);
-        DB::table('pengeluaran_kas')->insert([ //9
-            'tanggal' => '10/08/2022',
-            'user_id' => '1',
-        ]);
-        DB::table('pengeluaran_kas')->insert([ //10
-            'tanggal' => '03/09/2022',
-            'user_id' => '1',
-        ]);
-        DB::table('pengeluaran_kas')->insert([ //11
-            'tanggal' => '05/09/2022',
-            'user_id' => '1',
-        ]);
-        DB::table('pengeluaran_kas')->insert([ //12
-            'tanggal' => '06/09/2022',
-            'user_id' => '1',
-        ]);
-        DB::table('pengeluaran_kas')->insert([ //13
-            'tanggal' => '09/09/2022',
-            'user_id' => '1',
-        ]);
-        DB::table('pengeluaran_kas')->insert([ //14
-            'tanggal' => '10/09/2022',
-            'user_id' => '1',
-        ]);
-        DB::table('pengeluaran_kas')->insert([ //15
-            'tanggal' => '11/09/2022',
-            'user_id' => '1',
-        ]);
-        DB::table('pengeluaran_kas')->insert([ //16
-            'tanggal' => '12/09/2022',
-            'user_id' => '1',
-        ]);
-        DB::table('pengeluaran_kas')->insert([ //17
-            'tanggal' => '13/09/2023',
-            'user_id' => '1',
-        ]);
-        DB::table('pengeluaran_kas')->insert([ //18
-            'tanggal' => '14/09/2023',
-            'user_id' => '1',
-        ]);
-        DB::table('pengeluaran_kas')->insert([ //19
-            'tanggal' => '15/09/2023',
-            'user_id' => '1',
-        ]);
+        // DB::table('pengeluaran_kas')->insert([ //1
+        //     'tanggal' => '04/01/2022',
+        //     'user_id' => '1',
+        // ]);
+        // DB::table('pengeluaran_kas')->insert([ //2
+        //     'tanggal' => '12/02/2022',
+        //     'user_id' => '1',
+        // ]);
+        // DB::table('pengeluaran_kas')->insert([ //3
+        //     'tanggal' => '10/02/2022',
+        //     'user_id' => '1',
+        // ]);
+        // DB::table('pengeluaran_kas')->insert([ //4
+        //     'tanggal' => '14/02/2022',
+        //     'user_id' => '1',
+        // ]);
+        // DB::table('pengeluaran_kas')->insert([ //5
+        //     'tanggal' => '25/05/2022',
+        //     'user_id' => '1',
+        // ]);
+        // DB::table('pengeluaran_kas')->insert([ //6
+        //     'tanggal' => '04/06/2022',
+        //     'user_id' => '1',
+        // ]);
+        // DB::table('pengeluaran_kas')->insert([ //7
+        //     'tanggal' => '04/06/2022',
+        //     'user_id' => '1',
+        // ]);
+        // DB::table('pengeluaran_kas')->insert([ //8
+        //     'tanggal' => '07/08/2022',
+        //     'user_id' => '1',
+        // ]);
+        // DB::table('pengeluaran_kas')->insert([ //9
+        //     'tanggal' => '10/08/2022',
+        //     'user_id' => '1',
+        // ]);
+        // DB::table('pengeluaran_kas')->insert([ //10
+        //     'tanggal' => '03/09/2022',
+        //     'user_id' => '1',
+        // ]);
+        // DB::table('pengeluaran_kas')->insert([ //11
+        //     'tanggal' => '05/09/2022',
+        //     'user_id' => '1',
+        // ]);
+        // DB::table('pengeluaran_kas')->insert([ //12
+        //     'tanggal' => '06/09/2022',
+        //     'user_id' => '1',
+        // ]);
+        // DB::table('pengeluaran_kas')->insert([ //13
+        //     'tanggal' => '09/09/2022',
+        //     'user_id' => '1',
+        // ]);
+        // DB::table('pengeluaran_kas')->insert([ //14
+        //     'tanggal' => '10/09/2022',
+        //     'user_id' => '1',
+        // ]);
+        // DB::table('pengeluaran_kas')->insert([ //15
+        //     'tanggal' => '11/09/2022',
+        //     'user_id' => '1',
+        // ]);
+        // DB::table('pengeluaran_kas')->insert([ //16
+        //     'tanggal' => '12/09/2022',
+        //     'user_id' => '1',
+        // ]);
+        // DB::table('pengeluaran_kas')->insert([ //17
+        //     'tanggal' => '13/09/2023',
+        //     'user_id' => '1',
+        // ]);
+        // DB::table('pengeluaran_kas')->insert([ //18
+        //     'tanggal' => '14/09/2023',
+        //     'user_id' => '1',
+        // ]);
+        // DB::table('pengeluaran_kas')->insert([ //19
+        //     'tanggal' => '15/09/2023',
+        //     'user_id' => '1',
+        // ]);
         
 
-        DB::table('data_pengeluaran_kas')->insert([
-            'nama_akun' => 'Peralatan dan Meubeliar',
-            'noref' => '1304',
-            'debit' => '4200000',
-            'kredit' => '0',
-            'pengeluaran_kas_id' => '1',
-        ]);
-        DB::table('data_pengeluaran_kas')->insert([
-            'nama_akun' => 'Kas',
-            'noref' => '1101',
-            'debit' => '0',
-            'kredit' => '4200000',
-            'pengeluaran_kas_id' => '1',
-        ]);
+        // DB::table('data_pengeluaran_kas')->insert([
+        //     'nama_akun' => 'Peralatan dan Meubeliar',
+        //     'noref' => '1304',
+        //     'debit' => '4200000',
+        //     'kredit' => '0',
+        //     'pengeluaran_kas_id' => '1',
+        // ]);
+        // DB::table('data_pengeluaran_kas')->insert([
+        //     'nama_akun' => 'Kas',
+        //     'noref' => '1101',
+        //     'debit' => '0',
+        //     'kredit' => '4200000',
+        //     'pengeluaran_kas_id' => '1',
+        // ]);
 
-        DB::table('data_pengeluaran_kas')->insert([
-            'nama_akun' => 'Perlengkapan',
-            'noref' => '1111',
-            'debit' => '250000',
-            'kredit' => '0',
-            'pengeluaran_kas_id' => '2',
-        ]);
-        DB::table('data_pengeluaran_kas')->insert([
-            'nama_akun' => 'Kas',
-            'noref' => '1101',
-            'debit' => '0',
-            'kredit' => '250000',
-            'pengeluaran_kas_id' => '2',
-        ]);
-        DB::table('data_pengeluaran_kas')->insert([
-            'nama_akun' => 'Beban PADES',
-            'noref' => '6136',
-            'debit' => '50000',
-            'kredit' => '0',
-            'pengeluaran_kas_id' => '3',
-        ]);
-        DB::table('data_pengeluaran_kas')->insert([
-            'nama_akun' => 'Kas',
-            'noref' => '1101',
-            'debit' => '0',
-            'kredit' => '50000',
-            'pengeluaran_kas_id' => '3',
-        ]);
-        DB::table('data_pengeluaran_kas')->insert([
-            'nama_akun' => 'Kendaraan',
-            'noref' => '1306',
-            'debit' => '25000000',
-            'kredit' => '0',
-            'pengeluaran_kas_id' => '4',
-        ]);
-        DB::table('data_pengeluaran_kas')->insert([
-            'nama_akun' => 'Kas',
-            'noref' => '1101',
-            'debit' => '0',
-            'kredit' => '25000000',
-            'pengeluaran_kas_id' => '4',
-        ]);
-        DB::table('data_pengeluaran_kas')->insert([
-            'nama_akun' => 'Utang Usaha',
-            'noref' => '2101',
-            'debit' => '200000000',
-            'kredit' => '0',
-            'pengeluaran_kas_id' => '5',
-        ]);
-        DB::table('data_pengeluaran_kas')->insert([
-            'nama_akun' => 'Kas',
-            'noref' => '1101',
-            'debit' => '0',
-            'kredit' => '200000000',
-            'pengeluaran_kas_id' => '5',
-        ]);
-        DB::table('data_pengeluaran_kas')->insert([
-            'nama_akun' => 'Utang Usaha',
-            'noref' => '2101',
-            'debit' => '150000000',
-            'kredit' => '0',
-            'pengeluaran_kas_id' => '6',
-        ]);
-        DB::table('data_pengeluaran_kas')->insert([
-            'nama_akun' => 'Kas',
-            'noref' => '1101',
-            'debit' => '0',
-            'kredit' => '150000000',
-            'pengeluaran_kas_id' => '6',
-        ]);
-        DB::table('data_pengeluaran_kas')->insert([
-            'nama_akun' => 'Beban Administrasi Bank',
-            'noref' => '6113',
-            'debit' => '50000',
-            'kredit' => '0',
-            'pengeluaran_kas_id' => '7',
-        ]);
-        DB::table('data_pengeluaran_kas')->insert([
-            'nama_akun' => 'Kas',
-            'noref' => '1101',
-            'debit' => '0',
-            'kredit' => '50000',
-            'pengeluaran_kas_id' => '7',
-        ]);
-        DB::table('data_pengeluaran_kas')->insert([
-            'nama_akun' => 'Beban Listrik',
-            'noref' => '6107',
-            'debit' => '250000',
-            'kredit' => '0',
-            'pengeluaran_kas_id' => '8',
-        ]);
-        DB::table('data_pengeluaran_kas')->insert([
-            'nama_akun' => 'Beban Telepon dan Internet',
-            'noref' => '6108',
-            'debit' => '250000',
-            'kredit' => '0',
-            'pengeluaran_kas_id' => '8',
-        ]);
-        DB::table('data_pengeluaran_kas')->insert([
-            'nama_akun' => 'Kas',
-            'noref' => '1101',
-            'debit' => '0',
-            'kredit' => '500000',
-            'pengeluaran_kas_id' => '8',
-        ]);
-        DB::table('data_pengeluaran_kas')->insert([
-            'nama_akun' => 'Beban Air',
-            'noref' => '6109',
-            'debit' => '150000',
-            'kredit' => '0',
-            'pengeluaran_kas_id' => '9',
-        ]);
-        DB::table('data_pengeluaran_kas')->insert([
-            'nama_akun' => 'Kas',
-            'noref' => '1101',
-            'debit' => '0',
-            'kredit' => '150000',
-            'pengeluaran_kas_id' => '9',
-        ]);
-        DB::table('data_pengeluaran_kas')->insert([
-            'nama_akun' => 'Beban Honor Lembur',
-            'noref' => '6102',
-            'debit' => '5000000',
-            'kredit' => '0',
-            'pengeluaran_kas_id' => '10',
-        ]);
-        DB::table('data_pengeluaran_kas')->insert([
-            'nama_akun' => 'Kas',
-            'noref' => '1101',
-            'debit' => '0',
-            'kredit' => '5000000',
-            'pengeluaran_kas_id' => '10',
-        ]);
-        DB::table('data_pengeluaran_kas')->insert([
-            'nama_akun' => 'Beban Transportasi',
-            'noref' => '6111',
-            'debit' => '100000',
-            'kredit' => '0',
-            'pengeluaran_kas_id' => '11',
-        ]);
-        DB::table('data_pengeluaran_kas')->insert([
-            'nama_akun' => 'Kas',
-            'noref' => '1101',
-            'debit' => '0',
-            'kredit' => '100000',
-            'pengeluaran_kas_id' => '11',
-        ]);
-        DB::table('data_pengeluaran_kas')->insert([
-            'nama_akun' => 'Beban Parkir',
-            'noref' => '6112',
-            'debit' => '100000',
-            'kredit' => '0',
-            'pengeluaran_kas_id' => '12',
-        ]);
-        DB::table('data_pengeluaran_kas')->insert([
-            'nama_akun' => 'Kas',
-            'noref' => '1101',
-            'debit' => '0',
-            'kredit' => '100000',
-            'pengeluaran_kas_id' => '12',
-        ]);
-        DB::table('data_pengeluaran_kas')->insert([
-            'nama_akun' => 'Beban Keamanan',
-            'noref' => '6114',
-            'debit' => '250000',
-            'kredit' => '0',
-            'pengeluaran_kas_id' => '13',
-        ]);
-        DB::table('data_pengeluaran_kas')->insert([
-            'nama_akun' => 'Kas',
-            'noref' => '1101',
-            'debit' => '0',
-            'kredit' => '250000',
-            'pengeluaran_kas_id' => '13',
-        ]);
-        DB::table('data_pengeluaran_kas')->insert([
-            'nama_akun' => 'Beban Fotocopy',
-            'noref' => '6118',
-            'debit' => '200000',
-            'kredit' => '0',
-            'pengeluaran_kas_id' => '14',
-        ]);
-        DB::table('data_pengeluaran_kas')->insert([
-            'nama_akun' => 'Kas',
-            'noref' => '1101',
-            'debit' => '0',
-            'kredit' => '200000',
-            'pengeluaran_kas_id' => '14',
-        ]);
-        DB::table('data_pengeluaran_kas')->insert([
-            'nama_akun' => 'Beban Pemeliharaan dan Perbaikan',
-            'noref' => '6119',
-            'debit' => '300000',
-            'kredit' => '0',
-            'pengeluaran_kas_id' => '15',
-        ]);
-        DB::table('data_pengeluaran_kas')->insert([
-            'nama_akun' => 'Kas',
-            'noref' => '1101',
-            'debit' => '0',
-            'kredit' => '300000',
-            'pengeluaran_kas_id' => '15',
-        ]);
-        DB::table('data_pengeluaran_kas')->insert([
-            'nama_akun' => 'Beban ATK',
-            'noref' => '6116',
-            'debit' => '200000',
-            'kredit' => '0',
-            'pengeluaran_kas_id' => '16',
-        ]);
-        DB::table('data_pengeluaran_kas')->insert([
-            'nama_akun' => 'Kas',
-            'noref' => '1101',
-            'debit' => '0',
-            'kredit' => '200000',
-            'pengeluaran_kas_id' => '16',
-        ]);
-        DB::table('data_pengeluaran_kas')->insert([
-            'nama_akun' => 'Beban Kebersihan',
-            'noref' => '6115',
-            'debit' => '200000',
-            'kredit' => '0',
-            'pengeluaran_kas_id' => '17',
-        ]);
-        DB::table('data_pengeluaran_kas')->insert([
-            'nama_akun' => 'Kas',
-            'noref' => '1101',
-            'debit' => '0',
-            'kredit' => '200000',
-            'pengeluaran_kas_id' => '17',
-        ]);
-        DB::table('data_pengeluaran_kas')->insert([
-            'nama_akun' => 'Beban Administrasi Umum dan Lainnya',
-            'noref' => '6199',
-            'debit' => '200000',
-            'kredit' => '0',
-            'pengeluaran_kas_id' => '18',
-        ]);
-        DB::table('data_pengeluaran_kas')->insert([
-            'nama_akun' => 'Kas',
-            'noref' => '1101',
-            'debit' => '0',
-            'kredit' => '200000',
-            'pengeluaran_kas_id' => '18',
-        ]);
-        DB::table('data_pengeluaran_kas')->insert([
-            'nama_akun' => 'Beban Seragam Pegawai',
-            'noref' => '6106',
-            'debit' => '300000',
-            'kredit' => '0',
-            'pengeluaran_kas_id' => '19',
-        ]);
-        DB::table('data_pengeluaran_kas')->insert([
-            'nama_akun' => 'Kas',
-            'noref' => '1101',
-            'debit' => '0',
-            'kredit' => '300000',
-            'pengeluaran_kas_id' => '19',
-        ]);
+        // DB::table('data_pengeluaran_kas')->insert([
+        //     'nama_akun' => 'Perlengkapan',
+        //     'noref' => '1111',
+        //     'debit' => '250000',
+        //     'kredit' => '0',
+        //     'pengeluaran_kas_id' => '2',
+        // ]);
+        // DB::table('data_pengeluaran_kas')->insert([
+        //     'nama_akun' => 'Kas',
+        //     'noref' => '1101',
+        //     'debit' => '0',
+        //     'kredit' => '250000',
+        //     'pengeluaran_kas_id' => '2',
+        // ]);
+        // DB::table('data_pengeluaran_kas')->insert([
+        //     'nama_akun' => 'Beban PADES',
+        //     'noref' => '6136',
+        //     'debit' => '50000',
+        //     'kredit' => '0',
+        //     'pengeluaran_kas_id' => '3',
+        // ]);
+        // DB::table('data_pengeluaran_kas')->insert([
+        //     'nama_akun' => 'Kas',
+        //     'noref' => '1101',
+        //     'debit' => '0',
+        //     'kredit' => '50000',
+        //     'pengeluaran_kas_id' => '3',
+        // ]);
+        // DB::table('data_pengeluaran_kas')->insert([
+        //     'nama_akun' => 'Kendaraan',
+        //     'noref' => '1306',
+        //     'debit' => '25000000',
+        //     'kredit' => '0',
+        //     'pengeluaran_kas_id' => '4',
+        // ]);
+        // DB::table('data_pengeluaran_kas')->insert([
+        //     'nama_akun' => 'Kas',
+        //     'noref' => '1101',
+        //     'debit' => '0',
+        //     'kredit' => '25000000',
+        //     'pengeluaran_kas_id' => '4',
+        // ]);
+        // DB::table('data_pengeluaran_kas')->insert([
+        //     'nama_akun' => 'Utang Usaha',
+        //     'noref' => '2101',
+        //     'debit' => '200000000',
+        //     'kredit' => '0',
+        //     'pengeluaran_kas_id' => '5',
+        // ]);
+        // DB::table('data_pengeluaran_kas')->insert([
+        //     'nama_akun' => 'Kas',
+        //     'noref' => '1101',
+        //     'debit' => '0',
+        //     'kredit' => '200000000',
+        //     'pengeluaran_kas_id' => '5',
+        // ]);
+        // DB::table('data_pengeluaran_kas')->insert([
+        //     'nama_akun' => 'Utang Usaha',
+        //     'noref' => '2101',
+        //     'debit' => '150000000',
+        //     'kredit' => '0',
+        //     'pengeluaran_kas_id' => '6',
+        // ]);
+        // DB::table('data_pengeluaran_kas')->insert([
+        //     'nama_akun' => 'Kas',
+        //     'noref' => '1101',
+        //     'debit' => '0',
+        //     'kredit' => '150000000',
+        //     'pengeluaran_kas_id' => '6',
+        // ]);
+        // DB::table('data_pengeluaran_kas')->insert([
+        //     'nama_akun' => 'Beban Administrasi Bank',
+        //     'noref' => '6113',
+        //     'debit' => '50000',
+        //     'kredit' => '0',
+        //     'pengeluaran_kas_id' => '7',
+        // ]);
+        // DB::table('data_pengeluaran_kas')->insert([
+        //     'nama_akun' => 'Kas',
+        //     'noref' => '1101',
+        //     'debit' => '0',
+        //     'kredit' => '50000',
+        //     'pengeluaran_kas_id' => '7',
+        // ]);
+        // DB::table('data_pengeluaran_kas')->insert([
+        //     'nama_akun' => 'Beban Listrik',
+        //     'noref' => '6107',
+        //     'debit' => '250000',
+        //     'kredit' => '0',
+        //     'pengeluaran_kas_id' => '8',
+        // ]);
+        // DB::table('data_pengeluaran_kas')->insert([
+        //     'nama_akun' => 'Beban Telepon dan Internet',
+        //     'noref' => '6108',
+        //     'debit' => '250000',
+        //     'kredit' => '0',
+        //     'pengeluaran_kas_id' => '8',
+        // ]);
+        // DB::table('data_pengeluaran_kas')->insert([
+        //     'nama_akun' => 'Kas',
+        //     'noref' => '1101',
+        //     'debit' => '0',
+        //     'kredit' => '500000',
+        //     'pengeluaran_kas_id' => '8',
+        // ]);
+        // DB::table('data_pengeluaran_kas')->insert([
+        //     'nama_akun' => 'Beban Air',
+        //     'noref' => '6109',
+        //     'debit' => '150000',
+        //     'kredit' => '0',
+        //     'pengeluaran_kas_id' => '9',
+        // ]);
+        // DB::table('data_pengeluaran_kas')->insert([
+        //     'nama_akun' => 'Kas',
+        //     'noref' => '1101',
+        //     'debit' => '0',
+        //     'kredit' => '150000',
+        //     'pengeluaran_kas_id' => '9',
+        // ]);
+        // DB::table('data_pengeluaran_kas')->insert([
+        //     'nama_akun' => 'Beban Honor Lembur',
+        //     'noref' => '6102',
+        //     'debit' => '5000000',
+        //     'kredit' => '0',
+        //     'pengeluaran_kas_id' => '10',
+        // ]);
+        // DB::table('data_pengeluaran_kas')->insert([
+        //     'nama_akun' => 'Kas',
+        //     'noref' => '1101',
+        //     'debit' => '0',
+        //     'kredit' => '5000000',
+        //     'pengeluaran_kas_id' => '10',
+        // ]);
+        // DB::table('data_pengeluaran_kas')->insert([
+        //     'nama_akun' => 'Beban Transportasi',
+        //     'noref' => '6111',
+        //     'debit' => '100000',
+        //     'kredit' => '0',
+        //     'pengeluaran_kas_id' => '11',
+        // ]);
+        // DB::table('data_pengeluaran_kas')->insert([
+        //     'nama_akun' => 'Kas',
+        //     'noref' => '1101',
+        //     'debit' => '0',
+        //     'kredit' => '100000',
+        //     'pengeluaran_kas_id' => '11',
+        // ]);
+        // DB::table('data_pengeluaran_kas')->insert([
+        //     'nama_akun' => 'Beban Parkir',
+        //     'noref' => '6112',
+        //     'debit' => '100000',
+        //     'kredit' => '0',
+        //     'pengeluaran_kas_id' => '12',
+        // ]);
+        // DB::table('data_pengeluaran_kas')->insert([
+        //     'nama_akun' => 'Kas',
+        //     'noref' => '1101',
+        //     'debit' => '0',
+        //     'kredit' => '100000',
+        //     'pengeluaran_kas_id' => '12',
+        // ]);
+        // DB::table('data_pengeluaran_kas')->insert([
+        //     'nama_akun' => 'Beban Keamanan',
+        //     'noref' => '6114',
+        //     'debit' => '250000',
+        //     'kredit' => '0',
+        //     'pengeluaran_kas_id' => '13',
+        // ]);
+        // DB::table('data_pengeluaran_kas')->insert([
+        //     'nama_akun' => 'Kas',
+        //     'noref' => '1101',
+        //     'debit' => '0',
+        //     'kredit' => '250000',
+        //     'pengeluaran_kas_id' => '13',
+        // ]);
+        // DB::table('data_pengeluaran_kas')->insert([
+        //     'nama_akun' => 'Beban Fotocopy',
+        //     'noref' => '6118',
+        //     'debit' => '200000',
+        //     'kredit' => '0',
+        //     'pengeluaran_kas_id' => '14',
+        // ]);
+        // DB::table('data_pengeluaran_kas')->insert([
+        //     'nama_akun' => 'Kas',
+        //     'noref' => '1101',
+        //     'debit' => '0',
+        //     'kredit' => '200000',
+        //     'pengeluaran_kas_id' => '14',
+        // ]);
+        // DB::table('data_pengeluaran_kas')->insert([
+        //     'nama_akun' => 'Beban Pemeliharaan dan Perbaikan',
+        //     'noref' => '6119',
+        //     'debit' => '300000',
+        //     'kredit' => '0',
+        //     'pengeluaran_kas_id' => '15',
+        // ]);
+        // DB::table('data_pengeluaran_kas')->insert([
+        //     'nama_akun' => 'Kas',
+        //     'noref' => '1101',
+        //     'debit' => '0',
+        //     'kredit' => '300000',
+        //     'pengeluaran_kas_id' => '15',
+        // ]);
+        // DB::table('data_pengeluaran_kas')->insert([
+        //     'nama_akun' => 'Beban ATK',
+        //     'noref' => '6116',
+        //     'debit' => '200000',
+        //     'kredit' => '0',
+        //     'pengeluaran_kas_id' => '16',
+        // ]);
+        // DB::table('data_pengeluaran_kas')->insert([
+        //     'nama_akun' => 'Kas',
+        //     'noref' => '1101',
+        //     'debit' => '0',
+        //     'kredit' => '200000',
+        //     'pengeluaran_kas_id' => '16',
+        // ]);
+        // DB::table('data_pengeluaran_kas')->insert([
+        //     'nama_akun' => 'Beban Kebersihan',
+        //     'noref' => '6115',
+        //     'debit' => '200000',
+        //     'kredit' => '0',
+        //     'pengeluaran_kas_id' => '17',
+        // ]);
+        // DB::table('data_pengeluaran_kas')->insert([
+        //     'nama_akun' => 'Kas',
+        //     'noref' => '1101',
+        //     'debit' => '0',
+        //     'kredit' => '200000',
+        //     'pengeluaran_kas_id' => '17',
+        // ]);
+        // DB::table('data_pengeluaran_kas')->insert([
+        //     'nama_akun' => 'Beban Administrasi Umum dan Lainnya',
+        //     'noref' => '6199',
+        //     'debit' => '200000',
+        //     'kredit' => '0',
+        //     'pengeluaran_kas_id' => '18',
+        // ]);
+        // DB::table('data_pengeluaran_kas')->insert([
+        //     'nama_akun' => 'Kas',
+        //     'noref' => '1101',
+        //     'debit' => '0',
+        //     'kredit' => '200000',
+        //     'pengeluaran_kas_id' => '18',
+        // ]);
+        // DB::table('data_pengeluaran_kas')->insert([
+        //     'nama_akun' => 'Beban Seragam Pegawai',
+        //     'noref' => '6106',
+        //     'debit' => '300000',
+        //     'kredit' => '0',
+        //     'pengeluaran_kas_id' => '19',
+        // ]);
+        // DB::table('data_pengeluaran_kas')->insert([
+        //     'nama_akun' => 'Kas',
+        //     'noref' => '1101',
+        //     'debit' => '0',
+        //     'kredit' => '300000',
+        //     'pengeluaran_kas_id' => '19',
+        // ]);
         
         
 

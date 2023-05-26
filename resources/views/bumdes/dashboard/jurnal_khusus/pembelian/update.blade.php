@@ -20,7 +20,7 @@
                                     <p class="fs-5" style="color: #8F9CA9">isi form dibawah ini untuk mengubah data pembelian</p>
             
                                     <label for="tanggal" class="fs-5"><b>Tanggal</b></label>
-                                    <input type="text" placeholder="DD/MM/YYYY" name="tanggal" value="{{isset($data)?$data->tanggal:''}}" required>
+                                    <input type="date" placeholder="DD/MM/YYYY" name="tanggal" class="form-control" value="{{isset($data)?$data->tanggal:''}}" required>
 
                                     <label for="keterangan" class="fs-5"><b>Keterangan</b></label>
                                     <input type="text" placeholder="Ketik Masukkan.." name="keterangan" value="{{isset($data)?$data->keterangan:''}}" required>

@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('data_penjualan', function (Blueprint $table) {
             $table->id();
-            $table->string('tanggal');
+            $table->date('tanggal');
             $table->string('no_faktur');
             $table->string('keterangan');
             $table->string('noref');

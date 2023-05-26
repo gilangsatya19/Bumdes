@@ -14,6 +14,9 @@ class PemasukanKas extends Model
         'tanggal',
         'user_id'
     ];
+    protected $casts = [
+        'tanggal' => 'datetime',
+    ];
     public function user()
     {
         return $this->belongsTo(User::class);

@@ -22,6 +22,9 @@ class DataPenjualan extends Model
         'penjualan',
         'user_id',
     ];
+    protected $casts = [
+        'tanggal' => 'datetime',
+    ];
     public function user()
     {
         return $this->belongsTo(User::class);

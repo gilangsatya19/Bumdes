@@ -19,6 +19,7 @@ class DataPengeluaranKas extends Model
         'kredit',
         'pemasukan_kas_id',
     ];
+    
     public function pengeluarankas()
     {
         return $this->belongsTo(PengeluaranKas::class);

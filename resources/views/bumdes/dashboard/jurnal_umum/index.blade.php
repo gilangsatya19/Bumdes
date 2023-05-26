@@ -17,7 +17,9 @@
                         <div class="card-body">
                             <div class="d-flex mb-3" >
                                 <div class="ms-auto">
-                                    @include('bumdes.dashboard.jurnal_umum.form')
+                                    <div>
+                                        @include('bumdes.dashboard.jurnal_umum.form')
+                                    </div>
                                 </div>
                             </div>
                             <table id="example1" class="table table-bordered table-striped">
@@ -41,7 +43,7 @@
                                             @foreach ($jurnal->datas as $data)
                                             <tr>
                                                 <td>{{$jurnal->id}}</td>
-                                                <td>{{$jurnal->tanggal}}</td>
+                                                <td>{{$jurnal->tanggal->format('d F Y')}}</td>
                                                 <td>-</td>
                                                 <td>{{$data->nama_akun}}</td>
                                                 <td>{{$data->noref}}</td>

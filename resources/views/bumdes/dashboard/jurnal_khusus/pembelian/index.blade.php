@@ -33,7 +33,7 @@
                                 </div>
                             </div>
                             <table id="example1" class="table table-bordered table-striped">
-                                <thead class="text-white text-center" style="background-color: #3C4B64" >
+                                <thead class="text-center" >
                                     <tr class="align-middle" >
                                         <th rowspan="3">Tanggal</th>
                                         <th rowspan="3">Keterangan</th>
@@ -58,7 +58,7 @@
                                         @foreach ($datas as $data)
                                             <tr>
                                                 {{-- <td>{{$data->id}}</td> --}}
-                                                <td>{{$data->tanggal}}</td>
+                                                <td>{{$data->tanggal->format('d F Y')}}</td>
                                                 <td>{{$data->keterangan}}</td>
                                                 <td>{{$data->noref}}</td>
                                                 <td>{{$data->formatRupiah('pembelian')}}</td>

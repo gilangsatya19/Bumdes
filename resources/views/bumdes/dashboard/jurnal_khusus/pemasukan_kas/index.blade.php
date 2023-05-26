@@ -39,7 +39,7 @@
                                             @foreach ($jurnal->datas as $data)
                                             <tr>
                                                 <td>{{$jurnal->id}}</td>
-                                                <td>{{$jurnal->tanggal}}</td>
+                                                <td>{{$jurnal->tanggal->format('d F Y')}}</td>
                                                 <td>{{$data->noref}}</td>
                                                 <td>{{$data->nama_akun}}</td>
                                                 @if ($data->debit == 0)

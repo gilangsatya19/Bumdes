@@ -11,7 +11,7 @@
         <p class="fs-5" style="color: #8F9CA9">isi form dibawah ini untuk menambah data</p>
         
         <label for="tanggal" ><b>Tanggal Transaksi</b></label>
-        <input type="text" placeholder="DD/MM/YYYY" name="tanggal" required>
+        <input type="date" placeholder="DD/MM/YYYY" name="tanggal" class="form-control mb-4" required>
         
         <button type="submit" class="btn" style="background-color: #3C4B64">Tambah</button>
         
