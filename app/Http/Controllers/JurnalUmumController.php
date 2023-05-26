@@ -27,7 +27,7 @@ class JurnalUmumController extends Controller
         $jurnal_umum = new JurnalUmum;
         $jurnal_umum->tanggal = Carbon::parse($request->tanggal);
         $jurnal_umum->bukti_pembayaran = $request->bukti_pembayaran;
-        $jurnal_umum->user_id = auth()->user()->id;
+        $jurnal_umum->company_id = auth()->user()->company->id;
         $jurnal_umum->save();
         session(['jurnal_umum_id' => $jurnal_umum->id]);
         return redirect('/jurnal_umum/create');

@@ -36,11 +36,11 @@
             
             
                                     <label for="piutang_dagang" class="fs-5 mb-2"><b>Piutang Dagang (D)</b></label>
-                                    <input type="number" name="piutang_dagang" class="form-control mb-4" value="{{isset($data)?$data->piutang_dagang:''}}" required> 
+                                    <input type="number" step="0.01" name="piutang_dagang" class="form-control mb-4" value="{{isset($data)?$data->piutang_dagang:''}}" required> 
             
                                     
                                     <label for="penjualan" class="fs-5 mb-2"><b>Penjualan (K)</b></label>
-                                    <input type="number" name="penjualan" class="form-control" value="{{isset($data)?$data->penjualan:''}}" required> 
+                                    <input type="number" step="0.01" name="penjualan" class="form-control" value="{{isset($data)?$data->penjualan:''}}" required> 
 
                                     <button type="submit" class="btn mt-5" style="background-color: #3C4B64">Tambah</button>
                                 </div>

@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable
+class User extends Authenticatable //bumdes
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -42,20 +42,8 @@ class User extends Authenticatable
     //     'email_verified_at' => 'datetime',
     // ];
 
-    public function jurnalumums()
-    {
-        return $this->hasMany(JurnalUmum::class);
+    public function company(){
+        return $this->belongsTo(Company::class);
     }
-    public function pemasukankas()
-    {
-        return $this->hasMany(PemasukanKas::class);
-    }
-    public function pengeluarankas()
-    {
-        return $this->hasMany(PengeluaranKas::class);
-    }
-    public function pembelians()
-    {
-        return $this->hasMany(DataPembelian::class);
-    }
+    
 }

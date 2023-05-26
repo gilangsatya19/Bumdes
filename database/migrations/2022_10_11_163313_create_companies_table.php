@@ -13,12 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('data_penyesuaian', function (Blueprint $table) {
+        Schema::create('companies', function (Blueprint $table) {
             $table->id();
-            $table->integer('debit');
-            $table->integer('kredit');
-            $table->foreignId('nama_akuns_id')->constrained('nama_akuns');
-            $table->foreignId('user_id')->constrained('users');
+            $table->string('nama');
             $table->timestamps();
         });
     }
@@ -30,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('data_penyesuaian');
+        Schema::dropIfExists('companies');
     }
 };

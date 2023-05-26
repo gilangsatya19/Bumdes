@@ -65,7 +65,7 @@ class JurnalPembelianController extends Controller
             $data->jumlah = $request->jumlah;
         }
         $data->utang_dagang = $request->utang_dagang;
-        $data->user_id = auth()->user()->id;
+        $data->company_id = auth()->user()->company->id;
         $data->save();
         return redirect('/pembelian');
     }

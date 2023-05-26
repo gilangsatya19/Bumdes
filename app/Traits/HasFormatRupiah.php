@@ -9,7 +9,7 @@
         function formatRupiah($field)
         {
             $nominal = $this->attributes[$field];
-            return number_format($nominal, 0, "," , ".");
+            return number_format($nominal, 2, "," , ".");
         }
     }
     

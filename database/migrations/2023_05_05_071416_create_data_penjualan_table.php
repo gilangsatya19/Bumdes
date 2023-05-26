@@ -15,14 +15,14 @@ return new class extends Migration
     {
         Schema::create('data_penjualan', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('company_id')->constrained('companies');
             $table->date('tanggal');
             $table->string('no_faktur');
             $table->string('keterangan');
             $table->string('noref');
             $table->string('syarat_pembayaran');
-            $table->integer('piutang_dagang');
-            $table->integer('penjualan');
-            $table->foreignId('user_id')->constrained('users');
+            $table->float('piutang_dagang');
+            $table->float('penjualan');
             $table->timestamps();
         });
     }

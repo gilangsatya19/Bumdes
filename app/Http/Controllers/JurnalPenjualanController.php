@@ -52,7 +52,7 @@ class JurnalPenjualanController extends Controller
         $data->syarat_pembayaran = $request->syarat_pembayaran;
         $data->piutang_dagang = $request->piutang_dagang;
         $data->penjualan = $request->penjualan;
-        $data->user_id = auth()->user()->id;
+        $data->company_id = auth()->user()->company->id;
         $data->save();
         return redirect('/penjualan');
     }

@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('jurnal_umum', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('company_id')->constrained('companies');
             $table->date('tanggal');
             $table->string('bukti_pembayaran');
-            $table->foreignId('user_id')->constrained('users');
             
             $table->timestamps();
         });

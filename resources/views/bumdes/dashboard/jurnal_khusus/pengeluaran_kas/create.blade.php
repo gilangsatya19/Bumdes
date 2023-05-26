@@ -32,10 +32,10 @@
                     </div>
 
                     <label for="debit" class="fs-5"><b>Debit</b></label>
-                    <input type="number" name="debit" class="form-control bg-grey" value="0" required>
+                    <input type="number" step="0.01" name="debit" class="form-control bg-grey" value="0" required>
 
                     <label for="kredit" class="fs-5"><b>Kredit</b></label>
-                    <input type="number" name="kredit" class="form-control bg-grey" value="0" required>
+                    <input type="number" step="0.01" name="kredit" class="form-control bg-grey" value="0" required>
     
                     <button type="submit" class="btn mt-5" style="background-color: #3C4B64">Tambah</button>
                     <a href="/pengeluaran_kas" type="button" class="btn btn-success mt-3  fw-semibold" style="">Selesai</a>

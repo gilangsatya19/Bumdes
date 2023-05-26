@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('data_jurnal_umum', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('jurnal_umum_id')->constrained('jurnal_umum');
             $table->string('nama_akun');
             $table->string('noref');
-            $table->integer('debit');
-            $table->integer('kredit');
-            $table->foreignId('jurnal_umum_id')->constrained('jurnal_umum');
+            $table->float('debit');
+            $table->float('kredit');
             $table->timestamps();
         });
     }

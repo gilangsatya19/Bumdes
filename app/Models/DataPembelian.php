@@ -25,9 +25,9 @@ class DataPembelian extends Model
     protected $casts = [
         'tanggal' => 'datetime',
     ];
-    public function user()
+    public function company()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Company::class);
     }
 
 }

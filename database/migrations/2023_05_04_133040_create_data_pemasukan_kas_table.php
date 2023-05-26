@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('data_pemasukan_kas', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('pemasukan_kas_id')->constrained('pemasukan_kas');
             $table->string('nama_akun');
             $table->string('noref');
-            $table->integer('debit');
-            $table->integer('kredit');
-            $table->foreignId('pemasukan_kas_id')->constrained('pemasukan_kas');
+            $table->float('debit');
+            $table->float('kredit');
             $table->timestamps();
         });
     }

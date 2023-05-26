@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('pengeluaran_kas', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('company_id')->constrained('companies');
             $table->date('tanggal');
-            $table->foreignId('user_id')->constrained('users');
             $table->timestamps();
         });
     }

@@ -11,7 +11,15 @@
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
-
+        <li class="nav-item mr-5">
+          <div class="user-panel  d-flex">
+            
+            <div class="info">
+              {{-- <a href="" class="d-block disabled text-white">Halo, {{auth()->user()->company->nama}}</a> --}}
+              <h4 class="text-white">{{auth()->user()->company->nama}}</h4>
+            </div>
+          </div>
+        </li>
       
         <li class="nav-item">
           <form action="/logout" method="post">

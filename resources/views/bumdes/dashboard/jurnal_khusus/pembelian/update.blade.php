@@ -30,17 +30,17 @@
 
                                     <h4>Debit</h4>
                                     <label for="pembelian" class="fs-5"><b>Pembelian</b></label>
-                                    <input type="number" name="pembelian" class="form-control bg-grey" value="{{isset($data)?$data->pembelian:''}}" required>
+                                    <input type="number" step="0.01" name="pembelian" class="form-control bg-grey" value="{{isset($data)?$data->pembelian:''}}" required>
 
                                     <label for="akun" class="fs-5"><b>Akun</b></label>
                                     <input type="text" placeholder="Ketik Masukan.." name="akun" value="{{isset($data)?$data->akun:''}}">
 
                                     <label for="jumlah" class="fs-5"><b>Jumlah</b></label>
-                                    <input type="text" placeholder="Ketik Masukkan" name="jumlah" value="{{isset($data)?$data->jumlah:''}}">
+                                    <input type="number" step="0.01" placeholder="Ketik Masukkan" name="jumlah" class="form-control mb-3" value="{{isset($data)?$data->jumlah:''}}">
 
                                     <h4>Kredit</h4>
                                     <label for="utang_dagang" class="fs-5"><b>Utang Dagang</b></label>
-                                    <input type="number" name="utang_dagang" class="form-control" value="{{isset($data)?$data->utang_dagang:''}}" required> 
+                                    <input type="number" step="0.01" name="utang_dagang" class="form-control" value="{{isset($data)?$data->utang_dagang:''}}" required> 
                     
                                     <button type="submit" class="btn mt-5" style="background-color: #3C4B64">Simpan</button>
                                 </div>

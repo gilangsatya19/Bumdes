@@ -15,14 +15,14 @@ return new class extends Migration
     {
         Schema::create('data_pembelian', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('company_id')->constrained('companies');
             $table->date('tanggal');
             $table->string('keterangan');
             $table->string('noref');
-            $table->integer('pembelian');
+            $table->float('pembelian');
             $table->string('akun')->nullable();
-            $table->integer('jumlah')->nullable();
-            $table->integer('utang_dagang');
-            $table->foreignId('user_id')->constrained('users');
+            $table->float('jumlah')->nullable();
+            $table->float('utang_dagang');
             $table->timestamps();
         });
     }

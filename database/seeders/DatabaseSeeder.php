@@ -18,11 +18,22 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        DB::table('companies')->insert([
+            'nama' => 'BUMDES SEJAHTERA',
+        ]);
         DB::table('users')->insert([
+            'company_id' => '1',
             'nama' => 'admin',
             'email' => 'admin@admin.com',
             'password' => Hash::make('adminadmin'),
         ]);
+        DB::table('users')->insert([
+            'company_id' => '1',
+            'nama' => 'kepala desa',
+            'email' => 'kepala@gmail.com',
+            'password' => Hash::make('adminadmin'),
+        ]);
+        
 
         // DB::table('jurnal_umum')->insert([
         //     'tanggal' => Carbon::parse('2000-01-01'),

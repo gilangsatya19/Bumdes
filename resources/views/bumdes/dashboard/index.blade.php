@@ -3,7 +3,7 @@
 @section('content')
     <div style="margin-top:3rem;background-color:white" class="px-5 rounded-3 pb-1">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
-            <h1 class="h2">Selamat Datang, {{auth()->user()->nama}}</h1>
+            <h1 class="h2">Selamat Datang, {{auth()->user()->nama}} di {{auth()->user()->company->nama}}</h1>
 
         </div>
     </div>

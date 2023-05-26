@@ -25,7 +25,7 @@ class JurnalPemasukanKasController extends Controller
     {
         $data = new PemasukanKas;
         $data->tanggal = Carbon::parse($request->tanggal);
-        $data->user_id = auth()->user()->id;
+        $data->company_id = auth()->user()->company->id;
         $data->save();
         session(['pemasukan_kas_id' => $data->id]);
         return redirect('/pemasukan_kas/create');
