@@ -17,7 +17,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('company_id')->constrained('companies');
             $table->date('tanggal');
+            $table->string('jenis_transaksi');
             $table->string('bukti_pembayaran');
+            
             
             $table->timestamps();
         });

@@ -20,7 +20,7 @@ class JurnalPembelianController extends Controller
     public function index()
     {
         return view('bumdes.dashboard.jurnal_khusus.pembelian.index',[
-            'datas' => DataPembelian::all(),
+            'datas' => auth()->user()->company->pembelians,
             'nama_akuns' => NamaAkun::all(),
         ]);
     }

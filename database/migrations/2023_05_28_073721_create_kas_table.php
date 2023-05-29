@@ -13,13 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('data_jurnal_umum', function (Blueprint $table) {
+        Schema::create('kas', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('jurnal_umum_id')->constrained('jurnal_umum');
-            $table->string('nama_akun');
-            $table->string('noref');
-            $table->float('debit', 12, 2);
-            $table->float('kredit', 12, 2);
+            $table->foreignId('buku_besar_id')->constrained('buku_besar');
+            $table->float('saldo');
             $table->timestamps();
         });
     }
@@ -31,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('data_jurnal_umum');
+        Schema::dropIfExists('kas');
     }
 };

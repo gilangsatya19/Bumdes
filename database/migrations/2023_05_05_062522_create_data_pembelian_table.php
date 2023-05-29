@@ -19,10 +19,10 @@ return new class extends Migration
             $table->date('tanggal');
             $table->string('keterangan');
             $table->string('noref');
-            $table->float('pembelian');
+            $table->float('pembelian', 12, 2);
             $table->string('akun')->nullable();
-            $table->float('jumlah')->nullable();
-            $table->float('utang_dagang');
+            $table->float('jumlah', 12, 2)->nullable();
+            $table->float('utang_dagang', 12, 2);
             $table->timestamps();
         });
     }

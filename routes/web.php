@@ -1,11 +1,14 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\JurnalUmumController;
 use App\Http\Controllers\JurnalPembelianController;
 use App\Http\Controllers\JurnalPenjualanController;
 use App\Http\Controllers\JurnalPengeluaranKasController;
 use App\Http\Controllers\JurnalPemasukanKasController;
 use App\Http\Controllers\BukuBesarController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\WTBController;
 use App\Http\Controllers\LabaRugiController;
 use App\Http\Controllers\PosisiKeuanganController;
@@ -39,6 +42,26 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function() {
     return view('bumdes.initialPage.index');
 });
+
+Route::get('/dashboard', function() {
+    return view('bumdes.dashboard.index');
+});
+
+
+Route::get('/dashboard_admin', [AdminController::class, 'index']);
+
+Route::get('/create_company', [CompanyController::class, 'create']);
+Route::post('/create_company/create', [CompanyController::class, 'store']);
+Route::get('/create_company/{id}/edit', [CompanyController::class, 'edit']);
+Route::post('/create_company/{id}/update', [CompanyController::class, 'update']);
+Route::post('/create_company/{id}/delete', [CompanyController::class, 'destroy']);
+
+Route::get('/create_user', [UserController::class, 'create']);
+Route::post('/create_user/create', [UserController::class, 'store']);
+Route::get('/create_user/{id}/edit', [UserController::class, 'edit']);
+Route::post('/create_user/{id}/update', [UserController::class, 'update']);
+Route::post('/create_user/{id}/delete', [UserController::class, 'destroy']);
+
 Route::get('/login', [LoginController::class, 'index']);
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
@@ -85,9 +108,7 @@ Route::post('/penjualan/{id}/delete', [JurnalPenjualanController::class, 'destro
 
 
 
-Route::get('/dashboard', function() {
-    return view('bumdes.dashboard.index');
-});
+
 
 
 // Route::resource('/jurnal_umum', JurnalUmumController::class);

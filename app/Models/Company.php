@@ -25,6 +25,10 @@ class Company extends Model
     {
         return $this->hasMany(DataPembelian::class);
     }
+    public function penjualans()
+    {
+        return $this->hasMany(DataPenjualan::class);
+    }
     public function users()
     {
         return $this->hasMany(User::class);

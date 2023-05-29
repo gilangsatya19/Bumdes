@@ -35,10 +35,13 @@
                                 <tbody class="text-center">
                                 
                                     @if (isset($jurnals))
+                                    <p style="visibility: hidden; height: 0px;"> 
+                                        {{$i =1}}
+                                    </p>
                                         @foreach ($jurnals as $jurnal)
                                             @foreach ($jurnal->datas as $data)
                                             <tr>
-                                                <td>{{$jurnal->id}}</td>
+                                                <td>{{$i++}}</td>
                                                 <td>{{$jurnal->tanggal->format('d F Y')}}</td>
                                                 <td>{{$data->noref}}</td>
                                                 <td>{{$data->nama_akun}}</td>

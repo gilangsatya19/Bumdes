@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignId('company_id')->constrained('companies');
             $table->string('nama');
             $table->string('email')->unique();
+            $table->string('role');
             // $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             // $table->rememberToken();

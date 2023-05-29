@@ -21,8 +21,8 @@ return new class extends Migration
             $table->string('keterangan');
             $table->string('noref');
             $table->string('syarat_pembayaran');
-            $table->float('piutang_dagang');
-            $table->float('penjualan');
+            $table->float('piutang_dagang', 12, 2);
+            $table->float('penjualan', 12, 2);
             $table->timestamps();
         });
     }

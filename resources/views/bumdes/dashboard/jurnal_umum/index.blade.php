@@ -1,6 +1,12 @@
 @extends('bumdes.dashboard.layouts.main')
 
 @section('content')
+<style>
+    
+    p.hide{
+        visibility: hidden;
+    }
+</style>
     <div class="content-wrapper">
         <section class="content">
             <div class="container-fluid">
@@ -39,12 +45,15 @@
                                 <tbody class="text-center">
                                 
                                     @if (isset($jurnals))
+                                    <p style="visibility: hidden; height: 0px;"> 
+                                        {{$i =1}}
+                                    </p>
                                         @foreach ($jurnals as $jurnal)
                                             @foreach ($jurnal->datas as $data)
                                             <tr>
-                                                <td>{{$jurnal->id}}</td>
+                                                <td>{{$i++}}</td>
                                                 <td>{{$jurnal->tanggal->format('d F Y')}}</td>
-                                                <td>-</td>
+                                                <td>{{$jurnal->jenis_transaksi}}</td>
                                                 <td>{{$data->nama_akun}}</td>
                                                 <td>{{$data->noref}}</td>
                                                 @if ($data->debit == 0)
@@ -65,7 +74,8 @@
                                                 </td>
                                                 
                                                 
-                                            </tr>        
+                                            </tr> 
+                                            
                                             @endforeach
                                         @endforeach
                                     @endif

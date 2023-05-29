@@ -18,8 +18,8 @@ return new class extends Migration
             $table->foreignId('pemasukan_kas_id')->constrained('pemasukan_kas');
             $table->string('nama_akun');
             $table->string('noref');
-            $table->float('debit');
-            $table->float('kredit');
+            $table->float('debit', 12, 2);
+            $table->float('kredit', 12, 2);
             $table->timestamps();
         });
     }

@@ -18,7 +18,7 @@ class JurnalPemasukanKasController extends Controller
     public function index()
     {
         return view('bumdes.dashboard.jurnal_khusus.pemasukan_kas.index',[
-            'jurnals' => PemasukanKas::all(),
+            'jurnals' => auth()->user()->company->pemasukankas,
         ]);
     }
     public function createNew(Request $request)

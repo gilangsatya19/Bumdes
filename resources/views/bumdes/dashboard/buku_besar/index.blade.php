@@ -1,7 +1,6 @@
 @extends('bumdes.dashboard.layouts.main')
 
 @section('content')
-<link href="{{asset('css/table-resp-btn.css')}}" rel="stylesheet">
 <style>
     .tabcontent {
         display: none;
@@ -13,6 +12,100 @@
         visibility: hidden;
     }
 </style>
+    <div class="content-wrapper">
+        <section class="content">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-12">
+                  
+                  <!-- /.card -->
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Buku Besar</h3>
+                        </div>
+
+                        
+
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <div>
+                                <ul class="nav nav-tabs">
+                                    
+                                    <li class="nav-item dropdown">
+                                      <a class="nav-link dropdown-toggle text-black fw-bold fs-4" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Nama Akun</a>
+                                      <ul class="dropdown-menu">
+                                        @foreach ($nama_akuns as $nama_akun)
+                                            @if ($nama_akun->id < '15' && $nama_akun->d_k != '')
+                                                <li><a type="button" class="dropdown-item tablinks" onclick="openAkun(event, '{{$nama_akun->nama}}')">{{$nama_akun->nama}}</a></li>        
+                                            @endif
+                                        @endforeach
+                                      </ul>
+                                    </li>
+                                    
+                                </ul>
+                            </div>
+                            <div id="Kas" class="tabcontent">
+                                <p class="hide">{{$iterasi = 0}}{{$saldo = 0}}</p>
+                                <h2>KAS</h2>
+                                <table id="example1" class="table table-bordered table-striped">
+                                    <thead class="text-center">
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Tanggal</th>
+                                            <th>Keterangan</th>
+                                            <th>Debit</th>
+                                            <th>Kredit</th>
+                                            <th>Saldo</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="text-center">
+                                    
+                                        @foreach ($jurnals as $jurnal)
+                                            @if ($jurnal->datas->first()->nama_akun == 'Kas')
+                                                @foreach ($jurnal->datas as $data)
+                                                    @if ($data->nama_akun != 'Kas')
+                                                        <tr>
+                                                            <td>{{$iterasi = $iterasi + 1}}</td>
+                                                            <td>{{$jurnal->tanggal->format('m F Y')}}</td>
+                                                            <td>{{$data->nama_akun}}</td>
+                                                            <td>{{formatRupiah($data->kredit)}}</td>
+                                                            <td>-</td>
+                                                            <td>{{formatRupiah($saldo = $saldo + $data->kredit)}}</td>
+                                                        </tr>    
+                                                    @endif
+                                                @endforeach
+                                            @else
+                                                @foreach ($jurnal->datas as $data)
+                                                    @if ($data->nama_akun == 'Kas')
+                                                        <tr>
+                                                            <td>{{$iterasi = $iterasi + 1}}</td>
+                                                            <td>{{$jurnal->tanggal}}</td>
+                                                            <td>{{$jurnal->datas->first()->nama_akun}}</td>
+                                                            <td>-</td>
+                                                            <td>{{formatRupiah($data->kredit)}}</td>
+                                                            <td>{{formatRupiah($saldo = $saldo - $data->kredit)}}</td>
+                                                        </tr>
+                                                    @endif
+                                                @endforeach
+                                            @endif
+                                        @endforeach
+                                    
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                  <!-- /.card -->
+                </div>
+                <!-- /.col -->
+              </div>
+              <!-- /.row -->
+            </div>
+            <!-- /.container-fluid -->
+          </section>
+    </div>
 
     <div style="margin-top:3rem;margin-bottom: 3rem;padding-bottom:5rem;padding-top:6rem;background-color:white" class="px-5 rounded-4">
         <div class="d-flex mb-4" style="margin-top: -50px">

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BukuBesar;
 use App\Models\DataJurnalUmum;
 use App\Models\NamaAkun;
 use Carbon\Carbon;
@@ -17,7 +18,7 @@ class JurnalUmumController extends Controller
     public function index()
     {
         return view('bumdes.dashboard.jurnal_umum.index',[
-            'jurnals' => JurnalUmum::all(),
+            'jurnals' => auth()->user()->company->jurnalumums,
             'nama_akuns' => NamaAkun::all(),
             
         ]);
@@ -27,6 +28,7 @@ class JurnalUmumController extends Controller
         $jurnal_umum = new JurnalUmum;
         $jurnal_umum->tanggal = Carbon::parse($request->tanggal);
         $jurnal_umum->bukti_pembayaran = $request->bukti_pembayaran;
+        $jurnal_umum->jenis_transaksi = $request->jenis_transaksi;
         $jurnal_umum->company_id = auth()->user()->company->id;
         $jurnal_umum->save();
         session(['jurnal_umum_id' => $jurnal_umum->id]);
@@ -71,8 +73,20 @@ class JurnalUmumController extends Controller
         $data->debit = $request->debit;
         $data->kredit = $request->kredit;
         $data->jurnal_umum_id = session('jurnal_umum_id');
+
+        // $bukus = BukuBesar::all();
+        // foreach ($bukus as $buku) {
+        //     if ($buku->nama == $data->nama_akun ) {
+        //         $buku->$data->nama_akun->saldo =  ;
+        //     }
+        // }
+        
+        // $buku = ;
         // $data->jurnal_umum_id = '3';
         $data->save();
+
+        
+
         return redirect('/jurnal_umum/create');
     }
 

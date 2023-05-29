@@ -17,7 +17,7 @@ class JurnalPenjualanController extends Controller
     public function index()
     {
         return view('bumdes.dashboard.jurnal_khusus.penjualan.index',[
-            'datas' => DataPenjualan::all(),
+            'datas' => auth()->user()->company->penjualans,
             'nama_akuns' => NamaAkun::all(),
         ]);
     }
