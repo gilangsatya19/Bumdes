@@ -11,17 +11,11 @@
                     
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Jurnal Umum</h3>
+                            <h3 class="card-title">Working Trial Balance</h3>
                         </div>
+                        
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <div class="d-flex mb-3" >
-                                <div class="ms-auto">
-                                    <div>
-                                        @include('bumdes.dashboard.jurnal_umum.form')
-                                    </div>
-                                </div>
-                            </div>
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead class="text-center">
                                     <tr class="align-middle" >
@@ -50,6 +44,7 @@
                                     {{-- @foreach ($nama_akun as $akun)
                                         <tr>
                                         @if ($akun->d_k != '')
+                                            <td>{{$datas['saldo_kas']}}</td>
                                             No
                                             <td>{{$i = $i + 1}}</td>
                                             Nama Akun

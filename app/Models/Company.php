@@ -33,4 +33,8 @@ class Company extends Model
     {
         return $this->hasMany(User::class);
     }
+    public function bukubesars()
+    {
+        return $this->hasOne(BukuBesar::class);
+    }
 }

@@ -8,8 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class BukuBesar extends Model
 {
     use HasFactory;
-    public function kas()
-    {
-        return $this->hasOne(Kas::class);
+    public function company(){
+        return $this->belongsTo(Company::class);
     }
 }

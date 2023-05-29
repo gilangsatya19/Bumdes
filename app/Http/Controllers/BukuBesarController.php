@@ -18,7 +18,7 @@ class BukuBesarController extends Controller
     {
         return view('bumdes.dashboard.buku_besar.index',[
             'nama_akuns' => NamaAkun::all(),
-            'jurnals' => JurnalUmum::all(),
+            'jurnals' => auth()->user()->company->jurnalumums,
             'iterasi' => '0',
             'saldo' => '0',
         ]);

@@ -83,7 +83,71 @@ class JurnalUmumController extends Controller
         
         // $buku = ;
         // $data->jurnal_umum_id = '3';
+        
+
         $data->save();
+        $buku = auth()->user()->company->bukubesars;
+        if($request->nama_akun == 'Kas')
+        {
+            $buku->saldo_kas = $buku->saldo_kas + $request->debit - $request->kredit;
+        }
+        else if($request->nama_akun == 'Kas di Bank A')
+        {
+            $buku->saldo_kas_di_bank_a = $buku->saldo_kas_di_bank_a + $request->debit - $request->kredit;
+        }
+        else if($request->nama_akun == 'Kas di Bank B')
+        {
+            $buku->saldo_kas_di_bank_b = $buku->saldo_kas_di_bank_b + $request->debit - $request->kredit;
+        }
+        else if($request->nama_akun == 'Kas di Bank C')
+        {
+            $buku->saldo_kas_di_bank_c = $buku->saldo_kas_di_bank_c + $request->debit - $request->kredit;
+        }
+        else if($request->nama_akun == 'Kas Kecil')
+        {
+            $buku->saldo_kas_kecil = $buku->saldo_kas_kecil + $request->debit - $request->kredit;
+        }
+        else if($request->nama_akun == 'Giro')
+        {
+            $buku->saldo_giro = $buku->saldo_giro + $request->debit - $request->kredit;
+        }
+        else if($request->nama_akun == 'Deposito')
+        {
+            $buku->saldo_deposito = $buku->saldo_deposito + $request->debit - $request->kredit;
+        }
+        else if($request->nama_akun == 'Piutang Usaha')
+        {
+            $buku->saldo_piutang_usaha = $buku->saldo_piutang_usaha + $request->debit - $request->kredit;
+        }
+        else if($request->nama_akun == 'Persediaan Barang Dagangan')
+        {
+            $buku->saldo_persediaan_barang_dagang = $buku->saldo_persediaan_barang_dagang + $request->debit - $request->kredit;
+        }
+        else if($request->nama_akun == 'Persediaan Makan dan Minuman')
+        {
+            $buku->saldo_persediaan_makan_dan_minuman = $buku->saldo_persediaan_makan_dan_minuman + $request->debit - $request->kredit;
+        }
+        else if($request->nama_akun == 'Perlengkapan')
+        {
+            $buku->saldo_perlengkapan = $buku->saldo_perlengkapan + $request->debit - $request->kredit;
+        }
+        else if($request->nama_akun == 'Sewa Dibayar Dimuka')
+        {
+            $buku->saldo_sewa_dibayar_dimuka = $buku->saldo_sewa_dibayar_dimuka + $request->debit - $request->kredit;
+        }
+        else if($request->nama_akun == 'Asuransi Dibayar Dimuka')
+        {
+            $buku->saldo_asuransi_dibayar_dimuka = $buku->saldo_asuransi_dibayar_dimuka + $request->debit - $request->kredit;
+        }
+        else if($request->nama_akun == 'PPh 25')
+        {
+            $buku->saldo_pph25 = $buku->saldo_pph25 + $request->debit - $request->kredit;
+        }
+        else if($request->nama_akun == 'Piutang Desa')
+        {
+            $buku->saldo_piutang_desa = $buku->saldo_piutang_desa + $request->debit - $request->kredit;
+        }
+        $buku->save();
 
         
 

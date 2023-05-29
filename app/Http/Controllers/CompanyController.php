@@ -38,11 +38,29 @@ class CompanyController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {    
         $data = new Company;
         $data->nama = $request->nama;
-        
         $data->save();
+
+        $buku = new BukuBesar;
+        $buku->saldo_kas = '0';
+        $buku->saldo_kas_di_bank_a = '0';
+        $buku->saldo_kas_di_bank_b = '0';
+        $buku->saldo_kas_di_bank_c = '0';
+        $buku->saldo_kas_kecil = '0';
+        $buku->saldo_giro = '0';
+        $buku->saldo_deposito = '0';
+        $buku->saldo_piutang_usaha = '0';
+        $buku->saldo_persediaan_barang_dagang = '0';
+        $buku->saldo_persediaan_makan_dan_minuman = '0';
+        $buku->saldo_perlengkapan = '0';
+        $buku->saldo_sewa_dibayar_dimuka = '0';
+        $buku->saldo_asuransi_dibayar_dimuka = '0';
+        $buku->saldo_pph25 = '0';
+        $buku->saldo_piutang_desa = '0';
+        $buku->company_id = $data->id;
+        $buku->save();
         return redirect('/dashboard_admin');
     }
 

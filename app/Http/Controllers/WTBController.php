@@ -17,19 +17,21 @@ class WTBController extends Controller
     {   
         $nama_akun = NamaAkun::all();
         $i = 0;
-        $data = DataJurnalUmum::get()
-            ->groupBy('nama_akun')
-            ->map(function($item){
-                $kredit = $item->sum('kredit');
-                $debit = $item->sum('debit');
-                return [
-                    'saldo' => $debit - $kredit,
-                ];
-            });
+        
+        // $data = DataJurnalUmum::get()
+        //     ->groupBy('nama_akun')
+        //     ->map(function($item){
+        //         $kredit = $item->sum('kredit');
+        //         $debit = $item->sum('debit');
+        //         return [
+        //             'saldo' => $debit - $kredit,
+        //         ];
+        //     });
         
         // dd($data->toArray());
+        $datas = auth()->user()->company->bukubesars;
         
-        return view('bumdes.dashboard.wtb.index', compact('data', 'nama_akun', 'i'));
+        return view('bumdes.dashboard.wtb.index', compact('datas', 'nama_akun', 'i'));
     }
 
     /**
