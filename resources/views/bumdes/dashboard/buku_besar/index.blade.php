@@ -69,7 +69,7 @@
                                                             <td>{{$iterasi = $iterasi + 1}}</td>
                                                             <td>{{$jurnal->tanggal->format('m F Y')}}</td>
                                                             <td>{{$data->nama_akun}}</td>
-                                                            <td>{{formatRupiah($data->kredit)}}</td>
+                                                            <td>{{$data->formatRupiah('kredit')}}</td>
                                                             <td>-</td>
                                                             <td>{{formatRupiah($saldo = $saldo + $data->kredit)}}</td>
                                                         </tr>    
@@ -80,10 +80,10 @@
                                                     @if ($data->nama_akun == 'Kas')
                                                         <tr>
                                                             <td>{{$iterasi = $iterasi + 1}}</td>
-                                                            <td>{{$jurnal->tanggal}}</td>
+                                                            <td>{{$jurnal->tanggal->format('d F Y')}}</td>
                                                             <td>{{$jurnal->datas->first()->nama_akun}}</td>
                                                             <td>-</td>
-                                                            <td>{{formatRupiah($data->kredit)}}</td>
+                                                            <td>{{$data->formatRupiah('kredit')}}</td>
                                                             <td>{{formatRupiah($saldo = $saldo - $data->kredit)}}</td>
                                                         </tr>
                                                     @endif
