@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\FormPurchaseOrder;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class FormPurchaseOrderController extends Controller
@@ -13,7 +15,9 @@ class FormPurchaseOrderController extends Controller
      */
     public function index()
     {
-        return view('bumdes.dashboard.invoice.form_purchase_order.index');
+        return view('bumdes.dashboard.invoice.form_purchase_order.index',[
+            'datas' => auth()->user()->company->formpurchaseorder,
+        ]);
     }
 
     /**
@@ -23,7 +27,12 @@ class FormPurchaseOrderController extends Controller
      */
     public function create()
     {
-        //
+        return view('bumdes.dashboard.invoice.form_purchase_order.editcreate',[
+            'title' => 'Tambah',
+            'method' => 'POST',
+            'action' => 'form_purchase_order/create',
+            
+        ]);
     }
 
     /**
@@ -34,7 +43,17 @@ class FormPurchaseOrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = new FormPurchaseOrder;
+        $data->tanggal = Carbon::parse($request->tanggal);
+        $data->no_po = $request->no_po;
+        $data->barang = $request->barang;
+        $data->jumlah_barang = $request->jumlah_barang;
+        $data->vendor = $request->vendor;
+        $data->tanggal_pengiriman = Carbon::parse($request->tanggal_pengiriman);
+        $data->bukti_transaksi = $request->bukti_transaksi;
+        $data->company_id = auth()->user()->company->id;
+        $data->save();
+        return redirect('/form_purchase_order');
     }
 
     /**
@@ -56,7 +75,12 @@ class FormPurchaseOrderController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('bumdes.dashboard.invoice.form_purchase_order.editcreate', [
+            'title' => 'Ubah ',
+            'method' => 'PUT',
+            'action' => 'form_purchase_order/'.$id.'/update',
+            'data' => FormPurchaseOrder::find($id),
+        ]);
     }
 
     /**
@@ -68,7 +92,16 @@ class FormPurchaseOrderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = FormPurchaseOrder::find($id);
+        $data->tanggal = Carbon::parse($request->tanggal);
+        $data->no_po = $request->no_po;
+        $data->barang = $request->barang;
+        $data->jumlah_barang = $request->jumlah_barang;
+        $data->vendor = $request->vendor;
+        $data->tanggal_pengiriman = Carbon::parse($request->tanggal_pengiriman);
+        $data->bukti_transaksi = $request->bukti_transaksi;
+        $data->save();
+        return redirect('/form_purchase_order');
     }
 
     /**
@@ -79,6 +112,8 @@ class FormPurchaseOrderController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = FormPurchaseOrder::find($id);
+        $data->delete();
+        return redirect('/form_purchase_order')->with('msg', 'sukses');
     }
 }

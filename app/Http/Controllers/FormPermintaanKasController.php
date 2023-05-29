@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\FormPermintaanKas;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class FormPermintaanKasController extends Controller
@@ -13,7 +15,9 @@ class FormPermintaanKasController extends Controller
      */
     public function index()
     {
-        return view('bumdes.dashboard.invoice.form_permintaan_kas.index');
+        return view('bumdes.dashboard.invoice.form_permintaan_kas.index',[
+            'datas' => auth()->user()->company->formpermintaankas,
+        ]);
     }
 
     /**
@@ -23,7 +27,12 @@ class FormPermintaanKasController extends Controller
      */
     public function create()
     {
-        //
+        return view('bumdes.dashboard.invoice.form_permintaan_kas.editcreate',[
+            'title' => 'Tambah',
+            'method' => 'POST',
+            'action' => 'form_permintaan_kas/create',
+            
+        ]);
     }
 
     /**
@@ -34,7 +43,17 @@ class FormPermintaanKasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = new FormPermintaanKas;
+        $data->tanggal = Carbon::parse($request->tanggal);
+        $data->dana_untuk_departemen = $request->dana_untuk_departemen;
+        $data->dana_awal = $request->dana_awal;
+        $data->saldo = $request->saldo;
+        $data->keterangan = $request->keterangan;
+        $data->total = $request->total;
+        $data->bukti_transaksi = $request->bukti_transaksi;
+        $data->company_id = auth()->user()->company->id;
+        $data->save();
+        return redirect('/form_permintaan_kas');
     }
 
     /**
@@ -56,7 +75,12 @@ class FormPermintaanKasController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('bumdes.dashboard.invoice.form_permintaan_kas.editcreate', [
+            'title' => 'Ubah ',
+            'method' => 'PUT',
+            'action' => 'form_permintaan_kas/'.$id.'/update',
+            'data' => FormPermintaanKas::find($id),
+        ]);
     }
 
     /**
@@ -68,7 +92,16 @@ class FormPermintaanKasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = FormPermintaanKas::find($id);
+        $data->tanggal = Carbon::parse($request->tanggal);
+        $data->dana_untuk_departemen = $request->dana_untuk_departemen;
+        $data->dana_awal = $request->dana_awal;
+        $data->saldo = $request->saldo;
+        $data->keterangan = $request->keterangan;
+        $data->total = $request->total;
+        $data->bukti_transaksi = $request->bukti_transaksi;
+        $data->save();
+        return redirect('/form_permintaan_kas');
     }
 
     /**
@@ -79,6 +112,8 @@ class FormPermintaanKasController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = FormPermintaanKas::find($id);
+        $data->delete();
+        return redirect('/form_permintaan_kas')->with('msg', 'sukses');
     }
 }

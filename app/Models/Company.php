@@ -37,4 +37,24 @@ class Company extends Model
     {
         return $this->hasOne(BukuBesar::class);
     }
+    public function formpermintaankas()
+    {
+        return $this->hasMany(FormPermintaanKas::class);
+    }
+    public function formpurchaseorder()
+    {
+        return $this->hasMany(FormPurchaseOrder::class);
+    }
+    public function formpengirimanbarang()
+    {
+        return $this->hasMany(FormPengirimanBarang::class);
+    }
+    public function invoicepenjualankredit()
+    {
+        return $this->hasMany(InvoicePenjualanKredit::class);
+    }
+    public function invoicepenjualantunai()
+    {
+        return $this->hasMany(InvoicePenjualanTunai::class);
+    }
 }

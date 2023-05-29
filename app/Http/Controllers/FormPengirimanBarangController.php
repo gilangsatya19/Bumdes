@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\FormPengirimanBarang;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class FormPengirimanBarangController extends Controller
@@ -13,7 +15,9 @@ class FormPengirimanBarangController extends Controller
      */
     public function index()
     {
-        return view('bumdes.dashboard.invoice.form_pengiriman_barang.index');
+        return view('bumdes.dashboard.invoice.form_pengiriman_barang.index',[
+            'datas' => auth()->user()->company->formpengirimanbarang,
+        ]);
     }
 
     /**
@@ -23,7 +27,12 @@ class FormPengirimanBarangController extends Controller
      */
     public function create()
     {
-        //
+        return view('bumdes.dashboard.invoice.form_pengiriman_barang.editcreate',[
+            'title' => 'Tambah',
+            'method' => 'POST',
+            'action' => 'form_pengiriman_barang/create',
+            
+        ]);
     }
 
     /**
@@ -34,7 +43,17 @@ class FormPengirimanBarangController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = new FormPengirimanBarang;
+        $data->tanggal = Carbon::parse($request->tanggal);
+        $data->nama_penerima = $request->nama_penerima;
+        $data->alamat_penerima = $request->alamat_penerima;
+        $data->telp_penerima = $request->telp_penerima;
+        $data->nama_pengirim = $request->nama_pengirim;
+        $data->alamat_pengirim = $request->alamat_pengirim;
+        $data->bukti_transaksi = $request->bukti_transaksi;
+        $data->company_id = auth()->user()->company->id;
+        $data->save();
+        return redirect('/form_pengiriman_barang');
     }
 
     /**
@@ -56,7 +75,12 @@ class FormPengirimanBarangController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('bumdes.dashboard.invoice.form_pengiriman_barang.editcreate', [
+            'title' => 'Ubah ',
+            'method' => 'PUT',
+            'action' => 'form_pengiriman_barang/'.$id.'/update',
+            'data' => FormPengirimanBarang::find($id),
+        ]);
     }
 
     /**
@@ -68,7 +92,16 @@ class FormPengirimanBarangController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = FormPengirimanBarang::find($id);
+        $data->tanggal = Carbon::parse($request->tanggal);
+        $data->nama_penerima = $request->nama_penerima;
+        $data->alamat_penerima = $request->alamat_penerima;
+        $data->telp_penerima = $request->telp_penerima;
+        $data->nama_pengirim = $request->nama_pengirim;
+        $data->alamat_pengirim = $request->alamat_pengirim;
+        $data->bukti_transaksi = $request->bukti_transaksi;
+        $data->save();
+        return redirect('/form_pengiriman_barang');
     }
 
     /**
@@ -79,6 +112,8 @@ class FormPengirimanBarangController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = FormPengirimanBarang::find($id);
+        $data->delete();
+        return redirect('/form_pengiriman_barang')->with('msg', 'sukses');
     }
 }

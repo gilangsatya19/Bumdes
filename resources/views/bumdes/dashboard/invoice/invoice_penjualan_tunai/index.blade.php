@@ -1,58 +1,86 @@
 @extends('bumdes.dashboard.layouts.main')
 
 @section('content')
-    {{-- stye untuk table responsive dan btn ubah/unduh --}}
-    <link href="{{asset('css/table-resp-btn.css')}}" rel="stylesheet">
-    <div style="margin-top:3rem;margin-bottom: 3rem;padding-bottom:5rem;padding-top:6rem;background-color:white" class="px-5 rounded-4">
-        <div class="d-flex mb-4" style="margin-top: -50px">
-            <h1 >INVOICE PENJUALAN TUNAI</h1>
-            <div class="ms-auto">
-                @include('bumdes.dashboard.layouts.form')
-            </div>
-        </div>
-        <div class="table-responsive">
-            <table class="table table-striped">
-                <thead class="text-white text-center" style="background-color: #3C4B64">
-                    <tr>
-                        <th scope="col">Tanggal</th>
-                        <th scope="col">No. Invoice</th>
-                        <th scope="col">Nama Konsumen</th>
-                        <th scope="col">Telp Konsumen</th>
-                        <th scope="col">Barang</th>
-                        <th scope="col">Jumlah Barang</th>
-                        <th scope="col">Bukti Transaksi</th>
-                    </tr>
-                </thead>
-                <tbody class="fw-semibold text-center">
-                    {{-- 
-                        foreach datas as data
-                        <tr>
-                        
-                            <td>data->tanggal</td>
-                            <td>data->noinvoice</td>
-                            <td>data->namakonsumen</td>
-                            <td>data->telpkonsumen</td>
-                            <td>data->barang</td>
-                            <td>data->jumlah</td>                            
-                            <td>btn</td>
-                            
-                        
-                        </tr>
-                        endforeach
-                     --}}
-                         <tr>
-                            <th scope="row" rowspan="">20/04/22</th> <!-- tanggal -->
-                            <td>1A001</td> <!-- no invoice -->
-                            <td>Sulaiman</td> <!-- nama konsumen -->
-                            <td>0821-2223-4433</td> <!-- telp konsumen --> 
-                            <td>Telur</td> <!-- barang -->    
-                            <td>10 kg</td> <!-- jumlah barang -->                  
-                            <td><button class="btn btn-primary btn-unduh">Unduh</button></td>                       
-                        </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
+    <div class="content-wrapper">
+        <section class="content">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-12">
+                  
+                  <!-- /.card -->
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Invoice Penjualan Tunai</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <div class="d-flex mb-3" >
+                                <div class="ms-auto">
+                                    <a href="/invoice_penjualan_tunai/create" type="button" class="btn btn-primary" style="
+                                    text-decoration: none; 
+                                    color: white;
+                                    background-color: #0b297c;
+                                    color: white;
+                                    padding: 16px 20px;
+                                    border: none;
+                                    cursor: pointer;
+                                    opacity: 0.8;
+                                    width: 150px;
+                                    border-radius: 10px;
+                                    font-size: 15px;
+                                    font-weight: 500;">+ Tambah</a>
+                                </div>
+                            </div>
+                            <table id="example1" class="table table-bordered table-striped">
+                                <thead class="text-center">
+                                    <tr>
+                                        <th>Tanggal</th>
+                                        <th>No. Invoice</th>
+                                        <th>Nama Konsumen</th>
+                                        <th>Telp Konsumen</th>
+                                        <th>Barang</th>
+                                        <th>Jumlah Barang</th>
+                                        <th>Bukti Transaksi</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-center">
+                                
+                                    <tr>
+                                        @foreach ($datas as $data)
+                                            <td>{{$data->tanggal->format('d F Y')}}</td>
+                                            <td>{{$data->no_invoice}}</td>
+                                            <td>{{$data->nama}}</td>
+                                            <td>{{$data->telp}}</td>
+                                            <td>{{$data->barang}}</td>
+                                            <td>{{$data->jumlah_barang}}</td>
+                                            <td><button class="btn btn-primary btn-unduh">Unduh</button></td>
+                                            <td>
+                                                <a href="/form_pengiriman_barang/{{$data->id}}/edit" class="nav-icon fas fa-edit"></a>
+                                                
+                                                <form action="/form_pengiriman_barang/{{$data->id}}/delete" method="POST" class="d-inline">
+                                                @csrf
+                                                    <button class="fa fa-trash border-0" onclick="return confirm('Apakah Kamu Yakin Ingin Menghapus Data?')"></button>
+                                                </form>
+                                                
+                                            </td>
+                                        @endforeach
 
-    
+                                    </tr>
+                                
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                  <!-- /.card -->
+                </div>
+                <!-- /.col -->
+              </div>
+              <!-- /.row -->
+            </div>
+            <!-- /.container-fluid -->
+          </section>
+    </div>
 @endsection

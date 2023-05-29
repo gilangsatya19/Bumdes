@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Company;
+use App\Models\BukuBesar;
 use Illuminate\Http\Request;
 
 class CompanyController extends Controller
