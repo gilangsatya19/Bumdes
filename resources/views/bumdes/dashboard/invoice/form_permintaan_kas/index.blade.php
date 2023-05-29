@@ -35,6 +35,7 @@
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead class="text-center">
                                     <tr>
+                                        <th>No.</th>
                                         <th>Tanggal</th>
                                         <th>Dana Untuk Departemen</th>
                                         <th>Dana Awal Kas Kecil</th>
@@ -46,15 +47,19 @@
                                     </tr>
                                 </thead>
                                 <tbody class="text-center">
-                                
-                                    <tr>
-                                        @foreach ($datas as $data)
+                                    @if (isset($datas))
+                                    <p style="visibility: hidden; height: 0px;"> 
+                                        {{$i =1}}
+                                    </p>
+                                    @foreach ($datas as $data)
+                                        <tr>
+                                            <td>{{$i++}}</td>
                                             <td>{{$data->tanggal->format('d F Y')}}</td>
                                             <td>{{$data->dana_untuk_departemen}}</td>
-                                            <td>{{$data->dana_awal}}</td>
-                                            <td>{{$data->saldo}}</td>
+                                            <td>{{$data->formatRupiah('dana_awal')}}</td>
+                                            <td>{{$data->formatRupiah('saldo')}}</td>
                                             <td>{{$data->keterangan}}</td>
-                                            <td>{{$data->total}}</td>
+                                            <td>{{$data->formatRupiah('total')}}</td>
                                             <td><button class="btn btn-primary btn-unduh">Unduh</button></td>
                                             <td>
                                                 <a href="/form_permintaan_kas/{{$data->id}}/edit" class="nav-icon fas fa-edit"></a>
@@ -65,9 +70,10 @@
                                                 </form>
                                                 
                                             </td>
-                                        @endforeach
-                                                          
-                                    </tr>
+                                            
+                                        </tr>
+                                    @endforeach
+                                    @endif
                                 
                                 </tbody>
                             </table>

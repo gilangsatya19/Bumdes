@@ -49,7 +49,7 @@ class InvoicePenjualanKreditController extends Controller
         $data->nama = $request->nama;
         $data->alamat = $request->alamat;
         $data->telp = $request->telp;
-        $data->tanggal_jatuh_temp = Carbon::parse($request->tanggal_jatuh_temp);
+        $data->tanggal_jatuh_tempo = Carbon::parse($request->tanggal_jatuh_tempo);
         $data->barang = $request->barang;
         $data->jumlah_barang = $request->jumlah_barang;
         $data->bukti_transaksi = $request->bukti_transaksi;
@@ -100,7 +100,7 @@ class InvoicePenjualanKreditController extends Controller
         $data->nama = $request->nama;
         $data->alamat = $request->alamat;
         $data->telp = $request->telp;
-        $data->tanggal_jatuh_temp = Carbon::parse($request->tanggal_jatuh_temp);
+        $data->tanggal_jatuh_tempo = Carbon::parse($request->tanggal_jatuh_tempo);
         $data->barang = $request->barang;
         $data->jumlah_barang = $request->jumlah_barang;
         $data->bukti_transaksi = $request->bukti_transaksi;

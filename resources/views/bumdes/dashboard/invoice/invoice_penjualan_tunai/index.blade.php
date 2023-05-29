@@ -35,6 +35,7 @@
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead class="text-center">
                                     <tr>
+                                        <th>No.</th>
                                         <th>Tanggal</th>
                                         <th>No. Invoice</th>
                                         <th>Nama Konsumen</th>
@@ -46,9 +47,13 @@
                                     </tr>
                                 </thead>
                                 <tbody class="text-center">
-                                
-                                    <tr>
-                                        @foreach ($datas as $data)
+                                    @if (isset($datas))
+                                    <p style="visibility: hidden; height: 0px;"> 
+                                        {{$i =1}}
+                                    </p>
+                                    @foreach ($datas as $data)
+                                        <tr>
+                                            <td>{{$i++}}</td>
                                             <td>{{$data->tanggal->format('d F Y')}}</td>
                                             <td>{{$data->no_invoice}}</td>
                                             <td>{{$data->nama}}</td>
@@ -65,9 +70,10 @@
                                                 </form>
                                                 
                                             </td>
-                                        @endforeach
-
-                                    </tr>
+                                            
+                                        </tr>
+                                    @endforeach
+                                    @endif
                                 
                                 </tbody>
                             </table>

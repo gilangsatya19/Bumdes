@@ -140,6 +140,22 @@ Route::get('/invoice_penjualan_kredit/{id}/edit', [InvoicePenjualanKreditControl
 Route::post('/invoice_penjualan_kredit/{id}/update', [InvoicePenjualanKreditController::class, 'update']);
 Route::post('/invoice_penjualan_kredit/{id}/delete', [InvoicePenjualanKreditController::class, 'destroy']);
 
+Route::get('/barang', [BarangController::class, 'index']);
+Route::get('/barang/create', [BarangController::class, 'create']);
+Route::post('/barang/create', [BarangController::class, 'store']);
+Route::get('/barang/{id}/edit', [BarangController::class, 'edit']);
+Route::post('/barang/{id}/update', [BarangController::class, 'update']);
+Route::post('/barang/{id}/delete', [BarangController::class, 'destroy']);
+
+Route::get('/vendor', [VendorController::class, 'index']);
+Route::get('/vendor/create', [VendorController::class, 'create']);
+Route::post('/vendor/create', [VendorController::class, 'store']);
+Route::get('/vendor/{id}/edit', [VendorController::class, 'edit']);
+Route::post('/vendor/{id}/update', [VendorController::class, 'update']);
+Route::post('/vendor/{id}/delete', [VendorController::class, 'destroy']);
+
+
+
 
 
 
@@ -162,8 +178,8 @@ Route::resource('/calk', CALKController::class);
 // Route::resource('/form_pengiriman_barang', FormPengirimanBarangController::class);
 // Route::resource('/invoice_penjualan_tunai', InvoicePenjualanTunaiController::class);
 // Route::resource('/invoice_penjualan_kredit', InvoicePenjualanKreditController::class);
-Route::resource('/barang', BarangController::class);
-Route::resource('/vendor', VendorController::class);
+// Route::resource('/barang', BarangController::class);
+// Route::resource('/vendor', VendorController::class);
 Route::resource('/kode_rekening', KodeRekeningController::class);
 
 

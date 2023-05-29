@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Vendor;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class VendorController extends Controller
@@ -13,7 +15,9 @@ class VendorController extends Controller
      */
     public function index()
     {
-        return view('bumdes.dashboard.data_master.vendor.index');
+        return view('bumdes.dashboard.data_master.vendor.index',[
+            'datas' => auth()->user()->company->vendors,
+        ]);
     }
 
     /**
@@ -23,7 +27,12 @@ class VendorController extends Controller
      */
     public function create()
     {
-        //
+        return view('bumdes.dashboard.data_master.vendor.editcreate',[
+            'title' => 'Tambah',
+            'method' => 'POST',
+            'action' => 'vendor/create',
+            
+        ]);
     }
 
     /**
@@ -34,7 +43,15 @@ class VendorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = new Vendor;
+        $data->kode = $request->kode;
+        $data->nama_perusahaan = $request->nama_perusahaan;
+        $data->nama_pic = $request->nama_pic;
+        $data->alamat = $request->alamat;
+        $data->telp = $request->telp;
+        $data->company_id = auth()->user()->company->id;
+        $data->save();
+        return redirect('/vendor');
     }
 
     /**
@@ -56,7 +73,12 @@ class VendorController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('bumdes.dashboard.data_master.vendor.editcreate', [
+            'title' => 'Ubah ',
+            'method' => 'PUT',
+            'action' => 'vendor/'.$id.'/update',
+            'data' => Vendor::find($id),
+        ]);
     }
 
     /**
@@ -68,7 +90,14 @@ class VendorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = Vendor::find($id);
+        $data->kode = $request->kode;
+        $data->nama_perusahaan = $request->nama_perusahaan;
+        $data->nama_pic = $request->nama_pic;
+        $data->alamat = $request->alamat;
+        $data->telp = $request->telp;
+        $data->save();
+        return redirect('/vendor');
     }
 
     /**
@@ -79,6 +108,8 @@ class VendorController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Vendor::find($id);
+        $data->delete();
+        return redirect('/vendor')->with('msg', 'sukses');
     }
 }

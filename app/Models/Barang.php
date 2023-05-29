@@ -2,29 +2,29 @@
 
 namespace App\Models;
 
-use App\Traits\HasFormatRupiah;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class FormPermintaanKas extends Model
+class Barang extends Model
 {
     use HasFactory;
-    use HasFormatRupiah;
-    public $table = "form_permintaan_kas";
+    public $table = "barang";
     protected $fillable = [
         'tanggal',
-        'dana_untuk_departemen',
-        'dana_awal',
-        'saldo',
-        'keterangan',
-        'total',
-        'bukti_transaksi',
+        'kode_barang',
+        'nama_barang',
+        'satuan',
+        'stok_awal',
+        'harga_jual',
+        'harga_beli',
+        'jumlah_barang_masuk',
+        'jumlah_barang_keluar',
+        'stok_akhir',
     ];
     protected $casts = [
         'tanggal' => 'datetime',
     ];
-    public function company()
-    {
+    public function company(){
         return $this->belongsTo(Company::class);
     }
 }

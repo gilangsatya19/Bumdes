@@ -15,13 +15,6 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <div class="d-flex mb-3" >
-                                <div class="ms-auto">
-                                    <div>
-                                        @include('bumdes.dashboard.jurnal_umum.form')
-                                    </div>
-                                </div>
-                            </div>
                             <table id="example1" class="table table-borderless table-striped">
                                 <thead class="text-center" style="background-color:#3C4B64; color:white">
                                     <tr>

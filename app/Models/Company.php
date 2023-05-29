@@ -57,4 +57,12 @@ class Company extends Model
     {
         return $this->hasMany(InvoicePenjualanTunai::class);
     }
+    public function barangs()
+    {
+        return $this->hasMany(Barang::class);
+    }
+    public function vendors()
+    {
+        return $this->hasMany(Vendor::class);
+    }
 }

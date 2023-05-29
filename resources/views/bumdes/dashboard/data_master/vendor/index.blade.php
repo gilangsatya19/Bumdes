@@ -17,83 +17,59 @@
                         <div class="card-body">
                             <div class="d-flex mb-3" >
                                 <div class="ms-auto">
-                                    <div>
-                                        @include('bumdes.dashboard.jurnal_umum.form')
-                                    </div>
+                                    <a href="/vendor/create" type="button" class="btn btn-primary" style="
+                                    text-decoration: none; 
+                                    color: white;
+                                    background-color: #0b297c;
+                                    color: white;
+                                    padding: 16px 20px;
+                                    border: none;
+                                    cursor: pointer;
+                                    opacity: 0.8;
+                                    width: 150px;
+                                    border-radius: 10px;
+                                    font-size: 15px;
+                                    font-weight: 500;">+ Tambah</a>
                                 </div>
                             </div>
                             <table id="example1" class="table table-bordered table-striped">
-                                <thead class="text-center" style="background-color:#3C4B64; color:white">
+                                <thead class="text-center">
                                     <tr>
-                                    <th scope="col">Kode</th>
-                                    <th scope="col">Nama Perusahaan</th>
-                                    <th scope="col">Nama PIC</th>
-                                    <th scope="col">Alamat</th>
-                                    <th scope="col">Nomor Telepon</th>
-                                    <th scope="col">Aksi</th>
+                                    <th>No.</th>
+                                    <th>Kode</th>
+                                    <th>Nama Perusahaan</th>
+                                    <th>Nama PIC</th>
+                                    <th>Alamat</th>
+                                    <th>Nomor Telepon</th>
+                                    <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody class="text-center">
-                                {{-- 
-                                    foreach datas as data
+                                    @if (isset($datas))
+                                    <p style="visibility: hidden; height: 0px;"> 
+                                        {{$i =1}}
+                                    </p>
+                                    @foreach ($datas as $data)
                                         <tr>
-                                            <td>data->id</td>
-                                            <td>data->tanggal</td>
-                                            foreach items as item
-                                            <td>item->nama_akun</td>
-                                            <td>item->noref</td>
-                                            if item->debit = 0
-                                                <td>-</td>
-                                                <td>item->kredit</td>
-                                            else
-                                                <td>item->debit</td>
-                                                <td>-</td>
-                                            endif
-                                            <td>btn</td>
-                                            <td>btn</td>
+                                            <td>{{$i++}}</td>
+                                            <td>{{$data->kode}}</td>
+                                            <td>{{$data->nama_perusahaan}}</td>
+                                            <td>{{$data->nama_pic}}</td>
+                                            <td>{{$data->alamat}}</td>
+                                            <td>{{$data->telp}}</td>
+                                            <td>
+                                                <a href="/vendor/{{$data->id}}/edit" class="nav-icon fas fa-edit"></a>
+                                                
+                                                <form action="/vendor/{{$data->id}}/delete" method="POST" class="d-inline">
+                                                @csrf
+                                                    <button class="fa fa-trash border-0" onclick="return confirm('Apakah Kamu Yakin Ingin Menghapus Data?')"></button>
+                                                </form>
+                                                
+                                            </td>
+                                            
                                         </tr>
-                                    endforeach
-                                --}}
-                                    <tr>
-                                        <th scope="row" rowspan="">001</th> <!-- kode -->
-                                        <td>PT Muawanah Al Ma'soem</td> <!-- nama perusahaan -->
-                                        <td>-</td> <!-- nama pic -->
-                                        <td>Jl. Raya Cikalang No.168, Cimekar, Kec. Cileunyi, Kabupaten Bandung, Jawa Barat 40393</td> <!-- alamat -->
-                                        <td>0811-2275-555</td> <!-- nomor telepon -->
-                                        <td>-</td> <!-- aksi -->
-                                    </tr>
-                                    <tr>
-                                        <th scope="row" rowspan="">002</th> <!-- kode -->
-                                        <td>Sachio Baso dan Agen telur</td> <!-- nama perusahaan -->
-                                        <td>-</td> <!-- nama pic -->
-                                        <td>Jl. Kamarasan residence Bl. D1 No.3, Buahbatu, Bojongsoang, Bandung, Jawa Barat 40287, Indonesia, Kota Bandung, Jawa Barat.</td> <!-- alamat -->
-                                        <td>0877-0055-8668</td> <!-- nomor telepon -->
-                                        <td>-</td> <!-- aksi -->
-                                    </tr>
-                                    <tr>
-                                        <th scope="row" rowspan="">003</th> <!-- kode -->
-                                        <td>Rairaka sport</td> <!-- nama perusahaan -->
-                                        <td>-</td> <!-- nama pic -->
-                                        <td>J. Raya Bojongsoang No. 229 Kota Bandung, Jawa Barat</td> <!-- alamat -->
-                                        <td>0857-2116-5695</td> <!-- nomor telepon -->
-                                        <td>-</td> <!-- aksi -->
-                                    </tr>
-                                    <tr>
-                                        <th scope="row" rowspan="">004</th> <!-- kode -->
-                                        <td>Air al masoem bojongsoang</td> <!-- nama perusahaan -->
-                                        <td>-</td> <!-- nama pic -->
-                                        <td>Perum Griya Bandung Asri, Blk. I No.47, Bojongsoang, Kec. Bojongsoang, Kabupaten Bandung, Jawa Barat 40288</td> <!-- alamat -->
-                                        <td>0811-2194-362</td> <!-- nomor telepon -->
-                                        <td>-</td> <!-- aksi -->
-                                    </tr>
-                                    <tr>
-                                        <th scope="row" rowspan="">005</th> <!-- kode -->
-                                        <td>Toko Sembako Anugrah Mandiri</td> <!-- nama perusahaan -->
-                                        <td>-</td> <!-- nama pic -->
-                                        <td>Cangkuang Kulon, Dayeuhkolot, Kabupaten Bandung</td> <!-- alamat -->
-                                        <td>0812-7170-6505</td> <!-- nomor telepon -->
-                                        <td>-</td> <!-- aksi -->
-                                    </tr>
+                                    @endforeach
+                                    @endif
                                 </tbody>
                             </table>
                         </div>
