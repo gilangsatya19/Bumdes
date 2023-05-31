@@ -66,9 +66,9 @@
                                             <td>{{$data->jumlah_barang}}</td>
                                             <td><button class="btn btn-primary btn-unduh">Unduh</button></td>
                                             <td>
-                                                <a href="/form_pengiriman_barang/{{$data->id}}/edit" class="nav-icon fas fa-edit"></a>
+                                                <a href="/invoice_penjualan_kredit/{{$data->id}}/edit" class="nav-icon fas fa-edit"></a>
                                                 
-                                                <form action="/form_pengiriman_barang/{{$data->id}}/delete" method="POST" class="d-inline">
+                                                <form action="/invoice_penjualan_kredit/{{$data->id}}/delete" method="POST" class="d-inline">
                                                 @csrf
                                                     <button class="fa fa-trash border-0" onclick="return confirm('Apakah Kamu Yakin Ingin Menghapus Data?')"></button>
                                                 </form>
