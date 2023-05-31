@@ -10,12 +10,12 @@
         <!-- Sidebar user (optional) -->
         <div class="mt-3 pb-3 d-flex">
             <div>
-            <img src="{{asset('BUMDES/assets/logo/logo-siabdes.png')}}" class=" elevation-2" width="200px" height="60px" alt="SIABDES Logo">
+            <a href="/dashboard"><img src="{{asset('BUMDES/assets/logo/logo-siabdes.png')}}" class=" elevation-2" width="200px" height="60px" alt="SIABDES Logo"></a>
             </div>
         </div>
         <div class="pb-3 mb-3 d-flex">
             <div>
-            <img src="{{asset('BUMDES/assets/logo/logo-btp-png.png')}}" class="elevation-2" width="200px" height="60px" alt="BTP Logo">
+            <a href="/dashboard"><img src="{{asset('BUMDES/assets/logo/logo-btp-png.png')}}" class="elevation-2" width="200px" height="60px" alt="BTP Logo"></a>
             </div>
         </div>
 

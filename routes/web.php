@@ -154,6 +154,13 @@ Route::get('/vendor/{id}/edit', [VendorController::class, 'edit']);
 Route::post('/vendor/{id}/update', [VendorController::class, 'update']);
 Route::post('/vendor/{id}/delete', [VendorController::class, 'destroy']);
 
+Route::get('/wtb', [WTBController::class, 'index']);
+Route::get('/wtb/create', [WTBController::class, 'create']);
+Route::post('/wtb/create', [WTBController::class, 'store']);
+Route::get('/wtb/{akun}/edit', [WTBController::class, 'edit']);
+Route::post('/wtb/{akun}/update', [WTBController::class, 'update']);
+Route::post('/wtb/{id}/delete', [WTBController::class, 'destroy']);
+
 
 
 
@@ -169,7 +176,7 @@ Route::post('/vendor/{id}/delete', [VendorController::class, 'destroy']);
 // Route::resource('/pengeluaran_kas', JurnalPengeluaranKasController::class);
 // Route::resource('/pemasukan_kas', JurnalPemasukanKasController::class);
 Route::resource('/buku_besar', BukuBesarController::class);
-Route::resource('/wtb', WTBController::class);
+// Route::resource('/wtb', WTBController::class);
 Route::resource('/laba_rugi', LabaRugiController::class);
 Route::resource('/posisi_keuangan', PosisiKeuanganController::class);
 Route::resource('/calk', CALKController::class);

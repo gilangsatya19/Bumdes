@@ -13,7 +13,7 @@
                         <div class="card-header">
                             <h3 class="card-title">Working Trial Balance</h3>
                         </div>
-                        
+                        {{-- <p>{{$datas['saldo_kas']}}</p> --}}
                         <!-- /.card-header -->
                         <div class="card-body">
                             <table id="example1" class="table table-bordered table-striped">
@@ -26,6 +26,7 @@
                                         <th colspan="2">Neraca Setelahnya</th>
                                         <th colspan="2">Laba Rugi</th>
                                         <th colspan="2">Neraca</th>
+                                        <th rowspan="2">Action</th>
                                     </tr>
                                     <tr class="align-top">
                                         <th>Debit</th>
@@ -41,248 +42,800 @@
                                     </tr>
                                 </thead>
                                 <tbody class="text-center">
-                                    {{-- @foreach ($nama_akun as $akun)
-                                        <tr>
-                                        @if ($akun->d_k != '')
-                                            <td>{{$datas['saldo_kas']}}</td>
-                                            No
-                                            <td>{{$i = $i + 1}}</td>
-                                            Nama Akun
-                                            <td>{{$akun->nama}}</td>
-                                                Neraca Saldo debit/kredit
-                                                @if (isset( $data->toArray()[$akun->nama] ))
-                                                    @if ($data->toArray()[$akun->nama]['saldo'] > 0)
-                                                        <td>{{formatRupiah($data->toArray()[$akun->nama]['saldo'])}}</td>
-                                                        <td>-</td>
-                                                    @else
-                                                        @if ($data->toArray()[$akun->nama]['saldo'] == 0)
-                                                            <td>-</td>
-                                                            <td>-</td>
-                                                        @else
-                                                            <td>-</td>
-                                                            <td>{{formatRupiah($data->toArray()[$akun->nama]['saldo'] * -1)}}</td>
-                                                        @endif
-                                                    @endif
-                                                @else
-                                                    <td>-</td>
-                                                    <td>-</td>
-                                                @endif
-
-                                                <td>-</td>
-                                                <td>-</td>
-                                                
-                                        @endif
-                                        </tr>
-                                    @endforeach --}}
                                     <tr>
                                         <th scope="row" rowspan="">1</th>
                                         <td>Kas</td> <!-- // nama akun -->
-                                        <td>7.800.000</td> <!-- neraca saldo debit -->
-                                        <td>-</td> 
-                                        <td>-</td> <!-- //penyesuaian debit -->
-                                        <td>-</td>
-                                        <td>7.800.000</td> <!--// neraca saldo setelah debit -->
-                                        <td>-</td>
+                                        @if ($saldo['kas'] > 0)
+                                            <td>{{formatRupiah($saldo['kas'])}}</td> <!-- neraca saldo debit -->
+                                            <td>-</td> 
+                                        @elseif($saldo['kas'] > 0)
+                                            <td>-</td> 
+                                            <td>{{formatRupiah($saldo['kas'] * -1)}}</td> <!-- neraca saldo kredit -->
+                                        @else
+                                            <td>-</td>
+                                            <td>-</td>
+                                        @endif
+
+                                        @if ($penyesuaian['kas'] > 0)
+                                            <td>{{formatRupiah($penyesuaian['kas'])}}</td> <!-- penyesuaian debit -->
+                                            <td>-</td> 
+                                        @elseif($penyesuaian['kas'] < 0)
+                                            <td>-</td> 
+                                            <td>{{formatRupiah($penyesuaian['kas'] * -1)}}</td> <!-- penyesuaian kredit -->
+                                        @else
+                                            <td>-</td>
+                                            <td>-</td>
+                                        @endif
+
+                                        @if ($saldo['kas'] + $penyesuaian['kas'] > 0)
+                                            <td>{{formatRupiah($saldo['kas'] + $penyesuaian['kas'])}}</td> <!-- neraca setelahnya debit -->
+                                            <td>-</td> 
+                                        @elseif($saldo['kas'] + $penyesuaian['kas'] < 0)
+                                            <td>-</td> 
+                                            <td>{{formatRupiah(($saldo['kas'] + $penyesuaian['kas']) * -1)}}</td> <!-- neraca setelahnya kredit -->
+                                        @else
+                                            <td>-</td>
+                                            <td>-</td>
+                                        @endif
+                                        
                                         <td>-</td> <!--// laba rugi debit -->
                                         <td>-</td>
-                                        <td>7.800.000</td> <!--// neraca debit -->
-                                        <td>-</td>
+
+                                        @if ($saldo['kas'] + $penyesuaian['kas'] > 0)
+                                            <td>{{formatRupiah($saldo['kas'] + $penyesuaian['kas'])}}</td> <!-- neraca debit -->
+                                            <td>-</td> 
+                                        @elseif($saldo['kas'] + $penyesuaian['kas'] < 0)
+                                            <td>-</td> 
+                                            <td>{{formatRupiah(($saldo['kas'] + $penyesuaian['kas']) * -1)}}</td> <!-- neraca kredit -->
+                                        @else
+                                            <td>-</td>
+                                            <td>-</td>
+                                        @endif
+                                        <td>
+                                            <a href="/wtb/Kas/edit" class="nav-icon fas fa-edit"></a>
+                                        </td> 
                                     </tr>
                                     <tr>
                                         <th scope="row" rowspan="">2</th>
                                         <td>Kas di Bank A</td> <!--// nama akun -->
-                                        <td>150.050.000</td> <!--// neraca saldo debit -->
-                                        <td>-</td> 
-                                        <td>-</td> <!--//penyesuaian debit -->
-                                        <td>-</td>
-                                        <td>150.050.000</td> <!--// neraca saldo setelah debit -->
-                                        <td>-</td>
+                                        @if ($saldo['kas_di_bank_a'] > 0)
+                                            <td>{{formatRupiah($saldo['kas_di_bank_a'])}}</td> <!-- neraca saldo debit -->
+                                            <td>-</td> 
+                                        @elseif($saldo['kas_di_bank_a'] > 0)
+                                            <td>-</td> 
+                                            <td>{{formatRupiah($saldo['kas_di_bank_a'] * -1)}}</td> <!-- neraca saldo kredit -->
+                                        @else
+                                            <td>-</td>
+                                            <td>-</td>
+                                        @endif
+
+                                        @if ($penyesuaian['kas_di_bank_a'] > 0)
+                                            <td>{{formatRupiah($penyesuaian['kas_di_bank_a'])}}</td> <!-- penyesuaian debit -->
+                                            <td>-</td> 
+                                        @elseif($penyesuaian['kas_di_bank_a'] < 0)
+                                            <td>-</td> 
+                                            <td>{{formatRupiah($penyesuaian['kas_di_bank_a'] * -1)}}</td> <!-- penyesuaian kredit -->
+                                        @else
+                                            <td>-</td>
+                                            <td>-</td>
+                                        @endif
+
+                                        @if ($saldo['kas_di_bank_a'] + $penyesuaian['kas_di_bank_a'] > 0)
+                                            <td>{{formatRupiah($saldo['kas_di_bank_a'] + $penyesuaian['kas_di_bank_a'])}}</td> <!-- neraca setelahnya debit -->
+                                            <td>-</td> 
+                                        @elseif($saldo['kas_di_bank_a'] + $penyesuaian['kas_di_bank_a'] < 0)
+                                            <td>-</td> 
+                                            <td>{{formatRupiah(($saldo['kas_di_bank_a'] + $penyesuaian['kas_di_bank_a']) * -1)}}</td> <!-- neraca setelahnya kredit -->
+                                        @else
+                                            <td>-</td>
+                                            <td>-</td>
+                                        @endif
+                                        
                                         <td>-</td> <!--// laba rugi debit -->
                                         <td>-</td>
-                                        <td>150.050.000</td> <!--// neraca debit -->
-                                        <td>-</td>
+
+                                        @if ($saldo['kas_di_bank_a'] + $penyesuaian['kas_di_bank_a'] > 0)
+                                            <td>{{formatRupiah($saldo['kas_di_bank_a'] + $penyesuaian['kas_di_bank_a'])}}</td> <!-- neraca debit -->
+                                            <td>-</td> 
+                                        @elseif($saldo['kas_di_bank_a'] + $penyesuaian['kas_di_bank_a'] < 0)
+                                            <td>-</td> 
+                                            <td>{{formatRupiah(($saldo['kas_di_bank_a'] + $penyesuaian['kas_di_bank_a']) * -1)}}</td> <!-- neraca kredit -->
+                                        @else
+                                            <td>-</td>
+                                            <td>-</td>
+                                        @endif
+                                        <td>
+                                            <a href="/wtb/Kas di Bank A/edit" class="nav-icon fas fa-edit"></a>
+                                        </td> 
                                     </tr>
                                     <tr>
                                         <th scope="row" rowspan="">3</th>
                                         <td>Kas di Bank B</td>
+                                        @if ($saldo['kas_di_bank_b'] > 0)
+                                            <td>{{formatRupiah($saldo['kas_di_bank_b'])}}</td> <!-- neraca saldo debit -->
+                                            <td>-</td> 
+                                        @elseif($saldo['kas_di_bank_b'] > 0)
+                                            <td>-</td> 
+                                            <td>{{formatRupiah($saldo['kas_di_bank_b'] * -1)}}</td> <!-- neraca saldo kredit -->
+                                        @else
+                                            <td>-</td>
+                                            <td>-</td>
+                                        @endif
+
+                                        @if ($penyesuaian['kas_di_bank_b'] > 0)
+                                            <td>{{formatRupiah($penyesuaian['kas_di_bank_b'])}}</td> <!-- penyesuaian debit -->
+                                            <td>-</td> 
+                                        @elseif($penyesuaian['kas_di_bank_b'] < 0)
+                                            <td>-</td> 
+                                            <td>{{formatRupiah($penyesuaian['kas_di_bank_b'] * -1)}}</td> <!-- penyesuaian kredit -->
+                                        @else
+                                            <td>-</td>
+                                            <td>-</td>
+                                        @endif
+
+                                        @if ($saldo['kas_di_bank_b'] + $penyesuaian['kas_di_bank_b'] > 0)
+                                            <td>{{formatRupiah($saldo['kas_di_bank_b'] + $penyesuaian['kas_di_bank_b'])}}</td> <!-- neraca setelahnya debit -->
+                                            <td>-</td> 
+                                        @elseif($saldo['kas_di_bank_b'] + $penyesuaian['kas_di_bank_b'] < 0)
+                                            <td>-</td> 
+                                            <td>{{formatRupiah(($saldo['kas_di_bank_b'] + $penyesuaian['kas_di_bank_b']) * -1)}}</td> <!-- neraca setelahnya kredit -->
+                                        @else
+                                            <td>-</td>
+                                            <td>-</td>
+                                        @endif
+                                        
+                                        <td>-</td> <!--// laba rugi debit -->
                                         <td>-</td>
-                                        <td>-</td>
-                                        <td>-</td>
-                                        <td>-</td>
-                                        <td>-</td>
-                                        <td>-</td>
-                                        <td>-</td>
-                                        <td>-</td>
-                                        <td>-</td>
-                                        <td>-</td>
+
+                                        @if ($saldo['kas_di_bank_b'] + $penyesuaian['kas_di_bank_b'] > 0)
+                                            <td>{{formatRupiah($saldo['kas_di_bank_b'] + $penyesuaian['kas_di_bank_b'])}}</td> <!-- neraca debit -->
+                                            <td>-</td> 
+                                        @elseif($saldo['kas_di_bank_b'] + $penyesuaian['kas_di_bank_b'] < 0)
+                                            <td>-</td> 
+                                            <td>{{formatRupiah(($saldo['kas_di_bank_b'] + $penyesuaian['kas_di_bank_b']) * -1)}}</td> <!-- neraca kredit -->
+                                        @else
+                                            <td>-</td>
+                                            <td>-</td>
+                                        @endif
+                                        <td>
+                                            <a href="/wtb/Kas di Bank B/edit" class="nav-icon fas fa-edit"></a>
+                                        </td> 
                                     </tr>
                                     <tr>
                                         <th scope="row" rowspan="">4</th>
                                         <td>Kas di Bank C</td>
+                                        @if ($saldo['kas_di_bank_c'] > 0)
+                                            <td>{{formatRupiah($saldo['kas_di_bank_c'])}}</td> <!-- neraca saldo debit -->
+                                            <td>-</td> 
+                                        @elseif($saldo['kas_di_bank_c'] > 0)
+                                            <td>-</td> 
+                                            <td>{{formatRupiah($saldo['kas_di_bank_c'] * -1)}}</td> <!-- neraca saldo kredit -->
+                                        @else
+                                            <td>-</td>
+                                            <td>-</td>
+                                        @endif
+
+                                        @if ($penyesuaian['kas_di_bank_c'] > 0)
+                                            <td>{{formatRupiah($penyesuaian['kas_di_bank_c'])}}</td> <!-- penyesuaian debit -->
+                                            <td>-</td> 
+                                        @elseif($penyesuaian['kas_di_bank_c'] < 0)
+                                            <td>-</td> 
+                                            <td>{{formatRupiah($penyesuaian['kas_di_bank_c'] * -1)}}</td> <!-- penyesuaian kredit -->
+                                        @else
+                                            <td>-</td>
+                                            <td>-</td>
+                                        @endif
+
+                                        @if ($saldo['kas_di_bank_c'] + $penyesuaian['kas_di_bank_c'] > 0)
+                                            <td>{{formatRupiah($saldo['kas_di_bank_c'] + $penyesuaian['kas_di_bank_c'])}}</td> <!-- neraca setelahnya debit -->
+                                            <td>-</td> 
+                                        @elseif($saldo['kas_di_bank_c'] + $penyesuaian['kas_di_bank_c'] < 0)
+                                            <td>-</td> 
+                                            <td>{{formatRupiah(($saldo['kas_di_bank_c'] + $penyesuaian['kas_di_bank_c']) * -1)}}</td> <!-- neraca setelahnya kredit -->
+                                        @else
+                                            <td>-</td>
+                                            <td>-</td>
+                                        @endif
+                                        
+                                        <td>-</td> <!--// laba rugi debit -->
                                         <td>-</td>
-                                        <td>-</td>
-                                        <td>-</td>
-                                        <td>-</td>
-                                        <td>-</td>
-                                        <td>-</td>
-                                        <td>-</td>
-                                        <td>-</td>
-                                        <td>-</td>
-                                        <td>-</td>
+
+                                        @if ($saldo['kas_di_bank_c'] + $penyesuaian['kas_di_bank_c'] > 0)
+                                            <td>{{formatRupiah($saldo['kas_di_bank_c'] + $penyesuaian['kas_di_bank_c'])}}</td> <!-- neraca debit -->
+                                            <td>-</td> 
+                                        @elseif($saldo['kas_di_bank_c'] + $penyesuaian['kas_di_bank_c'] < 0)
+                                            <td>-</td> 
+                                            <td>{{formatRupiah(($saldo['kas_di_bank_c'] + $penyesuaian['kas_di_bank_c']) * -1)}}</td> <!-- neraca kredit -->
+                                        @else
+                                            <td>-</td>
+                                            <td>-</td>
+                                        @endif
+                                        <td>
+                                            <a href="/wtb/Kas di Bank C/edit" class="nav-icon fas fa-edit"></a>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th scope="row" rowspan="">5</th>
                                         <td>Kas Kecil</td> <!--// nama akun -->
-                                        <td>1.750.000</td> <!--// neraca saldo debit -->
-                                        <td>-</td> 
-                                        <td>-</td> <!--//penyesuaian debit -->
-                                        <td>-</td>
-                                        <td>1.750.000</td> <!--// neraca saldo setelah debit -->
-                                        <td>-</td>
+                                        @if ($saldo['kas_kecil'] > 0)
+                                            <td>{{formatRupiah($saldo['kas_kecil'])}}</td> <!-- neraca saldo debit -->
+                                            <td>-</td> 
+                                        @elseif($saldo['kas_kecil'] > 0)
+                                            <td>-</td> 
+                                            <td>{{formatRupiah($saldo['kas_kecil'] * -1)}}</td> <!-- neraca saldo kredit -->
+                                        @else
+                                            <td>-</td>
+                                            <td>-</td>
+                                        @endif
+
+                                        @if ($penyesuaian['kas_kecil'] > 0)
+                                            <td>{{formatRupiah($penyesuaian['kas_kecil'])}}</td> <!-- penyesuaian debit -->
+                                            <td>-</td> 
+                                        @elseif($penyesuaian['kas_kecil'] < 0)
+                                            <td>-</td> 
+                                            <td>{{formatRupiah($penyesuaian['kas_kecil'] * -1)}}</td> <!-- penyesuaian kredit -->
+                                        @else
+                                            <td>-</td>
+                                            <td>-</td>
+                                        @endif
+
+                                        @if ($saldo['kas_kecil'] + $penyesuaian['kas_kecil'] > 0)
+                                            <td>{{formatRupiah($saldo['kas_kecil'] + $penyesuaian['kas_kecil'])}}</td> <!-- neraca setelahnya debit -->
+                                            <td>-</td> 
+                                        @elseif($saldo['kas_kecil'] + $penyesuaian['kas_kecil'] < 0)
+                                            <td>-</td> 
+                                            <td>{{formatRupiah(($saldo['kas_kecil'] + $penyesuaian['kas_kecil']) * -1)}}</td> <!-- neraca setelahnya kredit -->
+                                        @else
+                                            <td>-</td>
+                                            <td>-</td>
+                                        @endif
+                                        
                                         <td>-</td> <!--// laba rugi debit -->
                                         <td>-</td>
-                                        <td>1.750.000</td> <!--// neraca debit -->
-                                        <td>-</td>
+
+                                        @if ($saldo['kas_kecil'] + $penyesuaian['kas_kecil'] > 0)
+                                            <td>{{formatRupiah($saldo['kas_kecil'] + $penyesuaian['kas_kecil'])}}</td> <!-- neraca debit -->
+                                            <td>-</td> 
+                                        @elseif($saldo['kas_kecil'] + $penyesuaian['kas_kecil'] < 0)
+                                            <td>-</td> 
+                                            <td>{{formatRupiah(($saldo['kas_kecil'] + $penyesuaian['kas_kecil']) * -1)}}</td> <!-- neraca kredit -->
+                                        @else
+                                            <td>-</td>
+                                            <td>-</td>
+                                        @endif
+                                        <td>
+                                            <a href="/wtb/Kas Kecil/edit" class="nav-icon fas fa-edit"></a>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th scope="row" rowspan="">6</th>
                                         <td>Giro</td> <!--// nama akun -->
-                                        <td>-</td> <!--// neraca saldo debit -->
-                                        <td>-</td> 
-                                        <td>-</td> <!--//penyesuaian debit -->
-                                        <td>-</td>
-                                        <td>-</td> <!--// neraca saldo setelah debit -->
-                                        <td>-</td>
+                                        @if ($saldo['giro'] > 0)
+                                            <td>{{formatRupiah($saldo['giro'])}}</td> <!-- neraca saldo debit -->
+                                            <td>-</td> 
+                                        @elseif($saldo['giro'] > 0)
+                                            <td>-</td> 
+                                            <td>{{formatRupiah($saldo['giro'] * -1)}}</td> <!-- neraca saldo kredit -->
+                                        @else
+                                            <td>-</td>
+                                            <td>-</td>
+                                        @endif
+
+                                        @if ($penyesuaian['giro'] > 0)
+                                            <td>{{formatRupiah($penyesuaian['giro'])}}</td> <!-- penyesuaian debit -->
+                                            <td>-</td> 
+                                        @elseif($penyesuaian['giro'] < 0)
+                                            <td>-</td> 
+                                            <td>{{formatRupiah($penyesuaian['giro'] * -1)}}</td> <!-- penyesuaian kredit -->
+                                        @else
+                                            <td>-</td>
+                                            <td>-</td>
+                                        @endif
+
+                                        @if ($saldo['giro'] + $penyesuaian['giro'] > 0)
+                                            <td>{{formatRupiah($saldo['giro'] + $penyesuaian['giro'])}}</td> <!-- neraca setelahnya debit -->
+                                            <td>-</td> 
+                                        @elseif($saldo['giro'] + $penyesuaian['giro'] < 0)
+                                            <td>-</td> 
+                                            <td>{{formatRupiah(($saldo['giro'] + $penyesuaian['giro']) * -1)}}</td> <!-- neraca setelahnya kredit -->
+                                        @else
+                                            <td>-</td>
+                                            <td>-</td>
+                                        @endif
+                                        
                                         <td>-</td> <!--// laba rugi debit -->
                                         <td>-</td>
-                                        <td>-</td> <!--// neraca debit -->
-                                        <td>-</td>
+
+                                        @if ($saldo['giro'] + $penyesuaian['giro'] > 0)
+                                            <td>{{formatRupiah($saldo['giro'] + $penyesuaian['giro'])}}</td> <!-- neraca debit -->
+                                            <td>-</td> 
+                                        @elseif($saldo['giro'] + $penyesuaian['giro'] < 0)
+                                            <td>-</td> 
+                                            <td>{{formatRupiah(($saldo['giro'] + $penyesuaian['giro']) * -1)}}</td> <!-- neraca kredit -->
+                                        @else
+                                            <td>-</td>
+                                            <td>-</td>
+                                        @endif
+                                        <td>
+                                            <a href="/wtb/Giro/edit" class="nav-icon fas fa-edit"></a>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th scope="row" rowspan="">7</th>
                                         <td>Deposito</td> <!--// nama akun -->
-                                        <td>-</td> <!--// neraca saldo debit -->
-                                        <td>-</td> 
-                                        <td>-</td> <!--//penyesuaian debit -->
-                                        <td>-</td>
-                                        <td>-</td> <!--// neraca saldo setelah debit -->
-                                        <td>-</td>
+                                        @if ($saldo['deposito'] > 0)
+                                            <td>{{formatRupiah($saldo['deposito'])}}</td> <!-- neraca saldo debit -->
+                                            <td>-</td> 
+                                        @elseif($saldo['deposito'] > 0)
+                                            <td>-</td> 
+                                            <td>{{formatRupiah($saldo['deposito'] * -1)}}</td> <!-- neraca saldo kredit -->
+                                        @else
+                                            <td>-</td>
+                                            <td>-</td>
+                                        @endif
+
+                                        @if ($penyesuaian['deposito'] > 0)
+                                            <td>{{formatRupiah($penyesuaian['deposito'])}}</td> <!-- penyesuaian debit -->
+                                            <td>-</td> 
+                                        @elseif($penyesuaian['deposito'] < 0)
+                                            <td>-</td> 
+                                            <td>{{formatRupiah($penyesuaian['deposito'] * -1)}}</td> <!-- penyesuaian kredit -->
+                                        @else
+                                            <td>-</td>
+                                            <td>-</td>
+                                        @endif
+
+                                        @if ($saldo['deposito'] + $penyesuaian['deposito'] > 0)
+                                            <td>{{formatRupiah($saldo['deposito'] + $penyesuaian['deposito'])}}</td> <!-- neraca setelahnya debit -->
+                                            <td>-</td> 
+                                        @elseif($saldo['deposito'] + $penyesuaian['deposito'] < 0)
+                                            <td>-</td> 
+                                            <td>{{formatRupiah(($saldo['deposito'] + $penyesuaian['deposito']) * -1)}}</td> <!-- neraca setelahnya kredit -->
+                                        @else
+                                            <td>-</td>
+                                            <td>-</td>
+                                        @endif
+                                        
                                         <td>-</td> <!--// laba rugi debit -->
                                         <td>-</td>
-                                        <td>-</td> <!--// neraca debit -->
-                                        <td>-</td>
+
+                                        @if ($saldo['deposito'] + $penyesuaian['deposito'] > 0)
+                                            <td>{{formatRupiah($saldo['deposito'] + $penyesuaian['deposito'])}}</td> <!-- neraca debit -->
+                                            <td>-</td> 
+                                        @elseif($saldo['deposito'] + $penyesuaian['deposito'] < 0)
+                                            <td>-</td> 
+                                            <td>{{formatRupiah(($saldo['deposito'] + $penyesuaian['deposito']) * -1)}}</td> <!-- neraca kredit -->
+                                        @else
+                                            <td>-</td>
+                                            <td>-</td>
+                                        @endif
+                                        <td>
+                                            <a href="/wtb/Deposito/edit" class="nav-icon fas fa-edit"></a>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th scope="row" rowspan="">8</th>
                                         <td>Piutang Usaha</td> <!--// nama akun -->
-                                        <td>-</td> <!--// neraca saldo debit -->
-                                        <td>-</td> 
-                                        <td>-</td> <!--//penyesuaian debit -->
-                                        <td>-</td>
-                                        <td>-</td> <!--// neraca saldo setelah debit -->
-                                        <td>-</td>
+                                        @if ($saldo['piutang_usaha'] > 0)
+                                            <td>{{formatRupiah($saldo['piutang_usaha'])}}</td> <!-- neraca saldo debit -->
+                                            <td>-</td> 
+                                        @elseif($saldo['piutang_usaha'] > 0)
+                                            <td>-</td> 
+                                            <td>{{formatRupiah($saldo['piutang_usaha'] * -1)}}</td> <!-- neraca saldo kredit -->
+                                        @else
+                                            <td>-</td>
+                                            <td>-</td>
+                                        @endif
+
+                                        @if ($penyesuaian['piutang_usaha'] > 0)
+                                            <td>{{formatRupiah($penyesuaian['piutang_usaha'])}}</td> <!-- penyesuaian debit -->
+                                            <td>-</td> 
+                                        @elseif($penyesuaian['piutang_usaha'] < 0)
+                                            <td>-</td> 
+                                            <td>{{formatRupiah($penyesuaian['piutang_usaha'] * -1)}}</td> <!-- penyesuaian kredit -->
+                                        @else
+                                            <td>-</td>
+                                            <td>-</td>
+                                        @endif
+
+                                        @if ($saldo['piutang_usaha'] + $penyesuaian['piutang_usaha'] > 0)
+                                            <td>{{formatRupiah($saldo['piutang_usaha'] + $penyesuaian['piutang_usaha'])}}</td> <!-- neraca setelahnya debit -->
+                                            <td>-</td> 
+                                        @elseif($saldo['piutang_usaha'] + $penyesuaian['piutang_usaha'] < 0)
+                                            <td>-</td> 
+                                            <td>{{formatRupiah(($saldo['piutang_usaha'] + $penyesuaian['piutang_usaha']) * -1)}}</td> <!-- neraca setelahnya kredit -->
+                                        @else
+                                            <td>-</td>
+                                            <td>-</td>
+                                        @endif
+                                        
                                         <td>-</td> <!--// laba rugi debit -->
                                         <td>-</td>
-                                        <td>-</td> <!--// neraca debit -->
-                                        <td>-</td>
+
+                                        @if ($saldo['piutang_usaha'] + $penyesuaian['piutang_usaha'] > 0)
+                                            <td>{{formatRupiah($saldo['piutang_usaha'] + $penyesuaian['piutang_usaha'])}}</td> <!-- neraca debit -->
+                                            <td>-</td> 
+                                        @elseif($saldo['piutang_usaha'] + $penyesuaian['piutang_usaha'] < 0)
+                                            <td>-</td> 
+                                            <td>{{formatRupiah(($saldo['piutang_usaha'] + $penyesuaian['piutang_usaha']) * -1)}}</td> <!-- neraca kredit -->
+                                        @else
+                                            <td>-</td>
+                                            <td>-</td>
+                                        @endif
+                                        <td>
+                                            <a href="/wtb/Piutang Usaha/edit" class="nav-icon fas fa-edit"></a>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th scope="row" rowspan="">9</th>
                                         <td>Persediaan Barang Dagangan</td> <!--// nama akun -->
-                                        <td>-</td> <!--// neraca saldo debit -->
-                                        <td>-</td> 
-                                        <td>-</td> <!--//penyesuaian debit -->
-                                        <td>-</td>
-                                        <td>-</td> <!--// neraca saldo setelah debit -->
-                                        <td>-</td>
+                                        @if ($saldo['persediaan_barang_dagang'] > 0)
+                                            <td>{{formatRupiah($saldo['persediaan_barang_dagang'])}}</td> <!-- neraca saldo debit -->
+                                            <td>-</td> 
+                                        @elseif($saldo['persediaan_barang_dagang'] > 0)
+                                            <td>-</td> 
+                                            <td>{{formatRupiah($saldo['persediaan_barang_dagang'] * -1)}}</td> <!-- neraca saldo kredit -->
+                                        @else
+                                            <td>-</td>
+                                            <td>-</td>
+                                        @endif
+
+                                        @if ($penyesuaian['persediaan_barang_dagang'] > 0)
+                                            <td>{{formatRupiah($penyesuaian['persediaan_barang_dagang'])}}</td> <!-- penyesuaian debit -->
+                                            <td>-</td> 
+                                        @elseif($penyesuaian['persediaan_barang_dagang'] < 0)
+                                            <td>-</td> 
+                                            <td>{{formatRupiah($penyesuaian['persediaan_barang_dagang'] * -1)}}</td> <!-- penyesuaian kredit -->
+                                        @else
+                                            <td>-</td>
+                                            <td>-</td>
+                                        @endif
+
+                                        @if ($saldo['persediaan_barang_dagang'] + $penyesuaian['persediaan_barang_dagang'] > 0)
+                                            <td>{{formatRupiah($saldo['persediaan_barang_dagang'] + $penyesuaian['persediaan_barang_dagang'])}}</td> <!-- neraca setelahnya debit -->
+                                            <td>-</td> 
+                                        @elseif($saldo['persediaan_barang_dagang'] + $penyesuaian['persediaan_barang_dagang'] < 0)
+                                            <td>-</td> 
+                                            <td>{{formatRupiah(($saldo['persediaan_barang_dagang'] + $penyesuaian['persediaan_barang_dagang']) * -1)}}</td> <!-- neraca setelahnya kredit -->
+                                        @else
+                                            <td>-</td>
+                                            <td>-</td>
+                                        @endif
+                                        
                                         <td>-</td> <!--// laba rugi debit -->
                                         <td>-</td>
-                                        <td>-</td> <!--// neraca debit -->
-                                        <td>-</td>
+
+                                        @if ($saldo['persediaan_barang_dagang'] + $penyesuaian['persediaan_barang_dagang'] > 0)
+                                            <td>{{formatRupiah($saldo['persediaan_barang_dagang'] + $penyesuaian['persediaan_barang_dagang'])}}</td> <!-- neraca debit -->
+                                            <td>-</td> 
+                                        @elseif($saldo['persediaan_barang_dagang'] + $penyesuaian['persediaan_barang_dagang'] < 0)
+                                            <td>-</td> 
+                                            <td>{{formatRupiah(($saldo['persediaan_barang_dagang'] + $penyesuaian['persediaan_barang_dagang']) * -1)}}</td> <!-- neraca kredit -->
+                                        @else
+                                            <td>-</td>
+                                            <td>-</td>
+                                        @endif
+                                        <td>
+                                            <a href="/wtb/Persediaan Barang Dagangan/edit" class="nav-icon fas fa-edit"></a>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th scope="row" rowspan="">10</th>
                                         <td>Persediaan Makan dan Minuman</td> <!--// nama akun -->
-                                        <td>-</td> <!--// neraca saldo debit -->
-                                        <td>-</td> 
-                                        <td>-</td> <!--//penyesuaian debit -->
-                                        <td>-</td>
-                                        <td>-</td> <!--// neraca saldo setelah debit -->
-                                        <td>-</td>
+                                        @if ($saldo['persediaan_makan_dan_minuman'] > 0)
+                                            <td>{{formatRupiah($saldo['persediaan_makan_dan_minuman'])}}</td> <!-- neraca saldo debit -->
+                                            <td>-</td> 
+                                        @elseif($saldo['persediaan_makan_dan_minuman'] > 0)
+                                            <td>-</td> 
+                                            <td>{{formatRupiah($saldo['persediaan_makan_dan_minuman'] * -1)}}</td> <!-- neraca saldo kredit -->
+                                        @else
+                                            <td>-</td>
+                                            <td>-</td>
+                                        @endif
+
+                                        @if ($penyesuaian['persediaan_makan_dan_minuman'] > 0)
+                                            <td>{{formatRupiah($penyesuaian['persediaan_makan_dan_minuman'])}}</td> <!-- penyesuaian debit -->
+                                            <td>-</td> 
+                                        @elseif($penyesuaian['persediaan_makan_dan_minuman'] < 0)
+                                            <td>-</td> 
+                                            <td>{{formatRupiah($penyesuaian['persediaan_makan_dan_minuman'] * -1)}}</td> <!-- penyesuaian kredit -->
+                                        @else
+                                            <td>-</td>
+                                            <td>-</td>
+                                        @endif
+
+                                        @if ($saldo['persediaan_makan_dan_minuman'] + $penyesuaian['persediaan_makan_dan_minuman'] > 0)
+                                            <td>{{formatRupiah($saldo['persediaan_makan_dan_minuman'] + $penyesuaian['persediaan_makan_dan_minuman'])}}</td> <!-- neraca setelahnya debit -->
+                                            <td>-</td> 
+                                        @elseif($saldo['persediaan_makan_dan_minuman'] + $penyesuaian['persediaan_makan_dan_minuman'] < 0)
+                                            <td>-</td> 
+                                            <td>{{formatRupiah(($saldo['persediaan_makan_dan_minuman'] + $penyesuaian['persediaan_makan_dan_minuman']) * -1)}}</td> <!-- neraca setelahnya kredit -->
+                                        @else
+                                            <td>-</td>
+                                            <td>-</td>
+                                        @endif
+                                        
                                         <td>-</td> <!--// laba rugi debit -->
                                         <td>-</td>
-                                        <td>-</td> <!--// neraca debit -->
-                                        <td>-</td>
+
+                                        @if ($saldo['persediaan_makan_dan_minuman'] + $penyesuaian['persediaan_makan_dan_minuman'] > 0)
+                                            <td>{{formatRupiah($saldo['persediaan_makan_dan_minuman'] + $penyesuaian['persediaan_makan_dan_minuman'])}}</td> <!-- neraca debit -->
+                                            <td>-</td> 
+                                        @elseif($saldo['persediaan_makan_dan_minuman'] + $penyesuaian['persediaan_makan_dan_minuman'] < 0)
+                                            <td>-</td> 
+                                            <td>{{formatRupiah(($saldo['persediaan_makan_dan_minuman'] + $penyesuaian['persediaan_makan_dan_minuman']) * -1)}}</td> <!-- neraca kredit -->
+                                        @else
+                                            <td>-</td>
+                                            <td>-</td>
+                                        @endif
+                                        <td>
+                                            <a href="/wtb/Persediaan Makan dan Minuman/edit" class="nav-icon fas fa-edit"></a>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th scope="row" rowspan="">11</th>
                                         <td>Perlengkapan</td> <!--// nama akun -->
-                                        <td>1.000.000</td> <!--// neraca saldo debit -->
-                                        <td>-</td> 
-                                        <td>-</td> <!--//penyesuaian debit -->
-                                        <td>-</td>
-                                        <td>1.000.000</td> <!--// neraca saldo setelah debit -->
-                                        <td>-</td>
+                                        @if ($saldo['perlengkapan'] > 0)
+                                            <td>{{formatRupiah($saldo['perlengkapan'])}}</td> <!-- neraca saldo debit -->
+                                            <td>-</td> 
+                                        @elseif($saldo['perlengkapan'] > 0)
+                                            <td>-</td> 
+                                            <td>{{formatRupiah($saldo['perlengkapan'] * -1)}}</td> <!-- neraca saldo kredit -->
+                                        @else
+                                            <td>-</td>
+                                            <td>-</td>
+                                        @endif
+
+                                        @if ($penyesuaian['perlengkapan'] > 0)
+                                            <td>{{formatRupiah($penyesuaian['perlengkapan'])}}</td> <!-- penyesuaian debit -->
+                                            <td>-</td> 
+                                        @elseif($penyesuaian['perlengkapan'] < 0)
+                                            <td>-</td> 
+                                            <td>{{formatRupiah($penyesuaian['perlengkapan'] * -1)}}</td> <!-- penyesuaian kredit -->
+                                        @else
+                                            <td>-</td>
+                                            <td>-</td>
+                                        @endif
+
+                                        @if ($saldo['perlengkapan'] + $penyesuaian['perlengkapan'] > 0)
+                                            <td>{{formatRupiah($saldo['perlengkapan'] + $penyesuaian['perlengkapan'])}}</td> <!-- neraca setelahnya debit -->
+                                            <td>-</td> 
+                                        @elseif($saldo['perlengkapan'] + $penyesuaian['perlengkapan'] < 0)
+                                            <td>-</td> 
+                                            <td>{{formatRupiah(($saldo['perlengkapan'] + $penyesuaian['perlengkapan']) * -1)}}</td> <!-- neraca setelahnya kredit -->
+                                        @else
+                                            <td>-</td>
+                                            <td>-</td>
+                                        @endif
+                                        
                                         <td>-</td> <!--// laba rugi debit -->
                                         <td>-</td>
-                                        <td>1.000.000</td> <!--// neraca debit -->
-                                        <td>-</td>
+
+                                        @if ($saldo['perlengkapan'] + $penyesuaian['perlengkapan'] > 0)
+                                            <td>{{formatRupiah($saldo['perlengkapan'] + $penyesuaian['perlengkapan'])}}</td> <!-- neraca debit -->
+                                            <td>-</td> 
+                                        @elseif($saldo['perlengkapan'] + $penyesuaian['perlengkapan'] < 0)
+                                            <td>-</td> 
+                                            <td>{{formatRupiah(($saldo['perlengkapan'] + $penyesuaian['perlengkapan']) * -1)}}</td> <!-- neraca kredit -->
+                                        @else
+                                            <td>-</td>
+                                            <td>-</td>
+                                        @endif
+                                        <td>
+                                            <a href="/wtb/Perlengkapan/edit" class="nav-icon fas fa-edit"></a>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th scope="row" rowspan="">12</th>
                                         <td>Sewa Dibayar Dimuka</td> <!--// nama akun -->
-                                        <td>12.000.000</td> <!--// neraca saldo debit -->
-                                        <td>-</td> 
-                                        <td>-</td> <!--//penyesuaian debit -->
-                                        <td>-</td>
-                                        <td>12.000.000</td> <!--// neraca saldo setelah debit -->
-                                        <td>-</td>
+                                        @if ($saldo['sewa_dibayar_dimuka'] > 0)
+                                            <td>{{formatRupiah($saldo['sewa_dibayar_dimuka'])}}</td> <!-- neraca saldo debit -->
+                                            <td>-</td> 
+                                        @elseif($saldo['sewa_dibayar_dimuka'] > 0)
+                                            <td>-</td> 
+                                            <td>{{formatRupiah($saldo['sewa_dibayar_dimuka'] * -1)}}</td> <!-- neraca saldo kredit -->
+                                        @else
+                                            <td>-</td>
+                                            <td>-</td>
+                                        @endif
+
+                                        @if ($penyesuaian['sewa_dibayar_dimuka'] > 0)
+                                            <td>{{formatRupiah($penyesuaian['sewa_dibayar_dimuka'])}}</td> <!-- penyesuaian debit -->
+                                            <td>-</td> 
+                                        @elseif($penyesuaian['sewa_dibayar_dimuka'] < 0)
+                                            <td>-</td> 
+                                            <td>{{formatRupiah($penyesuaian['sewa_dibayar_dimuka'] * -1)}}</td> <!-- penyesuaian kredit -->
+                                        @else
+                                            <td>-</td>
+                                            <td>-</td>
+                                        @endif
+
+                                        @if ($saldo['sewa_dibayar_dimuka'] + $penyesuaian['sewa_dibayar_dimuka'] > 0)
+                                            <td>{{formatRupiah($saldo['sewa_dibayar_dimuka'] + $penyesuaian['sewa_dibayar_dimuka'])}}</td> <!-- neraca setelahnya debit -->
+                                            <td>-</td> 
+                                        @elseif($saldo['sewa_dibayar_dimuka'] + $penyesuaian['sewa_dibayar_dimuka'] < 0)
+                                            <td>-</td> 
+                                            <td>{{formatRupiah(($saldo['sewa_dibayar_dimuka'] + $penyesuaian['sewa_dibayar_dimuka']) * -1)}}</td> <!-- neraca setelahnya kredit -->
+                                        @else
+                                            <td>-</td>
+                                            <td>-</td>
+                                        @endif
+                                        
                                         <td>-</td> <!--// laba rugi debit -->
                                         <td>-</td>
-                                        <td>12.000.000</td> <!--// neraca debit -->
-                                        <td>-</td>
+
+                                        @if ($saldo['sewa_dibayar_dimuka'] + $penyesuaian['sewa_dibayar_dimuka'] > 0)
+                                            <td>{{formatRupiah($saldo['sewa_dibayar_dimuka'] + $penyesuaian['sewa_dibayar_dimuka'])}}</td> <!-- neraca debit -->
+                                            <td>-</td> 
+                                        @elseif($saldo['sewa_dibayar_dimuka'] + $penyesuaian['sewa_dibayar_dimuka'] < 0)
+                                            <td>-</td> 
+                                            <td>{{formatRupiah(($saldo['sewa_dibayar_dimuka'] + $penyesuaian['sewa_dibayar_dimuka']) * -1)}}</td> <!-- neraca kredit -->
+                                        @else
+                                            <td>-</td>
+                                            <td>-</td>
+                                        @endif
+                                        <td>
+                                            <a href="/wtb/Sewa Dibayar Dimuka/edit" class="nav-icon fas fa-edit"></a>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th scope="row" rowspan="">13</th>
                                         <td>Asuransi Dibayar Dimuka</td> <!--// nama akun -->
-                                        <td>50.000.000</td> <!--// neraca saldo debit -->
-                                        <td>-</td> 
-                                        <td>-</td> <!--//penyesuaian debit -->
-                                        <td>-</td>
-                                        <td>50.000.000</td> <!--// neraca saldo setelah debit -->
-                                        <td>-</td>
+                                        @if ($saldo['asuransi_dibayar_dimuka'] > 0)
+                                            <td>{{formatRupiah($saldo['asuransi_dibayar_dimuka'])}}</td> <!-- neraca saldo debit -->
+                                            <td>-</td> 
+                                        @elseif($saldo['asuransi_dibayar_dimuka'] > 0)
+                                            <td>-</td> 
+                                            <td>{{formatRupiah($saldo['asuransi_dibayar_dimuka'] * -1)}}</td> <!-- neraca saldo kredit -->
+                                        @else
+                                            <td>-</td>
+                                            <td>-</td>
+                                        @endif
+
+                                        @if ($penyesuaian['asuransi_dibayar_dimuka'] > 0)
+                                            <td>{{formatRupiah($penyesuaian['asuransi_dibayar_dimuka'])}}</td> <!-- penyesuaian debit -->
+                                            <td>-</td> 
+                                        @elseif($penyesuaian['asuransi_dibayar_dimuka'] < 0)
+                                            <td>-</td> 
+                                            <td>{{formatRupiah($penyesuaian['asuransi_dibayar_dimuka'] * -1)}}</td> <!-- penyesuaian kredit -->
+                                        @else
+                                            <td>-</td>
+                                            <td>-</td>
+                                        @endif
+
+                                        @if ($saldo['asuransi_dibayar_dimuka'] + $penyesuaian['asuransi_dibayar_dimuka'] > 0)
+                                            <td>{{formatRupiah($saldo['asuransi_dibayar_dimuka'] + $penyesuaian['asuransi_dibayar_dimuka'])}}</td> <!-- neraca setelahnya debit -->
+                                            <td>-</td> 
+                                        @elseif($saldo['asuransi_dibayar_dimuka'] + $penyesuaian['asuransi_dibayar_dimuka'] < 0)
+                                            <td>-</td> 
+                                            <td>{{formatRupiah(($saldo['asuransi_dibayar_dimuka'] + $penyesuaian['asuransi_dibayar_dimuka']) * -1)}}</td> <!-- neraca setelahnya kredit -->
+                                        @else
+                                            <td>-</td>
+                                            <td>-</td>
+                                        @endif
+                                        
                                         <td>-</td> <!--// laba rugi debit -->
                                         <td>-</td>
-                                        <td>50.000.000</td> <!--// neraca debit -->
-                                        <td>-</td>
+
+                                        @if ($saldo['asuransi_dibayar_dimuka'] + $penyesuaian['asuransi_dibayar_dimuka'] > 0)
+                                            <td>{{formatRupiah($saldo['asuransi_dibayar_dimuka'] + $penyesuaian['asuransi_dibayar_dimuka'])}}</td> <!-- neraca debit -->
+                                            <td>-</td> 
+                                        @elseif($saldo['asuransi_dibayar_dimuka'] + $penyesuaian['asuransi_dibayar_dimuka'] < 0)
+                                            <td>-</td> 
+                                            <td>{{formatRupiah(($saldo['asuransi_dibayar_dimuka'] + $penyesuaian['asuransi_dibayar_dimuka']) * -1)}}</td> <!-- neraca kredit -->
+                                        @else
+                                            <td>-</td>
+                                            <td>-</td>
+                                        @endif
+                                        <td>
+                                            <a href="/wtb/Asuransi Dibayar Dimuka/edit" class="nav-icon fas fa-edit"></a>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th scope="row" rowspan="">14</th>
                                         <td>PPh 25</td> <!--// nama akun -->
-                                        <td>-</td> <!--// neraca saldo debit -->
-                                        <td>-</td> 
-                                        <td>-</td> <!--//penyesuaian debit -->
-                                        <td>-</td>
-                                        <td>-</td> <!--// neraca saldo setelah debit -->
-                                        <td>-</td>
+                                        @if ($saldo['pph25'] > 0)
+                                            <td>{{formatRupiah($saldo['pph25'])}}</td> <!-- neraca saldo debit -->
+                                            <td>-</td> 
+                                        @elseif($saldo['pph25'] > 0)
+                                            <td>-</td> 
+                                            <td>{{formatRupiah($saldo['pph25'] * -1)}}</td> <!-- neraca saldo kredit -->
+                                        @else
+                                            <td>-</td>
+                                            <td>-</td>
+                                        @endif
+
+                                        @if ($penyesuaian['pph25'] > 0)
+                                            <td>{{formatRupiah($penyesuaian['pph25'])}}</td> <!-- penyesuaian debit -->
+                                            <td>-</td> 
+                                        @elseif($penyesuaian['pph25'] < 0)
+                                            <td>-</td> 
+                                            <td>{{formatRupiah($penyesuaian['pph25'] * -1)}}</td> <!-- penyesuaian kredit -->
+                                        @else
+                                            <td>-</td>
+                                            <td>-</td>
+                                        @endif
+
+                                        @if ($saldo['pph25'] + $penyesuaian['pph25'] > 0)
+                                            <td>{{formatRupiah($saldo['pph25'] + $penyesuaian['pph25'])}}</td> <!-- neraca setelahnya debit -->
+                                            <td>-</td> 
+                                        @elseif($saldo['pph25'] + $penyesuaian['pph25'] < 0)
+                                            <td>-</td> 
+                                            <td>{{formatRupiah(($saldo['pph25'] + $penyesuaian['pph25']) * -1)}}</td> <!-- neraca setelahnya kredit -->
+                                        @else
+                                            <td>-</td>
+                                            <td>-</td>
+                                        @endif
+                                        
                                         <td>-</td> <!--// laba rugi debit -->
                                         <td>-</td>
-                                        <td>-</td> <!--// neraca debit -->
-                                        <td>-</td>
+
+                                        @if ($saldo['pph25'] + $penyesuaian['pph25'] > 0)
+                                            <td>{{formatRupiah($saldo['pph25'] + $penyesuaian['pph25'])}}</td> <!-- neraca debit -->
+                                            <td>-</td> 
+                                        @elseif($saldo['pph25'] + $penyesuaian['pph25'] < 0)
+                                            <td>-</td> 
+                                            <td>{{formatRupiah(($saldo['pph25'] + $penyesuaian['pph25']) * -1)}}</td> <!-- neraca kredit -->
+                                        @else
+                                            <td>-</td>
+                                            <td>-</td>
+                                        @endif
+                                        <td>
+                                            <a href="/wtb/PPh 25/edit" class="nav-icon fas fa-edit"></a>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th scope="row" rowspan="">15</th>
                                         <td>Piutang Desa</td> <!--// nama akun -->
-                                        <td>-</td> <!--// neraca saldo debit -->
-                                        <td>-</td> 
-                                        <td>-</td> <!--//penyesuaian debit -->
-                                        <td>-</td>
-                                        <td>-</td> <!--// neraca saldo setelah debit -->
-                                        <td>-</td>
+                                        @if ($saldo['piutang_desa'] > 0)
+                                            <td>{{formatRupiah($saldo['piutang_desa'])}}</td> <!-- neraca saldo debit -->
+                                            <td>-</td> 
+                                        @elseif($saldo['piutang_desa'] > 0)
+                                            <td>-</td> 
+                                            <td>{{formatRupiah($saldo['piutang_desa'] * -1)}}</td> <!-- neraca saldo kredit -->
+                                        @else
+                                            <td>-</td>
+                                            <td>-</td>
+                                        @endif
+
+                                        @if ($penyesuaian['piutang_desa'] > 0)
+                                            <td>{{formatRupiah($penyesuaian['piutang_desa'])}}</td> <!-- penyesuaian debit -->
+                                            <td>-</td> 
+                                        @elseif($penyesuaian['piutang_desa'] < 0)
+                                            <td>-</td> 
+                                            <td>{{formatRupiah($penyesuaian['piutang_desa'] * -1)}}</td> <!-- penyesuaian kredit -->
+                                        @else
+                                            <td>-</td>
+                                            <td>-</td>
+                                        @endif
+
+                                        @if ($saldo['piutang_desa'] + $penyesuaian['piutang_desa'] > 0)
+                                            <td>{{formatRupiah($saldo['piutang_desa'] + $penyesuaian['piutang_desa'])}}</td> <!-- neraca setelahnya debit -->
+                                            <td>-</td> 
+                                        @elseif($saldo['piutang_desa'] + $penyesuaian['piutang_desa'] < 0)
+                                            <td>-</td> 
+                                            <td>{{formatRupiah(($saldo['piutang_desa'] + $penyesuaian['piutang_desa']) * -1)}}</td> <!-- neraca setelahnya kredit -->
+                                        @else
+                                            <td>-</td>
+                                            <td>-</td>
+                                        @endif
+                                        
                                         <td>-</td> <!--// laba rugi debit -->
                                         <td>-</td>
-                                        <td>-</td> <!--// neraca debit -->
-                                        <td>-</td>
+
+                                        @if ($saldo['piutang_desa'] + $penyesuaian['piutang_desa'] > 0)
+                                            <td>{{formatRupiah($saldo['piutang_desa'] + $penyesuaian['piutang_desa'])}}</td> <!-- neraca debit -->
+                                            <td>-</td> 
+                                        @elseif($saldo['piutang_desa'] + $penyesuaian['piutang_desa'] < 0)
+                                            <td>-</td> 
+                                            <td>{{formatRupiah(($saldo['piutang_desa'] + $penyesuaian['piutang_desa']) * -1)}}</td> <!-- neraca kredit -->
+                                        @else
+                                            <td>-</td>
+                                            <td>-</td>
+                                        @endif
+                                        <td>
+                                            <a href="/wtb/Piutang Desa/edit" class="nav-icon fas fa-edit"></a>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th scope="row" rowspan="">16</th>
