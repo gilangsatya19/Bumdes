@@ -4,8 +4,7 @@
     @csrf
     <div class="mx-4">
         <div class="" style="margin-left: 100%">
-
-            <button type="button" class="btn-close" aria-label="Close" onclick="closeForm()"></button>
+            <button type="button" class="btn-close border-0 font-weight-bold" aria-label="Close" onclick="closeForm()"></button>
         </div>
         <h1>Tambah Data</h1>
         <p class="fs-5" style="color: #8F9CA9">isi form dibawah ini untuk menambah data</p>

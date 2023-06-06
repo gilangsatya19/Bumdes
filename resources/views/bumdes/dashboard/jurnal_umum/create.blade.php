@@ -14,7 +14,7 @@
                             @csrf
                             <div class="d-flex">
                                 <div>
-                                    <div class="text-center">
+                                    <div class="">
                                         <h1>Form Tambah Data</h1>
                                     </div>
                                     <p class="fs-5" style="color: #8F9CA9">isi form dibawah ini untuk menambah data jurnal umum</p>
@@ -23,7 +23,7 @@
                                         <label for="nama_akun" class="form-label fs-4"><b>Nama Akun</b></label>
                                         <div class="">
                                             
-                                            <select id="nama_akun" name="nama_akun" class="" >
+                                            <select id="nama_akun" name="nama_akun" class="border border-secondary rounded py-2" >
                                                 @foreach ($nama_akuns as $nama_akun)
                                                 @if ($nama_akun->d_k != '')
                                                     <option value="{{$nama_akun->nama}}">{{$nama_akun->nama}}</option>
@@ -34,7 +34,7 @@
                                         </div>
                                     </div>
                                    
-                                    <label for="debit" class="fs-5 mb-2"><b>Debit</b></label>
+                                    <label for="debit" class="fs-5 mb-1"><b>Debit</b></label>
                                     <input type="number" step="0.01" name="debit" class="form-control mb-4" value="0" required> 
             
                                     
