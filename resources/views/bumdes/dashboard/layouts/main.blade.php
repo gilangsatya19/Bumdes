@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SIABDES | Dashboard</title>
+  <link rel="icon" href="{{asset('BUMDES/assets/logo/icon-siabdes.png')}}" type="image/icon type">
   
   
   {{-- bootstrap core css --}}
