@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\InvoicePenjualanKredit;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class InvoicePenjualanKreditController extends Controller
 {
@@ -18,6 +19,12 @@ class InvoicePenjualanKreditController extends Controller
         return view('bumdes.dashboard.invoice.invoice_penjualan_kredit.index',[
             'datas' => auth()->user()->company->invoicepenjualankredit,
         ]);
+    }
+    public function downloadImage($id)
+    {
+        $data = InvoicePenjualanKredit::find($id);
+        $foto = $data->bukti_transaksi;
+        return Storage::download($foto);
     }
 
     /**
@@ -43,6 +50,9 @@ class InvoicePenjualanKreditController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'bukti_transaksi' => 'required|file|max:1024',
+        ]);
         $data = new InvoicePenjualanKredit;
         $data->tanggal = Carbon::parse($request->tanggal);
         $data->no_invoice = $request->no_invoice;
@@ -52,7 +62,7 @@ class InvoicePenjualanKreditController extends Controller
         $data->tanggal_jatuh_tempo = Carbon::parse($request->tanggal_jatuh_tempo);
         $data->barang = $request->barang;
         $data->jumlah_barang = $request->jumlah_barang;
-        $data->bukti_transaksi = $request->bukti_transaksi;
+        $data->bukti_transaksi = $request->file('bukti_transaksi')->store('invoice_penjualan_kredit');
         $data->company_id = auth()->user()->company->id;
         $data->save();
         return redirect('/invoice_penjualan_kredit');
@@ -103,7 +113,10 @@ class InvoicePenjualanKreditController extends Controller
         $data->tanggal_jatuh_tempo = Carbon::parse($request->tanggal_jatuh_tempo);
         $data->barang = $request->barang;
         $data->jumlah_barang = $request->jumlah_barang;
-        $data->bukti_transaksi = $request->bukti_transaksi;
+        if ($request->file('bukti_transaksi')) {
+            Storage::delete($data->bukti_transaksi);
+            $data->bukti_transaksi = $request->file('bukti_transaksi')->store('invoice_penjualan_kredit');
+        }
         $data->save();
         return redirect('/invoice_penjualan_kredit');
     }
@@ -117,6 +130,7 @@ class InvoicePenjualanKreditController extends Controller
     public function destroy($id)
     {
         $data = InvoicePenjualanKredit::find($id);
+        Storage::delete($data->bukti_transaksi);
         $data->delete();
         return redirect('/invoice_penjualan_kredit')->with('msg', 'sukses');
     }

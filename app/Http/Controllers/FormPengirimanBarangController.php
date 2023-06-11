@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\FormPengirimanBarang;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class FormPengirimanBarangController extends Controller
 {
@@ -18,6 +19,12 @@ class FormPengirimanBarangController extends Controller
         return view('bumdes.dashboard.invoice.form_pengiriman_barang.index',[
             'datas' => auth()->user()->company->formpengirimanbarang,
         ]);
+    }
+    public function downloadImage($id)
+    {
+        $data = FormPengirimanBarang::find($id);
+        $foto = $data->bukti_transaksi;
+        return Storage::download($foto);
     }
 
     /**
@@ -43,6 +50,9 @@ class FormPengirimanBarangController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'bukti_transaksi' => 'required|file|max:1024',
+        ]);
         $data = new FormPengirimanBarang;
         $data->tanggal = Carbon::parse($request->tanggal);
         $data->nama_penerima = $request->nama_penerima;
@@ -50,7 +60,7 @@ class FormPengirimanBarangController extends Controller
         $data->telp_penerima = $request->telp_penerima;
         $data->nama_pengirim = $request->nama_pengirim;
         $data->alamat_pengirim = $request->alamat_pengirim;
-        $data->bukti_transaksi = $request->bukti_transaksi;
+        $data->bukti_transaksi = $request->file('bukti_transaksi')->store('form_pengiriman_barang');
         $data->company_id = auth()->user()->company->id;
         $data->save();
         return redirect('/form_pengiriman_barang');
@@ -99,7 +109,10 @@ class FormPengirimanBarangController extends Controller
         $data->telp_penerima = $request->telp_penerima;
         $data->nama_pengirim = $request->nama_pengirim;
         $data->alamat_pengirim = $request->alamat_pengirim;
-        $data->bukti_transaksi = $request->bukti_transaksi;
+        if ($request->file('bukti_transaksi')) {
+            Storage::delete($data->bukti_transaksi);
+            $data->bukti_transaksi = $request->file('bukti_transaksi')->store('form_pengiriman_barang');
+        }
         $data->save();
         return redirect('/form_pengiriman_barang');
     }
@@ -113,6 +126,7 @@ class FormPengirimanBarangController extends Controller
     public function destroy($id)
     {
         $data = FormPengirimanBarang::find($id);
+        Storage::delete($data->bukti_transaksi);
         $data->delete();
         return redirect('/form_pengiriman_barang')->with('msg', 'sukses');
     }

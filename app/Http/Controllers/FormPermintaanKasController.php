@@ -62,7 +62,6 @@ class FormPermintaanKasController extends Controller
         $data->keterangan = $request->keterangan;
         $data->total = $request->total;
         $data->bukti_transaksi = $request->file('bukti_transaksi')->store('form_permintaan_kas');
-        // $data->bukti_transaksi = $request->bukti_transaksi;
         $data->company_id = auth()->user()->company->id;
         $data->save();
         return redirect('/form_permintaan_kas');

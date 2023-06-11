@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\FormPurchaseOrder;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class FormPurchaseOrderController extends Controller
 {
@@ -18,6 +19,12 @@ class FormPurchaseOrderController extends Controller
         return view('bumdes.dashboard.invoice.form_purchase_order.index',[
             'datas' => auth()->user()->company->formpurchaseorder,
         ]);
+    }
+    public function downloadImage($id)
+    {
+        $data = FormPurchaseOrder::find($id);
+        $foto = $data->bukti_transaksi;
+        return Storage::download($foto);
     }
 
     /**
@@ -43,6 +50,9 @@ class FormPurchaseOrderController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'bukti_transaksi' => 'required|file|max:1024',
+        ]);
         $data = new FormPurchaseOrder;
         $data->tanggal = Carbon::parse($request->tanggal);
         $data->no_po = $request->no_po;
@@ -50,7 +60,7 @@ class FormPurchaseOrderController extends Controller
         $data->jumlah_barang = $request->jumlah_barang;
         $data->vendor = $request->vendor;
         $data->tanggal_pengiriman = Carbon::parse($request->tanggal_pengiriman);
-        $data->bukti_transaksi = $request->bukti_transaksi;
+        $data->bukti_transaksi = $request->file('bukti_transaksi')->store('form_purchase_order');
         $data->company_id = auth()->user()->company->id;
         $data->save();
         return redirect('/form_purchase_order');
@@ -99,7 +109,10 @@ class FormPurchaseOrderController extends Controller
         $data->jumlah_barang = $request->jumlah_barang;
         $data->vendor = $request->vendor;
         $data->tanggal_pengiriman = Carbon::parse($request->tanggal_pengiriman);
-        $data->bukti_transaksi = $request->bukti_transaksi;
+        if ($request->file('bukti_transaksi')) {
+            Storage::delete($data->bukti_transaksi);
+            $data->bukti_transaksi = $request->file('bukti_transaksi')->store('form_purchase_order');
+        }
         $data->save();
         return redirect('/form_purchase_order');
     }
@@ -113,6 +126,7 @@ class FormPurchaseOrderController extends Controller
     public function destroy($id)
     {
         $data = FormPurchaseOrder::find($id);
+        Storage::delete($data->bukti_transaksi);
         $data->delete();
         return redirect('/form_purchase_order')->with('msg', 'sukses');
     }

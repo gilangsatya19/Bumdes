@@ -114,6 +114,7 @@ Route::get('/form_permintaan_kas/{id}/edit', [FormPermintaanKasController::class
 Route::post('/form_permintaan_kas/{id}/update', [FormPermintaanKasController::class, 'update']);
 Route::post('/form_permintaan_kas/{id}/delete', [FormPermintaanKasController::class, 'destroy']);
 
+Route::get('/form_purchase_order/{id}/download', [FormPurchaseOrderController::class, 'downloadImage']);
 Route::get('/form_purchase_order', [FormPurchaseOrderController::class, 'index']);
 Route::get('/form_purchase_order/create', [FormPurchaseOrderController::class, 'create']);
 Route::post('/form_purchase_order/create', [FormPurchaseOrderController::class, 'store']);
@@ -121,6 +122,7 @@ Route::get('/form_purchase_order/{id}/edit', [FormPurchaseOrderController::class
 Route::post('/form_purchase_order/{id}/update', [FormPurchaseOrderController::class, 'update']);
 Route::post('/form_purchase_order/{id}/delete', [FormPurchaseOrderController::class, 'destroy']);
 
+Route::get('/form_pengiriman_barang/{id}/download', [FormPengirimanBarangController::class, 'downloadImage']);
 Route::get('/form_pengiriman_barang', [FormPengirimanBarangController::class, 'index']);
 Route::get('/form_pengiriman_barang/create', [FormPengirimanBarangController::class, 'create']);
 Route::post('/form_pengiriman_barang/create', [FormPengirimanBarangController::class, 'store']);
@@ -128,6 +130,7 @@ Route::get('/form_pengiriman_barang/{id}/edit', [FormPengirimanBarangController:
 Route::post('/form_pengiriman_barang/{id}/update', [FormPengirimanBarangController::class, 'update']);
 Route::post('/form_pengiriman_barang/{id}/delete', [FormPengirimanBarangController::class, 'destroy']);
 
+Route::get('/invoice_penjualan_tunai/{id}/download', [InvoicePenjualanTunaiController::class, 'downloadImage']);
 Route::get('/invoice_penjualan_tunai', [InvoicePenjualanTunaiController::class, 'index']);
 Route::get('/invoice_penjualan_tunai/create', [InvoicePenjualanTunaiController::class, 'create']);
 Route::post('/invoice_penjualan_tunai/create', [InvoicePenjualanTunaiController::class, 'store']);
@@ -135,6 +138,7 @@ Route::get('/invoice_penjualan_tunai/{id}/edit', [InvoicePenjualanTunaiControlle
 Route::post('/invoice_penjualan_tunai/{id}/update', [InvoicePenjualanTunaiController::class, 'update']);
 Route::post('/invoice_penjualan_tunai/{id}/delete', [InvoicePenjualanTunaiController::class, 'destroy']);
 
+Route::get('/invoice_penjualan_kredit/{id}/download', [InvoicePenjualanKreditController::class, 'downloadImage']);
 Route::get('/invoice_penjualan_kredit', [InvoicePenjualanKreditController::class, 'index']);
 Route::get('/invoice_penjualan_kredit/create', [InvoicePenjualanKreditController::class, 'create']);
 Route::post('/invoice_penjualan_kredit/create', [InvoicePenjualanKreditController::class, 'store']);

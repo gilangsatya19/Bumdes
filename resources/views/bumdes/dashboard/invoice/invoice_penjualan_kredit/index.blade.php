@@ -64,7 +64,7 @@
                                             <td>{{$data->tanggal_jatuh_tempo->format('d F Y')}}</td>
                                             <td>{{$data->barang}}</td>
                                             <td>{{$data->jumlah_barang}}</td>
-                                            <td><button class="btn btn-primary btn-unduh">Unduh</button></td>
+                                            <td><a href="/invoice_penjualan_kredit/{{$data->id}}/download" class="btn btn-primary btn-unduh">Download</a></td>
                                             <td>
                                                 <a href="/invoice_penjualan_kredit/{{$data->id}}/edit" class="nav-icon fas fa-edit"></a>
                                                 

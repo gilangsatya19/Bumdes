@@ -10,7 +10,7 @@
                         <div class="card-header">
                             <h3 class="card-title">{{$title}} Data - Invoice Penjualan Tunai</h3>
                         </div>
-                        <form action="/{{$action}}" method="post" class="form-container">
+                        <form action="/{{$action}}" method="post" class="form-container" enctype="multipart/form-data">
                             @csrf
                             <div >
                                 <div>
@@ -36,9 +36,16 @@
                                     <label for="jumlah_barang" class="fs-5"><b>Jumlah Barang</b></label>
                                     <input type="text" placeholder="Masukkan Jumlah Barang" name="jumlah_barang" value="{{isset($data)?$data->jumlah_barang:''}}" required>
 
-                                    <div class="mb-4">
+                                    <div class="mb-3">
                                         <label for="bukti_transaksi"><b>Upload Bukti Transaksi</b></label>
-                                        <input type="file" class="form-control"  name="bukti_transaksi" required>
+                                        <input type="file" class="form-control @error('bukti_transaksi') is-invalid @enderror"  name="bukti_transaksi" id="bukti_transaksi" accept=".jpg, .jpeg, .png" 
+                                         required>
+                                        @error('bukti_transaksi')
+                                            <div class="invalid-feedback">
+                                                Ukuran file bukti transaksi tidak boleh lebih dari 1024 kilobytes / 1 MB
+                                            </div>
+                                        @enderror
+                                        <div id="filehelp" class="form-text">Maks file size : 1 MB</div>
                                     </div>
                     
                                     <button type="submit" class="btn mt-5" style="background-color: #3C4B64">Simpan</button>

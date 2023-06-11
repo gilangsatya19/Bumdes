@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\InvoicePenjualanTunai;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class InvoicePenjualanTunaiController extends Controller
 {
@@ -18,6 +19,12 @@ class InvoicePenjualanTunaiController extends Controller
         return view('bumdes.dashboard.invoice.invoice_penjualan_tunai.index',[
             'datas' => auth()->user()->company->invoicepenjualantunai,
         ]);
+    }
+    public function downloadImage($id)
+    {
+        $data = InvoicePenjualanTunai::find($id);
+        $foto = $data->bukti_transaksi;
+        return Storage::download($foto);
     }
 
     /**
@@ -43,6 +50,9 @@ class InvoicePenjualanTunaiController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'bukti_transaksi' => 'required|file|max:1024',
+        ]);
         $data = new InvoicePenjualanTunai;
         $data->tanggal = Carbon::parse($request->tanggal);
         $data->no_invoice = $request->no_invoice;
@@ -50,7 +60,7 @@ class InvoicePenjualanTunaiController extends Controller
         $data->telp = $request->telp;
         $data->barang = $request->barang;
         $data->jumlah_barang = $request->jumlah_barang;
-        $data->bukti_transaksi = $request->bukti_transaksi;
+        $data->bukti_transaksi = $request->file('bukti_transaksi')->store('invoice_penjualan_tunai');
         $data->company_id = auth()->user()->company->id;
         $data->save();
         return redirect('/invoice_penjualan_tunai');
@@ -99,7 +109,10 @@ class InvoicePenjualanTunaiController extends Controller
         $data->telp = $request->telp;
         $data->barang = $request->barang;
         $data->jumlah_barang = $request->jumlah_barang;
-        $data->bukti_transaksi = $request->bukti_transaksi;
+        if ($request->file('bukti_transaksi')) {
+            Storage::delete($data->bukti_transaksi);
+            $data->bukti_transaksi = $request->file('bukti_transaksi')->store('invoice_penjualan_tunai');
+        }
         $data->save();
         return redirect('/invoice_penjualan_tunai');
     }
@@ -113,6 +126,7 @@ class InvoicePenjualanTunaiController extends Controller
     public function destroy($id)
     {
         $data = InvoicePenjualanTunai::find($id);
+        Storage::delete($data->bukti_transaksi);
         $data->delete();
         return redirect('/invoice_penjualan_tunai')->with('msg', 'sukses');
     }

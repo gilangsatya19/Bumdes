@@ -60,7 +60,7 @@
                                             <td>{{$data->telp}}</td>
                                             <td>{{$data->barang}}</td>
                                             <td>{{$data->jumlah_barang}}</td>
-                                            <td><button class="btn btn-primary btn-unduh">Unduh</button></td>
+                                            <td><a href="/invoice_penjualan_tunai/{{$data->id}}/download" class="btn btn-primary btn-unduh">Download</a></td>
                                             <td>
                                                 <a href="/invoice_penjualan_tunai/{{$data->id}}/edit" class="nav-icon fas fa-edit"></a>
                                                 
