@@ -35,26 +35,6 @@
                                     </tr>
                                 </thead>
                                 <tbody class="text-center">
-                                {{-- 
-                                    foreach datas as data
-                                        <tr>
-                                            <td>data->id</td>
-                                            <td>data->tanggal</td>
-                                            foreach items as item
-                                            <td>item->nama_akun</td>
-                                            <td>item->noref</td>
-                                            if item->debit = 0
-                                                <td>-</td>
-                                                <td>item->kredit</td>
-                                            else
-                                                <td>item->debit</td>
-                                                <td>-</td>
-                                            endif
-                                            <td>btn</td>
-                                            <td>btn</td>
-                                        </tr>
-                                    endforeach
-                                --}}
                                     <tr>
                                         <td><b>4100</b></td>
                                         <td><b>PENDAPATAN TIKET</b></td>
@@ -65,23 +45,35 @@
                                     <tr>
                                         <td>4101</td>
                                         <td>Pendapatan Tiket Masuk Perseorangan</td>
-                                        <td></td>
-                                        <td></td>
-                                        <td>-</td>
+                                        <td></td> <!-- catatan -->
+                                        @if ($saldo['pendapatan_tiket_masuk_perseorangan'] > 0) <!-- 2022 -->
+                                            <td>{{formatRupiah($saldo['pendapatan_tiket_masuk_perseorangan'])}}</td> 
+                                        @else
+                                            <td>-</td>
+                                        @endif
+                                        <td>-</td> <!-- 2021 -->
                                     </tr>
                                     <tr>
                                         <td>4102</td>
                                         <td>Pendapatan Tiket Masuk Rombongan</td>
-                                        <td></td>
-                                        <td></td>
-                                        <td>-</td>
+                                        <td></td> <!-- catatan -->
+                                        @if ($saldo['pendapatan_tiket_masuk_rombongan'] > 0) <!-- 2022 -->
+                                            <td>{{formatRupiah($saldo['pendapatan_tiket_masuk_rombongan'])}}</td> 
+                                        @else
+                                            <td>-</td>
+                                        @endif
+                                        <td>-</td> <!-- 2021 -->
                                     </tr>
                                     <tr>
                                         <td>4199</td>
                                         <td>Pendapatan Tiket Lainnya</td>
-                                        <td></td>
-                                        <td></td>
-                                        <td>-</td>
+                                        <td></td> <!-- catatan -->
+                                        @if ($saldo['pendapatan_tiket_lainnya'] > 0) <!-- 2022 -->
+                                            <td>{{formatRupiah($saldo['pendapatan_tiket_lainnya'])}}</td> 
+                                        @else
+                                            <td>-</td>
+                                        @endif
+                                        <td>-</td> <!-- 2021 -->
                                     </tr>
                                     <tr>
                                         <td><b>4300</b></td>
@@ -93,44 +85,68 @@
                                     <tr>
                                         <td>4301</td>
                                         <td>Pendapatan Komisi</td>
-                                        <td></td>
-                                        <td></td>
-                                        <td>-</td>
+                                        <td></td> <!-- catatan -->
+                                        @if ($saldo['pendapatan_komisi'] > 0) <!-- 2022 -->
+                                            <td>{{formatRupiah($saldo['pendapatan_komisi'])}}</td> 
+                                        @else
+                                            <td>-</td>
+                                        @endif
+                                        <td>-</td> <!-- 2021 -->
                                     </tr>
                                     <tr>
                                         <td>4302</td>
                                         <td>Pendapatan Parkir</td>
-                                        <td></td>
-                                        <td></td>
-                                        <td>-</td>
+                                        <td></td> <!-- catatan -->
+                                        @if ($saldo['pendapatan_parkir'] > 0) <!-- 2022 -->
+                                            <td>{{formatRupiah($saldo['pendapatan_parkir'])}}</td> 
+                                        @else
+                                            <td>-</td>
+                                        @endif
+                                        <td>-</td> <!-- 2021 -->
                                     </tr>
                                     <tr>
                                         <td>4303</td>
                                         <td>Pendapatan Toilet</td>
-                                        <td></td>
-                                        <td></td>
-                                        <td>-</td>
+                                        <td></td> <!-- catatan -->
+                                        @if ($saldo['pendapatan_toilet'] > 0) <!-- 2022 -->
+                                            <td>{{formatRupiah($saldo['pendapatan_toilet'])}}</td> 
+                                        @else
+                                            <td>-</td>
+                                        @endif
+                                        <td>-</td> <!-- 2021 -->
                                     </tr>
                                     <tr>
                                         <td>4304</td>
                                         <td>Pendapatan Sewa</td>
-                                        <td></td>
-                                        <td>Rp351.200.000</td>
-                                        <td>-</td>
+                                        <td></td> <!-- catatan -->
+                                        @if ($saldo['pendapatan_sewa'] > 0) <!-- 2022 -->
+                                            <td>{{formatRupiah($saldo['pendapatan_sewa'])}}</td> 
+                                        @else
+                                            <td>-</td>
+                                        @endif
+                                        <td>-</td> <!-- 2021 -->
                                     </tr>
                                     <tr>
                                         <td>4305</td>
                                         <td>Pendapatan Jasa</td>
-                                        <td></td>
-                                        <td>Rp350.000.000</td>
-                                        <td>-</td>
+                                        <td></td> <!-- catatan -->
+                                        @if ($saldo['pendapatan_jasa'] > 0) <!-- 2022 -->
+                                            <td>{{formatRupiah($saldo['pendapatan_jasa'])}}</td> 
+                                        @else
+                                            <td>-</td>
+                                        @endif
+                                        <td>-</td> <!-- 2021 -->
                                     </tr>
                                     <tr>
                                         <td>4399</td>
                                         <td>Pendapatan Rupa-Rupa Lainnya</td>
-                                        <td></td>
-                                        <td></td>
-                                        <td>-</td>
+                                        <td></td> <!-- catatan -->
+                                        @if ($saldo['pendapatan_rupa_rupa_lainnya'] > 0) <!-- 2022 -->
+                                            <td>{{formatRupiah($saldo['pendapatan_rupa_rupa_lainnya'])}}</td> 
+                                        @else
+                                            <td>-</td>
+                                        @endif
+                                        <td>-</td> <!-- 2021 -->
                                     </tr>
                                     <tr>
                                         <td><b>7100<b></td>
@@ -142,15 +158,64 @@
                                     <tr>
                                         <td>7101</td>
                                         <td>Pendapatan Bunga</td>
-                                        <td></td>
-                                        <td>Rp50.000</td>
-                                        <td>-</td>
+                                        <td></td> <!-- catatan -->
+                                        @if ($saldo['pendapatan_bunga'] > 0) <!-- 2022 -->
+                                            <td>{{formatRupiah($saldo['pendapatan_bunga'])}}</td> 
+                                        @else
+                                            <td>-</td>
+                                        @endif
+                                        <td>-</td> <!-- 2021 -->
                                     </tr>
                                     <tr>
                                         <td>7102</td>
                                         <td>Pendapatan dari Desa</td>
+                                        <td></td> <!-- catatan -->
+                                        @if ($saldo['pendapatan_dari_desa'] > 0) <!-- 2022 -->
+                                            <td>{{formatRupiah($saldo['pendapatan_dari_desa'])}}</td> 
+                                        @else
+                                            <td>-</td>
+                                        @endif
+                                        <td>-</td> <!-- 2021 -->
+                                    </tr>
+                                    <tr>
+                                        <td>7103</td>
+                                        <td>Pendapatan Bantuan/Sumbangan/Hibah</td>
+                                        <td></td> <!-- catatan -->
+                                        @if ($saldo['pendapatan_bantuan'] > 0) <!-- 2022 -->
+                                            <td>{{formatRupiah($saldo['pendapatan_bantuan'])}}</td> 
+                                        @else
+                                            <td>-</td>
+                                        @endif
+                                        <td>-</td> <!-- 2021 -->
+                                    </tr>
+                                    <tr>
+                                        <td>7199</td>
+                                        <td>Pendapatan Lain-lain</td>
+                                        <td></td> <!-- catatan -->
+                                        @if ($saldo['pendapatan_lain_lain'] > 0) <!-- 2022 -->
+                                            <td>{{formatRupiah($saldo['pendapatan_lain_lain'])}}</td> 
+                                        @else
+                                            <td>-</td>
+                                        @endif
+                                        <td>-</td> <!-- 2021 -->
+                                    </tr>
+                                    <tr>
+                                        <td><b>-<b></td>
+                                        <td><b>JUMLAH PENDAPATAN<b></td>
                                         <td></td>
-                                        <td>Rp15.750.000</td>
+                                        <td><b>{{formatRupiah($saldo['pendapatan_tiket_masuk_perseorangan'] +
+                                            $saldo['pendapatan_tiket_masuk_rombongan'] +
+                                            $saldo['pendapatan_tiket_lainnya'] +
+                                            $saldo['pendapatan_komisi'] +
+                                            $saldo['pendapatan_parkir'] +
+                                            $saldo['pendapatan_toilet'] +
+                                            $saldo['pendapatan_sewa'] +
+                                            $saldo['pendapatan_jasa'] +
+                                            $saldo['pendapatan_rupa_rupa_lainnya'] +
+                                            $saldo['pendapatan_bunga'] +
+                                            $saldo['pendapatan_dari_desa'] +
+                                            $saldo['pendapatan_bantuan'] +
+                                            $saldo['pendapatan_lain_lain'])}}</b></td>
                                         <td>-</td>
                                     </tr>
                                 </tbody>

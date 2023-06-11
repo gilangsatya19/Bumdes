@@ -67,6 +67,7 @@ Route::get('/login', [LoginController::class, 'index']);
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
 
+Route::get('/jurnal_umum/{id}/download', [JurnalUmumController::class, 'downloadImage']);
 Route::get('/jurnal_umum', [JurnalUmumController::class, 'index']);
 Route::get('/jurnal_umum/create', [JurnalUmumController::class, 'create']);
 Route::post('/jurnal_umum/create', [JurnalUmumController::class, 'store']);

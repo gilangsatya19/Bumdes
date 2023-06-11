@@ -13,7 +13,6 @@
                         <div class="card-header">
                             <h3 class="card-title">Working Trial Balance</h3>
                         </div>
-                        {{-- <p>{{$datas['saldo_kas']}}</p> --}}
                         <!-- /.card-header -->
                         <div class="card-body">
                             <table id="example1" class="table table-bordered table-striped">
@@ -48,7 +47,7 @@
                                         @if ($saldo['kas'] > 0)
                                             <td>{{formatRupiah($saldo['kas'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['kas'] > 0)
+                                        @elseif($saldo['kas'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['kas'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -101,7 +100,7 @@
                                         @if ($saldo['kas_di_bank_a'] > 0)
                                             <td>{{formatRupiah($saldo['kas_di_bank_a'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['kas_di_bank_a'] > 0)
+                                        @elseif($saldo['kas_di_bank_a'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['kas_di_bank_a'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -154,7 +153,7 @@
                                         @if ($saldo['kas_di_bank_b'] > 0)
                                             <td>{{formatRupiah($saldo['kas_di_bank_b'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['kas_di_bank_b'] > 0)
+                                        @elseif($saldo['kas_di_bank_b'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['kas_di_bank_b'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -207,7 +206,7 @@
                                         @if ($saldo['kas_di_bank_c'] > 0)
                                             <td>{{formatRupiah($saldo['kas_di_bank_c'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['kas_di_bank_c'] > 0)
+                                        @elseif($saldo['kas_di_bank_c'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['kas_di_bank_c'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -260,7 +259,7 @@
                                         @if ($saldo['kas_kecil'] > 0)
                                             <td>{{formatRupiah($saldo['kas_kecil'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['kas_kecil'] > 0)
+                                        @elseif($saldo['kas_kecil'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['kas_kecil'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -313,7 +312,7 @@
                                         @if ($saldo['giro'] > 0)
                                             <td>{{formatRupiah($saldo['giro'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['giro'] > 0)
+                                        @elseif($saldo['giro'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['giro'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -366,7 +365,7 @@
                                         @if ($saldo['deposito'] > 0)
                                             <td>{{formatRupiah($saldo['deposito'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['deposito'] > 0)
+                                        @elseif($saldo['deposito'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['deposito'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -419,7 +418,7 @@
                                         @if ($saldo['piutang_usaha'] > 0)
                                             <td>{{formatRupiah($saldo['piutang_usaha'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['piutang_usaha'] > 0)
+                                        @elseif($saldo['piutang_usaha'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['piutang_usaha'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -472,7 +471,7 @@
                                         @if ($saldo['persediaan_barang_dagang'] > 0)
                                             <td>{{formatRupiah($saldo['persediaan_barang_dagang'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['persediaan_barang_dagang'] > 0)
+                                        @elseif($saldo['persediaan_barang_dagang'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['persediaan_barang_dagang'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -525,7 +524,7 @@
                                         @if ($saldo['persediaan_makan_dan_minuman'] > 0)
                                             <td>{{formatRupiah($saldo['persediaan_makan_dan_minuman'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['persediaan_makan_dan_minuman'] > 0)
+                                        @elseif($saldo['persediaan_makan_dan_minuman'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['persediaan_makan_dan_minuman'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -578,7 +577,7 @@
                                         @if ($saldo['perlengkapan'] > 0)
                                             <td>{{formatRupiah($saldo['perlengkapan'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['perlengkapan'] > 0)
+                                        @elseif($saldo['perlengkapan'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['perlengkapan'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -631,7 +630,7 @@
                                         @if ($saldo['sewa_dibayar_dimuka'] > 0)
                                             <td>{{formatRupiah($saldo['sewa_dibayar_dimuka'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['sewa_dibayar_dimuka'] > 0)
+                                        @elseif($saldo['sewa_dibayar_dimuka'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['sewa_dibayar_dimuka'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -684,7 +683,7 @@
                                         @if ($saldo['asuransi_dibayar_dimuka'] > 0)
                                             <td>{{formatRupiah($saldo['asuransi_dibayar_dimuka'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['asuransi_dibayar_dimuka'] > 0)
+                                        @elseif($saldo['asuransi_dibayar_dimuka'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['asuransi_dibayar_dimuka'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -737,7 +736,7 @@
                                         @if ($saldo['pph25'] > 0)
                                             <td>{{formatRupiah($saldo['pph25'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['pph25'] > 0)
+                                        @elseif($saldo['pph25'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['pph25'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -790,7 +789,7 @@
                                         @if ($saldo['piutang_desa'] > 0)
                                             <td>{{formatRupiah($saldo['piutang_desa'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['piutang_desa'] > 0)
+                                        @elseif($saldo['piutang_desa'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['piutang_desa'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -843,7 +842,7 @@
                                         @if ($saldo['asset_lancar_lainnya'] > 0)
                                             <td>{{formatRupiah($saldo['asset_lancar_lainnya'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['asset_lancar_lainnya'] > 0)
+                                        @elseif($saldo['asset_lancar_lainnya'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['asset_lancar_lainnya'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -896,7 +895,7 @@
                                         @if ($saldo['Investasi'] > 0)
                                             <td>{{formatRupiah($saldo['Investasi'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['Investasi'] > 0)
+                                        @elseif($saldo['Investasi'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['Investasi'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -946,34 +945,34 @@
                                     <tr>
                                         <th scope="row" rowspan="">18</th>
                                         <td>Tanah</td> <!--// nama akun -->
-                                        @if ($saldo['Tanah'] > 0)
-                                            <td>{{formatRupiah($saldo['Tanah'])}}</td> <!-- neraca saldo debit -->
+                                        @if ($saldo['tanah'] > 0)
+                                            <td>{{formatRupiah($saldo['tanah'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['Tanah'] > 0)
+                                        @elseif($saldo['tanah'] < 0)
                                             <td>-</td> 
-                                            <td>{{formatRupiah($saldo['Tanah'] * -1)}}</td> <!-- neraca saldo kredit -->
+                                            <td>{{formatRupiah($saldo['tanah'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
                                             <td>-</td>
                                             <td>-</td>
                                         @endif
 
-                                        @if ($penyesuaian['Tanah'] > 0)
-                                            <td>{{formatRupiah($penyesuaian['Tanah'])}}</td> <!-- penyesuaian debit -->
+                                        @if ($penyesuaian['tanah'] > 0)
+                                            <td>{{formatRupiah($penyesuaian['tanah'])}}</td> <!-- penyesuaian debit -->
                                             <td>-</td> 
-                                        @elseif($penyesuaian['Tanah'] < 0)
+                                        @elseif($penyesuaian['tanah'] < 0)
                                             <td>-</td> 
-                                            <td>{{formatRupiah($penyesuaian['Tanah'] * -1)}}</td> <!-- penyesuaian kredit -->
+                                            <td>{{formatRupiah($penyesuaian['tanah'] * -1)}}</td> <!-- penyesuaian kredit -->
                                         @else
                                             <td>-</td>
                                             <td>-</td>
                                         @endif
 
-                                        @if ($saldo['Tanah'] + $penyesuaian['Tanah'] > 0)
-                                            <td>{{formatRupiah($saldo['Tanah'] + $penyesuaian['Tanah'])}}</td> <!-- neraca setelahnya debit -->
+                                        @if ($saldo['tanah'] + $penyesuaian['tanah'] > 0)
+                                            <td>{{formatRupiah($saldo['tanah'] + $penyesuaian['tanah'])}}</td> <!-- neraca setelahnya debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['Tanah'] + $penyesuaian['Tanah'] < 0)
+                                        @elseif($saldo['tanah'] + $penyesuaian['tanah'] < 0)
                                             <td>-</td> 
-                                            <td>{{formatRupiah(($saldo['Tanah'] + $penyesuaian['Tanah']) * -1)}}</td> <!-- neraca setelahnya kredit -->
+                                            <td>{{formatRupiah(($saldo['tanah'] + $penyesuaian['tanah']) * -1)}}</td> <!-- neraca setelahnya kredit -->
                                         @else
                                             <td>-</td>
                                             <td>-</td>
@@ -982,12 +981,12 @@
                                         <td>-</td> <!--// laba rugi debit -->
                                         <td>-</td>
 
-                                        @if ($saldo['Tanah'] + $penyesuaian['Tanah'] > 0)
-                                            <td>{{formatRupiah($saldo['Tanah'] + $penyesuaian['Tanah'])}}</td> <!-- neraca debit -->
+                                        @if ($saldo['tanah'] + $penyesuaian['tanah'] > 0)
+                                            <td>{{formatRupiah($saldo['tanah'] + $penyesuaian['tanah'])}}</td> <!-- neraca debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['Tanah'] + $penyesuaian['Tanah'] < 0)
+                                        @elseif($saldo['tanah'] + $penyesuaian['tanah'] < 0)
                                             <td>-</td> 
-                                            <td>{{formatRupiah(($saldo['Tanah'] + $penyesuaian['Tanah']) * -1)}}</td> <!-- neraca kredit -->
+                                            <td>{{formatRupiah(($saldo['tanah'] + $penyesuaian['tanah']) * -1)}}</td> <!-- neraca kredit -->
                                         @else
                                             <td>-</td>
                                             <td>-</td>
@@ -1002,7 +1001,7 @@
                                         @if ($saldo['gedung_dan_bangunan'] > 0)
                                             <td>{{formatRupiah($saldo['gedung_dan_bangunan'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['gedung_dan_bangunan'] > 0)
+                                        @elseif($saldo['gedung_dan_bangunan'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['gedung_dan_bangunan'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -1055,7 +1054,7 @@
                                         @if ($saldo['akumulasi_penyusutan_gedung_dan_bangunan'] > 0)
                                             <td>{{formatRupiah($saldo['akumulasi_penyusutan_gedung_dan_bangunan'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['akumulasi_penyusutan_gedung_dan_bangunan'] > 0)
+                                        @elseif($saldo['akumulasi_penyusutan_gedung_dan_bangunan'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['akumulasi_penyusutan_gedung_dan_bangunan'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -1108,7 +1107,7 @@
                                         @if ($saldo['peralatan_dan_meubeliar'] > 0)
                                             <td>{{formatRupiah($saldo['peralatan_dan_meubeliar'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['peralatan_dan_meubeliar'] > 0)
+                                        @elseif($saldo['peralatan_dan_meubeliar'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['peralatan_dan_meubeliar'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -1161,7 +1160,7 @@
                                         @if ($saldo['akumulasi_penyusutan_peralatan_dan_meubeliar'] > 0)
                                             <td>{{formatRupiah($saldo['akumulasi_penyusutan_peralatan_dan_meubeliar'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['akumulasi_penyusutan_peralatan_dan_meubeliar'] > 0)
+                                        @elseif($saldo['akumulasi_penyusutan_peralatan_dan_meubeliar'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['akumulasi_penyusutan_peralatan_dan_meubeliar'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -1214,7 +1213,7 @@
                                         @if ($saldo['kendaraan'] > 0)
                                             <td>{{formatRupiah($saldo['kendaraan'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['kendaraan'] > 0)
+                                        @elseif($saldo['kendaraan'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['kendaraan'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -1267,7 +1266,7 @@
                                         @if ($saldo['akumulasi_penyusutan_kendaraan'] > 0)
                                             <td>{{formatRupiah($saldo['akumulasi_penyusutan_kendaraan'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['akumulasi_penyusutan_kendaraan'] > 0)
+                                        @elseif($saldo['akumulasi_penyusutan_kendaraan'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['akumulasi_penyusutan_kendaraan'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -1320,7 +1319,7 @@
                                         @if ($saldo['aset_tetap_lainnya'] > 0)
                                             <td>{{formatRupiah($saldo['aset_tetap_lainnya'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['aset_tetap_lainnya'] > 0)
+                                        @elseif($saldo['aset_tetap_lainnya'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['aset_tetap_lainnya'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -1373,7 +1372,7 @@
                                         @if ($saldo['utang_usaha'] > 0)
                                             <td>{{formatRupiah($saldo['utang_usaha'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['utang_usaha'] > 0)
+                                        @elseif($saldo['utang_usaha'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['utang_usaha'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -1426,7 +1425,7 @@
                                         @if ($saldo['ppn_keluaran'] > 0)
                                             <td>{{formatRupiah($saldo['ppn_keluaran'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['ppn_keluaran'] > 0)
+                                        @elseif($saldo['ppn_keluaran'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['ppn_keluaran'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -1479,7 +1478,7 @@
                                         @if ($saldo['pph21'] > 0)
                                             <td>{{formatRupiah($saldo['pph21'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['pph21'] > 0)
+                                        @elseif($saldo['pph21'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['pph21'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -1532,7 +1531,7 @@
                                         @if ($saldo['pph23'] > 0)
                                             <td>{{formatRupiah($saldo['pph23'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['pph23'] > 0)
+                                        @elseif($saldo['pph23'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['pph23'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -1585,7 +1584,7 @@
                                         @if ($saldo['pph29'] > 0)
                                             <td>{{formatRupiah($saldo['pph29'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['pph29'] > 0)
+                                        @elseif($saldo['pph29'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['pph29'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -1638,7 +1637,7 @@
                                         @if ($saldo['utang_gaji_dan_tunjangan'] > 0)
                                             <td>{{formatRupiah($saldo['utang_gaji_dan_tunjangan'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['utang_gaji_dan_tunjangan'] > 0)
+                                        @elseif($saldo['utang_gaji_dan_tunjangan'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['utang_gaji_dan_tunjangan'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -1691,7 +1690,7 @@
                                         @if ($saldo['utang_listrik'] > 0)
                                             <td>{{formatRupiah($saldo['utang_listrik'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['utang_listrik'] > 0)
+                                        @elseif($saldo['utang_listrik'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['utang_listrik'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -1744,7 +1743,7 @@
                                         @if ($saldo['utang_telepon_dan_internet'] > 0)
                                             <td>{{formatRupiah($saldo['utang_telepon_dan_internet'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['utang_telepon_dan_internet'] > 0)
+                                        @elseif($saldo['utang_telepon_dan_internet'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['utang_telepon_dan_internet'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -1797,7 +1796,7 @@
                                         @if ($saldo['utang_ultilitas_lainnya'] > 0)
                                             <td>{{formatRupiah($saldo['utang_ultilitas_lainnya'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['utang_ultilitas_lainnya'] > 0)
+                                        @elseif($saldo['utang_ultilitas_lainnya'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['utang_ultilitas_lainnya'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -1850,7 +1849,7 @@
                                         @if ($saldo['utang_jangka_pendek_lainnya'] > 0)
                                             <td>{{formatRupiah($saldo['utang_jangka_pendek_lainnya'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['utang_jangka_pendek_lainnya'] > 0)
+                                        @elseif($saldo['utang_jangka_pendek_lainnya'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['utang_jangka_pendek_lainnya'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -1903,7 +1902,7 @@
                                         @if ($saldo['utang_ke_bank'] > 0)
                                             <td>{{formatRupiah($saldo['utang_ke_bank'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['utang_ke_bank'] > 0)
+                                        @elseif($saldo['utang_ke_bank'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['utang_ke_bank'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -1956,7 +1955,7 @@
                                         @if ($saldo['utang_jangka_panjang_lainnya'] > 0)
                                             <td>{{formatRupiah($saldo['utang_jangka_panjang_lainnya'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['utang_jangka_panjang_lainnya'] > 0)
+                                        @elseif($saldo['utang_jangka_panjang_lainnya'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['utang_jangka_panjang_lainnya'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -2009,7 +2008,7 @@
                                         @if ($saldo['penyertaan_modal_desa'] > 0)
                                             <td>{{formatRupiah($saldo['penyertaan_modal_desa'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['penyertaan_modal_desa'] > 0)
+                                        @elseif($saldo['penyertaan_modal_desa'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['penyertaan_modal_desa'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -2062,7 +2061,7 @@
                                         @if ($saldo['penyertaan_modal_masyarakat'] > 0)
                                             <td>{{formatRupiah($saldo['penyertaan_modal_masyarakat'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['penyertaan_modal_masyarakat'] > 0)
+                                        @elseif($saldo['penyertaan_modal_masyarakat'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['penyertaan_modal_masyarakat'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -2115,7 +2114,7 @@
                                         @if ($saldo['bagi_hasil_penyertaan_modal_desa'] > 0)
                                             <td>{{formatRupiah($saldo['bagi_hasil_penyertaan_modal_desa'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['bagi_hasil_penyertaan_modal_desa'] > 0)
+                                        @elseif($saldo['bagi_hasil_penyertaan_modal_desa'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['bagi_hasil_penyertaan_modal_desa'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -2168,7 +2167,7 @@
                                         @if ($saldo['bagi_hasil_penyertaan_modal_masyarakat'] > 0)
                                             <td>{{formatRupiah($saldo['bagi_hasil_penyertaan_modal_masyarakat'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['bagi_hasil_penyertaan_modal_masyarakat'] > 0)
+                                        @elseif($saldo['bagi_hasil_penyertaan_modal_masyarakat'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['bagi_hasil_penyertaan_modal_masyarakat'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -2221,7 +2220,7 @@
                                         @if ($saldo['pendapatan_tiket_masuk_perseorangan'] > 0)
                                             <td>{{formatRupiah($saldo['pendapatan_tiket_masuk_perseorangan'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['pendapatan_tiket_masuk_perseorangan'] > 0)
+                                        @elseif($saldo['pendapatan_tiket_masuk_perseorangan'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['pendapatan_tiket_masuk_perseorangan'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -2274,7 +2273,7 @@
                                         @if ($saldo['pendapatan_tiket_masuk_rombongan'] > 0)
                                             <td>{{formatRupiah($saldo['pendapatan_tiket_masuk_rombongan'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['pendapatan_tiket_masuk_rombongan'] > 0)
+                                        @elseif($saldo['pendapatan_tiket_masuk_rombongan'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['pendapatan_tiket_masuk_rombongan'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -2327,7 +2326,7 @@
                                         @if ($saldo['pendapatan_tiket_lainnya'] > 0)
                                             <td>{{formatRupiah($saldo['pendapatan_tiket_lainnya'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['pendapatan_tiket_lainnya'] > 0)
+                                        @elseif($saldo['pendapatan_tiket_lainnya'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['pendapatan_tiket_lainnya'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -2380,7 +2379,7 @@
                                         @if ($saldo['pendapatan_komisi'] > 0)
                                             <td>{{formatRupiah($saldo['pendapatan_komisi'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['pendapatan_komisi'] > 0)
+                                        @elseif($saldo['pendapatan_komisi'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['pendapatan_komisi'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -2433,7 +2432,7 @@
                                         @if ($saldo['pendapatan_parkir'] > 0)
                                             <td>{{formatRupiah($saldo['pendapatan_parkir'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['pendapatan_parkir'] > 0)
+                                        @elseif($saldo['pendapatan_parkir'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['pendapatan_parkir'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -2486,7 +2485,7 @@
                                         @if ($saldo['pendapatan_toilet'] > 0)
                                             <td>{{formatRupiah($saldo['pendapatan_toilet'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['pendapatan_toilet'] > 0)
+                                        @elseif($saldo['pendapatan_toilet'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['pendapatan_toilet'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -2539,7 +2538,7 @@
                                         @if ($saldo['pendapatan_jasa'] > 0)
                                             <td>{{formatRupiah($saldo['pendapatan_jasa'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['pendapatan_jasa'] > 0)
+                                        @elseif($saldo['pendapatan_jasa'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['pendapatan_jasa'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -2592,7 +2591,7 @@
                                         @if ($saldo['pendapatan_sewa'] > 0)
                                             <td>{{formatRupiah($saldo['pendapatan_sewa'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['pendapatan_sewa'] > 0)
+                                        @elseif($saldo['pendapatan_sewa'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['pendapatan_sewa'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -2645,7 +2644,7 @@
                                         @if ($saldo['pendapatan_rupa_rupa_lainnya'] > 0)
                                             <td>{{formatRupiah($saldo['pendapatan_rupa_rupa_lainnya'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['pendapatan_rupa_rupa_lainnya'] > 0)
+                                        @elseif($saldo['pendapatan_rupa_rupa_lainnya'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['pendapatan_rupa_rupa_lainnya'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -2698,7 +2697,7 @@
                                         @if ($saldo['pendapatan_bunga'] > 0)
                                             <td>{{formatRupiah($saldo['pendapatan_bunga'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['pendapatan_bunga'] > 0)
+                                        @elseif($saldo['pendapatan_bunga'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['pendapatan_bunga'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -2751,7 +2750,7 @@
                                         @if ($saldo['pendapatan_dari_desa'] > 0)
                                             <td>{{formatRupiah($saldo['pendapatan_dari_desa'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['pendapatan_dari_desa'] > 0)
+                                        @elseif($saldo['pendapatan_dari_desa'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['pendapatan_dari_desa'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -2804,7 +2803,7 @@
                                         @if ($saldo['pendapatan_bantuan'] > 0)
                                             <td>{{formatRupiah($saldo['pendapatan_bantuan'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['pendapatan_bantuan'] > 0)
+                                        @elseif($saldo['pendapatan_bantuan'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['pendapatan_bantuan'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -2857,7 +2856,7 @@
                                         @if ($saldo['pendapatan_lain_lain'] > 0)
                                             <td>{{formatRupiah($saldo['pendapatan_lain_lain'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['pendapatan_lain_lain'] > 0)
+                                        @elseif($saldo['pendapatan_lain_lain'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['pendapatan_lain_lain'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -2910,7 +2909,7 @@
                                         @if ($saldo['beban_gaji_dan_tunjangan'] > 0)
                                             <td>{{formatRupiah($saldo['beban_gaji_dan_tunjangan'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['beban_gaji_dan_tunjangan'] > 0)
+                                        @elseif($saldo['beban_gaji_dan_tunjangan'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['beban_gaji_dan_tunjangan'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -2963,7 +2962,7 @@
                                         @if ($saldo['beban_honor_lembur'] > 0)
                                             <td>{{formatRupiah($saldo['beban_honor_lembur'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['beban_honor_lembur'] > 0)
+                                        @elseif($saldo['beban_honor_lembur'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['beban_honor_lembur'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -3016,7 +3015,7 @@
                                         @if ($saldo['beban_honor_narasumber'] > 0)
                                             <td>{{formatRupiah($saldo['beban_honor_narasumber'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['beban_honor_narasumber'] > 0)
+                                        @elseif($saldo['beban_honor_narasumber'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['beban_honor_narasumber'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -3069,7 +3068,7 @@
                                         @if ($saldo['beban_insentif_bonus'] > 0)
                                             <td>{{formatRupiah($saldo['beban_insentif_bonus'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['beban_insentif_bonus'] > 0)
+                                        @elseif($saldo['beban_insentif_bonus'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['beban_insentif_bonus'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -3122,7 +3121,7 @@
                                         @if ($saldo['beban_komisi'] > 0)
                                             <td>{{formatRupiah($saldo['beban_komisi'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['beban_komisi'] > 0)
+                                        @elseif($saldo['beban_komisi'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['beban_komisi'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -3175,7 +3174,7 @@
                                         @if ($saldo['beban_seragam_pegawai'] > 0)
                                             <td>{{formatRupiah($saldo['beban_seragam_pegawai'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['beban_seragam_pegawai'] > 0)
+                                        @elseif($saldo['beban_seragam_pegawai'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['beban_seragam_pegawai'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -3228,7 +3227,7 @@
                                         @if ($saldo['beban_listrik'] > 0)
                                             <td>{{formatRupiah($saldo['beban_listrik'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['beban_listrik'] > 0)
+                                        @elseif($saldo['beban_listrik'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['beban_listrik'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -3281,7 +3280,7 @@
                                         @if ($saldo['beban_telepon_dan_internet'] > 0)
                                             <td>{{formatRupiah($saldo['beban_telepon_dan_internet'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['beban_telepon_dan_internet'] > 0)
+                                        @elseif($saldo['beban_telepon_dan_internet'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['beban_telepon_dan_internet'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -3334,7 +3333,7 @@
                                         @if ($saldo['beban_air'] > 0)
                                             <td>{{formatRupiah($saldo['beban_air'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['beban_air'] > 0)
+                                        @elseif($saldo['beban_air'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['beban_air'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -3387,7 +3386,7 @@
                                         @if ($saldo['beban_ultilitas_lainnya'] > 0)
                                             <td>{{formatRupiah($saldo['beban_ultilitas_lainnya'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['beban_ultilitas_lainnya'] > 0)
+                                        @elseif($saldo['beban_ultilitas_lainnya'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['beban_ultilitas_lainnya'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -3440,7 +3439,7 @@
                                         @if ($saldo['beban_transportasi'] > 0)
                                             <td>{{formatRupiah($saldo['beban_transportasi'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['beban_transportasi'] > 0)
+                                        @elseif($saldo['beban_transportasi'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['beban_transportasi'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -3493,7 +3492,7 @@
                                         @if ($saldo['beban_parkir'] > 0)
                                             <td>{{formatRupiah($saldo['beban_parkir'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['beban_parkir'] > 0)
+                                        @elseif($saldo['beban_parkir'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['beban_parkir'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -3546,7 +3545,7 @@
                                         @if ($saldo['beban_administrasi_bank'] > 0)
                                             <td>{{formatRupiah($saldo['beban_administrasi_bank'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['beban_administrasi_bank'] > 0)
+                                        @elseif($saldo['beban_administrasi_bank'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['beban_administrasi_bank'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -3599,7 +3598,7 @@
                                         @if ($saldo['beban_keamanan'] > 0)
                                             <td>{{formatRupiah($saldo['beban_keamanan'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['beban_keamanan'] > 0)
+                                        @elseif($saldo['beban_keamanan'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['beban_keamanan'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -3652,7 +3651,7 @@
                                         @if ($saldo['beban_kebersihan'] > 0)
                                             <td>{{formatRupiah($saldo['beban_kebersihan'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['beban_kebersihan'] > 0)
+                                        @elseif($saldo['beban_kebersihan'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['beban_kebersihan'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -3705,7 +3704,7 @@
                                         @if ($saldo['beban_atk'] > 0)
                                             <td>{{formatRupiah($saldo['beban_atk'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['beban_atk'] > 0)
+                                        @elseif($saldo['beban_atk'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['beban_atk'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -3758,7 +3757,7 @@
                                         @if ($saldo['beban_perlengkapan_lainnya'] > 0)
                                             <td>{{formatRupiah($saldo['beban_perlengkapan_lainnya'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['beban_perlengkapan_lainnya'] > 0)
+                                        @elseif($saldo['beban_perlengkapan_lainnya'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['beban_perlengkapan_lainnya'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -3811,7 +3810,7 @@
                                         @if ($saldo['beban_fotocopy'] > 0)
                                             <td>{{formatRupiah($saldo['beban_fotocopy'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['beban_fotocopy'] > 0)
+                                        @elseif($saldo['beban_fotocopy'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['beban_fotocopy'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -3864,7 +3863,7 @@
                                         @if ($saldo['beban_pemeliharaan_dan_perbaikan'] > 0)
                                             <td>{{formatRupiah($saldo['beban_pemeliharaan_dan_perbaikan'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['beban_pemeliharaan_dan_perbaikan'] > 0)
+                                        @elseif($saldo['beban_pemeliharaan_dan_perbaikan'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['beban_pemeliharaan_dan_perbaikan'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -3917,7 +3916,7 @@
                                         @if ($saldo['beban_sewa'] > 0)
                                             <td>{{formatRupiah($saldo['beban_sewa'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['beban_sewa'] > 0)
+                                        @elseif($saldo['beban_sewa'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['beban_sewa'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -3970,7 +3969,7 @@
                                         @if ($saldo['beban_asuransi'] > 0)
                                             <td>{{formatRupiah($saldo['beban_asuransi'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['beban_asuransi'] > 0)
+                                        @elseif($saldo['beban_asuransi'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['beban_asuransi'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -4023,7 +4022,7 @@
                                         @if ($saldo['beban_konsumsi_rapat'] > 0)
                                             <td>{{formatRupiah($saldo['beban_konsumsi_rapat'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['beban_konsumsi_rapat'] > 0)
+                                        @elseif($saldo['beban_konsumsi_rapat'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['beban_konsumsi_rapat'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -4076,7 +4075,7 @@
                                         @if ($saldo['beban_perjalanan_dinas'] > 0)
                                             <td>{{formatRupiah($saldo['beban_perjalanan_dinas'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['beban_perjalanan_dinas'] > 0)
+                                        @elseif($saldo['beban_perjalanan_dinas'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['beban_perjalanan_dinas'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -4129,7 +4128,7 @@
                                         @if ($saldo['beban_penyusutan_peralatan_dan_meubeliar'] > 0)
                                             <td>{{formatRupiah($saldo['beban_penyusutan_peralatan_dan_meubeliar'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['beban_penyusutan_peralatan_dan_meubeliar'] > 0)
+                                        @elseif($saldo['beban_penyusutan_peralatan_dan_meubeliar'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['beban_penyusutan_peralatan_dan_meubeliar'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -4182,7 +4181,7 @@
                                         @if ($saldo['beban_penyusutan_gedung_dan_bangunan'] > 0)
                                             <td>{{formatRupiah($saldo['beban_penyusutan_gedung_dan_bangunan'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['beban_penyusutan_gedung_dan_bangunan'] > 0)
+                                        @elseif($saldo['beban_penyusutan_gedung_dan_bangunan'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['beban_penyusutan_gedung_dan_bangunan'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -4235,7 +4234,7 @@
                                         @if ($saldo['beban_penyusutan_kendaraan'] > 0)
                                             <td>{{formatRupiah($saldo['beban_penyusutan_kendaraan'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['beban_penyusutan_kendaraan'] > 0)
+                                        @elseif($saldo['beban_penyusutan_kendaraan'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['beban_penyusutan_kendaraan'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -4288,7 +4287,7 @@
                                         @if ($saldo['beban_pajak_air_permukaan'] > 0)
                                             <td>{{formatRupiah($saldo['beban_pajak_air_permukaan'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['beban_pajak_air_permukaan'] > 0)
+                                        @elseif($saldo['beban_pajak_air_permukaan'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['beban_pajak_air_permukaan'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -4341,7 +4340,7 @@
                                         @if ($saldo['beban_pajak_bunga_bank'] > 0)
                                             <td>{{formatRupiah($saldo['beban_pajak_bunga_bank'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['beban_pajak_bunga_bank'] > 0)
+                                        @elseif($saldo['beban_pajak_bunga_bank'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['beban_pajak_bunga_bank'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -4394,7 +4393,7 @@
                                         @if ($saldo['beban_pajak_daerah'] > 0)
                                             <td>{{formatRupiah($saldo['beban_pajak_daerah'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['beban_pajak_daerah'] > 0)
+                                        @elseif($saldo['beban_pajak_daerah'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['beban_pajak_daerah'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -4447,7 +4446,7 @@
                                         @if ($saldo['beban_pajak_hiburan'] > 0)
                                             <td>{{formatRupiah($saldo['beban_pajak_hiburan'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['beban_pajak_hiburan'] > 0)
+                                        @elseif($saldo['beban_pajak_hiburan'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['beban_pajak_hiburan'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -4500,7 +4499,7 @@
                                         @if ($saldo['beban_pajak_reklame'] > 0)
                                             <td>{{formatRupiah($saldo['beban_pajak_reklame'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['beban_pajak_reklame'] > 0)
+                                        @elseif($saldo['beban_pajak_reklame'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['beban_pajak_reklame'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -4553,7 +4552,7 @@
                                         @if ($saldo['beban_pph21'] > 0)
                                             <td>{{formatRupiah($saldo['beban_pph21'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['beban_pph21'] > 0)
+                                        @elseif($saldo['beban_pph21'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['beban_pph21'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -4606,7 +4605,7 @@
                                         @if ($saldo['beban_pph23'] > 0)
                                             <td>{{formatRupiah($saldo['beban_pph23'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['beban_pph23'] > 0)
+                                        @elseif($saldo['beban_pph23'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['beban_pph23'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -4659,7 +4658,7 @@
                                         @if ($saldo['beban_pph25'] > 0)
                                             <td>{{formatRupiah($saldo['beban_pph25'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['beban_pph25'] > 0)
+                                        @elseif($saldo['beban_pph25'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['beban_pph25'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -4712,7 +4711,7 @@
                                         @if ($saldo['beban_pph29'] > 0)
                                             <td>{{formatRupiah($saldo['beban_pph29'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['beban_pph29'] > 0)
+                                        @elseif($saldo['beban_pph29'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['beban_pph29'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -4765,7 +4764,7 @@
                                         @if ($saldo['beban_pades'] > 0)
                                             <td>{{formatRupiah($saldo['beban_pades'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['beban_pades'] > 0)
+                                        @elseif($saldo['beban_pades'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['beban_pades'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -4818,7 +4817,7 @@
                                         @if ($saldo['beban_administrasi_umum_dan_lainnya'] > 0)
                                             <td>{{formatRupiah($saldo['beban_administrasi_umum_dan_lainnya'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['beban_administrasi_umum_dan_lainnya'] > 0)
+                                        @elseif($saldo['beban_administrasi_umum_dan_lainnya'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['beban_administrasi_umum_dan_lainnya'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -4871,7 +4870,7 @@
                                         @if ($saldo['beban_bunga'] > 0)
                                             <td>{{formatRupiah($saldo['beban_bunga'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['beban_bunga'] > 0)
+                                        @elseif($saldo['beban_bunga'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['beban_bunga'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -4924,7 +4923,7 @@
                                         @if ($saldo['beban_pajak'] > 0)
                                             <td>{{formatRupiah($saldo['beban_pajak'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['beban_pajak'] > 0)
+                                        @elseif($saldo['beban_pajak'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['beban_pajak'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -4977,7 +4976,7 @@
                                         @if ($saldo['beban_denda'] > 0)
                                             <td>{{formatRupiah($saldo['beban_denda'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['beban_denda'] > 0)
+                                        @elseif($saldo['beban_denda'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['beban_denda'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -5030,7 +5029,7 @@
                                         @if ($saldo['beban_diskon'] > 0)
                                             <td>{{formatRupiah($saldo['beban_diskon'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['beban_diskon'] > 0)
+                                        @elseif($saldo['beban_diskon'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['beban_diskon'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else
@@ -5083,7 +5082,7 @@
                                         @if ($saldo['beban_lain_lainnya'] > 0)
                                             <td>{{formatRupiah($saldo['beban_lain_lainnya'])}}</td> <!-- neraca saldo debit -->
                                             <td>-</td> 
-                                        @elseif($saldo['beban_lain_lainnya'] > 0)
+                                        @elseif($saldo['beban_lain_lainnya'] < 0)
                                             <td>-</td> 
                                             <td>{{formatRupiah($saldo['beban_lain_lainnya'] * -1)}}</td> <!-- neraca saldo kredit -->
                                         @else

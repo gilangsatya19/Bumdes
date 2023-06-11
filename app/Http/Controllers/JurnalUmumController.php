@@ -24,6 +24,12 @@ class JurnalUmumController extends Controller
             
         ]);
     }
+    public function downloadImage($id)
+    {
+        $data = JurnalUmum::find($id);
+        $foto = $data->bukti_pembayaran;
+        return Storage::download($foto);
+    }
     public function createNew(Request $request)
     {
         $request->validate([

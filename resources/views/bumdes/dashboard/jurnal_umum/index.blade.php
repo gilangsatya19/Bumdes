@@ -38,7 +38,7 @@
                                     <th>No. Referensi</th>
                                     <th>Debit</th>
                                     <th>Kredit</th>
-                                    {{-- <th>Bukti Transaksi</th> --}}
+                                    <th>Bukti Transaksi</th>
                                     <th>Action</th>
                                     </tr>
                                 </thead>
@@ -63,6 +63,7 @@
                                                     <td>{{($data->formatRupiah('debit'))}}</td>
                                                     <td>-</td>
                                                 @endif
+                                                <td><a href="/jurnal_umum/{{$jurnal->id}}/download" class="btn btn-primary btn-unduh">Download</a></td>
                                                 <td>
                                                     <a href="/jurnal_umum/{{$data->id}}/edit" class="nav-icon fas fa-edit"></a>
                                                     

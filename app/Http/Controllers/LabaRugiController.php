@@ -13,7 +13,9 @@ class LabaRugiController extends Controller
      */
     public function index()
     {
-        return view('bumdes.dashboard.laporan_keuangan.laba_rugi.index');
+        return view('bumdes.dashboard.laporan_keuangan.laba_rugi.index',[
+            'saldo' => auth()->user()->company->bukubesar,
+        ]);
     }
 
     /**

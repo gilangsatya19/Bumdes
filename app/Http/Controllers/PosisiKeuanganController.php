@@ -13,7 +13,9 @@ class PosisiKeuanganController extends Controller
      */
     public function index()
     {
-        return view('bumdes.dashboard.laporan_keuangan.posisi_keuangan.index');
+        return view('bumdes.dashboard.laporan_keuangan.posisi_keuangan.index',[
+            'saldo' => auth()->user()->company->bukubesar,
+        ]);
     }
 
     /**
