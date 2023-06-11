@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\FormPermintaanKas;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class FormPermintaanKasController extends Controller
 {
@@ -19,7 +20,12 @@ class FormPermintaanKasController extends Controller
             'datas' => auth()->user()->company->formpermintaankas,
         ]);
     }
-
+    public function downloadImage($id)
+    {
+        $data = FormPermintaanKas::find($id);
+        $foto = $data->bukti_transaksi;
+        return Storage::download($foto);
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -43,6 +49,11 @@ class FormPermintaanKasController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'bukti_transaksi' => 'required|file|max:1024',
+        ]);
+        
+        
         $data = new FormPermintaanKas;
         $data->tanggal = Carbon::parse($request->tanggal);
         $data->dana_untuk_departemen = $request->dana_untuk_departemen;
@@ -50,7 +61,8 @@ class FormPermintaanKasController extends Controller
         $data->saldo = $request->saldo;
         $data->keterangan = $request->keterangan;
         $data->total = $request->total;
-        $data->bukti_transaksi = $request->bukti_transaksi;
+        $data->bukti_transaksi = $request->file('bukti_transaksi')->store('form_permintaan_kas');
+        // $data->bukti_transaksi = $request->bukti_transaksi;
         $data->company_id = auth()->user()->company->id;
         $data->save();
         return redirect('/form_permintaan_kas');
@@ -99,7 +111,10 @@ class FormPermintaanKasController extends Controller
         $data->saldo = $request->saldo;
         $data->keterangan = $request->keterangan;
         $data->total = $request->total;
-        $data->bukti_transaksi = $request->bukti_transaksi;
+        if ($request->file('bukti_transaksi')) {
+            Storage::delete($data->bukti_transaksi);
+            $data->bukti_transaksi = $request->file('bukti_transaksi')->store('form_permintaan_kas');
+        }
         $data->save();
         return redirect('/form_permintaan_kas');
     }
@@ -113,6 +128,7 @@ class FormPermintaanKasController extends Controller
     public function destroy($id)
     {
         $data = FormPermintaanKas::find($id);
+        Storage::delete($data->bukti_transaksi);
         $data->delete();
         return redirect('/form_permintaan_kas')->with('msg', 'sukses');
     }

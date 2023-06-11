@@ -60,7 +60,7 @@
                                             <td>{{$data->formatRupiah('saldo')}}</td>
                                             <td>{{$data->keterangan}}</td>
                                             <td>{{$data->formatRupiah('total')}}</td>
-                                            <td><button class="btn btn-primary btn-unduh">Unduh</button></td>
+                                            <td><a href="/form_permintaan_kas/{{$data->id}}/download" class="btn btn-primary btn-unduh">Download</a></td>
                                             <td>
                                                 <a href="/form_permintaan_kas/{{$data->id}}/edit" class="nav-icon fas fa-edit"></a>
                                                 

@@ -10,7 +10,7 @@
                         <div class="card-header">
                             <h3 class="card-title">{{$title}} Data - Form Permintaan Kas</h3>
                         </div>
-                        <form action="/{{$action}}" method="post" class="form-container">
+                        <form action="/{{$action}}" method="post" class="form-container" enctype="multipart/form-data">
                             @csrf
                             <div >
                                 <div>
@@ -36,9 +36,16 @@
                                     <label for="total" class="fs-5 mb-2"><b>Total</b></label>
                                     <input type="number" step="0.01" name="total" class="form-control mb-4" value="{{isset($data)?$data->total:''}}" required> 
 
-                                    <div class="mb-4">
+                                    <div class="mb-3">
                                         <label for="bukti_transaksi"><b>Upload Bukti Transaksi</b></label>
-                                        <input type="file" class="form-control"  name="bukti_transaksi" required>
+                                        <input type="file" class="form-control @error('bukti_transaksi') is-invalid @enderror"  name="bukti_transaksi" id="bukti_transaksi" accept=".jpg, .jpeg, .png" 
+                                         required>
+                                        @error('bukti_transaksi')
+                                            <div class="invalid-feedback">
+                                                Ukuran file bukti transaksi tidak boleh lebih dari 1024 kilobytes / 1 MB
+                                            </div>
+                                        @enderror
+                                        <div id="filehelp" class="form-text">Maks file size : 1 MB</div>
                                     </div>
                                     
 

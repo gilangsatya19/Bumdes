@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\ImageController;
 use App\Http\Controllers\JurnalUmumController;
 use App\Http\Controllers\JurnalPembelianController;
 use App\Http\Controllers\JurnalPenjualanController;
@@ -105,6 +106,7 @@ Route::get('/penjualan/{id}/edit', [JurnalPenjualanController::class, 'edit']);
 Route::post('/penjualan/{id}/update', [JurnalPenjualanController::class, 'update']);
 Route::post('/penjualan/{id}/delete', [JurnalPenjualanController::class, 'destroy']);
 
+Route::get('/form_permintaan_kas/{id}/download', [FormPermintaanKasController::class, 'downloadImage']);
 Route::get('/form_permintaan_kas', [FormPermintaanKasController::class, 'index']);
 Route::get('/form_permintaan_kas/create', [FormPermintaanKasController::class, 'create']);
 Route::post('/form_permintaan_kas/create', [FormPermintaanKasController::class, 'store']);

@@ -8,6 +8,7 @@ use App\Models\NamaAkun;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\JurnalUmum;
+use Illuminate\Support\Facades\Storage;
 class JurnalUmumController extends Controller
 {
     /**
@@ -25,9 +26,12 @@ class JurnalUmumController extends Controller
     }
     public function createNew(Request $request)
     {
+        $request->validate([
+            'bukti_pembayaran' => 'required|file|max:1024',
+        ]);
         $jurnal_umum = new JurnalUmum;
         $jurnal_umum->tanggal = Carbon::parse($request->tanggal);
-        $jurnal_umum->bukti_pembayaran = $request->bukti_pembayaran;
+        $jurnal_umum->bukti_pembayaran = $request->file('bukti_pembayaran')->store('jurnal_umum');
         $jurnal_umum->jenis_transaksi = $request->jenis_transaksi;
         $jurnal_umum->company_id = auth()->user()->company->id;
         $jurnal_umum->save();
@@ -1765,6 +1769,7 @@ class JurnalUmumController extends Controller
             $buku->save();
             $data->delete();
         }
+        Storage::delete($jurnal->bukti_pembayaran);
         $jurnal->delete();
         return redirect('/jurnal_umum')->with('msg', 'sukses');
     }
