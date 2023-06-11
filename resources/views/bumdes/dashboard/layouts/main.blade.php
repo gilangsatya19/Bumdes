@@ -4,7 +4,7 @@
   {{-- <script src="../assets/js/color-modes.js"></script> --}}
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SIAB-DES | Dashboard</title>
+  <title>SIABDES | Dashboard</title>
   
   
   {{-- bootstrap core css --}}
