@@ -63,6 +63,7 @@
                                     <tbody class="text-center">
                                     
                                         @foreach ($jurnals as $jurnal)
+                                            @if(isset($jurnal->datas->first()->nama_akun))
                                             @if ($jurnal->datas->first()->nama_akun == 'Kas')
                                                 @foreach ($jurnal->datas as $data)
                                                     @if ($data->nama_akun != 'Kas')
@@ -90,6 +91,7 @@
                                                     @endif
                                                 @endforeach
                                             @endif
+                                            @endif
                                         @endforeach
                                     
                                     </tbody>
@@ -114,6 +116,7 @@
                                     <tbody class="text-center">
                                     
                                         @foreach ($jurnals as $jurnal)
+                                            @if(isset($jurnal->datas->first()->nama_akun))
                                             @if ($jurnal->datas->first()->nama_akun == 'Kas di Bank A')
                                                 @foreach ($jurnal->datas as $data)
                                                     @if ($data->nama_akun != 'Kas di Bank A')
@@ -141,6 +144,7 @@
                                                     @endif
                                                 @endforeach
                                             @endif
+                                            @endif
                                         @endforeach
                                     
                                     </tbody>
@@ -165,6 +169,7 @@
                                     <tbody class="text-center">
                                     
                                         @foreach ($jurnals as $jurnal)
+                                            @if(isset($jurnal->datas->first()->nama_akun))
                                             @if ($jurnal->datas->first()->nama_akun == 'Kas di Bank B')
                                                 @foreach ($jurnal->datas as $data)
                                                     @if ($data->nama_akun != 'Kas di Bank B')
@@ -192,6 +197,7 @@
                                                     @endif
                                                 @endforeach
                                             @endif
+                                            @endif
                                         @endforeach
                                     
                                     </tbody>
@@ -216,6 +222,7 @@
                                     <tbody class="text-center">
                                     
                                         @foreach ($jurnals as $jurnal)
+                                            @if(isset($jurnal->datas->first()->nama_akun))
                                             @if ($jurnal->datas->first()->nama_akun == 'Kas di Bank C')
                                                 @foreach ($jurnal->datas as $data)
                                                     @if ($data->nama_akun != 'Kas di Bank C')
@@ -243,6 +250,7 @@
                                                     @endif
                                                 @endforeach
                                             @endif
+                                            @endif
                                         @endforeach
                                     
                                     </tbody>
@@ -267,6 +275,7 @@
                                     <tbody class="text-center">
                                     
                                         @foreach ($jurnals as $jurnal)
+                                            @if(isset($jurnal->datas->first()->nama_akun))
                                             @if ($jurnal->datas->first()->nama_akun == 'Kas Kecil')
                                                 @foreach ($jurnal->datas as $data)
                                                     @if ($data->nama_akun != 'Kas Kecil')
@@ -294,6 +303,7 @@
                                                     @endif
                                                 @endforeach
                                             @endif
+                                            @endif
                                         @endforeach
                                     
                                     </tbody>
@@ -318,6 +328,7 @@
                                     <tbody class="text-center">
                                     
                                         @foreach ($jurnals as $jurnal)
+                                            @if(isset($jurnal->datas->first()->nama_akun))
                                             @if ($jurnal->datas->first()->nama_akun == 'Giro')
                                                 @foreach ($jurnal->datas as $data)
                                                     @if ($data->nama_akun != 'Giro')
@@ -345,6 +356,7 @@
                                                     @endif
                                                 @endforeach
                                             @endif
+                                            @endif
                                         @endforeach
                                     
                                     </tbody>
@@ -369,6 +381,7 @@
                                     <tbody class="text-center">
                                     
                                         @foreach ($jurnals as $jurnal)
+                                            @if(isset($jurnal->datas->first()->nama_akun))
                                             @if ($jurnal->datas->first()->nama_akun == 'Deposito')
                                                 @foreach ($jurnal->datas as $data)
                                                     @if ($data->nama_akun != 'Deposito')
@@ -396,6 +409,7 @@
                                                     @endif
                                                 @endforeach
                                             @endif
+                                            @endif
                                         @endforeach
                                     
                                     </tbody>
@@ -420,6 +434,7 @@
                                     <tbody class="text-center">
                                     
                                         @foreach ($jurnals as $jurnal)
+                                            @if(isset($jurnal->datas->first()->nama_akun))
                                             @if ($jurnal->datas->first()->nama_akun == 'Piutang Usaha')
                                                 @foreach ($jurnal->datas as $data)
                                                     @if ($data->nama_akun != 'Piutang Usaha')
@@ -447,6 +462,7 @@
                                                     @endif
                                                 @endforeach
                                             @endif
+                                            @endif
                                         @endforeach
                                     
                                     </tbody>
@@ -471,6 +487,7 @@
                                     <tbody class="text-center">
                                     
                                         @foreach ($jurnals as $jurnal)
+                                            @if(isset($jurnal->datas->first()->nama_akun))
                                             @if ($jurnal->datas->first()->nama_akun == 'Persediaan Barang Dagangan')
                                                 @foreach ($jurnal->datas as $data)
                                                     @if ($data->nama_akun != 'Persediaan Barang Dagangan')
@@ -498,6 +515,7 @@
                                                     @endif
                                                 @endforeach
                                             @endif
+                                            @endif
                                         @endforeach
                                     
                                     </tbody>
@@ -522,6 +540,7 @@
                                     <tbody class="text-center">
                                     
                                         @foreach ($jurnals as $jurnal)
+                                            @if(isset($jurnal->datas->first()->nama_akun))
                                             @if ($jurnal->datas->first()->nama_akun == 'Persediaan Makan dan Minuman')
                                                 @foreach ($jurnal->datas as $data)
                                                     @if ($data->nama_akun != 'Persediaan Makan dan Minuman')
@@ -549,6 +568,7 @@
                                                     @endif
                                                 @endforeach
                                             @endif
+                                            @endif
                                         @endforeach
                                     
                                     </tbody>
@@ -573,6 +593,7 @@
                                     <tbody class="text-center">
                                     
                                         @foreach ($jurnals as $jurnal)
+                                            @if(isset($jurnal->datas->first()->nama_akun))
                                             @if ($jurnal->datas->first()->nama_akun == 'Perlengkapan')
                                                 @foreach ($jurnal->datas as $data)
                                                     @if ($data->nama_akun != 'Perlengkapan')
@@ -600,6 +621,7 @@
                                                     @endif
                                                 @endforeach
                                             @endif
+                                            @endif
                                         @endforeach
                                     
                                     </tbody>
@@ -624,6 +646,7 @@
                                     <tbody class="text-center">
                                     
                                         @foreach ($jurnals as $jurnal)
+                                            @if(isset($jurnal->datas->first()->nama_akun))
                                             @if ($jurnal->datas->first()->nama_akun == 'Sewa Dibayar Dimuka')
                                                 @foreach ($jurnal->datas as $data)
                                                     @if ($data->nama_akun != 'Sewa Dibayar Dimuka')
@@ -650,6 +673,7 @@
                                                         </tr>
                                                     @endif
                                                 @endforeach
+                                            @endif
                                             @endif
                                         @endforeach
                                     
