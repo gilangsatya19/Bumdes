@@ -23,6 +23,7 @@ use App\Http\Controllers\BarangController;
 use App\Http\Controllers\VendorController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\KodeRekeningController;
+use App\Http\Controllers\RegisterController;
 
 use App\Models\PengeluaranKas;
 use Illuminate\Support\Facades\Route;
@@ -48,6 +49,10 @@ Route::get('/dashboard', function() {
     return view('bumdes.dashboard.index');
 });
 
+Route::get('/daftar_user', [RegisterController::class, 'create_user']);
+Route::post('/daftar_user/create', [RegisterController::class, 'store_user']);
+Route::get('/daftar_company', [RegisterController::class, 'create_company']);
+Route::post('/daftar_company/create', [RegisterController::class, 'store_company']);
 
 Route::get('/dashboard_admin', [AdminController::class, 'index']);
 
@@ -66,6 +71,8 @@ Route::post('/create_user/{id}/delete', [UserController::class, 'destroy']);
 Route::get('/login', [LoginController::class, 'index']);
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
+
+
 
 Route::get('/jurnal_umum/{id}/download', [JurnalUmumController::class, 'downloadImage']);
 Route::get('/jurnal_umum', [JurnalUmumController::class, 'index']);

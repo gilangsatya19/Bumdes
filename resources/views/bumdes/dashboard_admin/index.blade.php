@@ -62,6 +62,8 @@
                                     <tr>
                                         <th>ID Company</th>
                                         <th>Company Name</th>
+                                        <th>Company Email</th>
+                                        <th>Company Contact</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -72,6 +74,8 @@
                                             <tr>
                                                 <td>{{$company->id}}</td>
                                                 <td>{{$company->nama}}</td>
+                                                <td>{{$company->email}}</td>
+                                                <td>{{$company->no_hp}}</td>
                                                 <td>
                                                     <a href="/create_company/{{$company->id}}/edit" class="nav-icon fas fa-edit"></a>
                                                     

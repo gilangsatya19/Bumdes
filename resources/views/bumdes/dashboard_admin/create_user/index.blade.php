@@ -22,8 +22,14 @@
                                     <label for="nama" class="fs-5"><b>Nama</b></label>
                                     <input type="text" placeholder="Masukkan Nama" name="nama" value="{{isset($data)?$data->nama:''}}" required>
 
-                                    <label for="email" class="fs-5"><b>Email</b></label>
-                                    <input type="text" placeholder="Masukkan Email" name="email" value="{{isset($data)?$data->email:''}}" required>
+                                    <!-- <label for="email" class="fs-5"><b>Email</b></label>
+                                    <input type="text" placeholder="Masukkan Email" name="email" value="{{isset($data)?$data->email:''}}" required> -->
+                                    
+                                    <label for="email" class="form-label"><b>Email</b></label>
+                                    <input type="email" class="form-control" id="email" name="email" required>
+
+                                    <label for="no_hp" class="form-label"><b>Nomor Telepon</b></label>
+                                    <input type="text" class="form-control" id="no_hp" name="no_hp" minlength="11" required>
 
                                     <label for="role" class="form-label fs-4"><b>Role</b></label>
                                         <div class="mb-3">
@@ -49,7 +55,7 @@
 
                                     <div class="">
                                         <label for="password" class="form-label">Password</label>
-                                        <input type="password" class="form-label fs-4 " placeholder="Enter Password" name="password" required>
+                                        <input type="password" class="form-label fs-4 " placeholder="Enter Password" name="password" minlength="8" required>
                                         
                                     </div>
 

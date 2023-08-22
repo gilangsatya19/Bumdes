@@ -43,11 +43,10 @@
                 <label for="password">Password</label>
             </div>
         
-            
-            {{-- <button class="w-100 btn btn-lg btn-primary" type="submit">Login</button> --}}
-            {{-- <a href="/dashboard" class="w-100 btn btn-lg btn-primary" type="submit">Login</a> --}}
+            <div class="form-text fw-bold">Belum punya akun? <a href="/daftar_user">Daftar disini</a></div>
+
             <button type="submit" class="w-100 btn btn-lg btn-primary my-3">Login</button>
-            <a href="/" type="button" class="w-100 btn btn-lg btn-danger">Back</a>
+            <a href="/" type="button" class="w-100 btn btn-lg btn-danger" >Back</a>
           
         </form>
       </main>

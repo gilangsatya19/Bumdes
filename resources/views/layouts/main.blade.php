@@ -2,7 +2,7 @@
  
 <html>
     <head>
-        <title>@yield('title')</title>
+        <title>SIABDES</title>
         <link rel="icon" href="{{asset('BUMDES/assets/logo/icon-siabdes.png')}}" type="image/icon type">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
             integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
@@ -88,6 +88,7 @@
                                 </li>
                             </ul>
                         </div>
+                        
                         
                         <a href="/login" class="btn btn-primary mx-3 mt-3 text-black fw-semibold px-4 border-0" style="background-color: #D9D9D9">Login</a>
                         

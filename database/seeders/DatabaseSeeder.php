@@ -20,9 +20,13 @@ class DatabaseSeeder extends Seeder
     {
         DB::table('companies')->insert([
             'nama' => 'BUMDES ADMIN',
+            'email' => 'bum_admin@gmail.com',
+            'no_hp' => '911',
         ]);
         DB::table('companies')->insert([
             'nama' => 'BUMDES SEJAHTERA',
+            'email' => 'bum_sejahtera@gmail.com',
+            'no_hp' => '011',
         ]);
         DB::table('buku_besar')->insert([
             'company_id' =>  '1',
@@ -441,6 +445,7 @@ class DatabaseSeeder extends Seeder
             'company_id' => '1',
             'nama' => 'admin',
             'email' => 'admin@admin.com',
+            'no_hp' => '001',
             'role' => 'admin',
             'password' => Hash::make('adminadmin'),
         ]);
@@ -448,6 +453,7 @@ class DatabaseSeeder extends Seeder
             'company_id' => '2',
             'nama' => 'operator desa',
             'email' => 'operator@gmail.com',
+            'no_hp' => '002',
             'role' => 'operator',
             'password' => Hash::make('adminadmin'),
         ]);
@@ -455,6 +461,7 @@ class DatabaseSeeder extends Seeder
             'company_id' => '2',
             'nama' => 'kepala desa',
             'email' => 'kepala@gmail.com',
+            'no_hp' => '003',
             'role' => 'pelihat',
             'password' => Hash::make('adminadmin'),
         ]);
@@ -462,6 +469,7 @@ class DatabaseSeeder extends Seeder
             'company_id' => '2',
             'nama' => 'direktur',
             'email' => 'direktur@gmail.com',
+            'no_hp' => '004',
             'role' => 'pelihat',
             'password' => Hash::make('adminadmin'),
         ]);

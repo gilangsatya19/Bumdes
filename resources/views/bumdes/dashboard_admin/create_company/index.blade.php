@@ -21,6 +21,12 @@
 
                                     <label for="nama" class="fs-5"><b>Nama</b></label>
                                     <input type="text" placeholder="Masukkan Nama" name="nama" value="{{isset($data)?$data->nama:''}}" required>
+                                    
+                                    <label for="no_hp" class="fs-5"><b>Nomor Telepon</b></label>
+                                    <input type="text" placeholder="Masukkan Nomor Telepon" name="no_hp" value="{{isset($data)?$data->no_hp:''}}" minlength="11" required >
+
+                                    <label for="email" class="fs-5"><b>Email</b></label>
+                                    <input type="text" placeholder="Masukkan Email" name="email" value="{{isset($data)?$data->email:''}}" required>
 
                     
                                     <button type="submit" class="btn mt-5" style="background-color: #3C4B64">Simpan</button>

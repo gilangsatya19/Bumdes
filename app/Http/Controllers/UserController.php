@@ -42,9 +42,15 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'email' => 'required|email:dns|unique:users',
+            'password' => 'required|min:8',
+            'no_hp' => 'required|min:11',
+        ]);
         $data = new User;
         $data->nama = $request->nama;
         $data->email = $request->email;
+        $data->no_hp = $request->no_hp;
         $data->role = $request->role;
         $data->company_id = $request->company_id;
         $data->password = $request->password;
@@ -95,6 +101,7 @@ class UserController extends Controller
         $data = User::find($id);
         $data->nama = $request->nama;
         $data->email = $request->email;
+        $data->no_hp = $request->no_hp;
         $data->role = $request->role;
         $data->company_id = $request->company_id;
         $data->password = $request->password;
