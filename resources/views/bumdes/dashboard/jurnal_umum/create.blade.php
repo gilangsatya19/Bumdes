@@ -42,7 +42,18 @@
                                     <input type="number" step="0.01" name="kredit" class="form-control" value="0" required> 
                                     
                                     <button type="submit" class="btn mt-5" style="background-color: #3C4B64">Tambah</button>
-                                    <a href="/jurnal_umum" type="button" class="btn btn-success mt-3  fw-semibold" style="">Selesai</a>
+                                    @if(isset($jurnal->datas->first()->nama_akun))
+                                        @foreach ($jurnal->datas as $data)
+                                            @if($i>1)
+                                                <p hidden></p>        
+                                            @else
+                                                <p hidden>{{$i= $i+1}}</p>
+                                            @endif
+                                        @endforeach
+                                    @endif
+                                    @if($i>1)
+                                        <a href="/jurnal_umum" type="button" class="btn btn-success mt-3  fw-semibold" style="">Selesai</a>
+                                    @endif
 
                                 </div>
                             </div>

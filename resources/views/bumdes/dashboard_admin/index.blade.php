@@ -39,7 +39,7 @@
                                                 <td>
                                                     <a href="/create_user/{{$user->id}}/edit" class="nav-icon fas fa-edit"></a>
                                                     
-                                                    <form action="" method="POST" class="d-inline">
+                                                    <form action="/create_user/{{$user->id}}/delete" method="POST" class="d-inline">
                                                     @csrf
                                                         <button class="fa fa-trash border-0" onclick="return confirm('Apakah Kamu Yakin Ingin Menghapus Data?')"></button>
                                                     </form>
@@ -79,7 +79,7 @@
                                                 <td>
                                                     <a href="/create_company/{{$company->id}}/edit" class="nav-icon fas fa-edit"></a>
                                                     
-                                                    <form action="" method="POST" class="d-inline">
+                                                    <form action="/create_company/{{$company->id}}/delete" method="post" class="d-inline">
                                                     @csrf
                                                         <button class="fa fa-trash border-0" onclick="return confirm('Apakah Kamu Yakin Ingin Menghapus Data?')"></button>
                                                     </form>

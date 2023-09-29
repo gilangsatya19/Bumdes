@@ -315,6 +315,8 @@ class CompanyController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Company::find($id);
+        $data->delete();
+        return redirect('/dashboard_admin')->with('msg', 'delete sukses');
     }
 }

@@ -73,6 +73,7 @@ Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
 
 
+Route::get('/jurnal_umum/createv2', [JurnalUmumController::class, 'createv2']);
 
 Route::get('/jurnal_umum/{id}/download', [JurnalUmumController::class, 'downloadImage']);
 Route::get('/jurnal_umum', [JurnalUmumController::class, 'index']);

@@ -51,12 +51,23 @@ class JurnalUmumController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function createv2()
+    {
+        return view('bumdes.dashboard.jurnal_umum.createv2',[
+            'title' => 'Tambah Data',
+            'nama_akuns' => NamaAkun::all(),
+            
+            
+        ]);
+    }
     public function create()
     {
         return view('bumdes.dashboard.jurnal_umum.create',[
             'title' => 'Tambah Data',
             'method' => 'POST',
             'action' => 'jurnal_umum',
+            'i' => 0,
+            'jurnal' => JurnalUmum::find(session('jurnal_umum_id')),
             'nama_akuns' => NamaAkun::all(),
             
         ]);

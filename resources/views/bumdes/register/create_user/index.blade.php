@@ -42,7 +42,9 @@
                 
                 <select id="company_id" name="company_id" class="form-control" >
                     @foreach ($companies as $company)
-                        <option value="{{$company->id}}">{{$company->nama}}</option>
+                        @if($company->id > 1)
+                            <option value="{{$company->id}}">{{$company->nama}}</option>
+                        @endif
                     @endforeach
                     
                 </select>
