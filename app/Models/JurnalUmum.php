@@ -26,4 +26,8 @@ class JurnalUmum extends Model
     {
         return $this->hasMany(DataJurnalUmum::class);
     }
+    public function dataTests()
+    {
+        return $this->hasMany(DataTest::class);
+    }
 }

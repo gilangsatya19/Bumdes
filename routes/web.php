@@ -24,6 +24,7 @@ use App\Http\Controllers\VendorController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\KodeRekeningController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\DataTestController;
 
 use App\Models\PengeluaranKas;
 use Illuminate\Support\Facades\Route;
@@ -73,7 +74,8 @@ Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
 
 
-Route::get('/jurnal_umum/createv2', [JurnalUmumController::class, 'createv2']);
+Route::get('/jurnal_umum/createv2', [DataTestController::class, 'create']);
+Route::post('/jurnal_umum/createv2', [DataTestController::class, 'store']);
 
 Route::get('/jurnal_umum/{id}/download', [JurnalUmumController::class, 'downloadImage']);
 Route::get('/jurnal_umum', [JurnalUmumController::class, 'index']);
