@@ -15,11 +15,16 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
+<<<<<<< Updated upstream:database/migrations/2014_10_12_000000_create_users_table.php
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
+=======
+            $table->foreignId('company_id')->constrained('companies');
+            $table->string('nama');
+>>>>>>> Stashed changes:database/migrations/2023_05_03_022645_create_nama_akuns_table.php
             $table->timestamps();
         });
     }
