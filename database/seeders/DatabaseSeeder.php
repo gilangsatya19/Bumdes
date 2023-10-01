@@ -19,15 +19,16 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         DB::table('companies')->insert([
-            'nama' => 'BUMDES SEJAHTERA',
-            'email' => 'bum_sejahtera@gmail.com',
-            'no_hp' => '011',
-        ]);
-        DB::table('companies')->insert([
             'nama' => 'BUMDES ADMIN',
             'email' => 'bum_admin@gmail.com',
             'no_hp' => '911',
         ]);
+        DB::table('companies')->insert([
+            'nama' => 'BUMDES SEJAHTERA',
+            'email' => 'bum_sejahtera@gmail.com',
+            'no_hp' => '011',
+        ]);
+        
 
         // Table nama akun
         DB::table('nama_akuns')->insert([
