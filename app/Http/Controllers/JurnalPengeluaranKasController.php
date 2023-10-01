@@ -43,8 +43,9 @@ class JurnalPengeluaranKasController extends Controller
             'title' => 'Tambah Data',
             'method' => 'POST',
             'action' => 'pengeluaran_kas',
-            'nama_akuns' => NamaAkun::all(),
-            
+            'jurnal' => PengeluaranKas::find(session('pengeluaran_kas_id')),
+            'nama_akuns' => auth()->user()->company->namaakun,
+            'i' => 0,
         ]);
     }
 
@@ -57,13 +58,13 @@ class JurnalPengeluaranKasController extends Controller
      */
     public function store(Request $request)
     {
-        $akuns = NamaAkun::all();
+        $akuns = auth()->user()->company->namaakun;
         $data = new DataPengeluaranKas;
         $data->nama_akun = $request->nama_akun;
         
         foreach ($akuns as $akun){
             if($data->nama_akun == $akun->nama){
-                $data->noref = $akun->kode_rekening;
+                $data->noref = $akun->detailakun->kode_rekening;
             }
         }
         
@@ -97,8 +98,9 @@ class JurnalPengeluaranKasController extends Controller
             'title' => 'Edit Data',
             'method' => 'PUT',
             'action' => 'pengeluaran_kas/'.$id,
-            'nama_akuns' => NamaAkun::all(),
+            'nama_akuns' => auth()->user()->company->namaakun,
             'data' => DataPengeluaranKas::find($id),
+            
         ]);
     }
 
@@ -111,13 +113,13 @@ class JurnalPengeluaranKasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $akuns = NamaAkun::all();
+        $akuns = auth()->user()->company->namaakun;
         $data = DataPengeluaranKas::find($id);
         $data->nama_akun = $request->nama_akun;
         
         foreach ($akuns as $akun){
             if($data->nama_akun == $akun->nama){
-                $data->noref = $akun->kode_rekening;
+                $data->noref = $akun->detailakun->kode_rekening;
             }
         }
         

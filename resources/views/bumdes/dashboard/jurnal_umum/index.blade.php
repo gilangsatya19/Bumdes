@@ -14,7 +14,6 @@
                 <div class="col-12">
                   
                   <!-- /.card -->
-                    
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">Jurnal Umum</h3>

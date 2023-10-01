@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DetailAkun;
 use Illuminate\Http\Request;
-use App\Models\NamaAkun;
 
-class PosisiKeuanganController extends Controller
+class DetailAkunController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,11 +14,7 @@ class PosisiKeuanganController extends Controller
      */
     public function index()
     {
-        return view('bumdes.dashboard.laporan_keuangan.posisi_keuangan.index',[
-            'nama_akuns' => auth()->user()->company->namaakun,
-            'saldo_akhir' => auth()->user()->company->saldoakhir,
-            'i' => 0,
-        ]);
+        //
     }
 
     /**
@@ -45,10 +41,10 @@ class PosisiKeuanganController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\DetailAkun  $detailAkun
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(DetailAkun $detailAkun)
     {
         //
     }
@@ -56,10 +52,10 @@ class PosisiKeuanganController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\DetailAkun  $detailAkun
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(DetailAkun $detailAkun)
     {
         //
     }
@@ -68,10 +64,10 @@ class PosisiKeuanganController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\DetailAkun  $detailAkun
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, DetailAkun $detailAkun)
     {
         //
     }
@@ -79,10 +75,10 @@ class PosisiKeuanganController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\DetailAkun  $detailAkun
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(DetailAkun $detailAkun)
     {
         //
     }

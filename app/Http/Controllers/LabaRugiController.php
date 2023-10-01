@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\NamaAkun;
 
 class LabaRugiController extends Controller
 {
@@ -14,7 +15,9 @@ class LabaRugiController extends Controller
     public function index()
     {
         return view('bumdes.dashboard.laporan_keuangan.laba_rugi.index',[
-            'saldo' => auth()->user()->company->bukubesar,
+            'nama_akuns' => auth()->user()->company->namaakun,
+            'saldo_akhir' => auth()->user()->company->saldoakhir,
+            'i' => 0,
         ]);
     }
 

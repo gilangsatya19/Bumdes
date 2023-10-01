@@ -13,10 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('penyesuaian', function (Blueprint $table) {
+        Schema::create('detail_akun', function (Blueprint $table) {
             $table->id();
             $table->foreignId('nama_akun_id')->constrained('nama_akuns');
-            $table->float('jumlah', 12, 2);
+            $table->float('saldo', 12, 2);
+            $table->float('penyesuaian', 12, 2);
+            $table->string('kode_rekening');
+            $table->string('d_k');
             $table->timestamps();
         });
     }
@@ -28,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('penyesuaian');
+        Schema::dropIfExists('detail_akun');
     }
 };

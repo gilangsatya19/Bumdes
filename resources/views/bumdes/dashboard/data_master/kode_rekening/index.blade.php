@@ -62,20 +62,20 @@
                                             <thead class="text-white text-center" style="background-color: #3C4B64">
                                                 <tr>
                                                     <th scope="col">No</th>
-                                                    <th scope="col">Kode Rekening</th>
                                                     <th scope="col">Nama Akun</th>
+                                                    <th scope="col">Kode Rekening</th>
                                                     <th scope="col">D/K</th>
                                                     
                                                 </tr>
                                             </thead>
                                             <tbody class="fw-semibold text-center">
-                                                @foreach ($datas as $data)
-                                                    @if ($data->id < 57)
+                                                @foreach ($akuns as $akun)
+                                                    @if ($akun->detailakun->kode_rekening[0] == '1' || $akun->detailakun->kode_rekening[0] == '2' || $akun->detailakun->kode_rekening[0] == '3')
                                                         <tr>
-                                                            <td>{{$data->id}}</td>
-                                                            <td>{{$data->nama}}</td>
-                                                            <td>{{$data->kode_rekening}}</td>
-                                                            <td>{{$data->d_k}}</td>
+                                                            <td>{{$i+=1}}</td>
+                                                            <td>{{$akun->nama}}</td>
+                                                            <td>{{$akun->detailakun->kode_rekening}}</td>
+                                                            <td>{{$akun->detailakun->d_k}}</td>
                                                         </tr>    
                                                     @endif
                                                 @endforeach
@@ -95,13 +95,13 @@
                                                 </tr>
                                             </thead>
                                             <tbody class="fw-semibold text-center">
-                                                @foreach ($datas as $data)
-                                                    @if ($data->id >= 57)
+                                                @foreach ($akuns as $akun)
+                                                    @if ($akun->detailakun->kode_rekening[0] == '4' || $akun->detailakun->kode_rekening[0] == '6' || $akun->detailakun->kode_rekening[0] == '7')
                                                         <tr>
-                                                            <td>{{$data->id}}</td>
-                                                            <td>{{$data->nama}}</td>
-                                                            <td>{{$data->kode_rekening}}</td>
-                                                            <td>{{$data->d_k}}</td>
+                                                            <td>{{$i+=1}}</td>
+                                                            <td>{{$akun->nama}}</td>
+                                                            <td>{{$akun->detailakun->kode_rekening}}</td>
+                                                            <td>{{$akun->detailakun->d_k}}</td>
                                                         </tr>    
                                                     @endif
                                                 @endforeach

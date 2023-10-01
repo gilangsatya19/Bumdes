@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('penyesuaian', function (Blueprint $table) {
+        Schema::create('saldo_akuns', function (Blueprint $table) {
             $table->id();
             $table->foreignId('nama_akun_id')->constrained('nama_akuns');
             $table->float('jumlah', 12, 2);
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('penyesuaian');
+        Schema::dropIfExists('saldo_akuns');
     }
 };

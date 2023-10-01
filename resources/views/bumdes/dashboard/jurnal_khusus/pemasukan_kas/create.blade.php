@@ -20,9 +20,9 @@
                         <label for="nama_akun" class="form-label fs-4"><b>Uraian Jurnal</b></label>
                         <div class="">
                             
-                            <select id="nama_akun" name="nama_akun" class="fs-5">
+                            <select id="nama_akun" name="nama_akun" class="fs-5 form-control">
                                 @foreach ($nama_akuns as $nama_akun)
-                                @if ($nama_akun->d_k != '')
+                                @if ($nama_akun->detailakun->d_k != '')
                                     <option value="{{$nama_akun->nama}}">{{$nama_akun->nama}}</option>
                                 @endif
                                 @endforeach
@@ -38,7 +38,19 @@
                     <input type="number" step="0.01" name="kredit" class="form-control bg-grey" value="0" required>
     
                     <button type="submit" class="btn mt-5" style="background-color: #3C4B64">Tambah</button>
-                    <a href="/pemasukan_kas" type="button" class="btn btn-success mt-3  fw-semibold" style="">Selesai</a>
+                    @if(isset($jurnal->datas->first()->nama_akun))
+                        @foreach ($jurnal->datas as $data)
+                            @if($i>1)
+                                <p hidden></p>        
+                            @else
+                                <p hidden>{{$i= $i+1}}</p>
+                            @endif
+                        @endforeach
+                    @endif
+                    @if($i>1)
+                        <a href="/pemasukan_kas" type="button" class="btn btn-success mt-3  fw-semibold" style="">Selesai</a>
+                    @endif
+                    
                 </div>
                 
             </div>

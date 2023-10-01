@@ -15,7 +15,8 @@ class KodeRekeningController extends Controller
     public function index()
     {
         return view('bumdes.dashboard.data_master.kode_rekening.index',[
-            'datas' => NamaAkun::all(),
+            'akuns' => auth()->user()->company->namaakun,
+            'i' => 0,
         ]);
     }
 

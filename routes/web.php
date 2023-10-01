@@ -45,11 +45,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function() {
     return view('bumdes.initialPage.index');
 });
-
 Route::get('/dashboard', function() {
     return view('bumdes.dashboard.index');
 });
 
+
+
+<<<<<<< Updated upstream
+=======
 Route::get('/daftar_user', [RegisterController::class, 'create_user']);
 Route::post('/daftar_user/create', [RegisterController::class, 'store_user']);
 Route::get('/daftar_company', [RegisterController::class, 'create_company']);
@@ -174,41 +177,20 @@ Route::post('/vendor/{id}/delete', [VendorController::class, 'destroy']);
 Route::get('/wtb', [WTBController::class, 'index']);
 Route::get('/wtb/create', [WTBController::class, 'create']);
 Route::post('/wtb/create', [WTBController::class, 'store']);
-Route::get('/wtb/{akun}/edit', [WTBController::class, 'edit']);
-Route::post('/wtb/{akun}/update', [WTBController::class, 'update']);
+Route::get('/wtb/{id}/edit', [WTBController::class, 'edit']);
+Route::post('/wtb/{id}/update', [WTBController::class, 'update']);
 Route::post('/wtb/{id}/delete', [WTBController::class, 'destroy']);
 
-
-
-
-
-
-
-
-
-
-// Route::resource('/jurnal_umum', JurnalUmumController::class);
-// Route::resource('/pembelian', JurnalPembelianController::class);
-// Route::resource('/penjualan', JurnalPenjualanController::class);
-// Route::resource('/pengeluaran_kas', JurnalPengeluaranKasController::class);
-// Route::resource('/pemasukan_kas', JurnalPemasukanKasController::class);
 Route::resource('/buku_besar', BukuBesarController::class);
-// Route::resource('/wtb', WTBController::class);
 Route::resource('/laba_rugi', LabaRugiController::class);
 Route::resource('/posisi_keuangan', PosisiKeuanganController::class);
 Route::resource('/calk', CALKController::class);
-// Route::resource('/form_permintaan_kas', FormPermintaanKasController::class);
-// Route::resource('/form_purchase_order', FormPurchaseOrderController::class);
-// Route::resource('/form_pengiriman_barang', FormPengirimanBarangController::class);
-// Route::resource('/invoice_penjualan_tunai', InvoicePenjualanTunaiController::class);
-// Route::resource('/invoice_penjualan_kredit', InvoicePenjualanKreditController::class);
-// Route::resource('/barang', BarangController::class);
-// Route::resource('/vendor', VendorController::class);
 Route::resource('/kode_rekening', KodeRekeningController::class);
 
 
 
 
+>>>>>>> Stashed changes
 Route::get('/kelebihan', function() {
     return view('bumdes.initialPage.kelebihan');
 });

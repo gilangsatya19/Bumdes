@@ -21,7 +21,7 @@ class JurnalPembelianController extends Controller
     {
         return view('bumdes.dashboard.jurnal_khusus.pembelian.index',[
             'datas' => auth()->user()->company->pembelians,
-            'nama_akuns' => NamaAkun::all(),
+            'nama_akuns' => auth()->user()->company->namaakun,
         ]);
     }
 
@@ -93,7 +93,6 @@ class JurnalPembelianController extends Controller
             'title' => 'Edit Data',
             'method' => 'PUT',
             'action' => 'pembelian/'.$id,
-            'nama_akuns' => NamaAkun::all(),
             'data' => DataPembelian::find($id),
         ]);
     }

@@ -6,6 +6,7 @@ use App\Models\NamaAkun;
 use Illuminate\Http\Request;
 use App\Models\JurnalUmum;
 use App\Models\DataJurnalUmum;
+use Illuminate\Support\Str;
 
 class BukuBesarController extends Controller
 {
@@ -17,7 +18,8 @@ class BukuBesarController extends Controller
     public function index()
     {
         return view('bumdes.dashboard.buku_besar.index',[
-            'nama_akuns' => NamaAkun::all(),
+            'nama_akuns' => auth()->user()->company->namaakun,
+            'detail' => auth()->user()->company->namaakun->first()->detailakun,
             'jurnals' => auth()->user()->company->jurnalumums,
             'iterasi' => '0',
             'saldo' => '0',

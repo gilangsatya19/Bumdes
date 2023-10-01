@@ -20,9 +20,9 @@
                                         <label for="nama_akun" class="form-label fs-4"><b>Nama Akun</b></label>
                                         <div class="">
                                             
-                                            <select id="nama_akun" name="nama_akun" class="" >
+                                            <select id="nama_akun" name="nama_akun" class="form-control" >
                                                 @foreach ($nama_akuns as $nama_akun)
-                                                @if ($nama_akun->d_k != '')
+                                                @if ($nama_akun->detailakun->d_k != '')
                                                     <option value="{{$nama_akun->nama}}">{{$nama_akun->nama}}</option>
                                                 @endif
                                                 @endforeach

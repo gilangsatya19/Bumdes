@@ -33,14 +33,29 @@ class Company extends Model
     {
         return $this->hasMany(User::class);
     }
+    public function namaakun()
+    {
+        return $this->hasMany(NamaAkun::class);
+    }
+    // 
     public function bukubesar()
     {
         return $this->hasOne(BukuBesar::class);
+    }
+    public function saldo()
+    {
+        return $this->hasOne(Saldo::class);
     }
     public function penyesuaian()
     {
         return $this->hasOne(Penyesuaian::class);
     }
+    // 
+    public function saldoakhir()
+    {
+        return $this->hasOne(SaldoAkhir::class);
+    }
+    
     public function formpermintaankas()
     {
         return $this->hasMany(FormPermintaanKas::class);
