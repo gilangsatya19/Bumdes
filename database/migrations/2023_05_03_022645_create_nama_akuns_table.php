@@ -15,9 +15,8 @@ return new class extends Migration
     {
         Schema::create('nama_akuns', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('company_id')->constrained('companies');
             $table->string('nama');
-            $table->string('kode_rekening');
-            $table->string('d_k');
             $table->timestamps();
         });
     }

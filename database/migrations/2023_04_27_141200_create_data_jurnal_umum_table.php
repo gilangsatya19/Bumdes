@@ -18,8 +18,8 @@ return new class extends Migration
             $table->foreignId('jurnal_umum_id')->constrained('jurnal_umum');
             $table->string('nama_akun');
             $table->string('noref');
-            $table->float('debit', 12, 2);
-            $table->float('kredit', 12, 2);
+            $table->float('debit', 12, 2)->nullable();
+            $table->float('kredit', 12, 2)->nullable();
             $table->timestamps();
         });
     }
