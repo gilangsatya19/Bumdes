@@ -51,8 +51,6 @@ Route::get('/dashboard', function() {
 
 
 
-<<<<<<< Updated upstream
-=======
 Route::get('/daftar_user', [RegisterController::class, 'create_user']);
 Route::post('/daftar_user/create', [RegisterController::class, 'store_user']);
 Route::get('/daftar_company', [RegisterController::class, 'create_company']);
@@ -190,7 +188,6 @@ Route::resource('/kode_rekening', KodeRekeningController::class);
 
 
 
->>>>>>> Stashed changes
 Route::get('/kelebihan', function() {
     return view('bumdes.initialPage.kelebihan');
 });
