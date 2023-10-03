@@ -51,7 +51,7 @@
                                                     <td>{{$akun->detailakun->kode_rekening}}</td>
                                                     <td>{{$akun->nama}}</td>
                                                     <td></td> <!-- catatan -->
-                                                    @if ($akun->detailakun->saldo > 0) <!-- 2022 -->
+                                                    @if ($akun->detailakun->saldo != 0) <!-- 2022 -->
                                                         <td>{{formatRupiah($akun->detailakun->saldo)}}</td>
                                                     @else
                                                         <td>-</td>

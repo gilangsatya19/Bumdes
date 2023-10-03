@@ -120,6 +120,11 @@ class JurnalUmumController extends Controller
                 }elseif($akun->detailakun->kode_rekening[0] == '6' || ($akun->detailakun->kode_rekening[0] == '7' && $akun->detailakun->kode_rekening[1] == '2')){//beban
                     $saldo_akhir->beban += $request->debit - $request->kredit;
                 }
+                $saldo_akhir->akun = $saldo_akhir->aset + $saldo_akhir->kewajiban + $saldo_akhir->ekuitas + $saldo_akhir->pendapatan + $saldo_akhir->beban;
+                $saldo_akhir->neraca_setelahnya = $saldo_akhir->akun + $saldo_akhir->penyesuaian;
+                $saldo_akhir->laba_rugi = $saldo_akhir->pendapatan + $saldo_akhir->beban;
+                $saldo_akhir->neraca = $saldo_akhir->aset + $saldo_akhir->kewajiban + $saldo_akhir->ekuitas;
+                $saldo_akhir->pendapatan_bersih = $saldo_akhir->pendapatan - $saldo_akhir->beban;
                 $saldo_akhir->save();
                 $akun->detailakun->saldo += $request->debit - $request->kredit;
                 $akun->detailakun->save();
@@ -175,6 +180,7 @@ class JurnalUmumController extends Controller
     public function update(Request $request, $id)
     {
         $akuns = auth()->user()->company->namaakun;
+        $saldo_akhir = auth()->user()->company->saldoakhir;
         $data = DataJurnalUmum::find($id);
         $i = 0;
         
@@ -197,6 +203,11 @@ class JurnalUmumController extends Controller
                         $saldo_akhir->beban -= $data->debit - $data->kredit;
                         $saldo_akhir->beban += $request->debit - $request->kredit;
                     }
+                    $saldo_akhir->akun = $saldo_akhir->aset + $saldo_akhir->kewajiban + $saldo_akhir->ekuitas + $saldo_akhir->pendapatan + $saldo_akhir->beban;
+                    $saldo_akhir->neraca_setelahnya = $saldo_akhir->akun + $saldo_akhir->penyesuaian;
+                    $saldo_akhir->laba_rugi = $saldo_akhir->pendapatan + $saldo_akhir->beban;
+                    $saldo_akhir->neraca = $saldo_akhir->aset + $saldo_akhir->kewajiban + $saldo_akhir->ekuitas;
+                    $saldo_akhir->pendapatan_bersih = $saldo_akhir->pendapatan - $saldo_akhir->beban;
                     $saldo_akhir->save();
                     $akun->detailakun->saldo -= $data->debit - $data->kredit;
                     $akun->detailakun->saldo += $request->debit - $request->kredit;
@@ -217,6 +228,11 @@ class JurnalUmumController extends Controller
                     }elseif($akun->detailakun->kode_rekening[0] == '6' || ($akun->detailakun->kode_rekening[0] == '7' && $akun->detailakun->kode_rekening[1] == '2')){//beban
                         $saldo_akhir->beban -= $data->debit - $data->kredit;
                     }
+                    $saldo_akhir->akun = $saldo_akhir->aset + $saldo_akhir->kewajiban + $saldo_akhir->ekuitas + $saldo_akhir->pendapatan + $saldo_akhir->beban;
+                    $saldo_akhir->neraca_setelahnya = $saldo_akhir->akun + $saldo_akhir->penyesuaian;
+                    $saldo_akhir->laba_rugi = $saldo_akhir->pendapatan + $saldo_akhir->beban;
+                    $saldo_akhir->neraca = $saldo_akhir->aset + $saldo_akhir->kewajiban + $saldo_akhir->ekuitas;
+                    $saldo_akhir->pendapatan_bersih = $saldo_akhir->pendapatan - $saldo_akhir->beban;
                     $saldo_akhir->save();
                     $akun->detailakun->saldo -= $data->debit - $data->kredit;
                     $akun->detailakun->save();
@@ -235,6 +251,11 @@ class JurnalUmumController extends Controller
                     }elseif($akun->detailakun->kode_rekening[0] == '6' || ($akun->detailakun->kode_rekening[0] == '7' && $akun->detailakun->kode_rekening[1] == '2')){//beban
                         $saldo_akhir->beban += $request->debit - $request->kredit;
                     }
+                    $saldo_akhir->akun = $saldo_akhir->aset + $saldo_akhir->kewajiban + $saldo_akhir->ekuitas + $saldo_akhir->pendapatan + $saldo_akhir->beban;
+                    $saldo_akhir->neraca_setelahnya = $saldo_akhir->akun + $saldo_akhir->penyesuaian;
+                    $saldo_akhir->laba_rugi = $saldo_akhir->pendapatan + $saldo_akhir->beban;
+                    $saldo_akhir->neraca = $saldo_akhir->aset + $saldo_akhir->kewajiban + $saldo_akhir->ekuitas;
+                    $saldo_akhir->pendapatan_bersih = $saldo_akhir->pendapatan - $saldo_akhir->beban;
                     $saldo_akhir->save();
                     $akun->detailakun->saldo += $request->debit - $request->kredit;
                     $akun->detailakun->save();
@@ -274,6 +295,11 @@ class JurnalUmumController extends Controller
                     }elseif($akun->detailakun->kode_rekening[0] == '6' || ($akun->detailakun->kode_rekening[0] == '7' && $akun->detailakun->kode_rekening[1] == '2')){//beban
                         $saldo_akhir->beban -= $data->debit - $data->kredit;
                     }
+                    $saldo_akhir->akun = $saldo_akhir->aset + $saldo_akhir->kewajiban + $saldo_akhir->ekuitas + $saldo_akhir->pendapatan + $saldo_akhir->beban;
+                    $saldo_akhir->neraca_setelahnya = $saldo_akhir->akun + $saldo_akhir->penyesuaian;
+                    $saldo_akhir->laba_rugi = $saldo_akhir->pendapatan + $saldo_akhir->beban;
+                    $saldo_akhir->neraca = $saldo_akhir->aset + $saldo_akhir->kewajiban + $saldo_akhir->ekuitas;
+                    $saldo_akhir->pendapatan_bersih = $saldo_akhir->pendapatan - $saldo_akhir->beban;
                     $saldo_akhir->save();
                     $akun->detailakun->saldo -= $data->debit - $data->kredit;
                     $akun->detailakun->save();

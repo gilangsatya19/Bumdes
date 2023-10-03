@@ -46,7 +46,9 @@ Route::get('/', function() {
     return view('bumdes.initialPage.index');
 });
 Route::get('/dashboard', function() {
-    return view('bumdes.dashboard.index');
+    return view('bumdes.dashboard.index',[
+        'saldo_akhir' => auth()->user()->company->saldoakhir,
+    ]);
 });
 
 
