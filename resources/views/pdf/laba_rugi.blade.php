@@ -21,61 +21,53 @@
         <div>
             <table class="account-table" style="margin-top: 1.5rem; border: 1px solid; width: 100%; padding: 0.5rem;">
                 <tr class="account-head">
-                    <td style="font-weight: 600; font-size: 1.15rem;">Pendapatan Penjualan Beras</td>
+                    <td style="font-weight: 600; font-size: 1.15rem;">Pendapatan</td>
                 </tr>
-                <tr class="account-item">
-                    <td style="padding-left: 1rem">Penjualan Beras</td>
-                    <td style="text-align: right">Rp. 60.250.000</td>
-                </tr>
-                <tr class="account-item">
-                    <td style="padding-left: 1rem">Gagal Panen Beras</td>
-                    <td style="text-align: right">-Rp. 12.250.000</td>
-                </tr>
+                @foreach($akuns_pendapatan as $akun)
+                    @if($akun->detailakun->saldo > 0)
+                        <x-pdf.laporan-keuangan-item :nama="$akun->nama"
+                                                     :nominal="formatRupiah($akun->detailakun->saldo)"
+                                                     :is-negative="false"/>
+                    @endif
+                @endforeach
                 <tr class="account-subtotal">
                     <td style="font-weight: 600; padding-top: 1rem; vertical-align: bottom">Total Pendapatan</td>
-                    <td style="text-align: right; font-weight: 600; vertical-align: bottom">Rp. 50.000.000</td>
+                    <td style="text-align: right; font-weight: 600; vertical-align: bottom">Rp. {{ $pendapatan }}</td>
                 </tr>
             </table>
 
             <table style="margin-top: 1.5rem; border: 1px solid; width: 100%; padding: 0.5rem;">
                 <tr class="account-head">
-                    <td style="font-weight: 600; font-size: 1.15rem;">Biaya Operasional</td>
+                    <td style="font-weight: 600; font-size: 1.15rem;">Beban</td>
                 </tr>
-                <tr class="account-item">
-                    <td style="padding-left: 1rem">Bibit Padi</td>
-                    <td style="text-align: right">Rp. 10.000.000</td>
-                </tr>
-                <tr class="account-item">
-                    <td style="padding-left: 1rem">Pupuk Organik</td>
-                    <td style="text-align: right">Rp. 15.000.000</td>
-                </tr>
-                <tr class="account-item">
-                    <td style="padding-left: 1rem">Bahan Bakar Traktor</td>
-                    <td style="text-align: right">Rp. 5.000.000</td>
-                </tr>
+
+                @foreach($akuns_beban as $akun)
+                    @if($akun->detailakun->saldo > 0)
+                        <x-pdf.laporan-keuangan-item :nama="$akun->nama"
+                                                     :nominal="formatRupiah($akun->detailakun->saldo)"
+                                                     :is-negative="false"/>
+                    @endif
+
+                @endforeach
 
                 <tr class="account-subtotal">
-                    <td style="font-weight: 600; padding-top: 1rem; vertical-align: bottom">Total Biaya Operasional</td>
-                    <td style="text-align: right; font-weight: 600; vertical-align: bottom">Rp. 30.000.000</td>
+                    <td style="font-weight: 600; padding-top: 1rem; vertical-align: bottom">Total Beban</td>
+                    <td style="text-align: right; font-weight: 600; vertical-align: bottom">Rp. {{ $beban }}</td>
                 </tr>
             </table>
 
             <table style="margin-top: 1.5rem; border: 1px solid; width: 100%; padding: 0.5rem;">
                 <tr class="account-head">
-                    <td style="font-weight: 600; font-size: 1.15rem;">Pendapatan Bersih</td>
+                    <td style="font-weight: 600; font-size: 1.15rem;">Total Perhitungan Laba Rugi</td>
                 </tr>
-                <tr class="account-item">
-                    <td style="padding-left: 1rem">Pendapatan Penjualan Beras</td>
-                    <td style="text-align: right">Rp. 50.000.000</td>
-                </tr>
-                <tr class="account-item">
-                    <td style="padding-left: 1rem">Biaya Operasional</td>
-                    <td style="text-align: right">-Rp. 30.000.000</td>
-                </tr>
+                
+                <x-pdf.laporan-keuangan-item nama="Pendapatan" :nominal="$pendapatan" :is-negative="false"/>
+                <x-pdf.laporan-keuangan-item nama="Beban" :nominal="$beban" :is-negative="true"/>
 
                 <tr class="account-subtotal">
                     <td style="font-weight: 600; padding-top: 1rem; vertical-align: bottom">Total Pendapatan Bersih</td>
-                    <td style="text-align: right; font-weight: 600; vertical-align: bottom">Rp. 20.000.000</td>
+                    <td style="text-align: right; font-weight: 600; vertical-align: bottom">
+                        Rp. {{ $pendapatan_bersih }}</td>
                 </tr>
             </table>
         </div>
