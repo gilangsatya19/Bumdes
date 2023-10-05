@@ -25,7 +25,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\KodeRekeningController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DataTestController;
-use App\Http\Controllers\LaporanLabaRugiController;
+
 use App\Models\PengeluaranKas;
 use Illuminate\Support\Facades\Route;
 
@@ -42,11 +42,13 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/', function () {
+Route::get('/', function() {
     return view('bumdes.initialPage.index');
 });
-Route::get('/dashboard', function () {
-    return view('bumdes.dashboard.index');
+Route::get('/dashboard', function() {
+    return view('bumdes.dashboard.index',[
+        'saldo_akhir' => auth()->user()->company->saldoakhir,
+    ]);
 });
 
 
@@ -185,23 +187,23 @@ Route::resource('/posisi_keuangan', PosisiKeuanganController::class);
 Route::resource('/calk', CALKController::class);
 Route::resource('/kode_rekening', KodeRekeningController::class);
 
-Route::get('/laporan_keuangan/laba_rugi', [LaporanLabaRugiController::class, 'index']);
-Route::get('/laporan_keuangan/laba_rugi/preview', [LaporanLabaRugiController::class, 'preview']);
 
 
-Route::get('/kelebihan', function () {
+
+Route::get('/kelebihan', function() {
     return view('bumdes.initialPage.kelebihan');
 });
 
-Route::get('/fitur', function () {
+Route::get('/fitur', function() {
     return view('bumdes.initialPage.fitur');
 });
 
-Route::get('/cara-order', function () {
+Route::get('/cara-order', function() {
     return view('bumdes.initialPage.caraOrder');
 });
 
-Route::get('/kontak', function () {
+Route::get('/kontak', function() {
     return view('bumdes.initialPage.kontak');
 });
 //halo ini ummi
+

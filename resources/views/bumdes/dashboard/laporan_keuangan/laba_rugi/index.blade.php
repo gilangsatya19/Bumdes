@@ -24,14 +24,14 @@
                                         <th scope="col" colspan="5">Laporan Laba Rugi</th>
                                     </tr>
                                     <tr>
-                                        <th scope="col" colspan="5">31 Desember 2022 dan 2021</th>
+                                        <th scope="col" colspan="5">31 Desember 2023 dan 2022</th>
                                     </tr>
                                     <tr>
                                         <th scope="col">Kode Rekening</th>
                                         <th scope="col">Nama Akun</th>
                                         <th scope="col">Catatan</th>
+                                        <th scope="col">2023</th>
                                         <th scope="col">2022</th>
-                                        <th scope="col">2021</th>
                                     </tr>
                                 </thead>
                                 <tbody class="text-center">
@@ -51,12 +51,12 @@
                                                 <td>{{$akun->detailakun->kode_rekening}}</td>
                                                 <td>{{$akun->nama}}</td>
                                                 <td></td> <!-- catatan -->
-                                                @if ($akun->detailakun->saldo > 0) <!-- 2022 -->
+                                                @if ($akun->detailakun->saldo != 0) <!-- 2023 -->
                                                     <td>{{formatRupiah($akun->detailakun->saldo)}}</td>
                                                 @else
                                                     <td>-</td>
                                                 @endif
-                                                <td>-</td> <!-- 2021 -->
+                                                <td>-</td> <!-- 2022 -->
                                             </tr>
                                         @endif
                                     @elseif($i >= 69)
@@ -73,12 +73,12 @@
                                                 <td>{{$akun->detailakun->kode_rekening}}</td>
                                                 <td>{{$akun->nama}}</td>
                                                 <td></td> <!-- catatan -->
-                                                @if ($akun->detailakun->saldo > 0) <!-- 2022 -->
+                                                @if ($akun->detailakun->saldo != 0) <!-- 2023 -->
                                                     <td>{{formatRupiah($akun->detailakun->saldo)}}</td>
                                                 @else
                                                     <td>-</td>
                                                 @endif
-                                                <td>-</td> <!-- 2021 -->
+                                                <td>-</td> <!-- 2022 -->
                                             </tr>
                                         @endif
                                     @endif

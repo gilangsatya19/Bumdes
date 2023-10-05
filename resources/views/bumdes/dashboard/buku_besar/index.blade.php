@@ -48,7 +48,7 @@
                                 @if($nama_akun->detailakun->d_k != '')
                                 <div id="{{$nama_akun->nama}}" class="tabcontent">
                                     <p class="hide">{{$iterasi = 0}}{{$saldo = 0}}</p>
-                                    <h2>KAS</h2>
+                                    <h2>{{$nama_akun->nama}}</h2>
                                     <table id="example1" class="table table-bordered table-striped">
                                         <thead class="text-center">
                                             <tr>
@@ -69,8 +69,8 @@
                                                         @if ($data->nama_akun != $nama_akun->nama)
                                                             <tr>
                                                                 <td>{{$iterasi = $iterasi + 1}}</td>
-                                                                <td>{{$jurnal->tanggal->format('m F Y')}}</td>
-                                                                <td>{{$data->nama_akun}}</td>
+                                                                <td>{{$jurnal->tanggal->format('d F Y')}}</td>
+                                                                <td>{{$jurnal->jenis_transaksi}}</td>
                                                                 <td>{{$data->formatRupiah('kredit')}}</td>
                                                                 <td>-</td>
                                                                 <td>{{formatRupiah($saldo = $saldo + $data->kredit)}}</td>
@@ -83,7 +83,7 @@
                                                             <tr>
                                                                 <td>{{$iterasi = $iterasi + 1}}</td>
                                                                 <td>{{$jurnal->tanggal->format('d F Y')}}</td>
-                                                                <td>{{$jurnal->datas->first()->nama_akun}}</td>
+                                                                <td>{{$jurnal->jenis_transaksi}}</td>
                                                                 <td>-</td>
                                                                 <td>{{$data->formatRupiah('kredit')}}</td>
                                                                 <td>{{formatRupiah($saldo = $saldo - $data->kredit)}}</td>
