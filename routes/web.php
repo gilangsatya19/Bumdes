@@ -45,12 +45,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function() {
     return view('bumdes.initialPage.index');
 });
-Route::get('/dashboard', function() {
-    return view('bumdes.dashboard.index',[
-        'saldo_akhir' => auth()->user()->company->saldoakhir,
-    ]);
-});
+// Route::get('/dashboard', function() {
+//     return view('bumdes.dashboard.index',[
+//         'saldo_akhir' => auth()->user()->company->saldoakhir,
+//     ]);
+// });
 
+Route::get('/dashboard', [UserController::class, 'index']);
 
 
 Route::get('/daftar_user', [RegisterController::class, 'create_user']);

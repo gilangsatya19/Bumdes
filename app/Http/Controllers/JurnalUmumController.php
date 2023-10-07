@@ -53,7 +53,7 @@ class JurnalUmumController extends Controller
     {
         return view('bumdes.dashboard.jurnal_umum.createv2',[
             'title' => 'Tambah Data',
-            'nama_akuns' => NamaAkun::all(),
+            'nama_akuns' => auth()->user()->company->namaakun,
         ]);
     }
 
