@@ -29,17 +29,21 @@ class LaporanLabaRugiController extends Controller
      */
     private function get_data_laporan_laba_rugi(): array
     {
+        $company_id = auth()->user()->company->id;
+
         $saldo_akhir = auth()->user()->company->saldoakhir;
 
-        $akuns_pendapatan = NamaAkun::where([
-            ['nama', 'like', '%pendapatan%'],
-            ['company_id', '=', auth()->user()->company->id],
-        ])->get();
+        $akuns_pendapatan = NamaAkun::join('detail_akun', 'nama_akuns.id', '=', 'detail_akun.nama_akun_id')
+            ->where('nama_akuns.company_id', '=', $company_id)
+            ->whereBetween('detail_akun.kode_rekening', [7000, 7199])
+            ->orWhereBetween('detail_akun.kode_rekening', [4000, 4999])
+            ->get();
 
-        $akuns_beban = NamaAkun::where([
-            ['nama', 'like', '%beban%'],
-            ['company_id', '=', auth()->user()->company->id],
-        ])->get();
+        $akuns_beban = NamaAkun::join('detail_akun', 'nama_akuns.id', '=', 'detail_akun.nama_akun_id')
+            ->where('nama_akuns.company_id', '=', $company_id)
+            ->whereBetween('detail_akun.kode_rekening', [6000, 6999])
+            ->orWhereBetween('detail_akun.kode_rekening', [7200, 7299])
+            ->get();
 
         return [
             'pendapatan' => formatRupiah($saldo_akhir->pendapatan),

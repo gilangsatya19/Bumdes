@@ -185,7 +185,7 @@ Route::resource('/kode_rekening', KodeRekeningController::class);
 
 
 // Laporan Keuangan
-Route::get('/laporan_keuangan/laba_rugi', [LaporanLabaRugiController::class, 'index']);
+Route::post('/laporan_keuangan/laba_rugi', [LaporanLabaRugiController::class, 'index'])->name('laporan_keuangan.laba_rugi');
 Route::get('/laporan_keuangan/laba_rugi/preview', [LaporanLabaRugiController::class, 'preview']);
 
 

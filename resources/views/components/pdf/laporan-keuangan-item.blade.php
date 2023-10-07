@@ -1,6 +1,8 @@
 <tr @style(['color: red' => $isNegative])>
     <td style="padding-left: 1rem">
-        {{ $nama }}
+        @isset($kodeRekening)
+            <span style="color: #8f8f8f; padding-right: 0.5rem">({{ $kodeRekening }})</span>
+        @endif <span>{{ $nama }}</span>
     </td>
     <td style="text-align: right">
         <span>

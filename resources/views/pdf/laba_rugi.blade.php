@@ -26,6 +26,7 @@
                 @foreach($akuns_pendapatan as $akun)
                     @if($akun->detailakun->saldo > 0)
                         <x-pdf.laporan-keuangan-item :nama="$akun->nama"
+                                                     :kode-rekening="$akun->kode_rekening"
                                                      :nominal="formatRupiah($akun->detailakun->saldo)"
                                                      :is-negative="false"/>
                     @endif
@@ -44,6 +45,7 @@
                 @foreach($akuns_beban as $akun)
                     @if($akun->detailakun->saldo > 0)
                         <x-pdf.laporan-keuangan-item :nama="$akun->nama"
+                                                     :kode-rekening="$akun->detailakun->kode_rekening"
                                                      :nominal="formatRupiah($akun->detailakun->saldo)"
                                                      :is-negative="false"/>
                     @endif
@@ -60,8 +62,9 @@
                 <tr class="account-head">
                     <td style="font-weight: 600; font-size: 1.15rem;">Total Perhitungan Laba Rugi</td>
                 </tr>
-                
-                <x-pdf.laporan-keuangan-item nama="Pendapatan" :nominal="$pendapatan" :is-negative="false"/>
+
+                <x-pdf.laporan-keuangan-item nama="Pendapatan" :nominal="$pendapatan"
+                                             :is-negative="false"/>
                 <x-pdf.laporan-keuangan-item nama="Beban" :nominal="$beban" :is-negative="true"/>
 
                 <tr class="account-subtotal">

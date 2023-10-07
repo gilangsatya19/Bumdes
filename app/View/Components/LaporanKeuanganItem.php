@@ -13,6 +13,7 @@ class LaporanKeuanganItem extends Component
      */
     public function __construct(
         public string $nama,
+        public string $kodeRekening,
         public string $nominal = '0',
         public bool   $isNegative = false,
     )
@@ -27,17 +28,6 @@ class LaporanKeuanganItem extends Component
      */
     public function render()
     {
-
-        ddd([
-            'nama_akun' => $this->nama_akun,
-            'nominal_akun' => $this->nominal_akun,
-            'is_negative' => $this->is_negative,
-        ]);
-
-        return view('components.pdf.laporan-keuangan-item', [
-            'nama_akun' => $this->nama_akun,
-            'nominal_akun' => $this->nominal_akun,
-            'is_negative' => $this->is_negative,
-        ]);
+        return view('components.pdf.laporan-keuangan-item');
     }
 }
