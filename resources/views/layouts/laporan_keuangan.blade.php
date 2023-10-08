@@ -23,6 +23,11 @@
         padding: 4rem;
         margin: auto;
     }
+
+    #headline-company {
+        color: #545454;
+        font-size: 1.15rem;
+    }
 </style>
 
 <main id="root">
