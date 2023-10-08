@@ -19,6 +19,7 @@ use App\Http\Controllers\JurnalUmumController;
 use App\Http\Controllers\KodeRekeningController;
 use App\Http\Controllers\LabaRugiController;
 use App\Http\Controllers\LaporanLabaRugiController;
+use App\Http\Controllers\LaporanPosisiKeuanganController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PosisiKeuanganController;
 use App\Http\Controllers\RegisterController;
@@ -187,6 +188,8 @@ Route::resource('/kode_rekening', KodeRekeningController::class);
 // Laporan Keuangan
 Route::post('/laporan_keuangan/laba_rugi', [LaporanLabaRugiController::class, 'index'])->name('laporan_keuangan.laba_rugi');
 Route::get('/laporan_keuangan/laba_rugi/preview', [LaporanLabaRugiController::class, 'preview']);
+Route::post('/laporan_keuangan/posisi_keuangan', [LaporanPosisiKeuanganController::class, 'index'])->name('laporan_keuangan.posisi_keuangan');
+Route::get('/laporan_keuangan/posisi_keuangan/preview', [LaporanPosisiKeuanganController::class, 'preview']);
 
 
 Route::get('/kelebihan', function () {

@@ -28,6 +28,11 @@
         color: #545454;
         font-size: 1.15rem;
     }
+
+    .page-break {
+        page-break-before: always;
+    }
+
 </style>
 
 <main id="root">
