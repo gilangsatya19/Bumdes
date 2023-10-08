@@ -62,7 +62,10 @@ class LaporanPosisiKeuanganController extends Controller
 
         $total_equitas = array_sum($akuns_equitas->pluck('saldo')->toArray());
         $total_kewajiban = array_sum($akuns_kewajiban->pluck('saldo')->toArray());
-        $total_aset = array_sum($akuns_aset_tetap->pluck('saldo')->toArray()) + array_sum($akuns_investasi->pluck('saldo')->toArray()) + array_sum($akuns_aset_lancar->pluck('saldo')->toArray());
+        $total_aset_lancar = array_sum($akuns_aset_lancar->pluck('saldo')->toArray());
+        $total_investasi = array_sum($akuns_investasi->pluck('saldo')->toArray());
+        $total_aset_tetap = array_sum($akuns_aset_tetap->pluck('saldo')->toArray());
+        $total_aset = $total_aset_lancar + $total_investasi + $total_aset_tetap;
 
         $data = [
             'akuns_aset_lancar' => $akuns_aset_lancar,
@@ -72,6 +75,11 @@ class LaporanPosisiKeuanganController extends Controller
             'akuns_equitas' => $akuns_equitas,
             'cadangan' => $cadangan,
             'total_aset' => $total_aset,
+            'total_aset_lancar' => $total_aset_lancar,
+            'total_investasi' => $total_investasi,
+            'total_aset_tetap' => $total_aset_tetap,
+            'total_equitas' => $total_equitas,
+            'total_kewajiban' => $total_kewajiban,
             'total_equitas_kewajiban_cadangan' => $total_equitas + $total_kewajiban + $cadangan
         ];
 

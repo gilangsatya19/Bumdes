@@ -15,27 +15,46 @@
                 <td style="font-weight: 600; font-size: 1.15rem;">Aset</td>
             </tr>
 
-            <tr>
-                <td style="padding-left: 1rem; font-weight: 600; padding-top: 0.5rem">Aset Lancar</td>
-            </tr>
+            @if($akuns_aset_lancar->count() > 0)
+                <tr>
+                    <td style="padding-left: 1rem; font-weight: 600; padding-top: 0.5rem">Aset Lancar</td>
+                </tr>
+                @foreach($akuns_aset_lancar as $akun)
+                    <x-pdf.laporan-keuangan-item :nama="$akun->nama"
+                                                 :kode-rekening="$akun->kode_rekening"
+                                                 :nominal="formatRupiah($akun->detailakun->saldo)"
+                                                 :is-negative="false"/>
+                @endforeach
 
-            @foreach($akuns_aset_lancar as $akun)
-                <x-pdf.laporan-keuangan-item :nama="$akun->nama"
-                                             :kode-rekening="$akun->kode_rekening"
-                                             :nominal="formatRupiah($akun->detailakun->saldo)"
-                                             :is-negative="false"/>
-            @endforeach
+                <tr class="account-subtotal">
+                    <td style="font-weight: 600; padding-top: 0.5rem; vertical-align: bottom; padding-left: 1rem">Total
+                        Aset Lancar
+                    </td>
+                    <td style="text-align: right; font-weight: 600; vertical-align: bottom">
+                        Rp. {{ formatRupiah($total_aset_lancar) }}</td>
+                </tr>
+            @endif
 
-            <tr>
-                <td style="padding-left: 1rem; font-weight: 600; padding-top: 1rem">Aset Tetap</td>
-            </tr>
+            @if($akuns_aset_tetap->count() > 0)
+                <tr>
+                    <td style="padding-left: 1rem; font-weight: 600; padding-top: 1.5rem">Aset Tetap</td>
+                </tr>
 
-            @foreach($akuns_aset_tetap as $akun)
-                <x-pdf.laporan-keuangan-item :nama="$akun->nama"
-                                             :kode-rekening="$akun->kode_rekening"
-                                             :nominal="formatRupiah($akun->detailakun->saldo)"
-                                             :is-negative="false"/>
-            @endforeach
+                @foreach($akuns_aset_tetap as $akun)
+                    <x-pdf.laporan-keuangan-item :nama="$akun->nama"
+                                                 :kode-rekening="$akun->kode_rekening"
+                                                 :nominal="formatRupiah($akun->detailakun->saldo)"
+                                                 :is-negative="false"/>
+                @endforeach
+
+                <tr class="account-subtotal">
+                    <td style="font-weight: 600; padding-top: 0.5rem; vertical-align: bottom; padding-left: 1rem">Total
+                        Aset Tetap
+                    </td>
+                    <td style="text-align: right; font-weight: 600; vertical-align: bottom">
+                        Rp. {{ formatRupiah($total_aset_tetap) }}</td>
+                </tr>
+            @endif
 
             <tr class="account-subtotal">
                 <td style="font-weight: 600; padding-top: 1rem; vertical-align: bottom">Total Aset</td>
@@ -59,6 +78,14 @@
                                              :is-negative="false"/>
             @endforeach
 
+            <tr class="account-subtotal">
+                <td style="font-weight: 600; padding-top: 0.5rem; vertical-align: bottom; padding-left: 1rem">Total
+                    Kewajiban
+                </td>
+                <td style="text-align: right; font-weight: 600; vertical-align: bottom">
+                    Rp. {{ formatRupiah($total_kewajiban) }}</td>
+            </tr>
+
             <tr>
                 <td style="padding-left: 1rem; font-weight: 600; padding-top: 1rem">Ekuitas</td>
             </tr>
@@ -68,6 +95,13 @@
                                              :nominal="formatRupiah($akun->detailakun->saldo)"
                                              :is-negative="false"/>
             @endforeach
+            <tr class="account-subtotal">
+                <td style="font-weight: 600; padding-top: 0.5rem; vertical-align: bottom; padding-left: 1rem">Total
+                    Ekuitas
+                </td>
+                <td style="text-align: right; font-weight: 600; vertical-align: bottom">
+                    Rp. {{ formatRupiah($total_equitas) }}</td>
+            </tr>
 
             <tr>
                 <td style="padding-left: 1rem; font-weight: 600; padding-top: 1rem">Cadangan</td>
