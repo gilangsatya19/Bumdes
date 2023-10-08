@@ -64,33 +64,27 @@
                                         
                                             @foreach ($jurnals as $jurnal)
                                                 @if(isset($jurnal->datas->first()->nama_akun))
-                                                @if ($jurnal->datas->first()->nama_akun == $nama_akun->nama)
                                                     @foreach ($jurnal->datas as $data)
-                                                        @if ($data->nama_akun != $nama_akun->nama)
+                                                        @if($data->nama_akun == $nama_akun->nama)
                                                             <tr>
                                                                 <td>{{$iterasi = $iterasi + 1}}</td>
                                                                 <td>{{$jurnal->tanggal->format('d F Y')}}</td>
                                                                 <td>{{$jurnal->jenis_transaksi}}</td>
-                                                                <td>{{$data->formatRupiah('kredit')}}</td>
-                                                                <td>-</td>
-                                                                <td>{{formatRupiah($saldo = $saldo + $data->kredit)}}</td>
-                                                            </tr>    
-                                                        @endif
-                                                    @endforeach
-                                                @else
-                                                    @foreach ($jurnal->datas as $data)
-                                                        @if ($data->nama_akun == $nama_akun->nama)
-                                                            <tr>
-                                                                <td>{{$iterasi = $iterasi + 1}}</td>
-                                                                <td>{{$jurnal->tanggal->format('d F Y')}}</td>
-                                                                <td>{{$jurnal->jenis_transaksi}}</td>
-                                                                <td>-</td>
-                                                                <td>{{$data->formatRupiah('kredit')}}</td>
-                                                                <td>{{formatRupiah($saldo = $saldo - $data->kredit)}}</td>
+                                                                @if($data->debit != 0)
+                                                                    <td>{{$data->formatRupiah('debit')}}</td>
+                                                                    <td>-</td>
+                                                                @else
+                                                                    <td>-</td>
+                                                                    <td>{{$data->formatRupiah('kredit')}}</td>
+                                                                @endif
+                                                                @if($nama_akun->detailakun->d_k == 'Debit')
+                                                                    <td>{{formatRupiah($saldo = $saldo + $data->debit - $data->kredit)}}</td>
+                                                                @else
+                                                                    <td>{{formatRupiah($saldo = $saldo + $data->kredit - $data->debit)}}</td>
+                                                                @endif
                                                             </tr>
-                                                        @endif
+                                                        @endif    
                                                     @endforeach
-                                                @endif
                                                 @endif
                                             @endforeach
                                         

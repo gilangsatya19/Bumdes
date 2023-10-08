@@ -46,11 +46,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('bumdes.initialPage.index');
 });
-// Route::get('/dashboard', function() {
-//     return view('bumdes.dashboard.index',[
-//         'saldo_akhir' => auth()->user()->company->saldoakhir,
-//     ]);
-// });
+
 
 
 Route::get('/daftar_user', [RegisterController::class, 'create_user']);
@@ -58,6 +54,7 @@ Route::post('/daftar_user/create', [RegisterController::class, 'store_user']);
 Route::get('/daftar_company', [RegisterController::class, 'create_company']);
 Route::post('/daftar_company/create', [RegisterController::class, 'store_company']);
 
+Route::get('/dashboard', [UserController::class, 'index']);
 Route::get('/dashboard_admin', [AdminController::class, 'index']);
 
 Route::get('/create_company', [CompanyController::class, 'create']);

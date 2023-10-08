@@ -4,7 +4,7 @@
     <div id="headline">
         <h2 id="headline-title">Laporan Posisi Keuangan</h2>
         <p id="headline-company">PT. Bambang Berkarya</p>
-        <p id="headline-date">01/01/2022 - 31/12/2022</p>
+        <p id="headline-date">01/01/2023 - 31/12/2023</p>
     </div>
 
     <br/>
@@ -112,8 +112,7 @@
                                          :is-negative="false"/>
 
             <tr class="account-subtotal">
-                <td style="font-weight: 600; padding-top: 1rem; vertical-align: bottom">Total Kewajiban, Ekuitas dan
-                    Cadangan
+                <td style="font-weight: 600; padding-top: 1rem; vertical-align: bottom">Total Kewajiban dan Ekuitas
                 </td>
                 <td style="text-align: right; font-weight: 600; vertical-align: bottom">
                     Rp. {{ formatRupiah($total_equitas_kewajiban_cadangan) }}</td>

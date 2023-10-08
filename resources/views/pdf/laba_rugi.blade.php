@@ -5,7 +5,7 @@
     <div id="headline">
         <h2 id="headline-title">Laporan Laba Rugi</h2>
         <p id="headline-company">PT. Bambang Berkarya</p>
-        <p id="headline-date">01/01/2022 - 31/12/2022</p>
+        <p id="headline-date">01/01/2023 - 31/12/2023</p>
     </div>
 
     <br/>
