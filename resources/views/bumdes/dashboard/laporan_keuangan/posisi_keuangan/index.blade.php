@@ -50,7 +50,7 @@
                                             @if($akun->detailakun->d_k != '' && $i == 52)
                                                 <tr>
                                                     <td>{{$akun->detailakun->kode_rekening}}</td>
-                                                    <td>{{$akun->nama}}</td>
+                                                    <td>Cadangan</td></td>
                                                     <td></td> <!-- catatan -->
 
                                                     <td>{{formatRupiah($saldo_akhir->pendapatan_bersih)}}</td>
