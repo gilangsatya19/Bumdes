@@ -9,6 +9,8 @@ use App\Http\Controllers\JurnalPenjualanController;
 use App\Http\Controllers\JurnalPengeluaranKasController;
 use App\Http\Controllers\JurnalPemasukanKasController;
 use App\Http\Controllers\BukuBesarController;
+use App\Http\Controllers\LaporanLabaRugiController;
+use App\Http\Controllers\LaporanPosisiKeuanganController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WTBController;
 use App\Http\Controllers\LabaRugiController;
@@ -41,8 +43,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-
-Route::get('/', function() {
+Route::get('/', function () {
     return view('bumdes.initialPage.index');
 });
 // Route::get('/dashboard', function() {
@@ -50,8 +51,6 @@ Route::get('/', function() {
 //         'saldo_akhir' => auth()->user()->company->saldoakhir,
 //     ]);
 // });
-
-Route::get('/dashboard', [UserController::class, 'index']);
 
 
 Route::get('/daftar_user', [RegisterController::class, 'create_user']);
@@ -189,21 +188,26 @@ Route::resource('/calk', CALKController::class);
 Route::resource('/kode_rekening', KodeRekeningController::class);
 
 
+// Laporan Keuangan
+Route::post('/laporan_keuangan/laba_rugi', [LaporanLabaRugiController::class, 'index'])->name('laporan_keuangan.laba_rugi');
+Route::get('/laporan_keuangan/laba_rugi/preview', [LaporanLabaRugiController::class, 'preview']);
+Route::post('/laporan_keuangan/posisi_keuangan', [LaporanPosisiKeuanganController::class, 'index'])->name('laporan_keuangan.posisi_keuangan');
+Route::get('/laporan_keuangan/posisi_keuangan/preview', [LaporanPosisiKeuanganController::class, 'preview']);
 
 
-Route::get('/kelebihan', function() {
+Route::get('/kelebihan', function () {
     return view('bumdes.initialPage.kelebihan');
 });
 
-Route::get('/fitur', function() {
+Route::get('/fitur', function () {
     return view('bumdes.initialPage.fitur');
 });
 
-Route::get('/cara-order', function() {
+Route::get('/cara-order', function () {
     return view('bumdes.initialPage.caraOrder');
 });
 
-Route::get('/kontak', function() {
+Route::get('/kontak', function () {
     return view('bumdes.initialPage.kontak');
 });
 //halo ini ummi
