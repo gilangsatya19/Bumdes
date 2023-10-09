@@ -38,6 +38,28 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="akun mb-4">
+                                        <div class="row">
+                                            <div class="col">
+                                                <p>Nama Akun</p>
+                                                <select name="nama_akun[]" class="form-control">
+                                                    @foreach ($nama_akuns as $nama_akun)
+                                                    @if ($nama_akun->detailakun->d_k != '')
+                                                    <option value="{{$nama_akun->nama}}">{{$nama_akun->nama}}</option>
+                                                    @endif
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                            <div class="col">
+                                                <p>Debit</p>
+                                                <input type="number" class="form-control" name="debit[]" placeholder="Debit" value="0">
+                                            </div>
+                                            <div class="col">
+                                                <p>Kredit</p>
+                                                <input type="number" class="form-control" name="kredit[]" placeholder="Kredit" value="0">
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="my-4 ">
                                     <button type="button" id="add-akun" class="btn btn-success">Tambah Akun</button>
@@ -85,6 +107,8 @@
     form.addEventListener('submit', (e) => {
         let messages = [];
         let valid = true;
+        let totalDebit = 0;
+        let totalKredit = 0;
 
         for (let i = 0; i < container.children.length; i++) {
             const debitField = container.children[i].querySelector('input[name="debit[]"]');
@@ -103,11 +127,17 @@
                 valid = false;
                 break; // Keluar dari loop segera setelah ditemukan kesalahan.
             }
+
+            totalDebit += debitValue;
+            totalKredit += kreditValue;
         }
 
         if (!valid) {
             e.preventDefault();
             errorElement.innerText = messages.join(', ');
+        } else if (totalDebit !== totalKredit) {
+            e.preventDefault();
+            errorElement.innerText = 'Total Debit harus sama dengan Total Kredit';
         } else {
             errorElement.innerText = '';
         }
