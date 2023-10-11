@@ -128,6 +128,12 @@
                 break; // Keluar dari loop segera setelah ditemukan kesalahan.
             }
 
+            if (debitValue < 0 || kreditValue < 0) {
+                messages.push('Nilai Debit atau Kredit tidak boleh negatif');
+                valid = false;
+                break; // Keluar dari loop segera setelah ditemukan kesalahan.
+            }
+
             totalDebit += debitValue;
             totalKredit += kreditValue;
         }
