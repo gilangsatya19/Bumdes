@@ -40,7 +40,7 @@ class JurnalUmumController extends Controller
         $jurnal_umum->company_id = auth()->user()->company->id;
         $jurnal_umum->save();
         session(['jurnal_umum_id' => $jurnal_umum->id]);
-        return redirect('/jurnal_umum/create');
+        return redirect('/jurnal_umum/createv2');
 
     }
 
@@ -54,28 +54,63 @@ class JurnalUmumController extends Controller
         return view('bumdes.dashboard.jurnal_umum.createv2',[
             'title' => 'Tambah Data',
             'nama_akuns' => auth()->user()->company->namaakun,
+            'session' => session('jurnal_umum_id'),
         ]);
     }
 
     public function storeTestArray(Request $request)
     {
+        $akuns = auth()->user()->company->namaakun;
+        $saldo_akhir = auth()->user()->company->saldoakhir;
+        
 
         $datas = $request->input('nama_akun');
         $debit = $request->input('debit');
         $kredit = $request->input('kredit');
 
         foreach ($datas as $key => $value) {
-            $data = new DataTest();
+            $data = new DataJurnalUmum();
             $data->nama_akun = $value;
             $data->debit = $debit[$key];
             $data->kredit = $kredit[$key];
-
+            foreach ($akuns as $akun){
+                if($data->nama_akun == $akun->nama){
+                    $data->noref = $akun->detailakun->kode_rekening;
+                    if($akun->detailakun->kode_rekening[0] == '1'){//aset
+                        $saldo_akhir->aset += $debit[$key] - $kredit[$key];
+                        $akun->detailakun->saldo += $debit[$key] - $kredit[$key];
+                    }elseif($akun->detailakun->kode_rekening[0] == '2'){//kewajiban
+                        $saldo_akhir->kewajiban += $kredit[$key] - $debit[$key];
+                        $akun->detailakun->saldo += $kredit[$key] - $debit[$key];
+                    }elseif($akun->detailakun->kode_rekening[0] == '3'){//ekuitas
+                        $saldo_akhir->ekuitas += $kredit[$key] - $debit[$key];
+                        $akun->detailakun->saldo += $kredit[$key] - $debit[$key];
+                    }elseif(($akun->detailakun->kode_rekening[0] == '4') || ($akun->detailakun->kode_rekening[0] == '7' && $akun->detailakun->kode_rekening[1] == '1')){//pendapatan
+                        $saldo_akhir->pendapatan += $kredit[$key] - $debit[$key];
+                        $akun->detailakun->saldo += $kredit[$key] - $debit[$key];
+                    }elseif($akun->detailakun->kode_rekening[0] == '6' || ($akun->detailakun->kode_rekening[0] == '7' && $akun->detailakun->kode_rekening[1] == '2')){//beban
+                        $saldo_akhir->beban += $debit[$key] - $kredit[$key];
+                        $akun->detailakun->saldo += $debit[$key] - $kredit[$key];
+                    }
+                    $saldo_akhir->akun = $saldo_akhir->aset + $saldo_akhir->kewajiban + $saldo_akhir->ekuitas + $saldo_akhir->pendapatan + $saldo_akhir->beban;
+                    $saldo_akhir->neraca_setelahnya = $saldo_akhir->akun + $saldo_akhir->penyesuaian;
+                    $saldo_akhir->laba_rugi = $saldo_akhir->pendapatan + $saldo_akhir->beban;
+                    $saldo_akhir->neraca = $saldo_akhir->aset + $saldo_akhir->kewajiban + $saldo_akhir->ekuitas;
+                    $saldo_akhir->pendapatan_bersih = $saldo_akhir->pendapatan - $saldo_akhir->beban;
+                    
+                    $saldo_akhir->save();
+                    $akun->detailakun->save();
+                }
+            }
+            $data->jurnal_umum_id = session('jurnal_umum_id');
             $data->save();
         }
 
         // return redirect()->route('mahasiswa.index');
         return redirect('/jurnal_umum')->with('msg', 'sukses');
     }
+    
+    
 
 
 
