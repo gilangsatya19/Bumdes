@@ -65,13 +65,14 @@
 
         <table class="account-table" style="margin-top: 1.5rem; border: 1px solid; width: 100%; padding: 0.5rem;">
             <tr class="account-head">
-                <td style="font-weight: 600; font-size: 1.15rem;">Kewajiban, Ekuitas dan Cadangan</td>
+                <td style="font-weight: 600; font-size: 1.15rem;">Liabilitas dan Ekuitas</td>
             </tr>
 
+            @if($akuns_kewajiban_pendek->count() > 0)
             <tr>
-                <td style="padding-left: 1rem; font-weight: 600; padding-top: 0.5rem">Kewajiban</td>
+                <td style="padding-left: 1rem; font-weight: 600; padding-top: 0.5rem">Liabilitas Jangka Pendek</td>
             </tr>
-            @foreach($akuns_kewajiban as $akun)
+            @foreach($akuns_kewajiban_pendek as $akun)
                 <x-pdf.laporan-keuangan-item :nama="$akun->nama"
                                              :kode-rekening="$akun->kode_rekening"
                                              :nominal="formatRupiah($akun->detailakun->saldo)"
@@ -80,11 +81,41 @@
 
             <tr class="account-subtotal">
                 <td style="font-weight: 600; padding-top: 0.5rem; vertical-align: bottom; padding-left: 1rem">Total
-                    Kewajiban
+                    Liabilitas Jangka Pendek
                 </td>
                 <td style="text-align: right; font-weight: 600; vertical-align: bottom">
-                    Rp. {{ formatRupiah($total_kewajiban) }}</td>
+                    Rp. {{ formatRupiah($total_kewajiban_pendek) }}</td>
             </tr>
+            @endif
+
+            @if($akuns_kewajiban_panjang->count() > 0)
+            <tr>
+                <td style="padding-left: 1rem; font-weight: 600; padding-top: 0.5rem">Liabilitas Jangka panjang</td>
+            </tr>
+            @foreach($akuns_kewajiban_panjang as $akun)
+                <x-pdf.laporan-keuangan-item :nama="$akun->nama"
+                                             :kode-rekening="$akun->kode_rekening"
+                                             :nominal="formatRupiah($akun->detailakun->saldo)"
+                                             :is-negative="false"/>
+            @endforeach
+
+            <tr class="account-subtotal">
+                <td style="font-weight: 600; padding-top: 0.5rem; vertical-align: bottom; padding-left: 1rem">Total
+                    Liabilitas Jangka Panjang
+                </td>
+                <td style="text-align: right; font-weight: 600; vertical-align: bottom">
+                    Rp. {{ formatRupiah($total_kewajiban_panjang) }}</td>
+            </tr>
+            @endif
+
+            <tr class="account-subtotal">
+                <td style="font-weight: 600; padding-top: 0.5rem; vertical-align: bottom; padding-left: 1rem">Total
+                    Liabilitas
+                </td>
+                <td style="text-align: right; font-weight: 600; vertical-align: bottom">
+                    Rp. {{ formatRupiah($total_kewajiban_panjang + $total_kewajiban_pendek) }}</td>
+            </tr>
+
 
             <tr>
                 <td style="padding-left: 1rem; font-weight: 600; padding-top: 1rem">Ekuitas</td>
@@ -95,6 +126,10 @@
                                              :nominal="formatRupiah($akun->detailakun->saldo)"
                                              :is-negative="false"/>
             @endforeach
+                <x-pdf.laporan-keuangan-item nama="Cadangan"
+                                            :kode-rekening="3301"
+                                            :nominal="formatRupiah($cadangan)"
+                                            :is-negative="false"/>
             <tr class="account-subtotal">
                 <td style="font-weight: 600; padding-top: 0.5rem; vertical-align: bottom; padding-left: 1rem">Total
                     Ekuitas
@@ -103,16 +138,8 @@
                     Rp. {{ formatRupiah($total_equitas) }}</td>
             </tr>
 
-            <tr>
-                <td style="padding-left: 1rem; font-weight: 600; padding-top: 1rem">Cadangan</td>
-            </tr>
-            <x-pdf.laporan-keuangan-item nama="Cadangan"
-                                         :kode-rekening="3301"
-                                         :nominal="formatRupiah($cadangan)"
-                                         :is-negative="false"/>
-
             <tr class="account-subtotal">
-                <td style="font-weight: 600; padding-top: 1rem; vertical-align: bottom">Total Kewajiban dan Ekuitas
+                <td style="font-weight: 600; padding-top: 1rem; vertical-align: bottom">Total Liabilitas dan Ekuitas
                 </td>
                 <td style="text-align: right; font-weight: 600; vertical-align: bottom">
                     Rp. {{ formatRupiah($total_equitas_kewajiban_cadangan) }}</td>

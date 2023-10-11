@@ -35,13 +35,13 @@ class LaporanLabaRugiController extends Controller
 
         $akuns_pendapatan = NamaAkun::join('detail_akun', 'nama_akuns.id', '=', 'detail_akun.nama_akun_id')
             ->where('nama_akuns.company_id', '=', $company_id)
-            ->whereBetween('detail_akun.kode_rekening', [7000, 7199])
+            ->whereBetween('detail_akun.kode_rekening', [4000, 4999])
             ->where('saldo', '!=', 0)
             ->get();
 
         $akuns_pendapatan_lain = NamaAkun::join('detail_akun', 'nama_akuns.id', '=', 'detail_akun.nama_akun_id')
             ->where('nama_akuns.company_id', '=', $company_id)
-            ->whereBetween('detail_akun.kode_rekening', [4000, 4999])
+            ->whereBetween('detail_akun.kode_rekening', [7000, 7199])
             ->where('saldo', '!=', 0)
             ->get();
 
@@ -64,13 +64,15 @@ class LaporanLabaRugiController extends Controller
             'beban_lain' => array_sum($akuns_beban_lain->pluck('saldo')->toArray()),
         ];
 
-        $pendapatan_bersih = ($total['pendapatan'] - $total['beban']) + ($total['pendapatan_lain'] - $total['beban_lain']);
+        $pendapatan_bersih_operasional = ($total['pendapatan'] - $total['beban']);
+        $pendapatan_bersih = ($pendapatan_bersih_operasional) + ($total['pendapatan_lain'] - $total['beban_lain']);
 
         return [
             'pendapatan' => formatRupiah($total['pendapatan']),
             'pendapatan_lain' => formatRupiah($total['pendapatan_lain']),
             'beban' => formatRupiah($total['beban']),
             'beban_lain' => formatRupiah($total['beban_lain']),
+            'pendapatan_bersih_operasional' => formatRupiah($pendapatan_bersih_operasional),
             'pendapatan_bersih' => formatRupiah($pendapatan_bersih),
             'akuns_pendapatan' => $akuns_pendapatan,
             'akuns_pendapatan_lain' => $akuns_pendapatan_lain,
