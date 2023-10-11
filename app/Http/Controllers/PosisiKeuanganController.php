@@ -14,7 +14,13 @@ class PosisiKeuanganController extends Controller
      */
     public function index()
     {
-        return view('bumdes.dashboard.laporan_keuangan.posisi_keuangan.index',[
+        $akuns = NamaAkun::join('detail_akun', 'nama_akuns.id', '=', 'detail_akun.nama_akun_id')
+            ->where('nama_akuns.company_id', '=', auth()->user()->company->id)
+            ->get();
+
+//        dd($akuns[51]);
+
+        return view('bumdes.dashboard.laporan_keuangan.posisi_keuangan.index', [
             'nama_akuns' => auth()->user()->company->namaakun,
             'saldo_akhir' => auth()->user()->company->saldoakhir,
             'i' => 0,
@@ -34,7 +40,7 @@ class PosisiKeuanganController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -45,7 +51,7 @@ class PosisiKeuanganController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -56,7 +62,7 @@ class PosisiKeuanganController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -67,8 +73,8 @@ class PosisiKeuanganController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -79,7 +85,7 @@ class PosisiKeuanganController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

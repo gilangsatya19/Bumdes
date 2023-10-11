@@ -22,6 +22,8 @@ class BukuBesarController extends Controller
             'jurnals' => auth()->user()->company->jurnalumums,
             'iterasi' => '0',
             'saldo' => '0',
+            'debit_total' =>'0',
+            'kredit_total' =>'0',
         ]);
     }
 

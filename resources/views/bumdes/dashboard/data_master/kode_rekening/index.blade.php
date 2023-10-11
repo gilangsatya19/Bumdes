@@ -71,12 +71,23 @@
                                             <tbody class="fw-semibold text-center">
                                                 @foreach ($akuns as $akun)
                                                     @if ($akun->detailakun->kode_rekening[0] == '1' || $akun->detailakun->kode_rekening[0] == '2' || $akun->detailakun->kode_rekening[0] == '3')
-                                                        <tr>
-                                                            <td>{{$i+=1}}</td>
-                                                            <td>{{$akun->nama}}</td>
-                                                            <td>{{$akun->detailakun->kode_rekening}}</td>
-                                                            <td>{{$akun->detailakun->d_k}}</td>
-                                                        </tr>    
+                                                         @if($i == 51)
+                                                            <tr>
+                                                                <tr>
+                                                                <td>{{$i+=1}}</td>
+                                                                <td>Cadangan</td>
+                                                                <td>{{$akun->detailakun->kode_rekening}}</td>
+                                                                <td>{{$akun->detailakun->d_k}}</td>
+                                                            </tr>
+                                                            </tr>   
+                                                        @else
+                                                            <tr>
+                                                                <td>{{$i+=1}}</td>
+                                                                <td>{{$akun->nama}}</td>
+                                                                <td>{{$akun->detailakun->kode_rekening}}</td>
+                                                                <td>{{$akun->detailakun->d_k}}</td>
+                                                            </tr>    
+                                                        @endif
                                                     @endif
                                                 @endforeach
                                             </tbody>
