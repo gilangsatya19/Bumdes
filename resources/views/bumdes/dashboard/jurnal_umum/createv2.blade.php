@@ -109,12 +109,25 @@
         let valid = true;
         let totalDebit = 0;
         let totalKredit = 0;
+        let namaAkunValues = [];
 
         for (let i = 0; i < container.children.length; i++) {
-            const debitField = container.children[i].querySelector('input[name="debit[]"]');
-            const kreditField = container.children[i].querySelector('input[name="kredit[]"]');
-            const debitValue = parseFloat(debitField.value);
-            const kreditValue = parseFloat(kreditField.value);
+            const namaAkunField = container.children[i].querySelector('select[name="nama_akun[]"]'); // Ambil elemen input nama akun
+            const debitField = container.children[i].querySelector('input[name="debit[]"]'); // Ambil elemen input debit
+            const kreditField = container.children[i].querySelector('input[name="kredit[]"]'); // Ambil elemen input kredit
+            const namaAkunValue = namaAkunField.value; // Ambil nilai dari input nama akun
+            const debitValue = parseFloat(debitField.value); // Ambil nilai dari input debit
+            const kreditValue = parseFloat(kreditField.value); // Ambil nilai dari input kredit
+
+            // Jika nama akun sudah pernah dimasukkan, maka hentikan submit form dan tampilkan pesan kesalahan
+            if (namaAkunValues.includes(namaAkunValue)) {
+                messages.push('Nama Akun tidak boleh sama');
+                valid = false;
+                break; // Keluar dari loop segera setelah ditemukan kesalahan.
+            }
+
+            // Tambahkan nama akun ke dalam array namaAkunValues
+            namaAkunValues.push(namaAkunValue);
 
             if (debitValue === 0 && kreditValue === 0) {
                 messages.push('Masukkan nilai Debit Atau Kredit untuk setiap akun');
@@ -134,18 +147,19 @@
                 break; // Keluar dari loop segera setelah ditemukan kesalahan.
             }
 
-            totalDebit += debitValue;
-            totalKredit += kreditValue;
+            totalDebit += debitValue; // Tambahkan nilai debit ke total debit
+            totalKredit += kreditValue; // Tambahkan nilai kredit ke total kredit
         }
 
+        // Jika terdapat kesalahan, maka hentikan submit form dan tampilkan pesan kesalahan
         if (!valid) {
             e.preventDefault();
             errorElement.innerText = messages.join(', ');
-        } else if (totalDebit !== totalKredit) {
+        } else if (totalDebit !== totalKredit) { // Jika total debit tidak sama dengan total kredit, maka hentikan submit form dan tampilkan pesan kesalahan
             e.preventDefault();
             errorElement.innerText = 'Total Debit harus sama dengan Total Kredit';
         } else {
-            errorElement.innerText = '';
+            errorElement.innerText = ''; // Kosongkan pesan kesalahan
         }
     });
 </script>
