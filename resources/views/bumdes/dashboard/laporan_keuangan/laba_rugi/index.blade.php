@@ -18,7 +18,7 @@
                                   action="{{ route('laporan_keuangan.laba_rugi') }}" method="post">
                                 @csrf
 
-                                <button type="submit" class="btn btn-primary">Download Laporan Keuangan (PDF)</button>
+                                <button type="submit" class="btn btn-primary">Download Laporan Laba Rugi (PDF)</button>
                             </form>
 
                             <!-- /.card-header -->
@@ -110,7 +110,7 @@
                                     </tr>
                                     <tr>
                                         <td><strong></strong></td>
-                                        <td><strong>PENDAPATAN BERSIH</strong></td>
+                                        <td><strong>LABA/RUGI BERSIH</strong></td>
                                         <td></td>
                                         <td><strong>{{formatRupiah($saldo_akhir->pendapatan_bersih)}}</strong></td>
                                         <td>-</td>

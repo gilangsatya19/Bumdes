@@ -53,19 +53,28 @@ class LaporanLabaRugiController extends Controller
 
         $akuns_beban_lain = NamaAkun::join('detail_akun', 'nama_akuns.id', '=', 'detail_akun.nama_akun_id')
             ->where('nama_akuns.company_id', '=', $company_id)
+            ->where('nama_akuns.nama', '!=', 'Beban Pajak')
             ->whereBetween('detail_akun.kode_rekening', [7200, 7299])
             ->where('saldo', '!=', 0)
             ->get();
-
+        
+        $beban_pajak_terkini = NamaAkun::join('detail_akun', 'nama_akuns.id', '=', 'detail_akun.nama_akun_id')
+            ->where('nama_akuns.company_id', '=', $company_id)
+            ->whereBetween('detail_akun.kode_rekening', [7202, 7202])
+            ->where('saldo', '!=', 0)
+            ->get();
+        
         $total = [
             'pendapatan' => array_sum($akuns_pendapatan->pluck('saldo')->toArray()),
             'pendapatan_lain' => array_sum($akuns_pendapatan_lain->pluck('saldo')->toArray()),
             'beban' => array_sum($akuns_beban->pluck('saldo')->toArray()),
             'beban_lain' => array_sum($akuns_beban_lain->pluck('saldo')->toArray()),
+            'beban_pajak_terkini' => array_sum($beban_pajak_terkini->pluck('saldo')->toArray()),
         ];
 
         $pendapatan_bersih_operasional = ($total['pendapatan'] - $total['beban']);
         $pendapatan_bersih = ($pendapatan_bersih_operasional) + ($total['pendapatan_lain'] - $total['beban_lain']);
+        $pendapatan_setelah_pajak = $pendapatan_bersih - $total['beban_pajak_terkini'];
 
         return [
             'pendapatan' => formatRupiah($total['pendapatan']),
@@ -78,6 +87,8 @@ class LaporanLabaRugiController extends Controller
             'akuns_pendapatan_lain' => $akuns_pendapatan_lain,
             'akuns_beban' => $akuns_beban,
             'akuns_beban_lain' => $akuns_beban_lain,
+            'beban_pajak_terkini' => formatRupiah($total['beban_pajak_terkini']),
+            'pendapatan_setelah_pajak' => $pendapatan_setelah_pajak,
         ];
     }
 }

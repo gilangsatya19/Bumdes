@@ -53,7 +53,7 @@ class LaporanPosisiKeuanganController extends Controller
         $akuns_kewajiban_panjang = NamaAkun::join('detail_akun', 'nama_akuns.id', '=', 'detail_akun.nama_akun_id')
             ->where('nama_akuns.company_id', '=', auth()->user()->company->id)
             ->where('saldo', '!=', 0)
-            ->whereBetween('detail_akun.kode_rekening', [2100, 2199])
+            ->whereBetween('detail_akun.kode_rekening', [2111, 2199])
             ->get();
 
         $akuns_equitas = NamaAkun::join('detail_akun', 'nama_akuns.id', '=', 'detail_akun.nama_akun_id')

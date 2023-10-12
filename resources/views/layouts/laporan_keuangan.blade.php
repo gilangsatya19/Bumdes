@@ -23,6 +23,10 @@
         padding: 4rem;
         margin: auto;
     }
+    #headline {
+        display: flex;
+        justify-content: center;
+    }
 
     #headline-company {
         color: #545454;

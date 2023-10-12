@@ -1,10 +1,18 @@
 @extends('layouts.laporan_keuangan')
 
 @section('content')
-    <div id="headline">
-        <h2 id="headline-title">Laporan Posisi Keuangan</h2>
-        <p id="headline-company">PT. Bambang Berkarya</p>
-        <p id="headline-date">01/01/2023 - 31/12/2023</p>
+    <div id="headline" class="d-flex justify-content-center">
+        <h2 id="headline-title" style="text-align: center">{{auth()->user()->company->nama}}</h2>
+    </div>
+    <div id="headline" class="d-flex justify-content-center">
+        <h3 id="headline-title" style="text-align: center">Laporan Posisi Keuangan</h3>
+    </div>
+    
+    <div id="headline" class="d-flex justify-content-center">
+        <p id="headline-date" style="text-align: center">01/10/2023 - 31/10/2023</p>
+    </div>
+    <div id="headline" class="d-flex justify-content-center">
+        <p id="headline-date" style="font-size: 15px; text-align: center">(Dalam Rupiah)</p>
     </div>
 
     <br/>
@@ -12,7 +20,7 @@
     <div>
         <table class="account-table" style="margin-top: 1.5rem; border: 1px solid; width: 100%; padding: 0.5rem;">
             <tr class="account-head">
-                <td style="font-weight: 600; font-size: 1.15rem;">Aset</td>
+                <td style="font-weight: 600; font-size: 1.15rem;">ASET</td>
             </tr>
 
             @if($akuns_aset_lancar->count() > 0)
@@ -27,11 +35,11 @@
                 @endforeach
 
                 <tr class="account-subtotal">
-                    <td style="font-weight: 600; padding-top: 0.5rem; vertical-align: bottom; padding-left: 1rem">Total
+                    <td style="font-weight: 600; padding-top: 0.5rem; vertical-align: bottom; padding-left: 1rem; font-size: 1.10rem">Total
                         Aset Lancar
                     </td>
-                    <td style="text-align: right; font-weight: 600; vertical-align: bottom">
-                        Rp. {{ formatRupiah($total_aset_lancar) }}</td>
+                    <td style="text-align: right; font-weight: 600; vertical-align: bottom; font-size: 1.10rem">
+                        {{ formatRupiah($total_aset_lancar) }}</td>
                 </tr>
             @endif
 
@@ -48,26 +56,28 @@
                 @endforeach
 
                 <tr class="account-subtotal">
-                    <td style="font-weight: 600; padding-top: 0.5rem; vertical-align: bottom; padding-left: 1rem">Total
+                    <td style="font-weight: 600; padding-top: 0.5rem; vertical-align: bottom; padding-left: 1rem; font-size: 1.10rem">Total
                         Aset Tetap
                     </td>
-                    <td style="text-align: right; font-weight: 600; vertical-align: bottom">
-                        Rp. {{ formatRupiah($total_aset_tetap) }}</td>
+                    <td style="text-align: right; font-weight: 600; vertical-align: bottom; font-size: 1.10rem">
+                        {{ formatRupiah($total_aset_tetap) }}</td>
                 </tr>
             @endif
 
             <tr class="account-subtotal">
-                <td style="font-weight: 600; padding-top: 1rem; vertical-align: bottom">Total Aset</td>
-                <td style="text-align: right; font-weight: 600; vertical-align: bottom">
-                    Rp. {{ formatRupiah($total_aset) }}</td>
+                <td style="font-weight: 600; padding-top: 1rem; vertical-align: bottom; font-size: 1.10rem">TOTAL ASET</td>
+                <td style="text-align: right; font-weight: 600; vertical-align: bottom; font-size: 1.10rem">
+                    {{ formatRupiah($total_aset) }}</td>
             </tr>
         </table>
 
         <table class="account-table" style="margin-top: 1.5rem; border: 1px solid; width: 100%; padding: 0.5rem;">
             <tr class="account-head">
-                <td style="font-weight: 600; font-size: 1.15rem;">Liabilitas dan Ekuitas</td>
+                <td style="font-weight: 600; font-size: 1.15rem;">LIABILITAS DAN EKUITAS</td>
             </tr>
-
+            <tr>
+                <td style="padding-left: 1rem; font-weight: 600;font-size: 20px; padding-top: 0.5rem">Liabilitas</td>
+            </tr>
             @if($akuns_kewajiban_pendek->count() > 0)
             <tr>
                 <td style="padding-left: 1rem; font-weight: 600; padding-top: 0.5rem">Liabilitas Jangka Pendek</td>
@@ -80,11 +90,11 @@
             @endforeach
 
             <tr class="account-subtotal">
-                <td style="font-weight: 600; padding-top: 0.5rem; vertical-align: bottom; padding-left: 1rem">Total
+                <td style="font-weight: 600; padding-top: 0.5rem; vertical-align: bottom; padding-left: 1rem; font-size: 1.10rem">Total
                     Liabilitas Jangka Pendek
                 </td>
-                <td style="text-align: right; font-weight: 600; vertical-align: bottom">
-                    Rp. {{ formatRupiah($total_kewajiban_pendek) }}</td>
+                <td style="text-align: right; font-weight: 600; vertical-align: bottom; font-size: 1.10rem">
+                    {{ formatRupiah($total_kewajiban_pendek) }}</td>
             </tr>
             @endif
 
@@ -100,20 +110,20 @@
             @endforeach
 
             <tr class="account-subtotal">
-                <td style="font-weight: 600; padding-top: 0.5rem; vertical-align: bottom; padding-left: 1rem">Total
+                <td style="font-weight: 600; padding-top: 0.5rem; vertical-align: bottom; padding-left: 1rem; font-size: 1.10rem">Total
                     Liabilitas Jangka Panjang
                 </td>
-                <td style="text-align: right; font-weight: 600; vertical-align: bottom">
-                    Rp. {{ formatRupiah($total_kewajiban_panjang) }}</td>
+                <td style="text-align: right; font-weight: 600; vertical-align: bottom; font-size: 1.10rem">
+                    {{ formatRupiah($total_kewajiban_panjang) }}</td>
             </tr>
             @endif
 
             <tr class="account-subtotal">
-                <td style="font-weight: 600; padding-top: 0.5rem; vertical-align: bottom; padding-left: 1rem">Total
+                <td style="font-weight: 600; padding-top: 0.5rem; vertical-align: bottom; padding-left: 1rem; font-size: 1.10rem">Total
                     Liabilitas
                 </td>
-                <td style="text-align: right; font-weight: 600; vertical-align: bottom">
-                    Rp. {{ formatRupiah($total_kewajiban_panjang + $total_kewajiban_pendek) }}</td>
+                <td style="text-align: right; font-weight: 600; vertical-align: bottom; font-size: 1.10rem">
+                    {{ formatRupiah($total_kewajiban_panjang + $total_kewajiban_pendek) }}</td>
             </tr>
 
 
@@ -131,36 +141,22 @@
                                             :nominal="formatRupiah($cadangan)"
                                             :is-negative="false"/>
             <tr class="account-subtotal">
-                <td style="font-weight: 600; padding-top: 0.5rem; vertical-align: bottom; padding-left: 1rem">Total
+                <td style="font-weight: 600; padding-top: 0.5rem; vertical-align: bottom; padding-left: 1rem; font-size: 1.10rem">Total
                     Ekuitas
                 </td>
-                <td style="text-align: right; font-weight: 600; vertical-align: bottom">
-                    Rp. {{ formatRupiah($total_equitas) }}</td>
+                <td style="text-align: right; font-weight: 600; vertical-align: bottom; font-size: 1.10rem">
+                    {{ formatRupiah($total_equitas + $cadangan) }}</td>
             </tr>
 
             <tr class="account-subtotal">
-                <td style="font-weight: 600; padding-top: 1rem; vertical-align: bottom">Total Liabilitas dan Ekuitas
+                <td style="font-weight: 600; padding-top: 1rem; vertical-align: bottom; font-size: 1.10rem">TOTAL LIABILITAS DAN EKUITAS
                 </td>
-                <td style="text-align: right; font-weight: 600; vertical-align: bottom">
-                    Rp. {{ formatRupiah($total_equitas_kewajiban_cadangan) }}</td>
+                <td style="text-align: right; font-weight: 600; vertical-align: bottom; font-size: 1.10rem">
+                    {{ formatRupiah($total_equitas_kewajiban_cadangan) }}</td>
             </tr>
         </table>
 
-        <div class="page-break"></div>
 
-        <table class="account-table" style="margin-top: 1.5rem; border: 1px solid; width: 100%; padding: 0.5rem;">
-            <tr class="account-head">
-                <td style="font-weight: 600; font-size: 1.15rem;">Rangkuman</td>
-            </tr>
-
-            <x-pdf.laporan-keuangan-item nama="Total Aset"
-                                         :nominal="formatRupiah($total_aset)"
-                                         :is-negative="false"/>
-
-            <x-pdf.laporan-keuangan-item nama="Total Kewajiban, Ekuitas dan Cadangan"
-                                         :nominal="formatRupiah($total_equitas_kewajiban_cadangan)"
-                                         :is-negative="false"/>
-        </table>
 
     </div>
 

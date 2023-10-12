@@ -47,7 +47,7 @@
                         <p>Jurnal Umum</p>
                     </a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a href="" class="nav-link">
                         <p>
                             Jurnal Khusus
@@ -80,7 +80,7 @@
                             </a>
                         </li>
                     </ul>
-                </li>
+                </li> -->
                 <li class="nav-item">
                     <a href="/buku_besar" class="nav-link">
                         <p>Buku Besar</p>
@@ -119,7 +119,7 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a href="" class="nav-link">
                         <p>
                             Invoice
@@ -158,7 +158,7 @@
                             </a>
                         </li>
                     </ul>
-                </li>
+                </li> -->
                 <li class="nav-item">
                     <a href="" class="nav-link">
                         <p>
@@ -167,7 +167,7 @@
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a href="/barang" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Barang</p>
@@ -178,7 +178,7 @@
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Vendor</p>
                             </a>
-                        </li>
+                        </li> -->
                         <li class="nav-item">
                             <a href="/kode_rekening" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>

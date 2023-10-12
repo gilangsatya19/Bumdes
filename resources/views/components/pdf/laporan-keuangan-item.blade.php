@@ -9,7 +9,7 @@
             @if ($isNegative)
                 <span>-</span>
             @endif
-            Rp. {{ $nominal }}
+            {{ $nominal }}
         </span>
     </td>
 </tr>

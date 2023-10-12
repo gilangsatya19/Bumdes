@@ -26,7 +26,6 @@ use App\Http\Controllers\VendorController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\KodeRekeningController;
 use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\DataTestController;
 
 use App\Models\PengeluaranKas;
 use Illuminate\Support\Facades\Route;
