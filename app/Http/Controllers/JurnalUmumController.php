@@ -423,14 +423,25 @@ class JurnalUmumController extends Controller
                 if ($akun->nama == $data->nama_akun) {
                     if($akun->detailakun->kode_rekening[0] == '1'){//aset
                         $saldo_akhir->aset -= $data->debit - $data->kredit;
+                        if($akun->detailakun->d_k == 'Debit'){
+                            $saldo_akhir->aset -= $data->debit - $data->kredit;
+                            $akun->detailakun->saldo -= $data->debit - $data->kredit;  
+                        }else{
+                            $saldo_akhir->aset -= $data->kredit - $data->debit;
+                            $akun->detailakun->saldo -= $data->kredit - $data->debit;
+                        }
                     }elseif($akun->detailakun->kode_rekening[0] == '2'){//kewajiban
                         $saldo_akhir->kewajiban -= $data->kredit - $data->debit;
+                        $akun->detailakun->saldo -= $data->kredit - $data->debit;
                     }elseif($akun->detailakun->kode_rekening[0] == '3'){//ekuitas
                         $saldo_akhir->ekuitas -= $data->kredit - $data->debit;
+                        $akun->detailakun->saldo -= $data->kredit - $data->debit;
                     }elseif(($akun->detailakun->kode_rekening[0] == '4') || ($akun->detailakun->kode_rekening[0] == '7' && $akun->detailakun->kode_rekening[1] == '1')){//pendapatan
                         $saldo_akhir->pendapatan -= $data->kredit - $data->debit;
+                        $akun->detailakun->saldo -= $data->kredit - $data->debit;
                     }elseif($akun->detailakun->kode_rekening[0] == '6' || ($akun->detailakun->kode_rekening[0] == '7' && $akun->detailakun->kode_rekening[1] == '2')){//beban
                         $saldo_akhir->beban -= $data->debit - $data->kredit;
+                        $akun->detailakun->saldo -= $data->debit - $data->kredit;
                     }
                     $saldo_akhir->akun = $saldo_akhir->aset + $saldo_akhir->kewajiban + $saldo_akhir->ekuitas + $saldo_akhir->pendapatan + $saldo_akhir->beban;
                     $saldo_akhir->neraca_setelahnya = $saldo_akhir->akun + $saldo_akhir->penyesuaian;
@@ -438,7 +449,6 @@ class JurnalUmumController extends Controller
                     $saldo_akhir->neraca = $saldo_akhir->aset + $saldo_akhir->kewajiban + $saldo_akhir->ekuitas;
                     $saldo_akhir->pendapatan_bersih = $saldo_akhir->pendapatan - $saldo_akhir->beban;
                     $saldo_akhir->save();
-                    $akun->detailakun->saldo -= $data->debit - $data->kredit;
                     $akun->detailakun->save();
                 }
             }

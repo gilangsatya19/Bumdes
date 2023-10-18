@@ -117,7 +117,7 @@
 
         <table style="margin-top: 1.5rem; border: 1px solid; width: 100%; padding: 0.5rem; color: red">
             <tr class="account-subtotal">
-                <td style="font-weight: 600; padding-top: 1rem; vertical-align: bottom; font-size: 1.10rem">Beban Pajak Terkini</td>
+                <td style="font-weight: 600; padding-top: 1rem; vertical-align: bottom; font-size: 1.10rem">Beban Pajak Kini</td>
                 <td style="text-align: right; font-weight: 600; vertical-align: bottom; font-size: 1.10rem">
                     {{ $beban_pajak_terkini }}</td>
             </tr>

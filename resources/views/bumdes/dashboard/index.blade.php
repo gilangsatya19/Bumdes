@@ -14,31 +14,55 @@
                             </div>
                         </div>
                   <!-- /.card -->
-
-                    <div class="d-flex justify-content-center border-0">
-                                <div class="card mx-4 my-5 border-0" style="width: 18rem;background-color: #D9D9D9;">
-                                    <div class="card-body rounded-4" style="background-color: #38C976">
-                                        <p class="card-text"><small class=" text-white">{{{$jurnals->last()->tanggal->format('d F Y')}}}</small></p>
-                                        <h5 class="card-title fs-4 text-white">Total Pemasukan</h5>
-                                        <p class="card-text fs-5 fw-semibold text-white">{{formatRupiah($saldo_akhir->pendapatan)}}</p>
+                    @if(isset($jurnals)?$jurnals->first():'')
+                        <div class="d-flex justify-content-center border-0">
+                                    <div class="card mx-4 my-5 border-0" style="width: 18rem;background-color: #D9D9D9;">
+                                        <div class="card-body rounded-4" style="background-color: #38C976">
+                                            <p class="card-text"><small class=" text-white">{{{$jurnals->last()->tanggal->format('d F Y')}}}</small></p>
+                                            <h5 class="card-title fs-4 text-white">Total Pemasukan</h5>
+                                            <p class="card-text fs-5 fw-semibold text-white">{{formatRupiah($saldo_akhir->pendapatan)}}</p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="card mx-4 my-5 border-0" style="width: 18rem;background-color: #D9D9D9;">
-                                    <div class="card-body rounded-4" style="background-color: #FE5050">
-                                        <p class="card-text"><small class=" text-white">{{$jurnals->last()->tanggal->format('d F Y')}}</small></p>
-                                        <h5 class="card-title fs-4 text-white">Total Pengeluaran</h5>
-                                        <p class="card-text fs-5 fw-semibold text-white">{{formatRupiah($saldo_akhir->beban)}}</p>
+                                    <div class="card mx-4 my-5 border-0" style="width: 18rem;background-color: #D9D9D9;">
+                                        <div class="card-body rounded-4" style="background-color: #FE5050">
+                                            <p class="card-text"><small class=" text-white">{{$jurnals->last()->tanggal->format('d F Y')}}</small></p>
+                                            <h5 class="card-title fs-4 text-white">Total Pengeluaran</h5>
+                                            <p class="card-text fs-5 fw-semibold text-white">{{formatRupiah($saldo_akhir->beban)}}</p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="card mx-4 my-5 border-0" style="width: 18rem;background-color: #D9D9D9;">
-                                    <div class="card-body rounded-4" style="background-color: #3EAEFF">
-                                        <p class="card-text"><small class=" text-white">{{$jurnals->last()->tanggal->format('d F Y')}}</small></p>
-                                        <h5 class="card-title fs-4 text-white">Laba Bersih</h5>
-                                        <p class="card-text fs-5 fw-semibold text-white">{{formatRupiah($saldo_akhir->pendapatan - $saldo_akhir->beban)}}</p>
+                                    <div class="card mx-4 my-5 border-0" style="width: 18rem;background-color: #D9D9D9;">
+                                        <div class="card-body rounded-4" style="background-color: #3EAEFF">
+                                            <p class="card-text"><small class=" text-white">{{$jurnals->last()->tanggal->format('d F Y')}}</small></p>
+                                            <h5 class="card-title fs-4 text-white">Laba Bersih</h5>
+                                            <p class="card-text fs-5 fw-semibold text-white">{{formatRupiah($saldo_akhir->pendapatan - $saldo_akhir->beban)}}</p>
+                                        </div>
                                     </div>
-                                </div>
-
-                    </div>
+                        </div>
+                    @else
+                        <div class="d-flex justify-content-center border-0">
+                                    <div class="card mx-4 my-5 border-0" style="width: 18rem;background-color: #D9D9D9;">
+                                        <div class="card-body rounded-4" style="background-color: #38C976">
+                                            <p class="card-text"><small class=" text-white">-</small></p>
+                                            <h5 class="card-title fs-4 text-white">Total Pemasukan</h5>
+                                            <p class="card-text fs-5 fw-semibold text-white">-</p>
+                                        </div>
+                                    </div>
+                                    <div class="card mx-4 my-5 border-0" style="width: 18rem;background-color: #D9D9D9;">
+                                        <div class="card-body rounded-4" style="background-color: #FE5050">
+                                            <p class="card-text"><small class=" text-white">-</small></p>
+                                            <h5 class="card-title fs-4 text-white">Total Pengeluaran</h5>
+                                            <p class="card-text fs-5 fw-semibold text-white">-</p>
+                                        </div>
+                                    </div>
+                                    <div class="card mx-4 my-5 border-0" style="width: 18rem;background-color: #D9D9D9;">
+                                        <div class="card-body rounded-4" style="background-color: #3EAEFF">
+                                            <p class="card-text"><small class=" text-white">-</small></p>
+                                            <h5 class="card-title fs-4 text-white">Laba Bersih</h5>
+                                            <p class="card-text fs-5 fw-semibold text-white">-</p>
+                                        </div>
+                                    </div>
+                        </div>
+                    @endif
                 </div>
                 <!-- /.col -->
               </div>

@@ -126,28 +126,28 @@
                                                         @endif
 
                                                         <!-- Penyesuaian -->
-                                                        @if($nama_akun->detailakun->penyesuaian < 0)
-                                                            <td>{{formatRupiah($nama_akun->detailakun->penyesuaian * -1)}}</td> <!-- penyesuaian debit -->
+                                                        @if($nama_akun->detailakun->penyesuaian > 0)
+                                                            <td>{{formatRupiah($nama_akun->detailakun->penyesuaian)}}</td> <!-- penyesuaian debit -->
                                                             <td>-</td> 
-                                                            <p hidden>{{$penyesuaian_debit += ($nama_akun->detailakun->penyesuaian * -1)}}</p>
-                                                        @elseif($nama_akun->detailakun->penyesuaian > 0)
+                                                            <p hidden>{{$penyesuaian_debit += ($nama_akun->detailakun->penyesuaian)}}</p>
+                                                        @elseif($nama_akun->detailakun->penyesuaian < 0)
                                                             <td>-</td> 
-                                                            <td>{{formatRupiah($nama_akun->detailakun->penyesuaian)}}</td> <!-- penyesuaian kredit -->
-                                                            <p hidden>{{$penyesuaian_kredit += ($nama_akun->detailakun->penyesuaian)}}</p>
+                                                            <td>{{formatRupiah($nama_akun->detailakun->penyesuaian * -1)}}</td> <!-- penyesuaian kredit -->
+                                                            <p hidden>{{$penyesuaian_kredit += ($nama_akun->detailakun->penyesuaian * -1)}}</p>
                                                         @else
                                                             <td>-</td>
                                                             <td>-</td>
                                                         @endif
 
                                                         <!-- Neraca Setelahnya -->
-                                                        @if($nama_akun->detailakun->saldo + $nama_akun->detailakun->penyesuaian < 0)
-                                                            <td>{{formatRupiah(($nama_akun->detailakun->saldo + $nama_akun->detailakun->penyesuaian) * -1)}}</td> <!-- neraca setelahnya debit -->
+                                                        @if($nama_akun->detailakun->saldo + ($nama_akun->detailakun->penyesuaian * -1) < 0)
+                                                            <td>{{formatRupiah(($nama_akun->detailakun->saldo + ($nama_akun->detailakun->penyesuaian * -1)) * -1)}}</td> <!-- neraca setelahnya debit -->
                                                             <td>-</td> 
-                                                            <p hidden>{{$neraca_setelahnya_debit += (($nama_akun->detailakun->penyesuaian + $nama_akun->detailakun->saldo) * -1)}}</p>
-                                                        @elseif($nama_akun->detailakun->saldo + $nama_akun->detailakun->penyesuaian > 0)
+                                                            <p hidden>{{$neraca_setelahnya_debit += ((($nama_akun->detailakun->penyesuaian * -1) + $nama_akun->detailakun->saldo) * -1)}}</p>
+                                                        @elseif($nama_akun->detailakun->saldo + ($nama_akun->detailakun->penyesuaian * -1) > 0)
                                                             <td>-</td> 
-                                                            <td>{{formatRupiah(($nama_akun->detailakun->saldo + $nama_akun->detailakun->penyesuaian) )}}</td> <!-- neraca setelahnya kredit -->
-                                                            <p hidden>{{$neraca_setelahnya_kredit += (($nama_akun->detailakun->penyesuaian + $nama_akun->detailakun->saldo))}}</p>
+                                                            <td>{{formatRupiah(($nama_akun->detailakun->saldo + ($nama_akun->detailakun->penyesuaian * -1)) )}}</td> <!-- neraca setelahnya kredit -->
+                                                            <p hidden>{{$neraca_setelahnya_kredit += ((($nama_akun->detailakun->penyesuaian * -1) + $nama_akun->detailakun->saldo))}}</p>
                                                         @else
                                                             <td>-</td>
                                                             <td>-</td>
@@ -158,14 +158,14 @@
                                                         <td>-</td>
 
                                                         <!-- Neraca -->
-                                                        @if($nama_akun->detailakun->saldo + $nama_akun->detailakun->penyesuaian <  0)
-                                                            <td>{{formatRupiah(($nama_akun->detailakun->saldo + $nama_akun->detailakun->penyesuaian) * -1)}}</td> <!-- neraca debit -->
+                                                        @if($nama_akun->detailakun->saldo + ($nama_akun->detailakun->penyesuaian * -1) <  0)
+                                                            <td>{{formatRupiah(($nama_akun->detailakun->saldo + ($nama_akun->detailakun->penyesuaian * -1)) * -1)}}</td> <!-- neraca debit -->
                                                             <td>-</td> 
-                                                            <p hidden>{{$neraca_debit += (($nama_akun->detailakun->penyesuaian + $nama_akun->detailakun->saldo) * -1)}}</p>
-                                                        @elseif($nama_akun->detailakun->saldo + $nama_akun->detailakun->penyesuaian >  0)
+                                                            <p hidden>{{$neraca_debit += ((($nama_akun->detailakun->penyesuaian * -1) + $nama_akun->detailakun->saldo) * -1)}}</p>
+                                                        @elseif($nama_akun->detailakun->saldo + ($nama_akun->detailakun->penyesuaian * -1) >  0)
                                                             <td>-</td> 
-                                                            <td>{{formatRupiah(($nama_akun->detailakun->saldo + $nama_akun->detailakun->penyesuaian))}}</td> <!-- neraca kredit -->
-                                                            <p hidden>{{$neraca_kredit += $nama_akun->detailakun->penyesuaian + $nama_akun->detailakun->saldo}}</p>
+                                                            <td>{{formatRupiah(($nama_akun->detailakun->saldo + ($nama_akun->detailakun->penyesuaian * -1)))}}</td> <!-- neraca kredit -->
+                                                            <p hidden>{{$neraca_kredit += ($nama_akun->detailakun->penyesuaian * -1) + $nama_akun->detailakun->saldo}}</p>
                                                         @else
                                                             <td>-</td>
                                                             <td>-</td>
@@ -259,42 +259,42 @@
                                                         @endif
 
                                                         <!-- Penyesuaian -->
-                                                        @if($nama_akun->detailakun->penyesuaian < 0)
-                                                            <td>{{formatRupiah($nama_akun->detailakun->penyesuaian * -1)}}</td> <!-- penyesuaian debit -->
+                                                        @if($nama_akun->detailakun->penyesuaian > 0)
+                                                            <td>{{formatRupiah($nama_akun->detailakun->penyesuaian)}}</td> <!-- penyesuaian debit -->
                                                             <td>-</td> 
-                                                            <p hidden>{{$penyesuaian_debit += ($nama_akun->detailakun->penyesuaian * -1)}}</p>
-                                                        @elseif($nama_akun->detailakun->penyesuaian > 0)
+                                                            <p hidden>{{$penyesuaian_debit += ($nama_akun->detailakun->penyesuaian)}}</p>
+                                                        @elseif($nama_akun->detailakun->penyesuaian < 0)
                                                             <td>-</td> 
-                                                            <td>{{formatRupiah($nama_akun->detailakun->penyesuaian)}}</td> <!-- penyesuaian kredit -->
-                                                            <p hidden>{{$penyesuaian_kredit += ($nama_akun->detailakun->penyesuaian)}}</p>
+                                                            <td>{{formatRupiah($nama_akun->detailakun->penyesuaian * -1)}}</td> <!-- penyesuaian kredit -->
+                                                            <p hidden>{{$penyesuaian_kredit += ($nama_akun->detailakun->penyesuaian * -1)}}</p>
                                                         @else
                                                             <td>-</td>
                                                             <td>-</td>
                                                         @endif
 
                                                         <!-- Neraca Setelahnya -->
-                                                        @if($nama_akun->detailakun->saldo + $nama_akun->detailakun->penyesuaian < 0)
-                                                            <td>{{formatRupiah(($nama_akun->detailakun->saldo + $nama_akun->detailakun->penyesuaian) * -1)}}</td> <!-- neraca setelahnya debit -->
+                                                        @if($nama_akun->detailakun->saldo + ($nama_akun->detailakun->penyesuaian  * -1) < 0)
+                                                            <td>{{formatRupiah(($nama_akun->detailakun->saldo + ($nama_akun->detailakun->penyesuaian  * -1)) * -1)}}</td> <!-- neraca setelahnya debit -->
                                                             <td>-</td> 
-                                                            <p hidden>{{$neraca_setelahnya_debit += (($nama_akun->detailakun->penyesuaian + $nama_akun->detailakun->saldo) * -1)}}</p>
-                                                        @elseif($nama_akun->detailakun->saldo + $nama_akun->detailakun->penyesuaian > 0)
+                                                            <p hidden>{{$neraca_setelahnya_debit += ((($nama_akun->detailakun->penyesuaian  * -1) + $nama_akun->detailakun->saldo) * -1)}}</p>
+                                                        @elseif($nama_akun->detailakun->saldo + ($nama_akun->detailakun->penyesuaian  * -1) > 0)
                                                             <td>-</td> 
-                                                            <td>{{formatRupiah(($nama_akun->detailakun->saldo + $nama_akun->detailakun->penyesuaian) )}}</td> <!-- neraca setelahnya kredit -->
-                                                            <p hidden>{{$neraca_setelahnya_kredit += (($nama_akun->detailakun->penyesuaian + $nama_akun->detailakun->saldo))}}</p>
+                                                            <td>{{formatRupiah(($nama_akun->detailakun->saldo + ($nama_akun->detailakun->penyesuaian  * -1)) )}}</td> <!-- neraca setelahnya kredit -->
+                                                            <p hidden>{{$neraca_setelahnya_kredit += ((($nama_akun->detailakun->penyesuaian  * -1) + $nama_akun->detailakun->saldo))}}</p>
                                                         @else
                                                             <td>-</td>
                                                             <td>-</td>
                                                         @endif
 
                                                         <!-- Laba Rugi -->
-                                                        @if ($nama_akun->detailakun->saldo + $nama_akun->detailakun->penyesuaian < 0)
-                                                            <td>{{formatRupiah(($nama_akun->detailakun->saldo + $nama_akun->detailakun->penyesuaian) * -1)}}</td> <!-- Laba rugi debit -->
+                                                        @if ($nama_akun->detailakun->saldo + ($nama_akun->detailakun->penyesuaian  * -1) < 0)
+                                                            <td>{{formatRupiah(($nama_akun->detailakun->saldo + ($nama_akun->detailakun->penyesuaian  * -1)) * -1)}}</td> <!-- Laba rugi debit -->
                                                             <td>-</td> 
-                                                            <p hidden>{{$laba_rugi_debit += (($nama_akun->detailakun->penyesuaian + $nama_akun->detailakun->saldo) * -1)}}</p>
-                                                        @elseif($nama_akun->detailakun->saldo + $nama_akun->detailakun->penyesuaian > 0)
+                                                            <p hidden>{{$laba_rugi_debit += ((($nama_akun->detailakun->penyesuaian  * -1) + $nama_akun->detailakun->saldo) * -1)}}</p>
+                                                        @elseif($nama_akun->detailakun->saldo + ($nama_akun->detailakun->penyesuaian  * -1) > 0)
                                                             <td>-</td> 
-                                                            <td>{{formatRupiah(($nama_akun->detailakun->saldo + $nama_akun->detailakun->penyesuaian))}}</td> <!-- Laba rugi kredit -->
-                                                            <p hidden>{{$laba_rugi_kredit += ($nama_akun->detailakun->penyesuaian + $nama_akun->detailakun->saldo)}}</p>
+                                                            <td>{{formatRupiah(($nama_akun->detailakun->saldo + ($nama_akun->detailakun->penyesuaian  * -1)))}}</td> <!-- Laba rugi kredit -->
+                                                            <p hidden>{{$laba_rugi_kredit += (($nama_akun->detailakun->penyesuaian  * -1) + $nama_akun->detailakun->saldo)}}</p>
                                                         @else
                                                             <td>-</td>
                                                             <td>-</td>
