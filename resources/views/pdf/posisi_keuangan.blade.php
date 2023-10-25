@@ -7,7 +7,7 @@
     <div id="headline" class="d-flex justify-content-center">
         <h3 id="headline-title" style="text-align: center">Laporan Posisi Keuangan</h3>
     </div>
-    
+
     <div id="headline" class="d-flex justify-content-center">
         <p id="headline-date" style="text-align: center">01/10/2023 - 31/10/2023</p>
     </div>
@@ -49,10 +49,17 @@
                 </tr>
 
                 @foreach($akuns_aset_tetap as $akun)
-                    <x-pdf.laporan-keuangan-item :nama="$akun->nama"
-                                                 :kode-rekening="$akun->kode_rekening"
-                                                 :nominal="formatRupiah($akun->detailakun->saldo)"
-                                                 :is-negative="false"/>
+                    @if($akun->kode_rekening != 1303 && $akun->kode_rekening != 1305 && $akun->kode_rekening != 1307)
+                        <x-pdf.laporan-keuangan-item :nama="$akun->nama"
+                                                     :kode-rekening="$akun->kode_rekening"
+                                                     :nominal="formatRupiah($akun->detailakun->saldo)"
+                                                     :is-negative="false"/>
+                    @else
+                        <x-pdf.laporan-keuangan-item :nama="$akun->nama"
+                                                     :kode-rekening="$akun->kode_rekening"
+                                                     :nominal="formatRupiah($akun->detailakun->saldo*-1)"
+                                                     :is-negative="false"/>
+                    @endif
                 @endforeach
 
                 <tr class="account-subtotal">

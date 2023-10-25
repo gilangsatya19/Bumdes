@@ -12,7 +12,7 @@ class LaporanPosisiKeuanganController extends Controller
     {
         $data = $this->get_data_laporan_posisi_keuangan();
 
-        $pdf = PDF::loadView('pdf.posisi_keuangan', $data);
+        $pdf = \Barryvdh\DomPDF\Facade\Pdf::loadView('pdf.posisi_keuangan', $data);
 
         return $pdf->download('laporan-posisi-keuangan.pdf');
     }
@@ -70,7 +70,18 @@ class LaporanPosisiKeuanganController extends Controller
         $total_kewajiban_panjang = array_sum($akuns_kewajiban_panjang->pluck('saldo')->toArray());
         $total_aset_lancar = array_sum($akuns_aset_lancar->pluck('saldo')->toArray());
         $total_investasi = array_sum($akuns_investasi->pluck('saldo')->toArray());
-        $total_aset_tetap = array_sum($akuns_aset_tetap->pluck('saldo')->toArray());
+
+
+        $total_aset_tetap = 0;
+        foreach ($akuns_aset_tetap as $akun) {
+            if ($akun->kode_rekening != 1303 && $akun->kode_rekening != 1305 && $akun->kode_rekening != 1307){
+                $total_aset_tetap += $akun->saldo;
+            }else {
+                $total_aset_tetap -= $akun->saldo;
+            }
+        }
+
+
         $total_aset = $total_aset_lancar + $total_investasi + $total_aset_tetap;
 
         $data = [
@@ -91,7 +102,7 @@ class LaporanPosisiKeuanganController extends Controller
             'total_equitas_kewajiban_cadangan' => $total_equitas + $total_kewajiban_pendek + $total_kewajiban_panjang + $cadangan
         ];
 
-//        dd($data);
+        //        dd($data);
 
         return $data;
     }
