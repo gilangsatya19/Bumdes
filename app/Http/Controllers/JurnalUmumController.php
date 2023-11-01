@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\BukuBesar;
+use App\Models\Company;
 use App\Models\DataJurnalUmum;
 use App\Models\NamaAkun;
 use Carbon\Carbon;
@@ -18,8 +19,10 @@ class JurnalUmumController extends Controller
      */
     public function index()
     {
+        $jurnals = auth()->user()->company->jurnalumums()->orderBy("tanggal","asc")->paginate(10);
+
         return view('bumdes.dashboard.jurnal_umum.index',[
-            'jurnals' => auth()->user()->company->jurnalumums,
+            'jurnals' => $jurnals,
         ]);
     }
     public function downloadImage($id)
@@ -62,7 +65,7 @@ class JurnalUmumController extends Controller
     {
         $akuns = auth()->user()->company->namaakun;
         $saldo_akhir = auth()->user()->company->saldoakhir;
-        
+
 
         $datas = $request->input('nama_akun');
         $debit = $request->input('debit');
@@ -102,7 +105,7 @@ class JurnalUmumController extends Controller
                     $saldo_akhir->laba_rugi = $saldo_akhir->pendapatan + $saldo_akhir->beban;
                     $saldo_akhir->neraca = $saldo_akhir->aset + $saldo_akhir->kewajiban + $saldo_akhir->ekuitas;
                     $saldo_akhir->pendapatan_bersih = $saldo_akhir->pendapatan - $saldo_akhir->beban;
-                    
+
                     $saldo_akhir->save();
                     $akun->detailakun->save();
                 }
@@ -114,7 +117,7 @@ class JurnalUmumController extends Controller
         // return redirect()->route('mahasiswa.index');
         return redirect('/jurnal_umum')->with('msg', 'sukses');
     }
-    
+
 //     private function get_data_jurnal_umum()
 //     {
 
@@ -186,7 +189,7 @@ class JurnalUmumController extends Controller
 
 //         return $data;
 //     }
-    
+
 
 
 
@@ -199,8 +202,8 @@ class JurnalUmumController extends Controller
             'i' => 0,
             'jurnal' => JurnalUmum::find(session('jurnal_umum_id')),
             'nama_akuns' => auth()->user()->company->namaakun,
-            
-            
+
+
         ]);
     }
 
@@ -216,14 +219,14 @@ class JurnalUmumController extends Controller
         $data = new DataJurnalUmum;
         $data->nama_akun = $request->nama_akun;
         $saldo_akhir = auth()->user()->company->saldoakhir;
-        
+
         foreach ($akuns as $akun){
             if($data->nama_akun == $akun->nama){
                 $data->noref = $akun->detailakun->kode_rekening;
                 if($akun->detailakun->kode_rekening[0] == '1'){//aset
                     if($akun->detailakun->d_k == 'Debit'){
                         $saldo_akhir->aset += $request->debit - $request->kredit;
-                        $akun->detailakun->saldo += $request->debit - $request->kredit;    
+                        $akun->detailakun->saldo += $request->debit - $request->kredit;
                     }else{
                         $saldo_akhir->aset += $request->kredit - $request->debit;
                         $akun->detailakun->saldo += $request->kredit - $request->debit;
@@ -250,14 +253,14 @@ class JurnalUmumController extends Controller
                 $akun->detailakun->save();
             }
         }
-        
+
         $data->debit = $request->debit;
         $data->kredit = $request->kredit;
         $data->jurnal_umum_id = session('jurnal_umum_id');
 
         $data->save();
 
-        
+
 
         return redirect('/jurnal_umum/create');
     }
@@ -303,7 +306,7 @@ class JurnalUmumController extends Controller
         $saldo_akhir = auth()->user()->company->saldoakhir;
         $data = DataJurnalUmum::find($id);
         $i = 0;
-        
+
         if($request->nama_akun == $data->nama_akun){
             foreach ($akuns as $akun){
                 if($data->nama_akun == $akun->nama){
@@ -402,7 +405,7 @@ class JurnalUmumController extends Controller
         $data->debit = $request->debit;
         $data->kredit = $request->kredit;
         $data->save();
-        
+
         return redirect('/jurnal_umum');
     }
 
@@ -425,7 +428,7 @@ class JurnalUmumController extends Controller
                         $saldo_akhir->aset -= $data->debit - $data->kredit;
                         if($akun->detailakun->d_k == 'Debit'){
                             $saldo_akhir->aset -= $data->debit - $data->kredit;
-                            $akun->detailakun->saldo -= $data->debit - $data->kredit;  
+                            $akun->detailakun->saldo -= $data->debit - $data->kredit;
                         }else{
                             $saldo_akhir->aset -= $data->kredit - $data->debit;
                             $akun->detailakun->saldo -= $data->kredit - $data->debit;
