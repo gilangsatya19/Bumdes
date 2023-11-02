@@ -41,7 +41,7 @@
                                             <th>Debit</th>
                                             <th>Kredit</th>
                                             {{-- <th>Bukti Transaksi</th> --}}
-                                            <th>Action</th>
+{{--                                            <th>Action</th>--}}
                                         </tr>
                                     </thead>
                                     <tbody class="text-center">
@@ -68,17 +68,15 @@
                                                         {{-- <td><a href="/jurnal_umum/{{ $jurnal->id }}/download"
                                                                 class="btn btn-primary btn-unduh">Download</a></td>
                                                         <td> --}}
-                                                        <a href="/jurnal_penyesuaian/{{ $data->id }}/edit"
-                                                            class="nav-icon fas fa-edit"></a>
+{{--                                                        <a href="/jurnal_penyesuaian/{{ $data->id }}/edit"--}}
+{{--                                                            class="nav-icon fas fa-edit"></a>--}}
 
-                                                        <form action="/jurnal_penyesuaian/{{ $jurnal->id }}/delete"
-                                                            method="POST" class="d-inline">
-                                                            @csrf
-                                                            <button class="fa fa-trash border-0"
-                                                                onclick="return confirm('Apakah Kamu Yakin Ingin Menghapus Data?')"></button>
-                                                        </form>
-
-                                                        </td>
+{{--                                                        <form action="/jurnal_penyesuaian/{{ $jurnal->id }}/delete"--}}
+{{--                                                            method="POST" class="d-inline">--}}
+{{--                                                            @csrf--}}
+{{--                                                            <button class="fa fa-trash border-0"--}}
+{{--                                                                onclick="return confirm('Apakah Kamu Yakin Ingin Menghapus Data?')"></button>--}}
+{{--                                                        </form>--}}
 
 
                                                     </tr>

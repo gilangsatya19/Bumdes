@@ -180,6 +180,7 @@ Route::post('/wtb/{id}/delete', [WTBController::class, 'destroy']);
 
 Route::get('/jurnal_penyesuaian', [JurnalPenyesuaianController::class, 'index']);
 Route::get('/jurnal_penyesuaian/create', [JurnalPenyesuaianController::class, 'create']);
+Route::post('/jurnal_penyesuaian/store', [JurnalPenyesuaianController::class, 'store']);
 
 Route::resource('/buku_besar', BukuBesarController::class);
 Route::resource('/laba_rugi', LabaRugiController::class);

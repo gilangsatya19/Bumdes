@@ -19,7 +19,8 @@ class JurnalUmumController extends Controller
      */
     public function index()
     {
-        $jurnals = auth()->user()->company->jurnalumums()->orderBy("tanggal","asc")->paginate(10);
+        $jurnals = auth()->user()->company->jurnalumums()->orderBy('tanggal', 'desc')->get();
+
 
         return view('bumdes.dashboard.jurnal_umum.index',[
             'jurnals' => $jurnals,

@@ -11,7 +11,7 @@
                                 <h3 class="card-title">Tambah Data BARU - Jurnal Penyesuaian</h3>
                             </div>
                             <div class="mx-5 mt-3">
-                                <form method="POST" action="/jurnal_penyesuaian/create" id="form">
+                                <form method="POST" action="/jurnal_penyesuaian/store" id="form">
                                     @csrf <!-- Tambahkan csrf token untuk keamanan -->
                                     <div class="container mb-4">
                                         <div class="row">
