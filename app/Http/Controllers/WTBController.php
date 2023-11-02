@@ -15,7 +15,7 @@ class WTBController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
+    {
         return view('bumdes.dashboard.wtb.index', [
             'nama_akuns' => auth()->user()->company->namaakun,
             'saldo_akhir' => auth()->user()->company->saldoakhir,
@@ -29,7 +29,7 @@ class WTBController extends Controller
             'laba_rugi_kredit' => 0,
             'neraca_debit' => 0,
             'neraca_kredit' => 0,
-            
+
             'i' => 0,
         ]);
 
@@ -42,7 +42,7 @@ class WTBController extends Controller
      */
     public function create()
     {
-        //
+        return view('bumdes.dashboard.wtb.create');
     }
 
     /**
@@ -90,7 +90,7 @@ class WTBController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {   
+    {
         $akuns = auth()->user()->company->namaakun;
         $saldo_akhir = auth()->user()->company->saldoakhir;
         $i = 0;
@@ -144,8 +144,8 @@ class WTBController extends Controller
                 }
             }
         }
-        
-        
+
+
         return redirect('/wtb');
 
     }

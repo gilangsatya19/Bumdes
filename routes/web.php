@@ -22,6 +22,7 @@ use App\Http\Controllers\FormPengirimanBarangController;
 use App\Http\Controllers\InvoicePenjualanTunaiController;
 use App\Http\Controllers\InvoicePenjualanKreditController;
 use App\Http\Controllers\BarangController;
+use App\Http\Controllers\JurnalPenyesuaianController;
 use App\Http\Controllers\VendorController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\KodeRekeningController;
@@ -176,6 +177,10 @@ Route::post('/wtb/create', [WTBController::class, 'store']);
 Route::get('/wtb/{id}/edit', [WTBController::class, 'edit']);
 Route::post('/wtb/{id}/update', [WTBController::class, 'update']);
 Route::post('/wtb/{id}/delete', [WTBController::class, 'destroy']);
+
+Route::get('/jurnal_penyesuaian', [JurnalPenyesuaianController::class, 'index']);
+Route::get('/jurnal_penyesuaian/create', [JurnalPenyesuaianController::class, 'create']);
+Route::post('/jurnal_penyesuaian/store', [JurnalPenyesuaianController::class, 'store']);
 
 Route::resource('/buku_besar', BukuBesarController::class);
 Route::resource('/laba_rugi', LabaRugiController::class);
