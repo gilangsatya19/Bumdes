@@ -8,21 +8,33 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Tambah Data BARU - Jurnal Umum</h3>
+                                <h3 class="card-title">Tambah Data BARU - Jurnal Penyesuaian</h3>
                             </div>
                             <div class="mx-5 mt-3">
-                                <form method="POST" action="/jurnal_umum/createv2" id="form">
+                                <form method="POST" action="/jurnal_penyesuaian/create" id="form">
                                     @csrf <!-- Tambahkan csrf token untuk keamanan -->
+                                    <div class="container mb-4">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="jenis_transaksi">Jenis Transaksi</label>
+                                                    <input type="text" placeholder="Masukkan Jenis Transaksi"
+                                                        name="jenis_transaksi" class="form-control" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="tanggal">Tanggal Transaksi</label>
+                                                    <input type="date" placeholder="DD/MM/YYYY" name="tanggal"
+                                                        class="form-control" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
                                     <div id="akun-container" class="mb-4">
                                         <div class="akun mb-4">
-                                            <label for="jenis_transaksi"><b>Jenis Transaksi</b></label>
-                                            <input type="text" placeholder="Masukkan Jenis Transaksi"
-                                                name="jenis_transaksi" class="form-control" required>
-
-                                            <label for="tanggal"><b>Tanggal Transaksi</b></label>
-                                            <input type="date" placeholder="DD/MM/YYYY" name="tanggal"
-                                                class="form-control" required>
-
                                             <div class="row justify-content-center text-red" id="error"></div>
                                             <div class="row">
                                                 <div class="col">

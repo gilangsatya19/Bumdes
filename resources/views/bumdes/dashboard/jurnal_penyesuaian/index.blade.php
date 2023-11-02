@@ -68,10 +68,10 @@
                                                         {{-- <td><a href="/jurnal_umum/{{ $jurnal->id }}/download"
                                                                 class="btn btn-primary btn-unduh">Download</a></td>
                                                         <td> --}}
-                                                        <a href="/jurnal_umum/{{ $data->id }}/edit"
+                                                        <a href="/jurnal_penyesuaian/{{ $data->id }}/edit"
                                                             class="nav-icon fas fa-edit"></a>
 
-                                                        <form action="/jurnal_umum/{{ $jurnal->id }}/delete"
+                                                        <form action="/jurnal_penyesuaian/{{ $jurnal->id }}/delete"
                                                             method="POST" class="d-inline">
                                                             @csrf
                                                             <button class="fa fa-trash border-0"
