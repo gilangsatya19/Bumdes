@@ -33,7 +33,7 @@
 
                             <!-- /.card-header -->
                             <div class="card-body">
-                                <div class="container">
+                                <div class="">
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
@@ -78,37 +78,26 @@
 
                                                     @foreach ($jurnals as $jurnal)
                                                         @if (isset($jurnal->datas->first()->nama_akun))
-                                                            @if ($jurnal->datas->first()->nama_akun == $nama_akun->nama)
-                                                                @foreach ($jurnal->datas as $data)
-                                                                    @if ($data->nama_akun != $nama_akun->nama)
-                                                                        <tr>
-                                                                            <td>{{ $iterasi = $iterasi + 1 }}</td>
-                                                                            <td>{{ $jurnal->tanggal->format('m F Y') }}</td>
-                                                                            <td>{{ $data->nama_akun }}</td>
-                                                                            <td>{{ $data->formatRupiah('kredit') }}</td>
+                                                            @foreach($jurnal->datas as $data)
+                                                                @if($data->nama_akun == $nama_akun->nama)
+                                                                    <tr>
+                                                                        <td>{{ $iterasi = $iterasi + 1 }}</td>
+                                                                        <td>{{ $jurnal->tanggal->format('d F Y') }}</td>
+                                                                        <td>{{ $jurnal->jenis_transaksi }}</td>
+                                                                        @if($data->debit != 0)
+                                                                            <td>{{ formatRupiah($data->debit) }}</td>
                                                                             <td>-</td>
-                                                                            <td>{{ formatRupiah($saldo = $saldo + $data->kredit) }}
-                                                                            </td>
-                                                                        </tr>
-                                                                    @endif
-                                                                @endforeach
-                                                            @else
-                                                                @foreach ($jurnal->datas as $data)
-                                                                    @if ($data->nama_akun == $nama_akun->nama)
-                                                                        <tr>
-                                                                            <td>{{ $iterasi = $iterasi + 1 }}</td>
-                                                                            <td>{{ $jurnal->tanggal->format('d F Y') }}
-                                                                            </td>
-                                                                            <td>{{ $jurnal->datas->first()->nama_akun }}
-                                                                            </td>
+                                                                            <td>{{ formatRupiah($saldo = $saldo + $data->debit) }}</td>
+
+                                                                        @else
                                                                             <td>-</td>
-                                                                            <td>{{ $data->formatRupiah('kredit') }}</td>
-                                                                            <td>{{ formatRupiah($saldo = $saldo - $data->kredit) }}
-                                                                            </td>
-                                                                        </tr>
-                                                                    @endif
-                                                                @endforeach
-                                                            @endif
+                                                                            <td>{{ formatRupiah($data->kredit) }}</td>
+                                                                            <td>{{ formatRupiah($saldo = $saldo - $data->kredit) }}</td>
+                                                                        @endif
+                                                                    </tr>
+                                                                @endif
+                                                            @endforeach
+                                                            
                                                         @endif
                                                     @endforeach
 
