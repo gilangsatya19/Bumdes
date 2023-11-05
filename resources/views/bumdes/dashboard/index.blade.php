@@ -34,7 +34,7 @@
                                         <div class="card-body rounded-4" style="background-color: #3EAEFF">
                                             <p class="card-text"><small class=" text-white">{{$jurnals->last()->tanggal->format('d F Y')}}</small></p>
                                             <h5 class="card-title fs-4 text-white">Laba Bersih</h5>
-                                            <p class="card-text fs-5 fw-semibold text-white">{{formatRupiah($saldo_akhir->pendapatan - $saldo_akhir->beban)}}</p>
+                                            <p class="card-text fs-5 fw-semibold text-white">{{formatRupiah($saldo_akhir->pendapatan_bersih - $saldo_akhir->penyesuaian)}}</p>
                                         </div>
                                     </div>
                         </div>

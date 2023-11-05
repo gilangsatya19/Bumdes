@@ -63,7 +63,7 @@ class LaporanPosisiKeuanganController extends Controller
             ->get();
 
         $saldo_akhir = auth()->user()->company->saldoakhir;
-        $cadangan = $saldo_akhir->pendapatan_bersih;
+        $cadangan = $saldo_akhir->pendapatan_bersih - $saldo_akhir->penyesuaian;
 
         $total_equitas = array_sum($akuns_equitas->pluck('saldo')->toArray());
         $total_kewajiban_pendek = array_sum($akuns_kewajiban_pendek->pluck('saldo')->toArray());

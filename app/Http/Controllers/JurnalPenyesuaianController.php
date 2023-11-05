@@ -49,6 +49,7 @@ class JurnalPenyesuaianController extends Controller
         $datas = $data['nama_akun'];
 
         $company_id = auth()->user()->company->id;
+        
 
         DB::transaction(function () use ($datas, $debit, $kredit, $akuns, $saldo_akhir, $company_id) {
             $jurnal_penyesuaian = JurnalPenyesuaian::create([
@@ -56,38 +57,25 @@ class JurnalPenyesuaianController extends Controller
                 'company_id' => $company_id,
                 'jenis_transaksi' => request('jenis_transaksi'),
             ]);
+            $total = 0;
 
             foreach ($datas as $key => $value) {
                 $data = new DataJurnalPenyesuaian();
                 $data->nama_akun = $value;
                 $data->debit = $debit[$key];
                 $data->kredit = $kredit[$key];
+                $total += $debit[$key] + $kredit[$key];
 
                 foreach ($akuns as $akun){
                     if($data->nama_akun == $akun->nama){
                         $data->noref = $akun->detailakun->kode_rekening;
-                        if($akun->detailakun->kode_rekening[0] == '1'){//aset
-                            if($akun->detailakun->d_k == 'Debit'){
-                                $saldo_akhir->penyesuaian += $debit[$key] - $kredit[$key];
-                                $akun->detailakun->penyesuaian += $debit[$key] - $kredit[$key];
-                            }else{
-                                $saldo_akhir->penyesuaian += $kredit[$key] - $debit[$key];
-                                $akun->detailakun->penyesuaian += $kredit[$key] - $debit[$key];
-                            }
-                        }elseif($akun->detailakun->kode_rekening[0] == '2'){//kewajiban
-                            $saldo_akhir->penyesuaian += $kredit[$key] - $debit[$key];
-                            $akun->detailakun->penyesuaian += $kredit[$key] - $debit[$key];
-                        }elseif($akun->detailakun->kode_rekening[0] == '3'){//ekuitas
-                            $saldo_akhir->penyesuaian += $kredit[$key] - $debit[$key];
-                            $akun->detailakun->penyesuaian += $kredit[$key] - $debit[$key];
-                        }elseif(($akun->detailakun->kode_rekening[0] == '4') || ($akun->detailakun->kode_rekening[0] == '7' && $akun->detailakun->kode_rekening[1] == '1')){//pendapatan
-                            $saldo_akhir->penyesuaian += $kredit[$key] - $debit[$key];
-                            $akun->detailakun->penyesuaian += $kredit[$key] - $debit[$key];
-                        }elseif($akun->detailakun->kode_rekening[0] == '6' || ($akun->detailakun->kode_rekening[0] == '7' && $akun->detailakun->kode_rekening[1] == '2')){//beban
+                        if($akun->detailakun->d_k == 'Debit'){
                             $saldo_akhir->penyesuaian += $debit[$key] - $kredit[$key];
                             $akun->detailakun->penyesuaian += $debit[$key] - $kredit[$key];
+                        }else{
+                            $saldo_akhir->penyesuaian += $kredit[$key] - $debit[$key];
+                            $akun->detailakun->penyesuaian += $kredit[$key] - $debit[$key];
                         }
-
                         $saldo_akhir->save();
                         $akun->detailakun->save();
                     }
@@ -95,6 +83,8 @@ class JurnalPenyesuaianController extends Controller
                 $data->jurnal_penyesuaian_id = $jurnal_penyesuaian->id;
                 $data->save();
             }
+            $saldo_akhir->penyesuaian -= ($total / 2);
+            $saldo_akhir->save();
         });
 
         return redirect('/jurnal_penyesuaian');

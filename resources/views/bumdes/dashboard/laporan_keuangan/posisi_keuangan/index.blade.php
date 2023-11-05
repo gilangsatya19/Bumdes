@@ -53,7 +53,7 @@
                                                     <td>Cadangan</td></td>
                                                     <td></td> <!-- catatan -->
 
-                                                    <td>{{formatRupiah($saldo_akhir->pendapatan_bersih)}}</td>
+                                                    <td>{{formatRupiah($saldo_akhir->pendapatan_bersih - $saldo_akhir->penyesuaian)}}</td>
 
                                                     <td>-</td> <!-- 2022 -->
                                                 </tr>
@@ -95,7 +95,7 @@
                                         <td><b>JUMLAH KEWAJIBAN DAN EKUITAS</b></td>
                                         <td></td> <!-- catatan -->
                                         <td>
-                                            <b>{{formatRupiah($saldo_akhir->kewajiban + $saldo_akhir->ekuitas + $saldo_akhir->pendapatan_bersih)}}</b>
+                                            <b>{{formatRupiah($saldo_akhir->kewajiban + $saldo_akhir->ekuitas + ($saldo_akhir->pendapatan_bersih - $saldo_akhir->penyesuaian))}}</b>
                                         </td> <!-- 2023 -->
                                         <td>-</td> <!-- 2022 -->
                                     </tr>

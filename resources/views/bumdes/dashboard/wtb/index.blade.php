@@ -447,45 +447,26 @@
                                             <td>-</td> <!--// penyesuaian kredit -->
                                             <td>-</td> <!--// neraca setelahnya debit -->
                                             <td>-</td> <!--// neraca setelahnya kredit -->
-                                            @if ($saldo_akhir->pendapatan_bersih > 0)
-                                                @if ($laba_rugi_debit < $laba_rugi_kredit)
-                                                    <td><b>{{ formatRupiah($saldo_akhir->pendapatan_bersih) }}</b></td>
-                                                    <!--// laba rugi debit -->
-                                                    <td>-</td> <!--// laba rugi kredit -->
-                                                @else
-                                                    <td>-</td> <!--// laba rugi debit -->
-                                                    <td><b>{{ formatRupiah($saldo_akhir->pendapatan_bersih) }}</b></td>
-                                                    <!--// laba rugi kredit -->
-                                                @endif
-                                                @if ($neraca_debit < $neraca_kredit)
-                                                    <td><b>{{ formatRupiah($saldo_akhir->pendapatan_bersih) }}</b></td>
-                                                    <!--// neraca debit -->
-                                                    <td>-</td> <!--// neraca kredit -->
-                                                @else
-                                                    <td>-</td> <!--// neraca debit -->
-                                                    <td><b>{{ formatRupiah($saldo_akhir->pendapatan_bersih) }}</b></td>
-                                                    <!--// neraca kredit -->
-                                                @endif
+                                            
+                                            @if ($laba_rugi_debit < $laba_rugi_kredit)
+                                                <td><b>{{ formatRupiah($laba_rugi_kredit - $laba_rugi_debit) }}</b></td>
+                                                <!--// laba rugi debit -->
+                                                <td>-</td> <!--// laba rugi kredit -->
                                             @else
-                                                @if ($laba_rugi_debit < $laba_rugi_kredit)
-                                                    <td><b>{{ formatRupiah($saldo_akhir->pendapatan_bersih * -1) }}</b>
-                                                    </td> <!--// laba rugi debit -->
-                                                    <td>-</td> <!--// laba rugi kredit -->
-                                                @else
-                                                    <td>-</td> <!--// laba rugi debit -->
-                                                    <td><b>{{ formatRupiah($saldo_akhir->pendapatan_bersih * -1) }}</b>
-                                                    </td> <!--// laba rugi kredit -->
-                                                @endif
-                                                @if ($neraca_debit < $neraca_kredit)
-                                                    <td><b>{{ formatRupiah($saldo_akhir->pendapatan_bersih * -1) }}</b>
-                                                    </td> <!--// neraca debit -->
-                                                    <td>-</td> <!--// neraca kredit -->
-                                                @else
-                                                    <td>-</td> <!--// neraca debit -->
-                                                    <td><b>{{ formatRupiah($saldo_akhir->pendapatan_bersih * -1) }}</b>
-                                                    </td> <!--// neraca kredit -->
-                                                @endif
+                                                <td>-</td> <!--// laba rugi debit -->
+                                                <td><b>{{ formatRupiah($laba_rugi_debit - $laba_rugi_kredit) }}</b></td>
+                                                <!--// laba rugi kredit -->
                                             @endif
+                                            @if ($neraca_debit < $neraca_kredit)
+                                                <td><b>{{ formatRupiah($neraca_kredit - $neraca_debit) }}</b></td>
+                                                <!--// neraca debit -->
+                                                <td>-</td> <!--// neraca kredit -->
+                                            @else
+                                                <td>-</td> <!--// neraca debit -->
+                                                <td><b>{{ formatRupiah($neraca_debit - $neraca_kredit) }}</b></td>
+                                                <!--// neraca kredit -->
+                                            @endif
+                                            
 
 
                                         </tr>
@@ -504,53 +485,29 @@
                                             <!--// neraca setelahnya debit -->
                                             <td><b>{{ formatRupiah($neraca_setelahnya_kredit) }}</b></td>
                                             <!--// neraca setelahnya kredit -->
-                                            @if ($saldo_akhir->pendapatan_bersih > 0)
                                                 @if ($laba_rugi_debit < $laba_rugi_kredit)
-                                                    <td><b>{{ formatRupiah($laba_rugi_debit + $saldo_akhir->pendapatan_bersih) }}</b>
+                                                    <td><b>{{ formatRupiah($laba_rugi_debit + ($laba_rugi_kredit - $laba_rugi_debit)) }}</b>
                                                     </td> <!--// laba rugi debit -->
                                                     <td><b>{{ formatRupiah($laba_rugi_kredit) }}</b></td>
                                                     <!--// laba rugi kredit -->
                                                 @else
                                                     <td><b>{{ formatRupiah($laba_rugi_debit) }}</b></td>
                                                     <!--// laba rugi debit -->
-                                                    <td><b>{{ formatRupiah($laba_rugi_kredit + $saldo_akhir->pendapatan_bersih) }}</b>
+                                                    <td><b>{{ formatRupiah($laba_rugi_kredit + ($laba_rugi_debit - $laba_rugi_kredit)) }}</b>
                                                     </td> <!--// laba rugi kredit -->
                                                 @endif
                                                 @if ($neraca_debit < $neraca_kredit)
-                                                    <td><b>{{ formatRupiah($neraca_debit + $saldo_akhir->pendapatan_bersih) }}</b>
+                                                    <td><b>{{ formatRupiah($neraca_debit + ($neraca_kredit - $neraca_debit)) }}</b>
                                                     </td> <!--// neraca debit -->
                                                     <td><b>{{ formatRupiah($neraca_kredit) }}</b></td>
                                                     <!--// neraca kredit -->
                                                 @else
                                                     <td><b>{{ formatRupiah($neraca_debit) }}</b></td>
                                                     <!--// neraca debit -->
-                                                    <td><b>{{ formatRupiah($neraca_kredit + $saldo_akhir->pendapatan_bersih) }}</b>
+                                                    <td><b>{{ formatRupiah($neraca_kredit + ($neraca_debit - $neraca_kredit)) }}</b>
                                                     </td> <!--// neraca kredit -->
                                                 @endif
-                                            @else
-                                                @if ($laba_rugi_debit < $laba_rugi_kredit)
-                                                    <td><b>{{ formatRupiah($laba_rugi_debit + $saldo_akhir->pendapatan_bersih * -1) }}</b>
-                                                    </td> <!--// laba rugi debit -->
-                                                    <td><b>{{ formatRupiah($laba_rugi_kredit) }}</b></td>
-                                                    <!--// laba rugi kredit -->
-                                                @else
-                                                    <td><b>{{ formatRupiah($laba_rugi_debit) }}</b></td>
-                                                    <!--// laba rugi debit -->
-                                                    <td><b>{{ formatRupiah($laba_rugi_kredit + $saldo_akhir->pendapatan_bersih * -1) }}</b>
-                                                    </td> <!--// laba rugi kredit -->
-                                                @endif
-                                                @if ($neraca_debit < $neraca_kredit)
-                                                    <td><b>{{ formatRupiah($neraca_debit + $saldo_akhir->pendapatan_bersih * -1) }}</b>
-                                                    </td> <!--// neraca debit -->
-                                                    <td><b>{{ formatRupiah($neraca_kredit) }}</b></td>
-                                                    <!--// neraca kredit -->
-                                                @else
-                                                    <td><b>{{ formatRupiah($neraca_debit) }}</b></td>
-                                                    <!--// neraca debit -->
-                                                    <td><b>{{ formatRupiah($neraca_kredit + $saldo_akhir->pendapatan_bersih * -1) }}</b>
-                                                    </td> <!--// neraca kredit -->
-                                                @endif
-                                            @endif
+                                            
                                         </tr>
 
 

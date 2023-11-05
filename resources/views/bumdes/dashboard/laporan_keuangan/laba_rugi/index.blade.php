@@ -110,9 +110,16 @@
                                     </tr>
                                     <tr>
                                         <td><strong></strong></td>
+                                        <td><strong>PENYESUAIAN</strong></td>
+                                        <td></td>
+                                        <td><strong>{{formatRupiah($saldo_akhir->penyesuaian)}}</strong></td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong></strong></td>
                                         <td><strong>LABA/RUGI BERSIH</strong></td>
                                         <td></td>
-                                        <td><strong>{{formatRupiah($saldo_akhir->pendapatan_bersih)}}</strong></td>
+                                        <td><strong>{{formatRupiah($saldo_akhir->pendapatan_bersih - $saldo_akhir->penyesuaian)}}</strong></td>
                                         <td>-</td>
                                     </tr>
                                     </tbody>

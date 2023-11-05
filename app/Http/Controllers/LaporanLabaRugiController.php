@@ -73,7 +73,7 @@ class LaporanLabaRugiController extends Controller
         ];
 
         $pendapatan_bersih_operasional = ($total['pendapatan'] - $total['beban']);
-        $pendapatan_bersih = ($pendapatan_bersih_operasional) + ($total['pendapatan_lain'] - $total['beban_lain']);
+        $pendapatan_bersih = ($pendapatan_bersih_operasional) + ($total['pendapatan_lain'] - $total['beban_lain']) - ($saldo_akhir->penyesuaian);
         $pendapatan_setelah_pajak = $pendapatan_bersih - $total['beban_pajak_terkini'];
 
         return [
