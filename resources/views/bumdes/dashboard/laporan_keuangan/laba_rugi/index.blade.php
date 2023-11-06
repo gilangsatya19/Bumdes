@@ -82,9 +82,9 @@
                                                     <td>{{$akun->detailakun->kode_rekening}}</td>
                                                     <td>{{$akun->nama}}</td>
                                                     <td></td> <!-- catatan -->
-                                                    @if ($akun->detailakun->saldo != 0)
+                                                    @if ($akun->detailakun->saldo != 0 || $akun->detailakun->penyesuaian != 0)
                                                         <!-- 2023 -->
-                                                        <td>{{formatRupiah($akun->detailakun->saldo)}}</td>
+                                                        <td>{{formatRupiah($akun->detailakun->saldo - ($akun->detailakun->penyesuaian * -1))}}</td>
                                                     @else
                                                         <td>-</td>
                                                     @endif
@@ -98,21 +98,29 @@
                                         <td><strong>-</strong></td>
                                         <td><strong>JUMLAH PENDAPATAN</strong></td>
                                         <td></td>
-                                        <td><strong>{{formatRupiah($saldo_akhir->pendapatan)}}</strong></td>
+                                        <td><strong>{{formatRupiah($total_pendapatan_all)}}</strong></td>
                                         <td>-</td>
                                     </tr>
                                     <tr>
                                         <td><strong>-</strong></td>
                                         <td><strong>JUMLAH BEBAN</strong></td>
                                         <td></td>
+<<<<<<< Updated upstream
                                         <td><strong>{{formatRupiah($saldo_akhir->beban)}}</strong></td>
+=======
+                                        <td><strong>{{formatRupiah($total_beban_all)}}</strong></td>
+>>>>>>> Stashed changes
                                         <td>-</td>
                                     </tr>
                                     <tr>
                                         <td><strong></strong></td>
                                         <td><strong>LABA/RUGI BERSIH</strong></td>
                                         <td></td>
+<<<<<<< Updated upstream
                                         <td><strong>{{formatRupiah($saldo_akhir->pendapatan_bersih)}}</strong></td>
+=======
+                                        <td><strong>{{formatRupiah($total_laba_rugi_bersih)}}</strong></td>
+>>>>>>> Stashed changes
                                         <td>-</td>
                                     </tr>
                                     </tbody>

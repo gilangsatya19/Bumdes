@@ -30,7 +30,7 @@
                 @foreach($akuns_aset_lancar as $akun)
                     <x-pdf.laporan-keuangan-item :nama="$akun->nama"
                                                  :kode-rekening="$akun->kode_rekening"
-                                                 :nominal="formatRupiah($akun->detailakun->saldo)"
+                                                 :nominal="formatRupiah($akun->detailakun->saldo + $akun->detailakun->penyesuaian)"
                                                  :is-negative="false"/>
                 @endforeach
 
@@ -52,12 +52,12 @@
                     @if($akun->kode_rekening != 1303 && $akun->kode_rekening != 1305 && $akun->kode_rekening != 1307)
                         <x-pdf.laporan-keuangan-item :nama="$akun->nama"
                                                      :kode-rekening="$akun->kode_rekening"
-                                                     :nominal="formatRupiah($akun->detailakun->saldo)"
+                                                     :nominal="formatRupiah($akun->detailakun->saldo + $akun->detailakun->penyesuaian)"
                                                      :is-negative="false"/>
                     @else
                         <x-pdf.laporan-keuangan-item :nama="$akun->nama"
                                                      :kode-rekening="$akun->kode_rekening"
-                                                     :nominal="formatRupiah($akun->detailakun->saldo*-1)"
+                                                     :nominal="formatRupiah(($akun->detailakun->saldo + $akun->detailakun->penyesuaian)*-1)"
                                                      :is-negative="false"/>
                     @endif
                 @endforeach
@@ -92,7 +92,7 @@
             @foreach($akuns_kewajiban_pendek as $akun)
                 <x-pdf.laporan-keuangan-item :nama="$akun->nama"
                                              :kode-rekening="$akun->kode_rekening"
-                                             :nominal="formatRupiah($akun->detailakun->saldo)"
+                                             :nominal="formatRupiah($akun->detailakun->saldo + $akun->detailakun->penyesuaian)"
                                              :is-negative="false"/>
             @endforeach
 
@@ -112,7 +112,7 @@
             @foreach($akuns_kewajiban_panjang as $akun)
                 <x-pdf.laporan-keuangan-item :nama="$akun->nama"
                                              :kode-rekening="$akun->kode_rekening"
-                                             :nominal="formatRupiah($akun->detailakun->saldo)"
+                                             :nominal="formatRupiah($akun->detailakun->saldo + $akun->detailakun->penyesuaian)"
                                              :is-negative="false"/>
             @endforeach
 
@@ -140,7 +140,7 @@
             @foreach($akuns_equitas as $akun)
                 <x-pdf.laporan-keuangan-item :nama="$akun->nama"
                                              :kode-rekening="$akun->kode_rekening"
-                                             :nominal="formatRupiah($akun->detailakun->saldo)"
+                                             :nominal="formatRupiah($akun->detailakun->saldo + $akun->detailakun->penyesuaian)"
                                              :is-negative="false"/>
             @endforeach
                 <x-pdf.laporan-keuangan-item nama="Cadangan"

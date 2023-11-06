@@ -43,7 +43,7 @@
             @foreach($akuns_beban as $akun)
                 <x-pdf.laporan-keuangan-item :nama="$akun->nama"
                                              :kode-rekening="$akun->detailakun->kode_rekening"
-                                             :nominal="formatRupiah($akun->detailakun->saldo)"
+                                             :nominal="formatRupiah($akun->detailakun->saldo + $akun->detailakun->penyesuaian)"
                                              :is-negative="false"/>
 
             @endforeach
@@ -69,7 +69,7 @@
             @foreach($akuns_pendapatan_lain as $akun)
                 <x-pdf.laporan-keuangan-item :nama="$akun->nama"
                                              :kode-rekening="$akun->kode_rekening"
-                                             :nominal="formatRupiah($akun->detailakun->saldo)"
+                                             :nominal="formatRupiah($akun->detailakun->saldo + $akun->detailakun->penyesuaian)"
                                              :is-negative="false"/>
             @endforeach
             <tr class="account-subtotal">
@@ -88,7 +88,7 @@
             @foreach($akuns_beban_lain as $akun)
                 <x-pdf.laporan-keuangan-item :nama="$akun->nama"
                                              :kode-rekening="$akun->kode_rekening"
-                                             :nominal="formatRupiah($akun->detailakun->saldo)"
+                                             :nominal="formatRupiah($akun->detailakun->saldo + $akun->detailakun->penyesuaian)"
                                              :is-negative="false"/>
             @endforeach
             <tr class="account-subtotal">
