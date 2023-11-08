@@ -105,22 +105,14 @@
                                         <td><strong>-</strong></td>
                                         <td><strong>JUMLAH BEBAN</strong></td>
                                         <td></td>
-<<<<<<< Updated upstream
-                                        <td><strong>{{formatRupiah($saldo_akhir->beban)}}</strong></td>
-=======
                                         <td><strong>{{formatRupiah($total_beban_all)}}</strong></td>
->>>>>>> Stashed changes
                                         <td>-</td>
                                     </tr>
                                     <tr>
                                         <td><strong></strong></td>
                                         <td><strong>LABA/RUGI BERSIH</strong></td>
                                         <td></td>
-<<<<<<< Updated upstream
-                                        <td><strong>{{formatRupiah($saldo_akhir->pendapatan_bersih)}}</strong></td>
-=======
                                         <td><strong>{{formatRupiah($total_laba_rugi_bersih)}}</strong></td>
->>>>>>> Stashed changes
                                         <td>-</td>
                                     </tr>
                                     </tbody>
