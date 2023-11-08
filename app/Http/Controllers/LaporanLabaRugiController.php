@@ -36,7 +36,10 @@ class LaporanLabaRugiController extends Controller
         $akuns_pendapatan = NamaAkun::join('detail_akun', 'nama_akuns.id', '=', 'detail_akun.nama_akun_id')
             ->where('nama_akuns.company_id', '=', $company_id)
             ->whereBetween('detail_akun.kode_rekening', [4000, 4999])
-            ->where('saldo', '!=', 0)
+            ->where(function ($query) {
+                $query->where('saldo', '<>', 0)
+                      ->orWhere('penyesuaian', '<>', 0);
+            })
             ->get();
         $total_pendapatan = 0;
         foreach ($akuns_pendapatan as $akun) {
@@ -46,7 +49,10 @@ class LaporanLabaRugiController extends Controller
         $akuns_pendapatan_lain = NamaAkun::join('detail_akun', 'nama_akuns.id', '=', 'detail_akun.nama_akun_id')
             ->where('nama_akuns.company_id', '=', $company_id)
             ->whereBetween('detail_akun.kode_rekening', [7000, 7199])
-            ->where('saldo', '!=', 0)
+            ->where(function ($query) {
+                $query->where('saldo', '<>', 0)
+                      ->orWhere('penyesuaian', '<>', 0);
+            })
             ->get();
         $total_pendapatan_lain = 0;
         foreach ($akuns_pendapatan_lain as $akun) {
@@ -56,7 +62,10 @@ class LaporanLabaRugiController extends Controller
         $akuns_beban = NamaAkun::join('detail_akun', 'nama_akuns.id', '=', 'detail_akun.nama_akun_id')
             ->where('nama_akuns.company_id', '=', $company_id)
             ->whereBetween('detail_akun.kode_rekening', [6000, 6999])
-            ->where('saldo', '!=', 0)
+            ->where(function ($query) {
+                $query->where('saldo', '<>', 0)
+                      ->orWhere('penyesuaian', '<>', 0);
+            })
             ->get();
         $total_beban = 0;
         foreach ($akuns_beban as $akun) {
@@ -67,7 +76,10 @@ class LaporanLabaRugiController extends Controller
             ->where('nama_akuns.company_id', '=', $company_id)
             ->where('nama_akuns.nama', '!=', 'Beban Pajak')
             ->whereBetween('detail_akun.kode_rekening', [7200, 7299])
-            ->where('saldo', '!=', 0)
+            ->where(function ($query) {
+                $query->where('saldo', '<>', 0)
+                      ->orWhere('penyesuaian', '<>', 0);
+            })
             ->get();
         $total_beban_lain = 0;
         foreach ($akuns_beban_lain as $akun) {
@@ -77,27 +89,16 @@ class LaporanLabaRugiController extends Controller
         $beban_pajak_terkini = NamaAkun::join('detail_akun', 'nama_akuns.id', '=', 'detail_akun.nama_akun_id')
             ->where('nama_akuns.company_id', '=', $company_id)
             ->whereBetween('detail_akun.kode_rekening', [7202, 7202])
-            ->where('saldo', '!=', 0)
+            ->where(function ($query) {
+                $query->where('saldo', '<>', 0)
+                      ->orWhere('penyesuaian', '<>', 0);
+            })
             ->get();
         $total_beban_terkini = 0;
         foreach ($beban_pajak_terkini as $akun) {
             $total_beban_terkini += $akun->saldo + $akun->penyesuaian;
         }
 
-        $akuns_penyesuaian_debit = NamaAkun::join('detail_akun', 'nama_akuns.id', '=', 'detail_akun.nama_akun_id')
-            ->where('nama_akuns.company_id', '=', auth()->user()->company->id)
-            ->where('d_k', '!=', 'Debit')
-            ->where('penyesuaian', '>', 0)
-            ->get();
-        $akuns_penyesuaian_kredit = NamaAkun::join('detail_akun', 'nama_akuns.id', '=', 'detail_akun.nama_akun_id')
-            ->where('nama_akuns.company_id', '=', auth()->user()->company->id)
-            ->where('d_k', '!=', 'Kredit')
-            ->where('penyesuaian', '<', 0)
-            ->get();
-
-        $total_penyesuaian_debit = array_sum($akuns_penyesuaian_debit->pluck('penyesuaian')->toArray());
-        $total_penyesuaian_kredit = array_sum($akuns_penyesuaian_kredit->pluck('penyesuaian')->toArray());
-        $total_penyesuaian = $total_penyesuaian_debit - $total_penyesuaian_kredit;
         
         $total = [
             'pendapatan' => $total_pendapatan,
@@ -108,11 +109,7 @@ class LaporanLabaRugiController extends Controller
         ];
 
         $pendapatan_bersih_operasional = ($total['pendapatan'] - $total['beban']);
-<<<<<<< Updated upstream
         $pendapatan_bersih = ($pendapatan_bersih_operasional) + ($total['pendapatan_lain'] - $total['beban_lain']);
-=======
-        $pendapatan_bersih = ($pendapatan_bersih_operasional) + ($total['pendapatan_lain'] - $total['beban_lain']) - ($total_penyesuaian);
->>>>>>> Stashed changes
         $pendapatan_setelah_pajak = $pendapatan_bersih - $total['beban_pajak_terkini'];
 
         return [

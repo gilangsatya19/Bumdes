@@ -6,6 +6,7 @@ use App\Models\NamaAkun;
 use Illuminate\Http\Request;
 use App\Models\JurnalUmum;
 use App\Models\DataJurnalUmum;
+use App\Models\JurnalPenyesuaian;
 use Illuminate\Support\Str;
 
 class BukuBesarController extends Controller
@@ -17,9 +18,16 @@ class BukuBesarController extends Controller
      */
     public function index()
     {
+        $jurnal_penyesuaians = JurnalPenyesuaian::where('company_id', auth()->user()->company->id)
+            ->orderBy('tanggal', 'desc')
+            ->get();
+
+        $jurnals = auth()->user()->company->jurnalumums()->orderBy('tanggal', 'desc')->get();
+
         return view('bumdes.dashboard.buku_besar.index',[
             'nama_akuns' => auth()->user()->company->namaakun,
-            'jurnals' => auth()->user()->company->jurnalumums,
+            'jurnals' => $jurnals,
+            'penyesuaians' => $jurnal_penyesuaians,
             'iterasi' => '0',
             'saldo' => '0',
             'debit_total' =>'0',

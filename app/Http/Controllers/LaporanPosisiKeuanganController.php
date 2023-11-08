@@ -29,7 +29,10 @@ class LaporanPosisiKeuanganController extends Controller
 
         $akuns_aset_lancar = NamaAkun::join('detail_akun', 'nama_akuns.id', '=', 'detail_akun.nama_akun_id')
             ->where('nama_akuns.company_id', '=', auth()->user()->company->id)
-            ->where('saldo', '!=', 0)
+            ->where(function ($query) {
+                $query->where('saldo', '<>', 0)
+                      ->orWhere('penyesuaian', '<>', 0);
+            })
             ->whereBetween('detail_akun.kode_rekening', [1100, 1199])
             ->get();
         $total_aset_lancar = 0;
@@ -39,7 +42,10 @@ class LaporanPosisiKeuanganController extends Controller
 
         $akuns_investasi = NamaAkun::join('detail_akun', 'nama_akuns.id', '=', 'detail_akun.nama_akun_id')
             ->where('nama_akuns.company_id', '=', auth()->user()->company->id)
-            ->where('saldo', '!=', 0)
+            ->where(function ($query) {
+                $query->where('saldo', '<>', 0)
+                      ->orWhere('penyesuaian', '<>', 0);
+            })
             ->whereBetween('detail_akun.kode_rekening', [1200, 1299])
             ->get();
         $total_investasi = 0;
@@ -49,7 +55,10 @@ class LaporanPosisiKeuanganController extends Controller
 
         $akuns_aset_tetap = NamaAkun::join('detail_akun', 'nama_akuns.id', '=', 'detail_akun.nama_akun_id')
             ->where('nama_akuns.company_id', '=', auth()->user()->company->id)
-            ->where('saldo', '!=', 0)
+            ->where(function ($query) {
+                $query->where('saldo', '<>', 0)
+                      ->orWhere('penyesuaian', '<>', 0);
+            })
             ->whereBetween('detail_akun.kode_rekening', [1300, 1399])
             ->get();
 
@@ -64,7 +73,10 @@ class LaporanPosisiKeuanganController extends Controller
         
         $akuns_kewajiban_pendek = NamaAkun::join('detail_akun', 'nama_akuns.id', '=', 'detail_akun.nama_akun_id')
             ->where('nama_akuns.company_id', '=', auth()->user()->company->id)
-            ->where('saldo', '!=', 0)
+            ->where(function ($query) {
+                $query->where('saldo', '<>', 0)
+                      ->orWhere('penyesuaian', '<>', 0);
+            })
             ->whereBetween('detail_akun.kode_rekening', [2100, 2110])
             ->get();
 
@@ -75,7 +87,10 @@ class LaporanPosisiKeuanganController extends Controller
 
         $akuns_kewajiban_panjang = NamaAkun::join('detail_akun', 'nama_akuns.id', '=', 'detail_akun.nama_akun_id')
             ->where('nama_akuns.company_id', '=', auth()->user()->company->id)
-            ->where('saldo', '!=', 0)
+            ->where(function ($query) {
+                $query->where('saldo', '<>', 0)
+                      ->orWhere('penyesuaian', '<>', 0);
+            })
             ->whereBetween('detail_akun.kode_rekening', [2111, 2199])
             ->get();
         $total_kewajiban_panjang = 0;
@@ -84,7 +99,10 @@ class LaporanPosisiKeuanganController extends Controller
         }
         $akuns_equitas = NamaAkun::join('detail_akun', 'nama_akuns.id', '=', 'detail_akun.nama_akun_id')
             ->where('nama_akuns.company_id', '=', auth()->user()->company->id)
-            ->where('saldo', '!=', 0)
+            ->where(function ($query) {
+                $query->where('saldo', '<>', 0)
+                      ->orWhere('penyesuaian', '<>', 0);
+            })
             ->whereBetween('detail_akun.kode_rekening', [3000, 3299])
             ->get();
         $total_equitas = 0;
@@ -102,25 +120,6 @@ class LaporanPosisiKeuanganController extends Controller
         //     ->where('penyesuaian', '<', 0)
         //     ->get();
 
-<<<<<<< Updated upstream
-        $saldo_akhir = auth()->user()->company->saldoakhir;
-        $cadangan = $saldo_akhir->pendapatan_bersih;
-
-        $total_equitas = array_sum($akuns_equitas->pluck('saldo')->toArray());
-        $total_kewajiban_pendek = array_sum($akuns_kewajiban_pendek->pluck('saldo')->toArray());
-        $total_kewajiban_panjang = array_sum($akuns_kewajiban_panjang->pluck('saldo')->toArray());
-        $total_aset_lancar = array_sum($akuns_aset_lancar->pluck('saldo')->toArray());
-        $total_investasi = array_sum($akuns_investasi->pluck('saldo')->toArray());
-
-
-        $total_aset_tetap = 0;
-        foreach ($akuns_aset_tetap as $akun) {
-            if ($akun->kode_rekening != 1303 && $akun->kode_rekening != 1305 && $akun->kode_rekening != 1307){
-                $total_aset_tetap += $akun->saldo;
-            }else {
-                $total_aset_tetap -= $akun->saldo;
-            }
-=======
         // $total_penyesuaian_debit = array_sum($akuns_penyesuaian_debit->pluck('penyesuaian')->toArray());
         // $total_penyesuaian_kredit = array_sum($akuns_penyesuaian_kredit->pluck('penyesuaian')->toArray());
         // $total_penyesuaian = $total_penyesuaian_debit - $total_penyesuaian_kredit;
@@ -131,7 +130,6 @@ class LaporanPosisiKeuanganController extends Controller
         $total_pendapatan = 0;
         foreach ($akuns_pendapatan as $akun) {
             $total_pendapatan += $akun->saldo + $akun->penyesuaian;
->>>>>>> Stashed changes
         }
 
         $akuns_pendapatan_lain = NamaAkun::join('detail_akun', 'nama_akuns.id', '=', 'detail_akun.nama_akun_id')
