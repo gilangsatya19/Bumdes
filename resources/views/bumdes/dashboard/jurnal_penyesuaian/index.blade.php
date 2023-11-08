@@ -25,7 +25,7 @@
                                             {{-- @include('bumdes.dashboard.jurnal_umum.form') --}}
 
                                             <a href="/jurnal_penyesuaian/create">
-                                                <button class="open-button">Tambah Jurnal Penyesuaian</button>
+                                                <button class="open-button">+ Tambah</button>
                                             </a>
                                         </div>
                                     </div>

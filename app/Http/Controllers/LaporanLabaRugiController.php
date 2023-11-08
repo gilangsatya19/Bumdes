@@ -36,40 +36,76 @@ class LaporanLabaRugiController extends Controller
         $akuns_pendapatan = NamaAkun::join('detail_akun', 'nama_akuns.id', '=', 'detail_akun.nama_akun_id')
             ->where('nama_akuns.company_id', '=', $company_id)
             ->whereBetween('detail_akun.kode_rekening', [4000, 4999])
-            ->where('saldo', '!=', 0)
+            ->where(function ($query) {
+                $query->where('saldo', '<>', 0)
+                      ->orWhere('penyesuaian', '<>', 0);
+            })
             ->get();
+        $total_pendapatan = 0;
+        foreach ($akuns_pendapatan as $akun) {
+            $total_pendapatan += $akun->saldo + $akun->penyesuaian;
+        }
 
         $akuns_pendapatan_lain = NamaAkun::join('detail_akun', 'nama_akuns.id', '=', 'detail_akun.nama_akun_id')
             ->where('nama_akuns.company_id', '=', $company_id)
             ->whereBetween('detail_akun.kode_rekening', [7000, 7199])
-            ->where('saldo', '!=', 0)
+            ->where(function ($query) {
+                $query->where('saldo', '<>', 0)
+                      ->orWhere('penyesuaian', '<>', 0);
+            })
             ->get();
+        $total_pendapatan_lain = 0;
+        foreach ($akuns_pendapatan_lain as $akun) {
+            $total_pendapatan_lain += $akun->saldo + $akun->penyesuaian;
+        }
 
         $akuns_beban = NamaAkun::join('detail_akun', 'nama_akuns.id', '=', 'detail_akun.nama_akun_id')
             ->where('nama_akuns.company_id', '=', $company_id)
             ->whereBetween('detail_akun.kode_rekening', [6000, 6999])
-            ->where('saldo', '!=', 0)
+            ->where(function ($query) {
+                $query->where('saldo', '<>', 0)
+                      ->orWhere('penyesuaian', '<>', 0);
+            })
             ->get();
+        $total_beban = 0;
+        foreach ($akuns_beban as $akun) {
+            $total_beban += $akun->saldo + $akun->penyesuaian;
+        }
 
         $akuns_beban_lain = NamaAkun::join('detail_akun', 'nama_akuns.id', '=', 'detail_akun.nama_akun_id')
             ->where('nama_akuns.company_id', '=', $company_id)
             ->where('nama_akuns.nama', '!=', 'Beban Pajak')
             ->whereBetween('detail_akun.kode_rekening', [7200, 7299])
-            ->where('saldo', '!=', 0)
+            ->where(function ($query) {
+                $query->where('saldo', '<>', 0)
+                      ->orWhere('penyesuaian', '<>', 0);
+            })
             ->get();
-        
+        $total_beban_lain = 0;
+        foreach ($akuns_beban_lain as $akun) {
+            $total_beban_lain += $akun->saldo + $akun->penyesuaian;
+        }
+
         $beban_pajak_terkini = NamaAkun::join('detail_akun', 'nama_akuns.id', '=', 'detail_akun.nama_akun_id')
             ->where('nama_akuns.company_id', '=', $company_id)
             ->whereBetween('detail_akun.kode_rekening', [7202, 7202])
-            ->where('saldo', '!=', 0)
+            ->where(function ($query) {
+                $query->where('saldo', '<>', 0)
+                      ->orWhere('penyesuaian', '<>', 0);
+            })
             ->get();
+        $total_beban_terkini = 0;
+        foreach ($beban_pajak_terkini as $akun) {
+            $total_beban_terkini += $akun->saldo + $akun->penyesuaian;
+        }
+
         
         $total = [
-            'pendapatan' => array_sum($akuns_pendapatan->pluck('saldo')->toArray()),
-            'pendapatan_lain' => array_sum($akuns_pendapatan_lain->pluck('saldo')->toArray()),
-            'beban' => array_sum($akuns_beban->pluck('saldo')->toArray()),
-            'beban_lain' => array_sum($akuns_beban_lain->pluck('saldo')->toArray()),
-            'beban_pajak_terkini' => array_sum($beban_pajak_terkini->pluck('saldo')->toArray()),
+            'pendapatan' => $total_pendapatan,
+            'pendapatan_lain' => $total_pendapatan_lain,
+            'beban' => $total_beban,
+            'beban_lain' => $total_beban_lain,
+            'beban_pajak_terkini' => $total_beban_terkini,
         ];
 
         $pendapatan_bersih_operasional = ($total['pendapatan'] - $total['beban']);

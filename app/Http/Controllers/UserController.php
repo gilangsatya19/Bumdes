@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Company;
 use App\Models\User;
 use App\Models\JurnalUmum;
+use App\Models\NamaAkun;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -18,9 +19,93 @@ class UserController extends Controller
      */
     public function index()
     {
+        $company_id = auth()->user()->company->id;
+        $akuns_pendapatan = NamaAkun::join('detail_akun', 'nama_akuns.id', '=', 'detail_akun.nama_akun_id')
+            ->where('nama_akuns.company_id', '=', $company_id)
+            ->whereBetween('detail_akun.kode_rekening', [4000, 4999])
+            ->where(function ($query) {
+                $query->where('saldo', '<>', 0)
+                      ->orWhere('penyesuaian', '<>', 0);
+            })
+            ->get();
+        $total_pendapatan = 0;
+        foreach ($akuns_pendapatan as $akun) {
+            $total_pendapatan += $akun->saldo + $akun->penyesuaian;
+        }
+
+        $akuns_pendapatan_lain = NamaAkun::join('detail_akun', 'nama_akuns.id', '=', 'detail_akun.nama_akun_id')
+            ->where('nama_akuns.company_id', '=', $company_id)
+            ->whereBetween('detail_akun.kode_rekening', [7000, 7199])
+            ->where(function ($query) {
+                $query->where('saldo', '<>', 0)
+                      ->orWhere('penyesuaian', '<>', 0);
+            })
+            ->get();
+        $total_pendapatan_lain = 0;
+        foreach ($akuns_pendapatan_lain as $akun) {
+            $total_pendapatan_lain += $akun->saldo + $akun->penyesuaian;
+        }
+
+        $akuns_beban = NamaAkun::join('detail_akun', 'nama_akuns.id', '=', 'detail_akun.nama_akun_id')
+            ->where('nama_akuns.company_id', '=', $company_id)
+            ->whereBetween('detail_akun.kode_rekening', [6000, 6999])
+            ->where(function ($query) {
+                $query->where('saldo', '<>', 0)
+                      ->orWhere('penyesuaian', '<>', 0);
+            })
+            ->get();
+        $total_beban = 0;
+        foreach ($akuns_beban as $akun) {
+            $total_beban += $akun->saldo + $akun->penyesuaian;
+        }
+
+        $akuns_beban_lain = NamaAkun::join('detail_akun', 'nama_akuns.id', '=', 'detail_akun.nama_akun_id')
+            ->where('nama_akuns.company_id', '=', $company_id)
+            ->where('nama_akuns.nama', '!=', 'Beban Pajak')
+            ->whereBetween('detail_akun.kode_rekening', [7200, 7299])
+            ->where(function ($query) {
+                $query->where('saldo', '<>', 0)
+                      ->orWhere('penyesuaian', '<>', 0);
+            })
+            ->get();
+        $total_beban_lain = 0;
+        foreach ($akuns_beban_lain as $akun) {
+            $total_beban_lain += $akun->saldo + $akun->penyesuaian;
+        }
+
+        $beban_pajak_terkini = NamaAkun::join('detail_akun', 'nama_akuns.id', '=', 'detail_akun.nama_akun_id')
+            ->where('nama_akuns.company_id', '=', $company_id)
+            ->whereBetween('detail_akun.kode_rekening', [7202, 7202])
+            ->where(function ($query) {
+                $query->where('saldo', '<>', 0)
+                      ->orWhere('penyesuaian', '<>', 0);
+            })
+            ->get();
+        $total_beban_terkini = 0;
+        foreach ($beban_pajak_terkini as $akun) {
+            $total_beban_terkini += $akun->saldo + $akun->penyesuaian;
+        }
+
+        
+        $total = [
+            'pendapatan' => $total_pendapatan,
+            'pendapatan_lain' => $total_pendapatan_lain,
+            'pemasukan' => $total_pendapatan + $total_pendapatan_lain,
+            'beban' => $total_beban,
+            'beban_lain' => $total_beban_lain,
+            'beban_pajak_terkini' => $total_beban_terkini,
+            'pengeluaran' => $total_beban + $total_beban_lain + $total_beban_terkini,
+        ];
+
+        $pendapatan_bersih_operasional = ($total['pendapatan'] - $total['beban']);
+        $pendapatan_bersih = ($pendapatan_bersih_operasional) + ($total['pendapatan_lain'] - $total['beban_lain']);
+        $pendapatan_setelah_pajak = $pendapatan_bersih - $total['beban_pajak_terkini'];
         return view('bumdes.dashboard.index',[
             'saldo_akhir' => auth()->user()->company->saldoakhir,
             'jurnals' => auth()->user()->company->jurnalumums,
+            'pemasukan' => $total['pemasukan'],
+            'pengeluaran' => $total['pengeluaran'],
+            'laba_bersih' => $pendapatan_setelah_pajak,
         ]);
     }
 

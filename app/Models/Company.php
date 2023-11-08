@@ -13,6 +13,10 @@ class Company extends Model
     {
         return $this->hasMany(JurnalUmum::class);
     }
+    public function jurnalpenyesuaians()
+    {
+        return $this->hasMany(JurnalPenyesuaian::class);
+    }
     public function pemasukankas()
     {
         return $this->hasMany(PemasukanKas::class);

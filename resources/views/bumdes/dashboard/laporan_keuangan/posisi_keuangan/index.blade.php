@@ -53,7 +53,11 @@
                                                     <td>Cadangan</td></td>
                                                     <td></td> <!-- catatan -->
 
+<<<<<<< Updated upstream
                                                     <td>{{formatRupiah($saldo_akhir->pendapatan_bersih)}}</td>
+=======
+                                                    <td>{{formatRupiah($total_cadangan)}}</td>
+>>>>>>> Stashed changes
 
                                                     <td>-</td> <!-- 2022 -->
                                                 </tr>
@@ -63,9 +67,9 @@
                                                     <td>{{$akun->detailakun->kode_rekening}}</td>
                                                     <td>{{$akun->nama}}</td>
                                                     <td></td> <!-- catatan -->
-                                                    @if ($akun->detailakun->saldo != 0)
+                                                    @if ($akun->detailakun->saldo != 0 || $akun->detailakun->penyesuaian != 0)
                                                         <!-- 2023 -->
-                                                        <td>{{formatRupiah($akun->detailakun->saldo)}}</td>
+                                                        <td>{{formatRupiah($akun->detailakun->saldo - ($akun->detailakun->penyesuaian * -1))}}</td>
                                                     @else
                                                         <td>-</td>
                                                     @endif
@@ -87,7 +91,7 @@
                                         <td><b>-</b></td>
                                         <td><b>JUMLAH ASET</b></td>
                                         <td></td> <!-- catatan -->
-                                        <td><b>{{formatRupiah($saldo_akhir->aset)}}</b></td> <!-- 2023 -->
+                                        <td><b>{{formatRupiah($total_aset)}}</b></td> <!-- 2023 -->
                                         <td>-</td> <!-- 2022 -->
                                     </tr>
                                     <tr>
@@ -95,7 +99,11 @@
                                         <td><b>JUMLAH KEWAJIBAN DAN EKUITAS</b></td>
                                         <td></td> <!-- catatan -->
                                         <td>
+<<<<<<< Updated upstream
                                             <b>{{formatRupiah($saldo_akhir->kewajiban + $saldo_akhir->ekuitas + $saldo_akhir->pendapatan_bersih)}}</b>
+=======
+                                            <b>{{formatRupiah($total_kewajiban_ekuitas + ($total_cadangan))}}</b>
+>>>>>>> Stashed changes
                                         </td> <!-- 2023 -->
                                         <td>-</td> <!-- 2022 -->
                                     </tr>
